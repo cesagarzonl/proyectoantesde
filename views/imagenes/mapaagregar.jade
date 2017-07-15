@@ -1,0 +1,27 @@
+extends ./layout2.jade
+block contenido
+		.divicion
+		.coreccion
+		.divicion
+		.container
+		if user.color == undefined
+			div
+				p No tienes permiso para modificar informacion
+		else
+			div(class="risponsive")
+				div(class="promocion" align="center")
+					h2 Sube un nuevo mapa de Google maps
+					form(action="/app/modifie/mapa1" method="POST" enctype="multipart/form-data")
+						div(class="form-group")
+							select(type="text", name="imgtitulo", placehoder="", id="imgtitulo", class"form-control") video
+								option(value="mapa" selected="mapa") mapa
+						div
+							label(for="mapa") link  mapas de google maps
+						div
+							input(type="text", name="mapa", placeholder="link de google maps", id="mapa", class"form-control")
+						div 
+							input(type="submit" value="subir imagen" class="btn btn-info" style="width: auto; margin: 10px auto 0px ; background: rebeccapurple;color: white ;  ")
+		script(type='text/javascript', src='../../public/js/bootstrap.js')
+		script(type='text/javascript', src='../../public/js/bootstrap.min.js')
+		script(type='text/javascript', src='../../public/js/jquery.min.js')
+		script(type='text/javascript', src='../../public/js/jquery.min.v1.js')

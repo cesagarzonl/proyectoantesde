@@ -1,0 +1,62 @@
+extends ./layout2.jade
+block contenido 
+	.divicion 
+	.divicion
+	if user.color == undefined
+		div
+			p No tienes permiso para modificar informacion
+	else
+		.container
+			div(class="risponsive")
+				div(class="promocion" align="center")
+
+					h2 Sube una nueva imagen
+					form(action="/app/imagenes" method="POST" enctype="multipart/form-data")
+						div(class="form-group")
+							label(for="title") El precio de la promocion es :
+						div
+							input(type="text", name="imgs22", placeholder="Titulo de la imagen ", id="imgs22", class"form-control" value="" style="display:none;" required)
+						div
+							input(type="text", name="title", placeholder="Titulo de la imagen ", id="title", class"form-control") 
+						div
+							label(for="nombre1") El Nombre de la promocion es :
+						div
+							input(type="text", name="nombre1", placeholder="Titulo de la imagen ", id="nombre1", class"form-control") 
+						div(class="form-group")
+							label(for="foto") las foto de un local:
+						div
+							select(type="text", name="foto", placeho der="es local ", id="foto", class"form-control")
+								option(value="foto" selected="selected") foto
+								option(value="promocion" selected="promocion") promocion
+								option(value="fotito" selected="fotito") Producto
+								option(value="fotoc" selected="fotoc") foto pare celulares	
+								option(value="" selected="selected") - selecciona -
+						div 
+							input#upload.upload( value='', accept='image/*', type='file' required onchange="cargaaa()")
+							input(type="submit" value="subir imagen" class="btn btn-info" style="width: auto; margin: 10px auto 0px ; background: rebeccapurple;color: white ; display:none;" name="subirimg" id="subirimg")
+				div(class="ejpromocion" align="center")
+					section(class="ciudades")
+						div 
+							h2  Nombre de promocion 
+							img(id="imgs" name="imgs" src="/public/imagenes/img/negocio.jpg")
+							p precio $:
+								spam(class="formu") 10.000
+							p DIRECCION :
+								spam(class="formu") calle 18m 17-34
+			section(id="sectionnn" name="sectionnn" class="sectionnn" style="display:none;")
+				.demo-wrap.upload-demo(style="widtt:700px;")
+					.container
+						.grid
+							.col-1-2
+								.actions
+							.col-1-2
+								.upload-msg(style="display:none;")
+								.upload-demo-wrap
+									button.upload-result( onclick="preload()") Recortar imagen
+									#upload-demo.croppie-container(style="border: 3px solid ##{user.color}; margin: 0; background-color:#333; z-index: 110;")
+	script(src='/../public/js/jquery-2.js')
+	script(src='/../public/js/demo1.js')
+	script(src='/../public/js/croppie.js')
+	script(src='/../public/js/cargaimg.js')
+
+	script Demo.init()

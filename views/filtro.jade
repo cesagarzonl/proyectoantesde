@@ -1,0 +1,153 @@
+extends ./layout.jade
+block contenido
+  div(align='center')
+           div
+            .untiempo(style='margin-top: -20px; margin-bottom:  0px; ', role='')
+              picture
+                 source(srcset='./public/imagenes/img/antesde3-3.jpg', media='(max-width:450px)' class="imageniniciciocool")
+                 source(srcset='./public/imagenes/img/antesde3-2.jpg', media='(max-width:600px)' class="imageniniciciocool") 
+                 source(srcset='./public/imagenes/img/antesde3-1.jpg', media='(max-width:1000px)' class="imageniniciciocool")
+                 img(src='./public/imagenes/img/antesde3.jpg', alt='', style='width: 100%' class="imageniniciciocool")
+          p #{filtro}  
+  ul.nav.nav-tabs.nav-justified
+    li.li(role='presentation')
+      a.divi(href=' #Pizza' style="color:#000000;") Pizzerias
+    li.li(role='presentation')
+      a.divi(href='#almuerzo' style="color:#000000;") Restaurantes
+    li.li(role='presentation')
+      a.divi(href='#cafeteias' style="color:#000000;") Cafeterias
+    li.li(role='presentation')
+      a.divi(href='#empanadas' style="color:#000000;") Comidas rapidas 
+    li.li(role='presentation')
+      a.divi(href='#heladerias' style="color:#000000;") Heladerias
+  div(class="risponsive")
+   div(class="izquierda"  align="left")
+    #pizza.divicion 
+        section(class="luxzar") 
+          div
+            h2 Pizzerias
+            section(class="center")
+                 for imagens in imagenes
+                    if imagen.foto == 'normal'
+                      if imagen.creator.gremio == "filtro"
+                        if imagen.uso == 'Pizzerias'
+                         if imagen.creator.ciudad != "sogamoso"
+                          div                  
+                             a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}")
+                               img(src="public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img" alt="#{imagen.creator.username}" title="#{imagen.creator.username}")
+            
+    #almuerzo.divicion
+        section(class="luxzar") 
+          div
+            h2 Restaurantes
+            section(class="center")
+                 for imagen in imagenes
+                    if imagen.foto == 'normal'
+                      if imagen.creator. gremio == "filtro"
+                        if imagen.uso == 'Restaurantes'
+                         if imagen.creator.ciudad != "sogamoso"
+                          div
+                             a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}")
+                                 img(src="public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img" alt="#{imagen.creator.username}" title="#{imagen.creator.username}")
+
+    #cafeteias.divicion
+        section(class="luxzar") 
+          div
+            h2 Cafeteria
+            section(class="center")
+                 for imagen in imagenes
+                    if imagen.foto == 'normal'
+                      if imagen.creator. gremio == "filtro"
+                        if imagen.uso == 'Cafeterias'
+                         if imagen.creator.ciudad != "sogamoso"
+                          div
+                             a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}")
+                                 img(src="public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img" alt="#{imagen.creator.username}" title="#{imagen.creator.username}")
+    #empanadas.divicion   
+        section(class="luxzar") 
+          div
+            h2 Comidas Rapidas
+            section(class="center")
+                 for imagen in imagenes
+                    if imagen.foto == 'normal'
+                      if imagen.creator. gremio == "filtro"
+                        if imagen.uso == 'Comidasrapidas'
+                         if imagen.creator.ciudad != "sogamoso"
+                            div
+                             a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}")
+                                 img(src="public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img" alt="#{imagen.creator.username}" title="#{imagen.creator.username}")
+    #heladerias.divicion   
+        section(class="luxzar") 
+          div
+            h2 Heladeria
+            section(class="center")
+                 for imagen in imagenes
+                    if imagen.foto == 'normal'
+                      if imagen.creator. gremio == "filtro"
+                        if imagen.uso == 'Heladerias' 
+                         if imagen.creator.ciudad != "sogamoso"
+                            div
+                             a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}")
+                                 img(src="public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img" alt="#{imagen.creator.username}" title="#{imagen.creator.username}")
+   div(class="derecha" align="center")
+    #Pizza
+      h2(class="titulom") Muralla  
+       .margenduitama
+                  .div
+                    section(class="ciudades" style="overflow-x:hidden; overflow-y:scroll; height: 1400px " )
+                        for imagen in imagenes
+                          if imagen.foto == 'promocion'
+                               if imagen.creator. gremio == "filtro"
+                                if imagen.creator.ciudad != "sogamoso"
+                                  div
+                                      h2 #{imagen.title}
+                                      a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}"  class="ordenado")
+                                          img(src="public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img" alt="#{imagen.creator.username}" title="#{imagen.creator.username}")
+                                        p precio $: 
+                                            span(class="formu") #{imagen.title}
+                                        p DIRECCION : 
+                                            span(class="formu") #{imagen.creator.dir}
+                                      a(href="/app/imagenes/#{imagen._id}/envio") 
+                                          label Realizar tu pedido
+
+    script(type='text/javascript' src='/public/js/jquery.min.v1.js')
+
+    script(type='text/javascript' src='./public/slick/slick.min.js')
+    script(type='text/javascript').
+        $(document).on('ready', function() {
+        $ ( '.center' ) . slick ( {
+        centerMode :  true ,
+        centerPadding :  '60px' ,
+        slidesToShow :  3 ,
+        responsive :  [
+        {
+        breakpoint :  768 ,
+        settings :  {
+        arrows :  false ,
+        centerMode :  true ,
+        centerPadding :  '40px' ,
+        slidesToShow :  3
+        }
+        } ,
+        {
+        breakpoint :  480 ,
+        settings :  {
+        arrows :  false ,
+        centerMode :  true ,
+        centerPadding :  '40px' ,
+        slidesToShow :  1
+        }
+        }
+        ]
+        } ) ;
+        $('.one-time').slick({
+        dots: true,
+        infinite: true,
+        speed: 900,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        fade:true,
+        autoplay: true,
+        autoplaySpeed: 2500,
+        });
+        });

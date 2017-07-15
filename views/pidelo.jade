@@ -1,0 +1,189 @@
+extends ./layout.jade
+block contenido 
+		div( class="fondoprincipal")
+			section.categorias
+				section
+						a(href="/comidas/#{filtro}")
+							p(class="botoncito") Alimentos
+				section
+						a(href='/FincaRaiz/#{filtro}')
+							p(class="botoncito") Finca ra&iacutez
+				section
+						a(href='/Entretenimiento/#{filtro}')
+							p(class="botoncito") Entretenimiento
+				section
+						a(href='/Variedades/#{filtro}')
+							p(class="botoncito") Variedades
+				section
+						a(href='/Hospedaje/#{filtro}')
+							p(class="botoncito") Hospedaje
+				section
+						a(href='/Construccion/#{filtro}')
+							p(class="botoncito") Construccion
+				section
+						a(href='/Belleza/#{filtro}')
+							p(class="botoncito") Belleza
+				section
+						a(href='/Artesanias/#{filtro}')
+							p(class="botoncito") Artesan&iacuteas
+				section
+						a(href='/Recreacion/#{filtro}')
+							p(class="botoncito") Recreaci&oacuten
+				section
+						a(href='/transporte/#{filtro}')
+							p(class="botoncito") Transporte
+				section
+						a(href='/Ventas/#{filtro}')
+							p(class="botoncito")  Moda
+		.container(style="margin-left:24%;")
+								.col-sm-4.pricing-container.wow.fadeInUp(data-wow-delay='1s' style="padding:20px; margin:20px;")
+									ul.list-unstyled.pricing-table.text-center
+										li.price
+											a(href='/app/paypal')
+												.amount(style="color:#a5cf10;" ) Pagos en efectivo
+								.col-sm-4.pricing-container.wow.fadeInUp(data-wow-delay='1.3s' style="padding:20px; margin:20px;")
+									ul.list-unstyled.pricing-table.text-center
+										li.price
+											a(href='/app/paypal')
+												.amount(style="color:#a5cf10;") Pago con Paypal
+		script(type='text/javascript', src='/public/js1/jquery.min.v1.js')
+		script(type='text/javascript', src='/public/js1/bootstrap.min.js')
+		script(type='text/javascript', src='/public/slick/slick.js', charset='utf-8')
+		script(type='text/javascript').
+			$(document).on('ready', function() {
+			$('.untiempo').slick({
+			dots: true,
+			infinite: true,
+			speed: 900,
+			slidesToShow: 1,
+			adaptiveHeight: true,
+			fade:true,
+			autoplay: true,
+			autoplaySpeed: 9500,
+			});
+			$('.slider-for').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			fade: true,
+			asNavFor: '.slider-nav',
+			centerMode: true,
+			focusOnSelect: true,
+			autoplay: true,
+			autoplaySpeed: 4500,
+			});
+			$('.slider-nav').slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			asNavFor: '.slider-for',
+			centerMode: true,
+			focusOnSelect: true
+			});
+			$ ( '.categorias' ) . slick ( {
+			centerMode :  false ,
+			centerPadding :  '60px' ,
+			slidesToShow :  6,
+			responsive :  [
+			{
+			breakpoint :  968 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  3
+			}
+			} ,
+			{
+			breakpoint :  681 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  2
+			}
+			}
+			,
+			{
+			breakpoint :  431 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  1
+			}
+			}
+			]
+			} ) ;
+			$('.one-time').slick({
+				dots: true,
+				infinite: false,
+				speed: 900,
+				slidesToShow: 1,
+				adaptiveHeight: true,
+				fade:false,
+				autoplay: true,
+				autoplaySpeed: 5000,
+				});
+				$('.slider-for').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false,
+				fade: true,
+				asNavFor: '.slider-nav',
+				centerMode: true, focusOnSelect: true,autoplay: true, autoplaySpeed: 4500, });
+				$('.slider-nav').slick({
+				slidesToShow: 3,slidesToScroll: 1,
+				asNavFor: '.slider-for',centerMode: true,
+				focusOnSelect: true
+				});
+			$ ( '.publicidadpagada' ) . slick ( {
+			centerMode :  true ,
+			centerPadding :  '60px' ,
+			slidesToShow :  4,
+			responsive :  [
+			{
+			breakpoint :  968 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  2
+			}
+			} ,
+			{
+			breakpoint :  681 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow : 1
+			}
+			}
+			]
+			} ) ;
+			$ ( '.negocios' ) . slick ( {
+			centerMode :  true ,
+			centerPadding :  '0px' ,
+			slidesToShow :  4,
+			responsive :  [
+			{
+			breakpoint :  868 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  false ,
+			centerPadding :  '40px' ,
+			slidesToShow : 1
+			}
+			} ,
+			{
+			breakpoint :  520 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  false ,
+			centerPadding :  '40px' ,
+			slidesToShow :  2
+			}
+			}
+			]
+			} ) ;
+			});

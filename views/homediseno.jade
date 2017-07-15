@@ -1,0 +1,2793 @@
+extends ./layout.jade
+block contenido 
+		.coreccion
+				.dis
+					.wrapper
+						ul.nav.nav-tabs.nav-justified
+							li.li(role='presentation')
+								a.divi(href='/comidas/#{filtro}' style="color:#000000;") Comidas
+							li.li(role='presentation')
+								a.divi(href='/ventas/#{filtro}' style="color:#000000;") Ventas
+							li.li(role='presentation')
+								a.divi(href='/FincaRaiz/#{filtro}' style="color:#000000;") Finca raiz
+							li.li(role='presentation')
+								a.divi(href='/Variedades/#{filtro}' style="color:#000000;") Variedades
+							li.li(role='presentation')
+								a.divi(href='/Bebidas/#{filtro}' style="color:#000000;") Bebidas
+							li.li(role='presentation')
+								a.divi(href='/Hospedaje/#{filtro}' style="color:#000000;") Hospedaje
+							li.li(role='presentation')
+								a.divi(href='/Entretenimiento/#{filtro}' style="color:#000000;") Entretenimiento
+							li.li(role='presentation')
+								a.divi(href='/Diseno/#{filtro}' style="color:#000000;") Dise&ntildeo	
+							li.li(role='presentation')
+								a.divi(href='/Belleza/#{filtro}' style="color:#000000;") Belleza
+							li.li(role='presentation')
+								a.divi(href='/Artesanias/#{filtro}' style="color:#000000;")  Artesan&iacuteas
+							li.li(role='presentation')
+								a.divi(href='/Recreacion/#{filtro}' style="color:#000000;") Recreaci&oacuten
+							li.li(role='presentation')
+								a.divi(href='/Transporte/#{filtro}' style="color:#000000;") Transporte
+						ul.nav.nav-tabs.nav-justified
+							li.li(role='presentation')
+								a.divi(href='/promocion/#{filtro}' style="color:#000000;") Promociones de #{filtro}
+						.gallery
+							if filtro != "undefined"
+								h2#contacta.titulo Litograf&iacuteas
+								for imagen in imagenes 
+										if imagen.foto == 'normal'
+											if imagen.creator.ciudad == filtro
+												if imagen.creator.gremio == "Diseno"
+													if imagen.creator.imgtitulo == "Litografias"
+														.gallery-item(style="background-color: transparent; color:#000000;")
+															a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+																	img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img")
+																h2 #{imagen.creator.username}
+															a(href="/app/imagenes/#{imagen._id}/envio" style=" color:#00923f;;")
+																	label Realizar tu pedidos aqui
+											if imagen.creator.departamento == filtro
+												if imagen.creator.gremio == "Diseno"
+													if imagen.creator.imgtitulo == "Litografias"
+														.gallery-item(style="background-color: transparent; color:#000000;")
+															a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+																	img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img")
+																h2 #{imagen.creator.username}
+															a(href="/app/imagenes/#{imagen._id}/envio" style=" color:#00923f;;")
+																	label Realizar tu pedidos aqui
+								h2#contacta.titulo Dise&ntildeo gr&aacutefico
+								for imagen in imagenes 
+										if imagen.foto == 'normal'
+											if imagen.creator.ciudad == filtro
+												if imagen.creator.gremio == "Diseno"
+													if imagen.creator.imgtitulo == "Disenografico"
+														.gallery-item(style="background-color: transparent; color:#000000;")
+															a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+																	img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img")
+																h2 #{imagen.creator.username}
+															a(href="/app/imagenes/#{imagen._id}/envio" style=" color:#00923f;;")
+																	label Realizar tu pedidos aqui
+											if imagen.creator.departamento == filtro
+												if imagen.creator.gremio == "Diseno"
+													if imagen.creator.imgtitulo == "Disenografico"
+														.gallery-item(style="background-color: transparent; color:#000000;")
+															a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+																	img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img")
+																h2 #{imagen.creator.username}
+															a(href="/app/imagenes/#{imagen._id}/envio" style=" color:#00923f;;")
+																	label Realizar tu pedidos aqui
+							else
+								h2#contacta.titulo Litograf&iacuteas
+								for imagen in imagenes 
+										if imagen.foto == 'normal'
+												if imagen.creator.gremio == "Diseno"
+													if imagen.creator.imgtitulo == "Litografias"
+														.gallery-item(style="background-color: transparent; color:#000000;")
+															a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+																	img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img")
+																h2 #{imagen.creator.username}
+															a(href="/app/imagenes/#{imagen._id}/envio" style=" color:#00923f;;")
+																	label Realizar tu pedidos aqui
+								h2#contacta.titulo Dise&ntildeo gr&iacutefico
+								for imagen in imagenes 
+										if imagen.foto == 'normal'
+												if imagen.creator.gremio == "Diseno"
+													if imagen.creator.imgtitulo == "Disenografico"
+														.gallery-item(style="background-color: transparent; color:#000000;")
+															a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+																	img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img")
+																h2 #{imagen.creator.username}
+															a(href="/app/imagenes/#{imagen._id}/envio" style=" color:#00923f;;")
+																	label Realizar tu pedidos aqui
+							if "amazonas" == filtro
+								ul
+									li
+										a(href="/index/elencanto") El Encanto
+									li
+										a(href="/index/lachorrera") La Chorrera
+									li
+										a(href="/index/lapedrera") La Pedrera
+									li
+										a(href="/index/leticia") Leticia
+									li
+										a(href="/index/miriti-parana") Miriti-Parana
+									li
+										a(href="/index/puertonarino") Puerto Narino
+									li
+										a(href="/index/puertosantander") Puerto Santander
+									li
+										a(href="/index/tarapaca") Tarapaca
+									li
+										a(href="/index/laciudaddecaro") la ciudad de caro
+							if "antioquia" == filtro
+								ul
+									li
+										a(href="/index/abejorral") Abejorral
+									li
+										a(href="/index/abriaqui") Abriaqui
+									li
+										a(href="/index/alejandria") Alejandria
+									li
+										a(href="/index/amaga") Amaga
+									li
+										a(href="/index/amalfi") Amalfi
+									li
+										a(href="/index/andes") Andes
+									li
+										a(href="/index/angelopolis") Angelopolis
+									li
+										a(href="/index/angostura") Angostura
+									li
+										a(href="/index/anori") Anori
+									li
+										a(href="/index/antioquia") Antioquia
+									li
+										a(href="/index/anza") Anza
+									li
+										a(href="/index/apartado") Apartado
+									li
+										a(href="/index/arboletes") Arboletes
+									li
+										a(href="/index/arboretes") Arboretes
+									li
+										a(href="/index/argelia") Argelia
+									li
+										a(href="/index/armenia") Armenia
+									li
+										a(href="/index/barbosa") Barbosa
+									li
+										a(href="/index/belendebajira") Belen de Bajira
+									li
+										a(href="/index/bello") Bello
+									li
+										a(href="/index/belmira") Belmira
+									li
+										a(href="/index/betania") Betania
+									li
+										a(href="/index/betulia") Betulia
+									li
+										a(href="/index/bolombolo") Bolombolo
+									li
+										a(href="/index/briceno") Briceno
+									li
+										a(href="/index/buritica") Buritica
+									li
+										a(href="/index/caceres") Caceres
+									li
+										a(href="/index/caicedo") Caicedo
+									li
+										a(href="/index/caldas") Caldas
+									li
+										a(href="/index/campamento") Campamento
+									li
+										a(href="/index/canasgordas") Canasgordas
+									li
+										a(href="/index/capurgana") Capurgana
+									li
+										a(href="/index/caracoli") Caracoli
+									li
+										a(href="/index/caramanta") Caramanta
+									li
+										a(href="/index/carepa") Carepa
+									li
+										a(href="/index/carolina") Carolina
+									li
+										a(href="/index/caucasia") Caucasia
+									li
+										a(href="/index/cestilla") Cestilla
+									li
+										a(href="/index/chigorodo") Chigorodo
+									li
+										a(href="/index/cisneros") Cisneros
+									li
+										a(href="/index/ciudadbolivar") Ciudad Bolivar
+									li
+										a(href="/index/cocorna") Cocorna
+									li
+										a(href="/index/concepcion") Concepcion
+									li
+										a(href="/index/concordia") Concordia
+									li
+										a(href="/index/copacabana") Copacabana
+									li
+										a(href="/index/currulao") Currulao
+									li
+										a(href="/index/dabeiba") Dabeiba
+									li
+										a(href="/index/donmatias") Don Matias
+									li
+										a(href="/index/doradal") Doradal
+									li
+										a(href="/index/ebejico") Ebejico
+									li
+										a(href="/index/elbagre") El Bagre
+									li
+										a(href="/index/elcarmendeviboral") El Carmen de Viboral
+									li
+										a(href="/index/elpenol") El Penol
+									li
+										a(href="/index/elretiro") El Retiro
+									li
+										a(href="/index/elsantuario") El Santuario
+									li
+										a(href="/index/entrerrios") Entrerrios
+									li
+										a(href="/index/envigado") Envigado
+									li
+										a(href="/index/fredonia") Fredonia
+									li
+										a(href="/index/frontino") Frontino
+									li
+										a(href="/index/giraldo") Giraldo
+									li
+										a(href="/index/girardota") Girardota
+									li
+										a(href="/index/gomezplata") Gomez Plata
+									li
+										a(href="/index/granada") Granada
+									li
+										a(href="/index/guadalupe") Guadalupe
+									li
+										a(href="/index/guarne") Guarne
+									li
+										a(href="/index/guatape") Guatape
+									li
+										a(href="/index/heliconia") Heliconia
+									li
+										a(href="/index/hispania") Hispania
+									li
+										a(href="/index/hoyorrico") Hoyorrico
+									li
+										a(href="/index/itagüi") Itagui
+									li
+										a(href="/index/ituango") Ituango
+									li
+										a(href="/index/jardin") Jardin
+									li
+										a(href="/index/jerico") Jerico
+									li
+										a(href="/index/laceja") La Ceja
+									li
+										a(href="/index/laestrella") La Estrella
+									li
+										a(href="/index/lafe") La Fe
+									li
+										a(href="/index/lapintada") La Pintada
+									li
+										a(href="/index/lasierra") La Sierra
+									li
+										a(href="/index/launion") La Union
+									li
+										a(href="/index/liborina") Liborina
+									li
+										a(href="/index/llanadas") Llanadas
+									li
+										a(href="/index/maceo") Maceo
+									li
+										a(href="/index/marinilla") Marinilla
+									li
+										a(href="/index/medellin") Medellin
+									li
+										a(href="/index/montebello") Montebello
+									li
+										a(href="/index/murindo") Murindo
+									li
+										a(href="/index/mutata") Mutata
+									li
+										a(href="/index/narino") Narino
+									li
+										a(href="/index/nechi") Nechi
+									li
+										a(href="/index/necocli") Necocli
+									li
+										a(href="/index/nuevacolonia") Nueva Colonia
+									li
+										a(href="/index/nutibara") Nutibara
+									li
+										a(href="/index/olaya") Olaya
+									li
+										a(href="/index/palermo") Palermo
+									li
+										a(href="/index/peque") Peque
+									li
+										a(href="/index/pueblorico") Pueblo Rico
+									li
+										a(href="/index/puertoclaver") Puerto Claver
+									li
+										a(href="/index/puertoberrio") Puerto Berrio
+									li
+										a(href="/index/puertoberrio") Puerto Berrio
+									li
+										a(href="/index/puertonare") Puerto Nare
+									li
+										a(href="/index/puertoperales") Puerto perales
+									li
+										a(href="/index/puertotriunfo") Puerto Triunfo
+									li
+										a(href="/index/remedios") Remedios
+									li
+										a(href="/index/rionegro") Rionegro
+									li
+										a(href="/index/sabanalarga") Sabanalarga
+									li
+										a(href="/index/sabaneta") Sabaneta
+									li
+										a(href="/index/salgar") Salgar
+									li
+										a(href="/index/sanandresdecuerquia") San Andres de Cuerquia
+									li
+										a(href="/index/sancarlos") San Carlos
+									li
+										a(href="/index/sanfrancisco") San Francisco
+									li
+										a(href="/index/sanjeronimo") San Jeronimo
+									li
+										a(href="/index/sanjosedela") San Jose de la Montana
+									li
+										a(href="/index/sanjosedelnus") San Jose del Nus
+									li
+										a(href="/index/sanjuandeuraba") San Juan de Uraba
+									li
+										a(href="/index/sanluis") San Luis
+									li
+										a(href="/index/sanpedrodelos") San Pedro de los Milagros
+									li
+										a(href="/index/sanpedrodeuraba") San Pedro de Uraba
+									li
+										a(href="/index/sanrafael") San Rafael
+									li
+										a(href="/index/sanroque") San Roque
+									li
+										a(href="/index/sanvicente") San Vicente
+									li
+										a(href="/index/santabarbara") Santa Barbara
+									li
+										a(href="/index/santarosadeosos") Santa Rosa de Osos
+									li
+										a(href="/index/santafedeantioquia") Santa Fe de Antioquia
+									li
+										a(href="/index/santodomingo") Santo Domingo
+									li
+										a(href="/index/segovia") Segovia
+									li
+										a(href="/index/sevilla") Sevilla
+									li
+										a(href="/index/sonson") Sonson
+									li
+										a(href="/index/sopetran") Sopetran
+									li
+										a(href="/index/sucre") Sucre
+									li
+										a(href="/index/tamesis") Tamesis
+									li
+										a(href="/index/taparto") Taparto
+									li
+										a(href="/index/taraza") Taraza
+									li
+										a(href="/index/tarso") Tarso
+									li
+										a(href="/index/titiribi") Titiribi
+									li
+										a(href="/index/toledo") Toledo
+									li
+										a(href="/index/turbo") Turbo
+									li
+										a(href="/index/uramita") Uramita
+									li
+										a(href="/index/urrao") Urrao
+									li
+										a(href="/index/valdivia") Valdivia
+									li
+										a(href="/index/valparaiso") Valparaiso
+									li
+										a(href="/index/vegachi") Vegachi
+									li
+										a(href="/index/venecia") Venecia
+									li
+										a(href="/index/versalles") Versalles
+									li
+										a(href="/index/vigiadelfuerte") Vigia del Fuerte
+									li
+										a(href="/index/yali") Yali
+									li
+										a(href="/index/yarumal") Yarumal
+									li
+										a(href="/index/yolombo") Yolombo
+									li
+										a(href="/index/yondo") Yondo
+									li
+										a(href="/index/zaragoza") Zaragoza
+									li
+										a(href="/index/altamira") Altamira
+									li
+										a(href="/index/lacruzada") La Cruzada
+									li
+										a(href="/index/puertovaldivia") Puerto Valdivia
+									li
+										a(href="/index/pueblorrico") Pueblorrico
+							if "araulica" == filtro
+								ul
+									li
+										a(href="/index/arauquita") Arauquita
+									li
+										a(href="/index/cravonorte") Cravo Norte
+									li
+										a(href="/index/fortul") Fortul
+									li
+										a(href="/index/puertonarino") Puerto Narino
+									li
+										a(href="/index/puertorondon") Puerto Rondon
+									li
+										a(href="/index/saravena") Saravena
+									li
+										a(href="/index/tame") Tame
+							if "atlantico" == filtro
+								ul
+									li
+										a(href="/index/baranoa") Baranoa
+									li
+										a(href="/index/barranquilla") Barranquilla
+									li
+										a(href="/index/campodelacruz") Campo de la Cruz
+									li
+										a(href="/index/candelaria") Candelaria
+									li
+										a(href="/index/galapa") Galapa
+									li
+										a(href="/index/juandeacosta") Juan de Acosta
+									li
+										a(href="/index/luruaco") Luruaco
+									li
+										a(href="/index/malambo") Malambo
+									li
+										a(href="/index/manati") Manati
+									li
+										a(href="/index/palmardevarela") Palmar de Varela
+									li
+										a(href="/index/piojo") Piojo
+									li
+										a(href="/index/polonuevo") Polonuevo
+									li
+										a(href="/index/ponedera") Ponedera
+									li
+										a(href="/index/puertocolombia") Puerto Colombia
+									li
+										a(href="/index/repelon") Repelon
+									li
+										a(href="/index/sabanagrande") Sabanagrande
+									li
+										a(href="/index/sabanalarga") Sabanalarga
+									li
+										a(href="/index/santalucia") Santa Lucia
+									li
+										a(href="/index/santotomas") Santo Tomas
+									li
+										a(href="/index/soledad") Soledad
+									li
+										a(href="/index/suan") Suan
+									li
+										a(href="/index/tubara") Tubara
+									li
+										a(href="/index/usiacuri") Usiacuri
+									li
+										a(href="/index/juanmina") Juan Mina
+									li
+										a(href="/index/laloma") La Loma
+									li
+										a(href="/index/lajaguadeibirico") La Jagua de Ibirico
+							if "bolivar" == filtro
+								ul
+									li 
+										a(href="/index/achi") Achi
+									li
+										a(href="/index/altosdelrosario") Altos del Rosario
+									li
+										a(href="/index/arenaldelsur") Arenal del Sur
+									li
+										a(href="/index/arjona") Arjona
+									li
+										a(href="/index/arroyohondo") Arroyo Hondo
+									li
+										a(href="/index/barrancodeloba") Barranco de Loba
+									li
+										a(href="/index/bayunca") Bayunca
+									li
+										a(href="/index/calamar") Calamar
+									li
+										a(href="/index/cantagallo") Cantagallo
+									li
+										a(href="/index/cartagena") Cartagena
+									li
+										a(href="/index/cicuco") Cicuco
+									li
+										a(href="/index/clemencia") Clemencia
+									li
+										a(href="/index/cordoba") Cordoba
+									li
+										a(href="/index/elcarmendebolivar") El Carmen de Bolivar
+									li
+										a(href="/index/elguamo") El Guamo
+									li
+										a(href="/index/elpenon") El Penon
+									li
+										a(href="/index/hatillodeloba") Hatillo de Loba
+									li
+										a(href="/index/magangue") Magangue
+									li
+										a(href="/index/mahates") Mahates
+									li
+										a(href="/index/malagana") Malagana
+									li
+										a(href="/index/margarita") Margarita
+									li
+										a(href="/index/marialabaja") Maria La Baja
+									li
+										a(href="/index/mompos") Mompos
+									li
+										a(href="/index/montecristo") Montecristo
+									li
+										a(href="/index/morales") Morales
+									li
+										a(href="/index/pinillos") Pinillos
+									li
+										a(href="/index/regidor") Regidor
+									li
+										a(href="/index/rioviejo") Rioviejo
+									li
+										a(href="/index/sancayetano") San Cayetano
+									li
+										a(href="/index/sancristobal") San Cristobal
+									li
+										a(href="/index/sanestanislao") San Estanislao
+									li
+										a(href="/index/sanfernando") San Fernando
+									li
+										a(href="/index/sanjacinto") San Jacinto
+									li
+										a(href="/index/sanjuannepomuceno") San Juan Nepomuceno
+									li
+										a(href="/index/sanmartindeloba") San Martin de Loba
+									li
+										a(href="/index/sanpablo") San Pablo
+									li
+										a(href="/index/santacatalina") Santa Catalina
+									li
+										a(href="/index/santarosa") Santa Rosa
+									li
+										a(href="/index/santarosadelima") Santa Rosa de Lima
+									li
+										a(href="/index/santarosadelsur") Santa Rosa del Sur
+									li
+										a(href="/index/simiti") Simiti
+									li
+										a(href="/index/sincerin") Sincerin
+									li
+										a(href="/index/soplaviento") Soplaviento
+									li
+										a(href="/index/talaiguanuevo") Talaigua Nuevo
+									li
+										a(href="/index/tiquisio") Tiquisio
+									li
+										a(href="/index/turbaco") Turbaco
+									li
+										a(href="/index/turbana") Turbana
+									li
+										a(href="/index/villanueva") Villanueva
+									li
+										a(href="/index/zambrano") Zambrano
+							if "boyaca" == filtro
+								ul
+									li
+										a(href="/index/boyaca") Boyaca
+									li
+										a(href="/index/almeida") Almeida
+									li
+										a(href="/index/aquitania") Aquitania
+									li
+										a(href="/index/arcabuco") Arcabuco
+									li
+										a(href="/index/belen") Belen
+									li
+										a(href="/index/belencito") Belencito
+									li
+										a(href="/index/berbeo") Berbeo
+									li
+										a(href="/index/beteitiva") Beteitiva
+									li
+										a(href="/index/boavita") Boavita
+									li
+										a(href="/index/briceno") Briceno
+									li
+										a(href="/index/buenavista") Buenavista
+									li
+										a(href="/index/busbanza") Busbanza
+									li
+										a(href="/index/caldas") Caldas
+									li
+										a(href="/index/campohermoso") Campohermoso
+									li
+										a(href="/index/cerinza") Cerinza
+									li
+										a(href="/index/chinavita") Chinavita
+									li
+										a(href="/index/chiquinquira") Chiquinquira
+									li
+										a(href="/index/chiquiza") Chiquiza
+									li
+										a(href="/index/chiscas") Chiscas
+									li
+										a(href="/index/chita") Chita
+									li
+										a(href="/index/chitaraque") Chitaraque
+									li
+										a(href="/index/chivata") Chivata
+									li
+										a(href="/index/chivor") Chivor
+									li
+										a(href="/index/cienaga") Cienaga
+									li
+										a(href="/index/combita") Combita
+									li
+										a(href="/index/coper") Coper
+									li
+										a(href="/index/corrales") Corrales
+									li
+										a(href="/index/covarachia") Covarachia
+									li
+										a(href="/index/cubara") Cubara
+									li
+										a(href="/index/cucaita") Cucaita
+									li
+										a(href="/index/cuitiva") Cuitiva
+									li
+										a(href="/index/duitama") Duitama
+									li
+										a(href="/index/elcocuy") El Cocuy
+									li
+										a(href="/index/elespino") El Espino
+									li
+										a(href="/index/firavitoba") Firavitoba
+									li
+										a(href="/index/floresta") Floresta
+									li
+										a(href="/index/gachantiva") Gachantiva
+									li
+										a(href="/index/gameza") Gameza
+									li
+										a(href="/index/garagoa") Garagoa
+									li
+										a(href="/index/guacamayas") Guacamayas
+									li
+										a(href="/index/guateque") Guateque
+									li
+										a(href="/index/guayata") Guayata
+									li
+										a(href="/index/guican") Güican
+									li
+										a(href="/index/iza") Iza
+									li
+										a(href="/index/jenesano") Jenesano
+									li
+										a(href="/index/jerico") Jerico
+									li
+										a(href="/index/lacapilla") La Capilla
+									li
+										a(href="/index/lauvita") La Uvita
+									li
+										a(href="/index/lavictoria") La Victoria
+									li
+										a(href="/index/labranzagrande") Labranzagrande
+									li
+										a(href="/index/lagunadetota") Laguna de Tota
+									li
+										a(href="/index/macanal") Macanal
+									li
+										a(href="/index/maguncia") Maguncia
+									li
+										a(href="/index/maripi") Maripi
+									li
+										a(href="/index/miraflores") Miraflores
+									li
+										a(href="/index/mongua") Mongua
+									li
+										a(href="/index/mongui") Mongui
+									li
+										a(href="/index/moniquira") Moniquira
+									li
+										a(href="/index/motavita") Motavita
+									li
+										a(href="/index/muzo") Muzo
+									li
+										a(href="/index/nobsa") Nobsa
+									li
+										a(href="/index/nuevocolon") Nuevo Colon
+									li
+										a(href="/index/oicata") Oicata
+									li
+										a(href="/index/otanche") Otanche
+									li
+										a(href="/index/pachavita") Pachavita
+									li
+										a(href="/index/paez") Paez
+									li
+										a(href="/index/paipa") Paipa
+									li
+										a(href="/index/pajarito") Pajarito
+									li
+										a(href="/index/panqueba") Panqueba
+									li
+										a(href="/index/pauna") Pauna
+									li
+										a(href="/index/paya") Paya
+									li
+										a(href="/index/pazdelrio") Paz del Rio
+									li
+										a(href="/index/pesca") Pesca
+									li
+										a(href="/index/pisba") Pisba
+									li
+										a(href="/index/puertoboyaca") Puerto Boyaca
+									li
+										a(href="/index/quipama") Quipama
+									li
+										a(href="/index/ramiriqui") Ramiriqui
+									li
+										a(href="/index/raquira") Raquira
+									li
+										a(href="/index/rondon") Rondon
+									li
+										a(href="/index/saboya") Saboya
+									li
+										a(href="/index/sachica") Sachica
+									li
+										a(href="/index/samaca") Samaca
+									li
+										a(href="/index/saneduardo") San Eduardo
+									li
+										a(href="/index/sanjosedepare") San Jose de Pare
+									li
+										a(href="/index/sanluisdegaceno") San Luis de Gaceno
+									li
+										a(href="/index/sanmateo") San Mateo
+									li
+										a(href="/index/sanmigueldesema") San Miguel de Sema
+									li
+										a(href="/index/sanpablodeborbur") San Pablo de Borbur
+									li
+										a(href="/index/santamaria") Santa Maria
+									li
+										a(href="/index/santarosadeviterbo") Santa Rosa de Viterbo
+									li
+										a(href="/index/santasofia") Santa Sofia
+									li
+										a(href="/index/santana") Santana
+									li
+										a(href="/index/sativanorte") Sativanorte
+									li
+										a(href="/index/sativasur") Sativasur
+									li
+										a(href="/index/siachoque") Siachoque
+									li
+										a(href="/index/soata") Soata
+									li
+										a(href="/index/socha") Socha
+									li
+										a(href="/index/socota") Socota
+									li
+										a(href="/index/sogamoso") Sogamoso
+									li
+										a(href="/index/somondoco") Somondoco
+									li
+										a(href="/index/sora") Sora
+									li
+										a(href="/index/soraca") Soraca
+									li
+										a(href="/index/sotaquira") Sotaquira
+									li
+										a(href="/index/susacon") Susacon
+									li
+										a(href="/index/suson") Suson
+									li
+										a(href="/index/sutamarchan") Sutamarchan
+									li
+										a(href="/index/sutatenza") Sutatenza
+									li
+										a(href="/index/tasco") Tasco
+									li
+										a(href="/index/tenza") Tenza
+									li
+										a(href="/index/tibana") Tibana
+									li
+										a(href="/index/tibasosa") Tibasosa
+									li
+										a(href="/index/tinjaca") Tinjaca
+									li
+										a(href="/index/tipacoque") Tipacoque
+									li
+										a(href="/index/toca") Toca
+									li
+										a(href="/index/togui") Togui
+									li
+										a(href="/index/topaga") Topaga
+									li
+										a(href="/index/tota") Tota
+									li
+										a(href="/index/tunja") Tunja
+									li
+										a(href="/index/tunungua") Tunungua
+									li
+										a(href="/index/turmeque") Turmeque
+									li
+										a(href="/index/tuta") Tuta
+									li
+										a(href="/index/tutasa") Tutasa
+									li
+										a(href="/index/umbita") Umbita
+									li
+										a(href="/index/ventaquemada") Ventaquemada
+									li
+										a(href="/index/villadeleyva") Villa de Leyva
+									li
+										a(href="/index/viracacha") Viracacha
+									li
+										a(href="/index/zetaquira") Zetaquira
+							if "caldlias" == filtro
+								ul
+									li
+										a(href="/index/aguadas") Aguadas
+									li
+										a(href="/index/anserma") Anserma
+									li
+										a(href="/index/aranzazu") Aranzazu
+									li
+										a(href="/index/belalcazar") Belalcazar
+									li
+										a(href="/index/chinchina") Chinchina
+									li
+										a(href="/index/filadelfia") Filadelfia
+									li
+										a(href="/index/ladorada") La Dorada
+									li
+										a(href="/index/lamerced") La Merced
+									li
+										a(href="/index/manizales") Manizales
+									li
+										a(href="/index/manzanares") Manzanares
+									li
+										a(href="/index/marmato") Marmato
+									li
+										a(href="/index/marquetalia") Marquetalia
+									li
+										a(href="/index/marulanda") Marulanda
+									li
+										a(href="/index/neira") Neira
+									li
+										a(href="/index/norcasia") Norcasia
+									li
+										a(href="/index/pacora") Pacora
+									li
+										a(href="/index/palestina") Palestina
+									li
+										a(href="/index/pensilvania") Pensilvania
+									li
+										a(href="/index/riosucio") Riosucio
+									li
+										a(href="/index/risaralda") Risaralda
+									li
+										a(href="/index/salamina") Salamina
+									li
+										a(href="/index/samana") Samana
+									li
+										a(href="/index/sanjose") San Jose
+									li
+										a(href="/index/supia") Supia
+									li
+										a(href="/index/victoria") Victoria
+									li
+										a(href="/index/villamaria") Villamaria
+									li
+										a(href="/index/viterbo") Viterbo
+							if "caqueta" == filtro
+								ul
+									li
+										a(href="/index/albania") Albania
+									li
+										a(href="/index/belendelosandaquies") Belen de Los Andaquies
+									li
+										a(href="/index/cartagenadelchaira") Cartagena del Chaira
+									li
+										a(href="/index/curillo") Curillo
+									li
+										a(href="/index/eldoncello") El Doncello
+									li
+										a(href="/index/elpaujil") El Paujil
+									li
+										a(href="/index/florencia") Florencia
+									li
+										a(href="/index/lamontanita") La Montanita
+									li
+										a(href="/index/lasolita") La Solita
+									li
+										a(href="/index/larandia") Larandia
+									li
+										a(href="/index/morelia") Morelia
+									li
+										a(href="/index/puertomilan") Puerto Milan
+									li
+										a(href="/index/puertorico") Puerto Rico
+									li
+										a(href="/index/puertosolano") Puerto Solano
+									li
+										a(href="/index/rionegro") Rionegro
+									li
+										a(href="/index/sanantoniodegetucha") San Antonio de Getucha
+									li
+										a(href="/index/sanjosedelfragua") San Jose del Fragua
+									li
+										a(href="/index/sanvicentedelcaguan") San Vicente del Caguan
+									li
+										a(href="/index/tresesquinassolano") Tres Esquinas Solano
+									li
+										a(href="/index/unionpeneya") Union Peneya
+									li
+										a(href="/index/valparaiso") Valparaiso
+									li
+										a(href="/index/venecia") Venecia
+							if "casanare" == filtro
+								ul
+									li
+										a(href="/index/aguazul") Aguazul
+									li
+										a(href="/index/chameza") Chameza
+									li
+										a(href="/index/hatocorozal") Hato Corozal
+									li
+										a(href="/index/lasalina") La Salina
+									li
+										a(href="/index/mani") Mani
+									li
+										a(href="/index/monterrey") Monterrey
+									li
+										a(href="/index/nunchia") Nunchia
+									li
+										a(href="/index/orocue") Orocue
+									li
+										a(href="/index/pazdeariporo") Paz de Ariporo
+									li
+										a(href="/index/pore") Pore
+									li
+										a(href="/index/recetor") Recetor
+									li
+										a(href="/index/sabanalarga") Sabanalarga
+									li
+										a(href="/index/sacama") Sacama
+									li
+										a(href="/index/sanluisdepalenque") San Luis de Palenque
+									li
+										a(href="/index/tamara") Tamara
+									li
+										a(href="/index/tauramena") Tauramena
+									li
+										a(href="/index/trinidad") Trinidad
+									li
+										a(href="/index/tumara") Tumara
+									li
+										a(href="/index/villanueva") Villanueva
+									li
+										a(href="/index/yopal") Yopal
+							if "cauca" == filtro
+								ul
+									li
+										a(href="/index/almaguer") Almaguer
+									li
+										a(href="/index/altamira") ALTAMIRA
+									li
+										a(href="/index/argelia") Argelia
+									li
+										a(href="/index/balboa") Balboa
+									li
+										a(href="/index/belalcazar") Belalcazar
+									li
+										a(href="/index/bolivar") Bolivar
+									li
+										a(href="/index/buenosaires") Buenos Aires
+									li
+										a(href="/index/cajibio") Cajibio
+									li
+										a(href="/index/caldono") Caldono
+									li
+										a(href="/index/caldono") Caldono
+									li
+										a(href="/index/caloto") Caloto
+									li
+										a(href="/index/coconuco") Coconuco
+									li
+										a(href="/index/corinto") Corinto
+									li
+										a(href="/index/cuatroesquinas") CUATRO ESQUINAS
+									li
+										a(href="/index/elbordo") El Bordo
+									li
+										a(href="/index/elcairo") EL CAIRO
+									li
+										a(href="/index/elcarmen") El Carmen
+									li
+										a(href="/index/elhato") EL HATO
+									li
+										a(href="/index/elmorro") El Morro
+									li
+										a(href="/index/elpalmar") EL PALMAR
+									li
+										a(href="/index/elretiro") EL RETIRO
+									li
+										a(href="/index/elrosario") EL ROSARIO
+									li
+										a(href="/index/eltambo") El Tambo
+									li
+										a(href="/index/florencia") Florencia
+									li
+										a(href="/index/guachene") Guachene
+									li
+										a(href="/index/guapi") Guapi
+									li
+										a(href="/index/inza") Inza
+									li
+										a(href="/index/jambalo") Jambalo
+									li
+										a(href="/index/lacarbonera") La Carbonera
+									li
+										a(href="/index/lachorrera") LA CHORRERA
+									li
+										a(href="/index/laherradura") La Herradura
+									li
+										a(href="/index/lasierra") La Sierra
+									li
+										a(href="/index/lavega") La Vega
+									li
+										a(href="/index/laventa") LA VENTA
+									li
+										a(href="/index/lascruces") LAS CRUCES
+									li
+										a(href="/index/lopez") Lopez
+									li
+										a(href="/index/lopezdemicay") Lopez de Micay
+									li
+										a(href="/index/mercaderes") Mercaderes
+									li
+										a(href="/index/miranda") Miranda
+									li
+										a(href="/index/mondomo") Mondomo
+									li
+										a(href="/index/monterredondo") MONTERREDONDO
+									li
+										a(href="/index/morales") Morales
+									li
+										a(href="/index/padilla") Padilla
+									li
+										a(href="/index/paez") Paez
+									li
+										a(href="/index/paispamba") Paispamba
+									li
+										a(href="/index/parraga") PARRAGA
+									li
+										a(href="/index/patia(elbordo)") Patia ( El Bordo)
+									li
+										a(href="/index/piagua") PIAGUA
+									li
+										a(href="/index/piamonte") Piamonte
+									li
+										a(href="/index/piendamo") Piendamo
+									li
+										a(href="/index/popayan") Popayan
+									li
+										a(href="/index/puertotejada") Puerto Tejada
+									li
+										a(href="/index/purace") Purace
+									li
+										a(href="/index/quilicace") QUILICACE
+									li
+										a(href="/index/rioblanco") RIOBLANCO
+									li
+										a(href="/index/rosas") Rosas
+									li
+										a(href="/index/sanjoaquin") San Joaquin
+									li
+										a(href="/index/sanmiguel") SAN MIGUEL
+									li
+										a(href="/index/sansebastian") San Sebastian
+									li
+										a(href="/index/santarita") SANTA RITA
+									li
+										a(href="/index/santarosa") Santa Rosa
+									li
+										a(href="/index/santarosabotacaucana") SANTA ROSA BOTA CAUCANA
+									li
+										a(href="/index/santanderdequilichao") Santander de Quilichao
+									li
+										a(href="/index/siberia") SIBERIA
+									li
+										a(href="/index/silvia") Silvia
+									li
+										a(href="/index/sotara") Sotara
+									li
+										a(href="/index/suarez") Suarez
+									li
+										a(href="/index/timbio") Timbio
+									li
+										a(href="/index/timbiqui") Timbiqui
+									li
+										a(href="/index/toribio") Toribio
+									li
+										a(href="/index/totoro") Totoro
+									li
+										a(href="/index/tunia") Tunia
+									li
+										a(href="/index/villarica") Villarica
+									li
+										a(href="/index/zarzal") ZARZAL
+							if "cesar" == filtro
+								ul
+									li
+										a(href="/index/aguachica") Aguachica
+									li
+										a(href="/index/agustincodazzi") Agustin Codazzi
+									li
+										a(href="/index/becerril") Becerril
+									li
+										a(href="/index/bosconia") Bosconia
+									li
+										a(href="/index/chimichagua") Chimichagua
+									li
+										a(href="/index/chiriguana") Chiriguana
+									li
+										a(href="/index/curumani") Curumani
+									li
+										a(href="/index/elcopey") El Copey
+									li
+										a(href="/index/elpaso") El Paso
+									li
+										a(href="/index/gamarra") Gamarra
+									li
+										a(href="/index/gonzalez") Gonzalez
+									li
+										a(href="/index/lagloria") La Gloria
+									li
+										a(href="/index/lapaz") La Paz
+									li
+										a(href="/index/pailitas") Pailitas
+									li
+										a(href="/index/pelaya") Pelaya
+									li
+										a(href="/index/riodeoro") Rio de Oro
+									li
+										a(href="/index/sanalberto") San Alberto
+									li
+										a(href="/index/sandiego") San Diego
+									li
+										a(href="/index/sanmartin") San Martin
+									li
+										a(href="/index/tamalameque") Tamalameque
+									li
+										a(href="/index/valledupar") Valledupar
+									li
+										a(href="/index/pueblobello") Pueblo Bello
+									li
+										a(href="/index/astrea") Astrea
+									li
+										a(href="/index/manaurebalcondelcesar") Manaure Balcon del Cesar
+							if "choco" == filtro
+								ul
+									li
+										a(href="/index/acandi") Acandi
+									li
+										a(href="/index/altobaudo") Alto Baudo
+									li
+										a(href="/index/atrado") Atrado
+									li
+										a(href="/index/bagado") Bagado
+									li
+										a(href="/index/bahiasolano") Bahia Solano
+									li
+										a(href="/index/bajobaudo") Bajo Baudo
+									li
+										a(href="/index/bojaya") Bojaya
+									li
+										a(href="/index/carmendeatrato") Carmen de Atrato
+									li
+										a(href="/index/choco") Choco
+									li
+										a(href="/index/condoto") Condoto
+									li
+										a(href="/index/elcantondesan") El Canton de San Pablo
+									li
+										a(href="/index/istmina") Istmina
+									li
+										a(href="/index/jurado") Jurado
+									li
+										a(href="/index/litoraldesanjuan") Litoral de San Juan
+									li
+										a(href="/index/lloro") Lloro
+									li
+										a(href="/index/noqui") Noqui
+									li
+										a(href="/index/novita") Novita
+									li
+										a(href="/index/nuqui") Nuqui
+									li
+										a(href="/index/quibdo") Quibdo
+									li
+										a(href="/index/riosucio") Riosucio
+									li
+										a(href="/index/sanjosedelpalmar") San Jose del Palmar
+									li
+										a(href="/index/sipi") Sipi
+									li
+										a(href="/index/tado") Tado
+									li
+										a(href="/index/unguia") Unguia
+									li
+										a(href="/index/carmendeldarien") Carmen del Darien
+									li
+										a(href="/index/pizarro") Pizarro
+							if "cordoba" == filtro
+								ul
+									li
+										a(href="/index/ayapel") Ayapel
+									li
+										a(href="/index/buenavista") Buenavista
+									li
+										a(href="/index/canalete") Canalete
+									li
+										a(href="/index/cerete") Cerete
+									li
+										a(href="/index/chima") Chima
+									li
+										a(href="/index/chinu") Chinu
+									li
+										a(href="/index/cienagadeoro") Cienaga de Oro
+									li
+										a(href="/index/cotorra") Cotorra
+									li
+										a(href="/index/laapartada") La Apartada
+									li
+										a(href="/index/lorica") Lorica
+									li
+										a(href="/index/loscordobas") Los Cordobas
+									li
+										a(href="/index/momil") Momil
+									li
+										a(href="/index/monitos") Monitos
+									li
+										a(href="/index/montelibano") Montelibano
+									li
+										a(href="/index/monteria") Monteria
+									li
+										a(href="/index/planetarica") Planeta Rica
+									li
+										a(href="/index/pueblonuevo") Pueblo Nuevo
+									li
+										a(href="/index/puertoescondido") Puerto Escondido
+									li
+										a(href="/index/puertolibertador") Puerto Libertador
+									li
+										a(href="/index/purisima") Purisima
+									li
+										a(href="/index/sahagun") Sahagun
+									li
+										a(href="/index/sanandresdesotavento") San Andres de Sotavento
+									li
+										a(href="/index/sanantero") San Antero
+									li
+										a(href="/index/sanbernardodelviento") San Bernardo del Viento
+									li
+										a(href="/index/sancarlos") San Carlos
+									li
+										a(href="/index/sanpelayo") San Pelayo
+									li
+										a(href="/index/tierralta") Tierralta
+									li
+										a(href="/index/valencia") Valencia
+							if "cundinamarca" == filtro
+								ul
+									li
+										a(href="/index/aguadedios") Agua de Dios
+									li
+										a(href="/index/alban") Alban
+									li
+										a(href="/index/anapoima") Anapoima
+									li
+										a(href="/index/anolaima") Anolaima
+									li
+										a(href="/index/apulo") Apulo
+									li
+										a(href="/index/arbelaez") Arbelaez
+									li
+										a(href="/index/beltran") Beltran
+									li
+										a(href="/index/bituima") Bituima
+									li
+										a(href="/index/bojaca") Bojaca
+									li
+										a(href="/index/cabrera") Cabrera
+									li
+										a(href="/index/cachipay") Cachipay
+									li
+										a(href="/index/cajica") Cajica
+									li
+										a(href="/index/caparrapi") Caparrapi
+									li
+										a(href="/index/caqueza") Caqueza
+									li
+										a(href="/index/carmendecarupa") Carmen de Carupa
+									li
+										a(href="/index/chaguani") Chaguani
+									li
+										a(href="/index/chia") Chia
+									li
+										a(href="/index/chinauta") Chinauta
+									li
+										a(href="/index/chipaque") Chipaque
+									li
+										a(href="/index/choachi") Choachi
+									li
+										a(href="/index/choconta") Choconta
+									li
+										a(href="/index/cogua") Cogua
+									li
+										a(href="/index/cota") Cota
+									li
+										a(href="/index/cucunuba") Cucunuba
+									li
+										a(href="/index/elcolegio") El Colegio
+									li
+										a(href="/index/elpenon") El Penon
+									li
+										a(href="/index/elrosal") El Rosal
+									li
+										a(href="/index/facatativa") Facatativa
+									li
+										a(href="/index/fomeque") Fomeque
+									li
+										a(href="/index/fosca") Fosca
+									li
+										a(href="/index/funza") Funza
+									li
+										a(href="/index/fuquene") Fuquene
+									li
+										a(href="/index/fusagasuga") Fusagasuga
+									li
+										a(href="/index/gachala") Gachala
+									li
+										a(href="/index/gachancipa") Gachancipa
+									li
+										a(href="/index/gacheta") Gacheta
+									li
+										a(href="/index/gama") Gama
+									li
+										a(href="/index/girardot") Girardot
+									li
+										a(href="/index/granada") Granada
+									li
+										a(href="/index/guacheta") Guacheta
+									li
+										a(href="/index/guaduas") Guaduas
+									li
+										a(href="/index/guasca") Guasca
+									li
+										a(href="/index/guataqui") Guataqui
+									li
+										a(href="/index/guatavita") Guatavita
+									li
+										a(href="/index/guayabaldesiquima") Guayabal de Siquima
+									li
+										a(href="/index/guayabetal") Guayabetal
+									li
+										a(href="/index/gutierrez") Gutierrez
+									li
+										a(href="/index/jerusalen") Jerusalen
+									li
+										a(href="/index/junin") Junin
+									li
+										a(href="/index/lacalera") La Calera
+									li
+										a(href="/index/lamesa") La Mesa
+									li
+										a(href="/index/lapalma") La Palma
+									li
+										a(href="/index/lapena") La Pena
+									li
+										a(href="/index/lavega") La Vega
+									li
+										a(href="/index/lenguazaque") Lenguazaque
+									li
+										a(href="/index/macheta") Macheta
+									li
+										a(href="/index/madrid") Madrid
+									li
+										a(href="/index/manta") Manta
+									li
+										a(href="/index/medina") Medina
+									li
+										a(href="/index/mosquera") Mosquera
+									li
+										a(href="/index/narino") Narino
+									li
+										a(href="/index/nemocon") Nemocon
+									li
+										a(href="/index/nilo") Nilo
+									li
+										a(href="/index/nimaima") Nimaima
+									li
+										a(href="/index/nocaima") Nocaima
+									li
+										a(href="/index/pacho") Pacho
+									li
+										a(href="/index/paime") Paime
+									li
+										a(href="/index/pandi") Pandi
+									li
+										a(href="/index/paratebueno") Paratebueno
+									li
+										a(href="/index/pasca") Pasca
+									li
+										a(href="/index/puertosalgar") Puerto Salgar
+									li
+										a(href="/index/puli") Puli
+									li
+										a(href="/index/quebradanegra") Quebradanegra
+									li
+										a(href="/index/quetame") Quetame
+									li
+										a(href="/index/quipile") Quipile
+									li
+										a(href="/index/ricaurte") Ricaurte
+									li
+										a(href="/index/sanantoniodeltequendama") San Antonio del Tequendama
+									li
+										a(href="/index/sanbernardo") San Bernardo
+									li
+										a(href="/index/sancayetano") San Cayetano
+									li
+										a(href="/index/sanfrancisco") San Francisco
+									li
+										a(href="/index/sanjuanderioseco") San Juan de Rioseco
+									li
+										a(href="/index/sasaima") Sasaima
+									li
+										a(href="/index/sesquile") Sesquile
+									li
+										a(href="/index/sibate") Sibate
+									li
+										a(href="/index/silvania") Silvania
+									li
+										a(href="/index/simijaca") Simijaca
+									li
+										a(href="/index/sisga") Sisga
+									li
+										a(href="/index/soacha") Soacha
+									li
+										a(href="/index/sopo") Sopo
+									li
+										a(href="/index/subachoque") Subachoque
+									li
+										a(href="/index/suesca") Suesca
+									li
+										a(href="/index/supata") Supata
+									li
+										a(href="/index/susa") Susa
+									li
+										a(href="/index/sutatausa") Sutatausa
+									li
+										a(href="/index/tabio") Tabio
+									li
+										a(href="/index/tausa") Tausa
+									li
+										a(href="/index/tena") Tena
+									li
+										a(href="/index/tenjo") Tenjo
+									li
+										a(href="/index/tibacuy") Tibacuy
+									li
+										a(href="/index/tibirita") Tibirita
+									li
+										a(href="/index/tocaima") Tocaima
+									li
+										a(href="/index/tocancipa") Tocancipa
+									li
+										a(href="/index/topaipi") Topaipi
+									li
+										a(href="/index/ubala") Ubala
+									li
+										a(href="/index/ubaque") Ubaque
+									li
+										a(href="/index/ubate") Ubate
+									li
+										a(href="/index/une") Une
+									li
+										a(href="/index/utica") Utica
+									li
+										a(href="/index/venecia-ospinaperez") Venecia - Ospina Perez
+									li
+										a(href="/index/vergara") Vergara
+									li
+										a(href="/index/viani") Viani
+									li
+										a(href="/index/villagomez") Villagomez
+									li
+										a(href="/index/villapinzon") Villapinzon
+									li
+										a(href="/index/villeta") Villeta
+									li
+										a(href="/index/viota") Viota
+									li
+										a(href="/index/yacopi") Yacopi
+									li
+										a(href="/index/zipacon") Zipacon
+									li
+										a(href="/index/zipaquira") Zipaquira
+									li
+										a(href="/index/capellania") Capellania
+									li
+										a(href="/index/lapunta") La Punta
+									li
+										a(href="/index/santandercito") Santandercito
+									li
+										a(href="/index/tobia") Tobia
+									li
+										a(href="/index/siberia") Siberia
+							if "distritocap" == filtro
+								ul
+									li
+										a(href="/index/bosa") Bosa
+									li
+										a(href="/index/engativa") Engativa
+									li
+										a(href="/index/fontibon") Fontibon
+									li
+										a(href="/index/sisga") san cristobal
+									li
+										a(href="/index/suba") Suba
+									li
+										a(href="/index/usaquen") Usaquen
+									li
+										a(href="/index/usme") Usme
+							if "guajira" == filtro
+								ul
+									li
+										a(href="/index/guajira") Guajira
+									li
+										a(href="/index/barrancas") Barrancas
+									li
+										a(href="/index/dibulia") Dibulia
+									li
+										a(href="/index/distraccion") Distraccion
+									li
+										a(href="/index/elmolino") El Molino
+									li
+										a(href="/index/fonseca") Fonseca
+									li
+										a(href="/index/hatonuevo") Hato Nuevo
+									li
+										a(href="/index/manaure") Manaure
+									li
+										a(href="/index/riohacha") Riohacha
+									li
+										a(href="/index/sanjuandelcesar") San Juan del Cesar
+									li
+										a(href="/index/uribia") Uribia
+									li
+										a(href="/index/urumita") Urumita
+									li
+										a(href="/index/maicao") Maicao
+									li
+										a(href="/index/villanueva") Villanueva
+									li
+										a(href="/index/albania") Albania
+							if "guainia" == filtro
+								ul
+									li
+										a(href="/index/inirida") Inirida
+									li
+										a(href="/index/guaviare") Guaviare
+									li
+										a(href="/index/puertoinirida") Puerto Inirida
+							if "guaviare" == filtro
+								ul
+									li
+										a(href="/index/sanjosedelguaviare") San Jose Del Guaviare
+									li
+										a(href="/index/calamar") Calamar
+									li
+										a(href="/index/elretorno") El Retorno
+									li
+										a(href="/index/miraflores") Miraflores
+									li
+										a(href="/index/morichal") Morichal
+							if "huila" == filtro
+								ul
+									li
+										a(href="/index/acevedo") Acevedo
+									li
+										a(href="/index/agrado") Agrado
+									li
+										a(href="/index/aipe") Aipe
+									li
+										a(href="/index/algeciras") Algeciras
+									li
+										a(href="/index/altamira") Altamira
+									li
+										a(href="/index/baraya") Baraya
+									li
+										a(href="/index/campoalegre") Campoalegre
+									li
+										a(href="/index/ciudaddecolombia") Ciudad de Colombia
+									li
+										a(href="/index/elias") Elias
+									li
+										a(href="/index/fortalecillas") Fortalecillas
+									li
+										a(href="/index/garzon") Garzon
+									li
+										a(href="/index/gigante") Gigante
+									li
+										a(href="/index/guadalupe") Guadalupe
+									li
+										a(href="/index/hobo") Hobo
+									li
+										a(href="/index/iquira") Iquira
+									li
+										a(href="/index/isnos") Isnos
+									li
+										a(href="/index/laargentina") La Argentina
+									li
+										a(href="/index/laplata") La Plata
+									li
+										a(href="/index/nataga") Nataga
+									li
+										a(href="/index/neiva") Neiva
+									li
+										a(href="/index/oporapa") Oporapa
+									li
+										a(href="/index/paicol") Paicol
+									li
+										a(href="/index/palermo") Palermo
+									li
+										a(href="/index/palestina") Palestina
+									li
+										a(href="/index/pital") Pital
+									li
+										a(href="/index/pitalito") Pitalito
+									li
+										a(href="/index/rivera") Rivera
+									li
+										a(href="/index/saladoblanco") Saladoblanco
+									li
+										a(href="/index/sanagustin") San Agustin
+									li
+										a(href="/index/santamaria") Santa Maria
+									li
+										a(href="/index/suaza") Suaza
+									li
+										a(href="/index/tarqui") Tarqui
+									li
+										a(href="/index/tello") Tello
+									li
+										a(href="/index/teruel") Teruel
+									li
+										a(href="/index/tesalia") Tesalia
+									li
+										a(href="/index/timana") Timana
+									li
+										a(href="/index/villavieja") Villavieja
+									li
+										a(href="/index/yaguara") Yaguara
+									li
+										a(href="/index/caguan") Caguan
+									li
+										a(href="/index/juncal") Juncal
+									li
+										a(href="/index/lajagua") La Jagua
+									li
+										a(href="/index/laulloa") La Ulloa
+									li
+										a(href="/index/maito") Maito
+									li
+										a(href="/index/pacarni") Pacarni
+									li
+										a(href="/index/santahelena") Santa Helena
+									li
+										a(href="/index/vegalarga") Vegalarga
+									li
+										a(href="/index/zuluaga") Zuluaga
+									li
+										a(href="/index/belen") Belen
+							if "magdalena" == filtro
+								ul
+									li
+										a(href="/index/algarrobo") Algarrobo
+									li
+										a(href="/index/aracataca") Aracataca
+									li
+										a(href="/index/ariguani") Ariguani
+									li
+										a(href="/index/cerrodesanantonio") Cerro de San Antonio
+									li
+										a(href="/index/chivolo") Chivolo
+									li
+										a(href="/index/cienaga") Cienaga
+									li
+										a(href="/index/concordia") Concordia
+									li
+										a(href="/index/elbanco") El Banco
+									li
+										a(href="/index/eldificil") El Dificil
+									li
+										a(href="/index/elpinon") El Pinon
+									li
+										a(href="/index/elreten") El Reten
+									li
+										a(href="/index/fundacion") Fundacion
+									li
+										a(href="/index/guamal") Guamal
+									li
+										a(href="/index/pedraza") Pedraza
+									li
+										a(href="/index/pijinodelcarmen") Pijino del Carmen
+									li
+										a(href="/index/pivijay") Pivijay
+									li
+										a(href="/index/plato") Plato
+									li
+										a(href="/index/puebloviejo") Puebloviejo
+									li
+										a(href="/index/remolino") Remolino
+									li
+										a(href="/index/salamina") Salamina
+									li
+										a(href="/index/sanangel") San Angel
+									li
+										a(href="/index/sansebastiandebuenavista") San Sebastian de Buenavista
+									li
+										a(href="/index/sanzenon") San Zenon
+									li
+										a(href="/index/santaana") Santa Ana
+									li
+										a(href="/index/santamarta") Santa Marta
+									li
+										a(href="/index/sitionuevo") Sitionuevo
+									li
+										a(href="/index/tenerife") Tenerife
+									li
+										a(href="/index/zonabananera") Zona Bananera
+							if "meta" == filtro
+								ul
+									li
+										a(href="/index/acacias") Acacias
+									li
+										a(href="/index/barrancadeupia") Barranca de Upia
+									li
+										a(href="/index/cabuyaro") Cabuyaro
+									li
+										a(href="/index/castillalanueva") Castilla La Nueva
+									li
+										a(href="/index/cubarral") Cubarral
+									li
+										a(href="/index/cumaral") Cumaral
+									li
+										a(href="/index/elcalvario") El Calvario
+									li
+										a(href="/index/elcastillo") El Castillo
+									li
+										a(href="/index/eldorado") El Dorado
+									li
+										a(href="/index/fuentedeoro") Fuente de Oro
+									li
+										a(href="/index/granada") Granada
+									li
+										a(href="/index/guamal") Guamal
+									li
+										a(href="/index/lamacarena") La Macarena
+									li
+										a(href="/index/lauribe") La Uribe
+									li
+										a(href="/index/lejanias") Lejanias
+									li
+										a(href="/index/mapiripan") Mapiripan
+									li
+										a(href="/index/mesetas") Mesetas
+									li
+										a(href="/index/puertoconcordia") Puerto Concordia
+									li
+										a(href="/index/puertogaitan") Puerto Gaitan
+									li
+										a(href="/index/puertolleras") Puerto Lleras
+									li
+										a(href="/index/puertolopez") Puerto Lopez
+									li
+										a(href="/index/puertorico") Puerto Rico
+									li
+										a(href="/index/restrepo") Restrepo
+									li
+										a(href="/index/sancarlosguaroa") San Carlos Guaroa
+									li
+										a(href="/index/sanjuandearama") San Juan de Arama
+									li
+										a(href="/index/sanjuanito") San Juanito
+									li
+										a(href="/index/sanmartin") San Martin
+									li
+										a(href="/index/villavicencio") Villavicencio
+									li
+										a(href="/index/vistahermosa") Vista Hermosa
+							if "narino" == filtro
+								ul
+									li
+										a(href="/index/alban") Alban
+									li
+										a(href="/index/aldana") Aldana
+									li
+										a(href="/index/ancuya") Ancuya
+									li
+										a(href="/index/arboleda") Arboleda
+									li
+										a(href="/index/barbacoas") Barbacoas
+									li
+										a(href="/index/belen") Belen
+									li
+										a(href="/index/berruecos") Berruecos
+									li
+										a(href="/index/bombona") Bombona
+									li
+										a(href="/index/buesaco") Buesaco
+									li
+										a(href="/index/catambuco") Catambuco
+									li
+										a(href="/index/chachagui") Chachagui
+									li
+										a(href="/index/chachaouit") Chachaouit
+									li
+										a(href="/index/colon") Colon
+									li
+										a(href="/index/consaca") Consaca
+									li
+										a(href="/index/contadero") Contadero
+									li
+										a(href="/index/cordoba") Cordoba
+									li
+										a(href="/index/cuaspud") Cuaspud
+									li
+										a(href="/index/cumbal") Cumbal
+									li
+										a(href="/index/cumbitara") Cumbitara
+									li
+										a(href="/index/cumbitra") Cumbitra
+									li
+										a(href="/index/elcharco") El Charco
+									li
+										a(href="/index/elchorrillo") El Chorrillo
+									li
+										a(href="/index/elpenol") El Penol
+									li
+										a(href="/index/elremolino") El Remolino
+									li
+										a(href="/index/elrosario") El Rosario
+									li
+										a(href="/index/eltablon") El Tablon
+									li
+										a(href="/index/eltambo") El Tambo
+									li
+										a(href="/index/franciscopizarro") Francisco Pizarro
+									li
+										a(href="/index/funes") Funes
+									li
+										a(href="/index/guachavez") Guachavez
+									li
+										a(href="/index/guachucal") Guachucal
+									li
+										a(href="/index/guaitarilla") Guaitarilla
+									li
+										a(href="/index/gualmatan") Gualmatan
+									li
+										a(href="/index/guitarrilla") Guitarrilla
+									li
+										a(href="/index/iles") Iles
+									li
+										a(href="/index/imues") Imues
+									li
+										a(href="/index/ipiales") Ipiales
+									li
+										a(href="/index/josemariahernandez") Jose Maria Hernandez
+									li
+										a(href="/index/lacruz") La Cruz
+									li
+										a(href="/index/laflorida") La Florida
+									li
+										a(href="/index/lallamada") La Llamada
+									li
+										a(href="/index/latola") La Tola
+									li
+										a(href="/index/launion") La Union
+									li
+										a(href="/index/leiva") Leiva
+									li
+										a(href="/index/linares") Linares
+									li
+										a(href="/index/losandes") Los Andes
+									li
+										a(href="/index/magui") Magui
+									li
+										a(href="/index/mallama") Mallama
+									li
+										a(href="/index/mocoa") Mocoa
+									li
+										a(href="/index/mosquera") Mosquera
+									li
+										a(href="/index/olayaherrera") Olaya Herrera
+									li
+										a(href="/index/ospina") Ospina
+									li
+										a(href="/index/pasto") Pasto
+									li
+										a(href="/index/payam") Payam
+									li
+										a(href="/index/pilcuan") Pilcuan
+									li
+										a(href="/index/policarpa") Policarpa
+									li
+										a(href="/index/potosi") Potosi
+									li
+										a(href="/index/providencia") Providencia
+									li
+										a(href="/index/provincia") Provincia
+									li
+										a(href="/index/puerres") Puerres
+									li
+										a(href="/index/pupiales") Pupiales
+									li
+										a(href="/index/ricaurte") Ricaurte
+									li
+										a(href="/index/robertopayan") Roberto Payan
+									li
+										a(href="/index/rosaflorida") Rosaflorida
+									li
+										a(href="/index/samaniego") Samaniego
+									li
+										a(href="/index/sanbernardo") San Bernardo
+									li
+										a(href="/index/sanjose") San Jose
+									li
+										a(href="/index/sanlorenzo") San Lorenzo
+									li
+										a(href="/index/sanpablo") San Pablo
+									li
+										a(href="/index/sanpedrocartago") San Pedro Cartago
+									li
+										a(href="/index/sanremo") San Remo
+									li
+										a(href="/index/sandona") Sandona
+									li
+										a(href="/index/santabarbara") Santa Barbara
+									li
+										a(href="/index/santacruz") Santacruz
+									li
+										a(href="/index/sapuyes") Sapuyes
+									li
+										a(href="/index/sibundoy") Sibundoy
+									li
+										a(href="/index/sotomayor") Sotomayor
+									li
+										a(href="/index/taminango") Taminango
+									li
+										a(href="/index/tangua") Tangua
+									li
+										a(href="/index/tumaco") Tumaco
+									li
+										a(href="/index/tuquerres") Tuquerres
+									li
+										a(href="/index/uribe") Uribe
+									li
+										a(href="/index/yacuanquer") Yacuanquer
+							if "nortedesantander" == filtro
+								ul
+									li 
+										a(href="/index/nortedesantander") Norte de Santander
+									li
+										a(href="/index/abrego") Abrego
+									li
+										a(href="/index/arboledas") Arboledas
+									li
+										a(href="/index/bochalema") Bochalema
+									li
+										a(href="/index/bucarasica") Bucarasica
+									li
+										a(href="/index/cachira") Cachira
+									li
+										a(href="/index/cacota") Cacota
+									li
+										a(href="/index/chinacota") Chinacota
+									li
+										a(href="/index/chitaga") Chitaga
+									li
+										a(href="/index/convencion") Convencion
+									li
+										a(href="/index/cucuta") Cucuta
+									li
+										a(href="/index/cucutilla") Cucutilla
+									li
+										a(href="/index/durania") Durania
+									li
+										a(href="/index/elcarmen") El Carmen
+									li
+										a(href="/index/eltaira") El Taira
+									li
+										a(href="/index/eltarra") El Tarra
+									li
+										a(href="/index/elzulia") El Zulia
+									li
+										a(href="/index/gramalote") Gramalote
+									li
+										a(href="/index/hacari") Hacari
+									li
+										a(href="/index/herran") Herran
+									li
+										a(href="/index/laesperanza") La Esperanza
+									li
+										a(href="/index/laplaya") La Playa
+									li
+										a(href="/index/labateca") Labateca
+									li
+										a(href="/index/lospatios") Los Patios
+									li
+										a(href="/index/lourdes") Lourdes
+									li
+										a(href="/index/motiscua") Motiscua
+									li
+										a(href="/index/mutiscua") Mutiscua
+									li
+										a(href="/index/ocana") Ocana
+									li
+										a(href="/index/pamplona") Pamplona
+									li
+										a(href="/index/pamplonita") Pamplonita
+									li
+										a(href="/index/puertosantander") Puerto Santander
+									li
+										a(href="/index/ragonvalia") Ragonvalia
+									li
+										a(href="/index/salazar") Salazar
+									li
+										a(href="/index/sancalixto") San Calixto
+									li
+										a(href="/index/sancayetano") San Cayetano
+									li
+										a(href="/index/santiago") Santiago
+									li
+										a(href="/index/sardinata") Sardinata
+									li
+										a(href="/index/silos") Silos
+									li
+										a(href="/index/teorama") Teorama
+									li
+										a(href="/index/teorema") Teorema
+									li
+										a(href="/index/tibu") Tibu
+									li
+										a(href="/index/toledo") Toledo
+									li
+										a(href="/index/villacaro") Villa Caro
+									li
+										a(href="/index/villadelrosario") Villa del Rosario
+							if "putumayo" == filtro
+								ul
+									li
+										a(href="/index/colon") Colon
+									li
+										a(href="/index/mocoa") Mocoa
+									li
+										a(href="/index/orito") Orito
+									li
+										a(href="/index/puertoasis") Puerto Asis
+									li
+										a(href="/index/puertocaicedo") Puerto Caicedo
+									li
+										a(href="/index/puertoguzman") Puerto Guzman
+									li
+										a(href="/index/puertoleguizamo") Puerto Leguizamo
+									li
+										a(href="/index/sanfrancisco") San Francisco
+									li
+										a(href="/index/sanmiguel") San Miguel
+									li
+										a(href="/index/santiago") Santiago
+									li
+										a(href="/index/sibundoy") Sibundoy
+									li
+										a(href="/index/valledelguamuez") Valle del Guamuez
+									li
+										a(href="/index/villagarzon") Villagarzon
+							if "quindio" == filtro
+								ul
+									li
+										a(href="/index/armenia") Armenia
+									li
+										a(href="/index/barcelona") Barcelona
+									li
+										a(href="/index/buenavista") Buenavista
+									li
+										a(href="/index/calarca") Calarca
+									li
+										a(href="/index/circasia") Circasia
+									li
+										a(href="/index/cordoba") Cordoba
+									li
+										a(href="/index/filandia") Filandia
+									li
+										a(href="/index/genova") Genova
+									li
+										a(href="/index/latebaida") La Tebaida
+									li
+										a(href="/index/montenegro") Montenegro
+									li
+										a(href="/index/pijao") Pijao
+									li
+										a(href="/index/pueblotapao") Pueblo Tapao
+									li
+										a(href="/index/quimbaya") Quimbaya
+									li
+										a(href="/index/salento") Salento
+							if "risaralda" == filtro
+								ul
+									li
+										a(href="/index/apia") Apia
+									li
+										a(href="/index/balboa") Balboa
+									li
+										a(href="/index/belendeumbria") Belen de Umbria
+									li
+										a(href="/index/dosquebradas") Dosquebradas
+									li
+										a(href="/index/guatica") Guatica
+									li
+										a(href="/index/irra") Irra
+									li
+										a(href="/index/lacelia") La Celia
+									li
+										a(href="/index/lavirginia") La Virginia
+									li
+										a(href="/index/marsella") Marsella
+									li
+										a(href="/index/marsellaaltocauca") Marsella Alto Cauca
+									li
+										a(href="/index/mistrato") Mistrato
+									li
+										a(href="/index/pereira") Pereira
+									li
+										a(href="/index/pueblorico") Pueblo Rico
+									li
+										a(href="/index/quinchia") Quinchia
+									li
+										a(href="/index/santacecilia") Santa Cecilia
+									li
+										a(href="/index/santarosadecabal") Santa Rosa de Cabal
+									li
+										a(href="/index/santuario") Santuario
+									li
+										a(href="/index/taparcal-belendeumbria") Taparcal-Belen de Umbria
+							if "sanandres" == filtro
+								ul
+									li
+										a(href="/index/sanandres") San Andres
+									li
+										a(href="/index/providencia") Providencia
+							if "santander" == filtro
+								ul
+									li
+										a(href="/index/aguada") Aguada
+									li
+										a(href="/index/albania") Albania
+									li
+										a(href="/index/aratoca") Aratoca
+									li
+										a(href="/index/barbosa") Barbosa
+									li
+										a(href="/index/barichara") Barichara
+									li
+										a(href="/index/barrancabermeja") Barrancabermeja
+									li
+										a(href="/index/betulia") Betulia
+									li
+										a(href="/index/bolivar") Bolivar
+									li
+										a(href="/index/bucaramanga") Bucaramanga
+									li
+										a(href="/index/cabrera") Cabrera
+									li
+										a(href="/index/caldas") Caldas
+									li
+										a(href="/index/california") California
+									li
+										a(href="/index/capita") Capita
+									li
+										a(href="/index/capitanejo") Capitanejo
+									li
+										a(href="/index/carcasi") Carcasi
+									li
+										a(href="/index/cepita") Cepita
+									li
+										a(href="/index/cerrito") Cerrito
+									li
+										a(href="/index/charala") Charala
+									li
+										a(href="/index/charta") Charta
+									li
+										a(href="/index/chima") Chima
+									li
+										a(href="/index/chipata") Chipata
+									li
+										a(href="/index/cimitarra") Cimitarra
+									li
+										a(href="/index/cite") Cite
+									li
+										a(href="/index/concepcion") Concepcion
+									li
+										a(href="/index/confines") Confines
+									li
+										a(href="/index/contratacion") Contratacion
+									li
+										a(href="/index/coromoro") Coromoro
+									li
+										a(href="/index/curiti") Curiti
+									li
+										a(href="/index/elcarmen") El Carmen
+									li
+										a(href="/index/elguacamayo") El Guacamayo
+									li
+										a(href="/index/elpenon") El Penon
+									li
+										a(href="/index/elplayon") El Playon
+									li
+										a(href="/index/encino") Encino
+									li
+										a(href="/index/enciso") Enciso
+									li
+										a(href="/index/florian") Florian
+									li
+										a(href="/index/floridablanca") Floridablanca
+									li
+										a(href="/index/galan") Galan
+									li
+										a(href="/index/gambita") Gambita
+									li
+										a(href="/index/giron") Giron
+									li
+										a(href="/index/guaca") Guaca
+									li
+										a(href="/index/guadalupe") Guadalupe
+									li
+										a(href="/index/guapota") Guapota
+									li
+										a(href="/index/guavata") Guavata
+									li
+										a(href="/index/guepsa") Güepsa
+									li
+										a(href="/index/hato") Hato
+									li
+										a(href="/index/jesusmaria") Jesus Maria
+									li
+										a(href="/index/jordan") Jordan
+									li
+										a(href="/index/labelleza") La Belleza
+									li
+										a(href="/index/lapaz") La Paz
+									li
+										a(href="/index/landazuri") Landazuri
+									li
+										a(href="/index/lebrija") Lebrija
+									li
+										a(href="/index/lossantos") Los Santos
+									li
+										a(href="/index/macaravita") Macaravita
+									li
+										a(href="/index/malaga") Malaga
+									li
+										a(href="/index/matanza") Matanza
+									li
+										a(href="/index/mogotes") Mogotes
+									li
+										a(href="/index/molagavita") Molagavita
+									li
+										a(href="/index/ocamonte") Ocamonte
+									li
+										a(href="/index/oiba") Oiba
+									li
+										a(href="/index/onzaga") Onzaga
+									li
+										a(href="/index/palmar") Palmar
+									li
+										a(href="/index/palmassocorro") Palmas Socorro
+									li
+										a(href="/index/paramo") Paramo
+									li
+										a(href="/index/piedecuesta") Piedecuesta
+									li
+										a(href="/index/pinchote") Pinchote
+									li
+										a(href="/index/puentenacional") Puente Nacional
+									li
+										a(href="/index/puertoparra") Puerto Parra
+									li
+										a(href="/index/puertowilches") Puerto Wilches
+									li
+										a(href="/index/rionegro") Rionegro
+									li
+										a(href="/index/sabanadetorres") Sabana de Torres
+									li
+										a(href="/index/sanandres") San Andres
+									li
+										a(href="/index/sanbenito") San Benito
+									li
+										a(href="/index/sangil") San Gil
+									li
+										a(href="/index/sanjoaquin") San Joaquin
+									li
+										a(href="/index/sanjosedemiranda") San Jose de Miranda
+									li
+										a(href="/index/sanmiguel") San Miguel
+									li
+										a(href="/index/sanvicentedechucuri") San Vicente de Chucuri
+									li
+										a(href="/index/santabarbara") Santa Barbara
+									li
+										a(href="/index/santahelenadelopon") Santa Helena del Opon
+									li
+										a(href="/index/simacota") Simacota
+									li
+										a(href="/index/socorro") Socorro
+									li
+										a(href="/index/suaita") Suaita
+									li
+										a(href="/index/sucre") Sucre
+									li
+										a(href="/index/surata") Surata
+									li
+										a(href="/index/tona") Tona
+									li
+										a(href="/index/vadoreal") Vado Real
+									li
+										a(href="/index/vallesanjose") Valle San Jose
+									li
+										a(href="/index/velez") Velez
+									li
+										a(href="/index/vetas") Vetas
+									li
+										a(href="/index/villanueva") Villanueva
+									li
+										a(href="/index/zapatoca") Zapatoca
+							if "sucre" == filtro
+								ul
+									li
+										a(href="/index/betulia") Betulia
+									li
+										a(href="/index/buenavista") Buenavista
+									li
+										a(href="/index/caimito") Caimito
+									li
+										a(href="/index/chalan") Chalan
+									li
+										a(href="/index/coloso") Coloso
+									li
+										a(href="/index/corozal") Corozal
+									li
+										a(href="/index/covenas") Covenas
+									li
+										a(href="/index/galeras") Galeras
+									li
+										a(href="/index/guaranda") Guaranda
+									li
+										a(href="/index/launion") La Union
+									li
+										a(href="/index/lospalmitos") Los Palmitos
+									li
+										a(href="/index/majagual") Majagual
+									li
+										a(href="/index/morroa") Morroa
+									li
+										a(href="/index/ovejas") Ovejas
+									li
+										a(href="/index/sampues") Sampues
+									li
+										a(href="/index/sanbenitoabad") San Benito Abad
+									li
+										a(href="/index/sanjuandebetulia") San Juan de Betulia
+									li
+										a(href="/index/sanmarcos") San Marcos
+									li
+										a(href="/index/sanonofre") San Onofre
+									li
+										a(href="/index/sanpedro") San Pedro
+									li
+										a(href="/index/since") Since
+									li
+										a(href="/index/sincelejo") Sincelejo
+									li
+										a(href="/index/sucre") Sucre
+									li
+										a(href="/index/tolu") Tolu
+									li
+										a(href="/index/toluviejo") Toluviejo
+							if "tolima" == filtro
+								ul
+									li
+										a(href="/index/alpujarra") Alpujarra
+									li
+										a(href="/index/alvarado") Alvarado
+									li
+										a(href="/index/ambalema") Ambalema
+									li
+										a(href="/index/anaime") Anaime
+									li
+										a(href="/index/anzoategui") Anzoategui
+									li
+										a(href="/index/armero") Armero
+									li
+										a(href="/index/armero-guayabal") Armero-Guayabal
+									li
+										a(href="/index/ataco") Ataco
+									li
+										a(href="/index/cajamarca") Cajamarca
+									li
+										a(href="/index/cambao") Cambao
+									li
+										a(href="/index/carmendeapicala") Carmen de Apicala
+									li
+										a(href="/index/casabianca") Casabianca
+									li
+										a(href="/index/chaparral") Chaparral
+									li
+										a(href="/index/chicoral") Chicoral
+									li
+										a(href="/index/coello") Coello
+									li
+										a(href="/index/coyaima") Coyaima
+									li
+										a(href="/index/cunday") Cunday
+									li
+										a(href="/index/dolores") Dolores
+									li
+										a(href="/index/espinal") Espinal
+									li
+										a(href="/index/falan") Falan
+									li
+										a(href="/index/flandes") Flandes
+									li
+										a(href="/index/fresno") Fresno
+									li
+										a(href="/index/guamo") Guamo
+									li
+										a(href="/index/herveo") Herveo
+									li
+										a(href="/index/honda") Honda
+									li
+										a(href="/index/ibague") Ibague
+									li
+										a(href="/index/icononzo") Icononzo
+									li
+										a(href="/index/lasierra") La Sierra
+									li
+										a(href="/index/lerida") Lerida
+									li
+										a(href="/index/libano") Libano
+									li
+										a(href="/index/mariquita") Mariquita
+									li
+										a(href="/index/melgar") Melgar
+									li
+										a(href="/index/murillo") Murillo
+									li
+										a(href="/index/natagaima") Natagaima
+									li
+										a(href="/index/ortega") Ortega
+									li
+										a(href="/index/palocabildo") Palocabildo
+									li
+										a(href="/index/piedras") Piedras
+									li
+										a(href="/index/planadas") Planadas
+									li
+										a(href="/index/prado") Prado
+									li
+										a(href="/index/purificacion") Purificacion
+									li
+										a(href="/index/rioblanco") Rioblanco
+									li
+										a(href="/index/roncesvalles") Roncesvalles
+									li
+										a(href="/index/rovira") Rovira
+									li
+										a(href="/index/saldana") Saldana
+									li
+										a(href="/index/sanantonio") San Antonio
+									li
+										a(href="/index/sanluis") San Luis
+									li
+										a(href="/index/santaisabel") Santa Isabel
+									li
+										a(href="/index/suarez") Suarez
+									li
+										a(href="/index/valledesanjuan") Valle de San Juan
+									li
+										a(href="/index/venadillo") Venadillo
+									li
+										a(href="/index/villahermosa") Villahermosa
+									li
+										a(href="/index/villarrica") Villarrica
+									li
+										a(href="/index/beltran") Beltran
+									li
+										a(href="/index/castilla") Castilla
+									li
+										a(href="/index/convenio") Convenio
+									li
+										a(href="/index/chencheasoleado") Chenche Asoleado
+									li
+										a(href="/index/doima") Doima
+									li
+										a(href="/index/eltablazo") El Tablazo
+									li
+										a(href="/index/frias") Frias
+									li
+										a(href="/index/gaitania") Gaitania
+									li
+										a(href="/index/gualanday") Gualanday
+									li
+										a(href="/index/herrera") Herrera
+									li
+										a(href="/index/junin") Junin
+									li
+										a(href="/index/laarada") La Arada
+									li
+										a(href="/index/lachamba") La Chamba
+									li
+										a(href="/index/olayaherrera") Olaya Herrera
+									li
+										a(href="/index/padua") Padua
+									li
+										a(href="/index/payande") Payande
+									li
+										a(href="/index/playarrica") Playarrica
+									li
+										a(href="/index/santateresa") Santa Teresa
+									li
+										a(href="/index/santiagoperez") Santiago Perez
+									li
+										a(href="/index/tresesquinas") Tres Esquinas
+									li
+										a(href="/index/velu") Velu
+							if "valle" == filtro
+								ul
+									li
+										a(href="/index/alban") Alban
+									li
+										a(href="/index/alcala") Alcala
+									li
+										a(href="/index/andalucia") Andalucia
+									li
+										a(href="/index/ansermanuevo") Ansermanuevo
+									li
+										a(href="/index/argelia") Argelia
+									li
+										a(href="/index/barragan") Barragan
+									li
+										a(href="/index/bitaco") Bitaco
+									li
+										a(href="/index/bolivar") Bolivar
+									li
+										a(href="/index/buenaventura") Buenaventura
+									li
+										a(href="/index/buenosaires") Buenos Aires
+									li
+										a(href="/index/buga") Buga
+									li
+										a(href="/index/bugalagrande") Bugalagrande
+									li
+										a(href="/index/caicedonia") Caicedonia
+									li
+										a(href="/index/cali") Cali
+									li
+										a(href="/index/calima") Calima
+									li
+										a(href="/index/candelaria") Candelaria
+									li
+										a(href="/index/cartago") Cartago
+									li
+										a(href="/index/ceylan") Ceylan
+									li
+										a(href="/index/costarica") Costa Rica
+									li
+										a(href="/index/dagua") Dagua
+									li
+										a(href="/index/dapa") Dapa
+									li
+										a(href="/index/darien") Darien
+									li
+										a(href="/index/elaguila") El Aguila
+									li
+										a(href="/index/elbolo") El Bolo
+									li
+										a(href="/index/elcairo") El Cairo
+									li
+										a(href="/index/elcarmelo") El Carmelo
+									li
+										a(href="/index/elcarmen") El Carmen
+									li
+										a(href="/index/elcerrito") El Cerrito
+									li
+										a(href="/index/eldovio") El Dovio
+									li
+										a(href="/index/fenicia") Fenicia
+									li
+										a(href="/index/florida") Florida
+									li
+										a(href="/index/galicia") Galicia
+									li
+										a(href="/index/ginebra") Ginebra
+									li
+										a(href="/index/guacari") Guacari
+									li
+										a(href="/index/jamundi") Jamundi
+									li
+										a(href="/index/juachaco") Juachaco
+									li
+										a(href="/index/km26") Km 26
+									li
+										a(href="/index/labocana") La Bocana
+									li
+										a(href="/index/labuitrera") La Buitrera
+									li
+										a(href="/index/lacumbre") La Cumbre
+									li
+										a(href="/index/ladolores") La Dolores
+									li
+										a(href="/index/laiberia") La Iberia
+									li
+										a(href="/index/lanubia") La Nubia
+									li
+										a(href="/index/launion") La Union
+									li
+										a(href="/index/lavictoria") La Victoria
+									li
+										a(href="/index/ladrilleros") Ladrilleros
+									li
+										a(href="/index/lagocalima") Lago Calima
+									li
+										a(href="/index/madrigal") Madrigal
+									li
+										a(href="/index/obando") Obando
+									li
+										a(href="/index/palmaseca") Palmaseca
+									li
+										a(href="/index/palmira") Palmira
+									li
+										a(href="/index/pavas") Pavas
+									li
+										a(href="/index/pobladocampestre") Poblado Campestre
+									li
+										a(href="/index/potrerito") Potrerito
+									li
+										a(href="/index/pradera") Pradera
+									li
+										a(href="/index/queremal") Queremal
+									li
+										a(href="/index/restrepo") Restrepo
+									li
+										a(href="/index/riofrio") Riofrio
+									li
+										a(href="/index/roldanillo") Roldanillo
+									li
+										a(href="/index/rozo") Rozo
+									li
+										a(href="/index/salonica") Salonica
+									li
+										a(href="/index/samaria") Samaria
+									li
+										a(href="/index/sanantoniodelos") San Antonio de los Caballeros
+									li
+										a(href="/index/sanpedro") San Pedro
+									li
+										a(href="/index/santahelena") Santa Helena
+									li
+										a(href="/index/santalucia") Santa Lucia
+									li
+										a(href="/index/sevilla") Sevilla
+									li
+										a(href="/index/sonso") Sonso
+									li
+										a(href="/index/tiendanueva") Tienda Nueva
+									li
+										a(href="/index/toro") Toro
+									li
+										a(href="/index/trujillo") Trujillo
+									li
+										a(href="/index/tulua") Tulua
+									li
+										a(href="/index/ulloa") Ulloa
+									li
+										a(href="/index/venecia") Venecia
+									li
+										a(href="/index/versalles") Versalles
+									li
+										a(href="/index/vijes") Vijes
+									li
+										a(href="/index/villagorgona") Villagorgona
+									li
+										a(href="/index/yotoco") Yotoco
+									li
+										a(href="/index/yumbo") Yumbo
+									li
+										a(href="/index/zarzal") Zarzal
+									li
+										a(href="/index/ameimeelplacer") Ameime El Placer
+									li
+										a(href="/index/quebradanueva") Quebrada Nueva
+									li
+										a(href="/index/ruralesvalle") Rurales Valle
+									li
+										a(href="/index/lamarina") La Marina
+									li
+										a(href="/index/lahorqueta") La Horqueta
+									li
+										a(href="/index/bahiamalaga") Bahia Malaga
+							if "vaupes" == filtro
+								ul
+									li
+										a(href="/index/caruru") Caruru
+									li
+										a(href="/index/cumaribo") Cumaribo
+									li
+										a(href="/index/lahormiga") La Hormiga
+									li
+										a(href="/index/laprimavera") La Primavera
+									li
+										a(href="/index/mitu") Mitu
+									li
+										a(href="/index/nuevaantioquia") Nueva Antioquia
+									li
+										a(href="/index/pacoa") Pacoa
+									li
+										a(href="/index/sanjosedeocune") San Jose de Ocune
+									li
+										a(href="/index/santarita") Santa Rita
+									li
+										a(href="/index/santarosalia") Santa Rosalia
+									li
+										a(href="/index/taraira") Taraira
+									li
+										a(href="/index/toraira") Toraira
+									li
+										a(href="/index/vichada") Vichada
+									li
+										a(href="/index/yavarate") Yavarate
+
+		script(type='text/javascript', src='../../public/js/bootstrap.js')
+		script(type='text/javascript', src='../../public/js/bootstrap.min.js')
+		script(type='text/javascript', src='../../public/js/jquery.min.js')
+		script(type='text/javascript', src='../../public/js/jquery.min.v1.js')

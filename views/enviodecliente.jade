@@ -1,0 +1,1641 @@
+﻿
+extends ./layout3.jade
+block contenido 
+	.container
+	.coreccion
+	.sesion
+			form(action="envioclie", method="POST")
+				div(class="form-group")
+					label(for="email") Email 
+					input(type="email", name="email", placeholder="Email", id="email", class"form-control" title="por el correo" oninvalid="setCustomValidity('ingresa correo lectronico ')" required) 
+				div 
+					label(for="password")  Contraseña
+					input(type="password", name="password",placeholder="Contraseña", id="password" class"form-control"  oninvalid="setCustomValidity('ingresa una contraseña')")
+				div 
+					label(for="password") Confirma tu Contraseña
+					input(type="password", name="password_confirmation",placeholder="Confirma Contraseña", id="password" class"form-control" oninvalid="setCustomValidity('confirma la contraseña')" )
+				div 
+					label(for="estilo") escoge el estilo de tu pagina
+					select(type="text", name="estilo", placehoder="", id="estilo", class"form-control")
+							option(value="estilo1" selected="estilo1") estilo 1 
+							option(value="estilo1" selected="estilo1") estilo 2 
+							option(value="estilo1" selected="estilo1") estilo 3 
+							option(value="" selected="selected") - selecciona -
+				div 
+					label(for="slogan") Slogan de la empresa  o a que se dedica en pocas palabras 
+					input(type="text", name="slogan",placeholder="Cual es tu slogan", id="slogan" class"form-control" oninvalid="setCustomValidity('ingresa tu slogan')" required)
+				div 
+					label(for="username") Nombre de la empresa  ¡¡adicionale el nombre de tu ciudad!!
+					input(type="text", name="username",placeholder="Cual es el nombre de tu empresa", id="username" class"form-control" oninvalid="setCustomValidity('falto el nombre de tu empresa')" required)
+				div 
+					label(for="dir") Direccion
+					input(type="text", name="dir",placeholder="Dime tu direccion", id="dir" class"form-control" oninvalid="setCustomValidity('indicanos tu direccion')" required)
+				div 
+					label(for="gremio") A que area pertenece tu empresa   
+					select(type="text", name="gremio", placehoder="", id="gremio", class"form-control" oninvalid="setCustomValidity('escoge uno')" required)
+							option(value="" selected="selected") - selecciona -
+							option(value="Compras" selected="Compras") Compras
+							option(value="Variedades" selected="Variedades") Variedades
+							option(value="Comidas" selected="Comidas") Comidas
+							option(value="Bebidas" selected="Bebidas") Bebidas
+							option(value="Hospedaje" selected="Hospedaje") Hospedaje
+							option(value="Entretenimiento" selected="Entretenimiento") Entretenimiento
+							option(value="Construccion" selected="Construccion") Construcción
+							option(value="FincaRaiz" selected="FincaRaiz") Finca Raíz
+							option(value="Diseno" selected="Diseno") Diseño
+							option(value="Belleza" selected="Belleza") Belleza
+							option(value="Artesanias" selected="Artesanias") Artesanías
+							option(value="Recreacion" selected="Recreacion") Recreación
+							option(value="Transporte" selected="Transporte") Transporte
+				div 
+					label(for="imgtitulo") Que ofrece tu negocio
+					select(type="text", name="imgtitulo", placehoder="", id="imgtitulo", class"form-control" oninvalid="setCustomValidity('escoge uno')" required)
+							option(value="" selected="") --Compras--
+							option(value="Almacenesderopa" selected="Almacenesderopa") Almacenes de ropa
+							option(value="Almacenesdecalzado" selected="Almacenesdecalzado") Almacenes de calzado
+							option(value="Almacenesdedecoraciones" selected="Almacenesdedecoraciones") Almacenes de decoraciones
+							option(value="" selected="") --Variedades--
+							option(value="Accesorios(bolsos)" selected="Accesorios(bolsos)") Accesorios (bolsos)
+							option(value="Papeleria" selected="Papeleria") Papelería
+							option(value="Jugueteria" selected="Jugueteria") Juguetería
+							option(value="Panaleria" selected="Panaleria") Pañaleria 
+							option(value="cacharerias" selected="cacharerias") cacharerias
+							option(value="" selected="") --Comidas--
+							option(value="Cafeterias" selected="Cafeterias") Cafeteria
+							option(value="Asaderos(carne–pollo)" selected="Asaderos(carne–pollo)") Asaderos (carne – pollo)
+							option(value="Restaurantes" selected="Restaurantes") Restaurantes
+							option(value="Pizzerias" selected="Pizzerias") Pizzerías
+							option(value="Heladerias" selected="Heladerias") Heladerías
+							option(value="Comidasrapidas" selected="Comidasrapidas") Comidas rápidas
+							option(value="" selected="") --Bebidas--
+							option(value="Bares" selected="Bares") Bares 
+							option(value="Discotecas" selected="Discotecas") Discotecas 
+							option(value="Licoreras" selected="Licoreras") Licoreras 
+							option(value="" selected="") --Hospedaje--
+							option(value="Hoteles" selected="Hoteles") Hoteles
+							option(value="Cabanas" selected="Cabanas") Cabañas-
+							option(value="Moteles" selected="Moteles") Moteles
+							option(value="" selected="") --Entretenimiento--
+							option(value="Amanecesdemusica" selected="Amanecesdemusica") Amaneces de música
+							option(value="Almacenesdetecnologia" selected="Almacenesdetecnologia") Almacenes de tecnología
+							option(value="Computadores" selected="Computadores") Computadores
+							option(value="Celulares" selected="Celulares") Celulares
+							option(value="Cine" selected="Cine") Cine 
+							option(value="Eventos" selected="Eventos") Eventos
+							option(value="" selected="") --Construcción--
+							option(value="Ferreterias" selected="Ferreterias") Ferreterías
+							option(value="Disenodeinteriores" selected="Disenodeinteriores") Diseño de interiores
+							option(value="Arquitectos" selected="Arquitectos") Arquitectos
+							option(value="" selected="") --Finca Raíz--
+							option(value="Ventas" selected="Ventas") Ventas 
+							option(value="Arriendo" selected="Arriendo") Arriendo
+							option(value="Empenos" selected="Empenos") Empeños
+							option(value="" selected="") --Diseño--
+							option(value="Litografias" selected="Litografias") Litografías 
+							option(value="Disenografico" selected="Disenografico") Diseño gráfico
+							option(value="" selected="") --Belleza--
+							option(value="Peluquerias" selected="Peluquerias") Peluquerías
+							option(value="Spa" selected="Spa") Spa
+							option(value="cosmeticos" selected="cosmeticos") cosméticos
+							option(value="Tatuajes" selected="Tatuajes") Tatuajes
+							option(value="Sexshop" selected="Sexshop") Sex shop
+							option(value="Sexshop" selected="gim") Gimnasio
+							option(value="" selected="") --Artesanías--
+							option(value="Almacenesderuanas" selected="Almacenesderuanas") Almacenes de ruanas 
+							option(value="" selected="") --Recreación--
+							option(value="Piscinas" selected="Piscinas") Piscinas
+							option(value="" selected="") --Transporte--
+							option(value="Autos" selected="Autos") Autos
+							option(value="Concesionarios" selected="Concesionarios") Concesionarios 
+							option(value="Motos" selected="Motos") Motos 
+							option(value="bicicletas" selected="bicicletas") bicicletas
+							option(value="" selected="selected") - selecciona -
+				div 
+					label(for="departamento") Departamento
+					select(type="text", name="departamento", placehoder="", id="departamento", class"form-control" oninvalid="setCustomValidity('escoge uno')" required) 
+							option(value="cundinamarca"  selected="cundinamarca")  cundinamarca  
+							option(value="bogota"  selected="bogota")  Bogota    
+							option(value="boyaca"  selected="boyaca")  boyaca  
+				div(style="display:none;")
+							option(value="amazonas"  selected="amazonas")  amazonas  
+							option(value="antioquia"  selected="antioquia")  antioquia  
+							option(value="arauca"  selected="arauca")  arauca  
+							option(value="atlantico"  selected="atlantico")  atlantico  
+							option(value="bolivar"  selected="bolivar")  bolivar  
+							option(value="caldas"  selected="caldas")  caldas  
+							option(value="caqueta"  selected="caqueta")  caqueta  
+							option(value="casanare"  selected="casanare")  casanare  
+							option(value="cauca"  selected="cauca")  cauca  
+							option(value="cesar"  selected="cesar")  cesar  
+							option(value="choco"  selected="choco")  choco  
+							option(value="cordoba"  selected="cordoba")  cordoba
+							option(value="guainia"  selected="guainia")  guainia  
+							option(value="guaviare"  selected="guaviare")  guaviare  
+							option(value="huila"  selected="huila")  huila  
+							option(value="magdalena"  selected="magdalena")  magdalena  
+							option(value="meta"  selected="meta")  meta  
+							option(value="nariño"  selected="nariño")  nariño  
+							option(value="santamarta"  selected="santamarta")  santa marta 
+							option(value="putumayo"  selected="putumayo")  putumayo  
+							option(value="quindio"  selected="quindio")  quindio  
+							option(value="risaralda"  selected="risaralda")  risaralda  
+							option(value="sanandres"  selected="sanandres")  san andres 
+							option(value="arboletes"  selected="arboletes")  santander  
+							option(value="santander"  selected="santander")  sucre  
+							option(value="tolima"  selected="tolima")  tolima  
+							option(value="valle"  selected="valle")  valle  
+							option(value="vaupes"  selected="vaupes")  vaupes  
+							option(value="vichada"  selected="vichada")  vichada
+							option(value="distritocapital"  selected="distritocapital")  distrito capital  
+							option(value="" selected="") - selecciona -
+				div 
+					label(for="ciudad") Ciudad
+					select(type="text", name="ciudad", placehoder="", id="ciudad", class"form-control" oninvalid="setCustomValidity('escoge uno')" required)  
+							option(value=""  selected="")  --boyaca--  
+							option(value="briceño"  selected="briceño")  Briceño    
+							option(value="buenavista"  selected="buenavista")  Buenavista    
+							option(value="busbanza"  selected="busbanza")  Busbanza    
+							option(value="caldas"  selected="caldas")  Caldas    
+							option(value="campohermoso"  selected="campohermoso")  Campohermoso    
+							option(value="cerinza"  selected="cerinza")  Cerinza    
+							option(value="chinavita"  selected="chinavita")  Chinavita    
+							option(value="chiquinquira"  selected="chiquinquira")  Chiquinquira    
+							option(value="chiquiza"  selected="chiquiza")  Chiquiza    
+							option(value="chiscas"  selected="chiscas")  Chiscas    
+							option(value="chita"  selected="chita")  Chita    
+							option(value="chitaraque"  selected="chitaraque")  Chitaraque    
+							option(value="chivata"  selected="chivata")  Chivata    
+							option(value="chivor"  selected="chivor")  Chivor    
+							option(value="cienaga"  selected="cienaga")  Cienaga    
+							option(value="combita"  selected="combita")  Combita    
+							option(value="coper"  selected="coper")  Coper    
+							option(value="corrales"  selected="corrales")  Corrales    
+							option(value="covarachia"  selected="covarachia")  Covarachia    
+							option(value="cubara"  selected="cubara")  Cubara    
+							option(value="cucaita"  selected="cucaita")  Cucaita    
+							option(value="cuitiva"  selected="cuitiva")  Cuitiva    
+							option(value="duitama"  selected="duitama")  Duitama    
+							option(value="elcocuy"  selected="elcocuy")  El Cocuy   
+							option(value="elespino"  selected="elespino")  El Espino   
+							option(value="firavitoba"  selected="firavitoba")  Firavitoba    
+							option(value="floresta"  selected="floresta")  Floresta    
+							option(value="gachantiva"  selected="gachantiva")  Gachantiva    
+							option(value="gameza"  selected="gameza")  Gameza    
+							option(value="garagoa"  selected="garagoa")  Garagoa    
+							option(value="guacamayas"  selected="guacamayas")  Guacamayas    
+							option(value="guateque"  selected="guateque")  Guateque    
+							option(value="guayata"  selected="guayata")  Guayata    
+							option(value="guican"  selected="guican")  Guican    
+							option(value="iza"  selected="iza")  Iza    
+							option(value="jenesano"  selected="jenesano")  Jenesano    
+							option(value="jerico"  selected="jerico")  Jerico    
+							option(value="lacapilla"  selected="lacapilla")  La Capilla   
+							option(value="lauvita"  selected="lauvita")  La Uvita   
+							option(value="lavictoria"  selected="lavictoria")  La Victoria   
+							option(value="labranzagrande"  selected="labranzagrande")  Labranzagrande    
+							option(value="lagunadetota"  selected="lagunadetota")  Laguna de Tota  
+							option(value="macanal"  selected="macanal")  Macanal    
+							option(value="maguncia"  selected="maguncia")  Maguncia    
+							option(value="maripi"  selected="maripi")  Maripi    
+							option(value="miraflores"  selected="miraflores")  Miraflores    
+							option(value="mongua"  selected="mongua")  Mongua    
+							option(value="mongui"  selected="mongui")  Mongui    
+							option(value="moniquira"  selected="moniquira")  Moniquira    
+							option(value="motavita"  selected="motavita")  Motavita    
+							option(value="muzo"  selected="muzo")  Muzo    
+							option(value="nobsa"  selected="nobsa")  Nobsa    
+							option(value="nuevocolon"  selected="nuevocolon")  Nuevo Colon   
+							option(value="oicata"  selected="oicata")  Oicata    
+							option(value="otanche"  selected="otanche")  Otanche    
+							option(value="pachavita"  selected="pachavita")  Pachavita    
+							option(value="paez"  selected="paez")  Paez    
+							option(value="paipa"  selected="paipa")  Paipa    
+							option(value="pajarito"  selected="pajarito")  Pajarito    
+							option(value="panqueba"  selected="panqueba")  Panqueba    
+							option(value="pauna"  selected="pauna")  Pauna    
+							option(value="paya"  selected="paya")  Paya    
+							option(value="pazdelrio"  selected="pazdelrio")  Paz del Rio  
+							option(value="pesca"  selected="pesca")  Pesca    
+							option(value="pisba"  selected="pisba")  Pisba    
+							option(value="puertoboyaca"  selected="puertoboyaca")  Puerto Boyaca   
+							option(value="quipama"  selected="quipama")  Quipama    
+							option(value="ramiriqui"  selected="ramiriqui")  Ramiriqui    
+							option(value="raquira"  selected="raquira")  Raquira    
+							option(value="rondon"  selected="rondon")  Rondon    
+							option(value="saboya"  selected="saboya")  Saboya    
+							option(value="sachica"  selected="sachica")  Sachica    
+							option(value="samaca"  selected="samaca")  Samaca    
+							option(value="saneduardo"  selected="saneduardo")  San Eduardo   
+							option(value="sanjosedepare"  selected="sanjosedepare")  San Jose de Pare 
+							option(value="sanluisdegaceno"  selected="sanluisdegaceno")  San Luis de Gaceno 
+							option(value="sanmateo"  selected="sanmateo")  San Mateo   
+							option(value="sanmigueldesema"  selected="sanmigueldesema")  San Miguel de Sema 
+							option(value="sanpablodeborbur"  selected="sanpablodeborbur")  San Pablo de Borbur 
+							option(value="santamaria"  selected="santamaria")  Santa Maria   
+							option(value="santarosadeviterbo"  selected="santarosadeviterbo")  Santa Rosa de Viterbo 
+							option(value="santasofia"  selected="santasofia")  Santa Sofia   
+							option(value="santana"  selected="santana")  Santana    
+							option(value="sativanorte"  selected="sativanorte")  Sativanorte    
+							option(value="sativasur"  selected="sativasur")  Sativasur    
+							option(value="siachoque"  selected="siachoque")  Siachoque    
+							option(value="soata"  selected="soata")  Soata    
+							option(value="socha"  selected="socha")  Socha    
+							option(value="socota"  selected="socota")  Socota    
+							option(value="sogamoso"  selected="sogamoso")  Sogamoso    
+							option(value="somondoco"  selected="somondoco")  Somondoco    
+							option(value="sora"  selected="sora")  Sora    
+							option(value="soraca"  selected="soraca")  Soraca    
+							option(value="sotaquira"  selected="sotaquira")  Sotaquira    
+							option(value="susacon"  selected="susacon")  Susacon    
+							option(value="suson"  selected="suson")  Suson    
+							option(value="sutamarchan"  selected="sutamarchan")  Sutamarchan    
+							option(value="sutatenza"  selected="sutatenza")  Sutatenza    
+							option(value="tasco"  selected="tasco")  Tasco    
+							option(value="tenza"  selected="tenza")  Tenza    
+							option(value="tibana"  selected="tibana")  Tibana    
+							option(value="tibasosa"  selected="tibasosa")  Tibasosa    
+							option(value="tinjaca"  selected="tinjaca")  Tinjaca    
+							option(value="tipacoque"  selected="tipacoque")  Tipacoque    
+							option(value="toca"  selected="toca")  Toca    
+							option(value="togui"  selected="togui")  Togui    
+							option(value="topaga"  selected="topaga")  Topaga    
+							option(value="tota"  selected="tota")  Tota    
+							option(value="tunja"  selected="tunja")  Tunja    
+							option(value="tunungua"  selected="tunungua")  Tunungua    
+							option(value="turmeque"  selected="turmeque")  Turmeque    
+							option(value="tuta"  selected="tuta")  Tuta    
+							option(value="tutasa"  selected="tutasa")  Tutasa    
+							option(value="umbita"  selected="umbita")  Umbita    
+							option(value="ventaquemada"  selected="ventaquemada")  Ventaquemada    
+							option(value="villadeleyva"  selected="villadeleyva")  Villa de Leyva  
+							option(value="viracacha"  selected="viracacha")  Viracacha    
+							option(value="zetaquira"  selected="zetaquira")  Zetaquira
+							option(value=""  selected="")  --cundinamarca--  
+							option(value="aguadedios"  selected="aguadedios")  Agua de Dios  
+							option(value="alban"  selected="alban")  Alban    
+							option(value="anapoima"  selected="anapoima")  Anapoima    
+							option(value="anolaima"  selected="anolaima")  Anolaima    
+							option(value="apulo"  selected="apulo")  Apulo    
+							option(value="arbelaez"  selected="arbelaez")  Arbelaez    
+							option(value="beltran"  selected="beltran")  Beltran    
+							option(value="bituima"  selected="bituima")  Bituima    
+							option(value="bojaca"  selected="bojaca")  Bojaca    
+							option(value="cabrera"  selected="cabrera")  Cabrera    
+							option(value="cachipay"  selected="cachipay")  Cachipay    
+							option(value="cajica"  selected="cajica")  Cajica    
+							option(value="caparrapi"  selected="caparrapi")  Caparrapi    
+							option(value="caqueza"  selected="caqueza")  Caqueza    
+							option(value="carmendecarupa"  selected="carmendecarupa")  Carmen de Carupa  
+							option(value="chaguani"  selected="chaguani")  Chaguani    
+							option(value="chia"  selected="chia")  Chia    
+							option(value="chinauta"  selected="chinauta")  Chinauta    
+							option(value="chipaque"  selected="chipaque")  Chipaque    
+							option(value="choachi"  selected="choachi")  Choachi    
+							option(value="choconta"  selected="choconta")  Choconta    
+							option(value="cogua"  selected="cogua")  Cogua    
+							option(value="cota"  selected="cota")  Cota    
+							option(value="cucunuba"  selected="cucunuba")  Cucunuba    
+							option(value="elcolegio"  selected="elcolegio")  El Colegio   
+							option(value="elpeñon"  selected="elpeñon")  El Peñon   
+							option(value="elrosal"  selected="elrosal")  El Rosal   
+							option(value="facatativa"  selected="facatativa")  Facatativa    
+							option(value="fomeque"  selected="fomeque")  Fomeque    
+							option(value="fosca"  selected="fosca")  Fosca    
+							option(value="funza"  selected="funza")  Funza    
+							option(value="fuquene"  selected="fuquene")  Fuquene    
+							option(value="fusagasuga"  selected="fusagasuga")  Fusagasuga    
+							option(value="gachala"  selected="gachala")  Gachala    
+							option(value="gachancipa"  selected="gachancipa")  Gachancipa    
+							option(value="gacheta"  selected="gacheta")  Gacheta    
+							option(value="gama"  selected="gama")  Gama    
+							option(value="girardot"  selected="girardot")  Girardot    
+							option(value="granada"  selected="granada")  Granada    
+							option(value="guacheta"  selected="guacheta")  Guacheta    
+							option(value="guaduas"  selected="guaduas")  Guaduas    
+							option(value="guasca"  selected="guasca")  Guasca    
+							option(value="guataqui"  selected="guataqui")  Guataqui    
+							option(value="guatavita"  selected="guatavita")  Guatavita    
+							option(value="guayabaldesiquima"  selected="guayabaldesiquima")  Guayabal de Siquima  
+							option(value="guayabetal"  selected="guayabetal")  Guayabetal    
+							option(value="gutierrez"  selected="gutierrez")  Gutierrez    
+							option(value="jerusalen"  selected="jerusalen")  Jerusalen    
+							option(value="junin"  selected="junin")  Junin    
+							option(value="lacalera"  selected="lacalera")  La Calera   
+							option(value="lamesa"  selected="lamesa")  La Mesa   
+							option(value="lapalma"  selected="lapalma")  La Palma   
+							option(value="lapeña"  selected="lapeña")  La Peña   
+							option(value="lavega"  selected="lavega")  La Vega   
+							option(value="lenguazaque"  selected="lenguazaque")  Lenguazaque    
+							option(value="macheta"  selected="macheta")  Macheta    
+							option(value="madrid"  selected="madrid")  Madrid    
+							option(value="manta"  selected="manta")  Manta    
+							option(value="medina"  selected="medina")  Medina    
+							option(value="mosquera"  selected="mosquera")  Mosquera    
+							option(value="nariño"  selected="nariño")  Nariño    
+							option(value="nemocon"  selected="nemocon")  Nemocon    
+							option(value="nilo"  selected="nilo")  Nilo    
+							option(value="nimaima"  selected="nimaima")  Nimaima    
+							option(value="nocaima"  selected="nocaima")  Nocaima    
+							option(value="pacho"  selected="pacho")  Pacho    
+							option(value="paime"  selected="paime")  Paime    
+							option(value="pandi"  selected="pandi")  Pandi    
+							option(value="paratebueno"  selected="paratebueno")  Paratebueno    
+							option(value="pasca"  selected="pasca")  Pasca    
+							option(value="puertosalgar"  selected="puertosalgar")  Puerto Salgar   
+							option(value="puli"  selected="puli")  Puli    
+							option(value="quebradanegra"  selected="quebradanegra")  Quebradanegra    
+							option(value="quetame"  selected="quetame")  Quetame    
+							option(value="quipile"  selected="quipile")  Quipile    
+							option(value="ricaurte"  selected="ricaurte")  Ricaurte    
+							option(value="sanantoniodeltequendama"  selected="sanantoniodeltequendama")  San Antonio del Tequendama 
+							option(value="sanbernardo"  selected="sanbernardo")  San Bernardo   
+							option(value="sancayetano"  selected="sancayetano")  San Cayetano   
+							option(value="sanfrancisco"  selected="sanfrancisco")  San Francisco   
+							option(value="sanjuanderioseco"  selected="sanjuanderioseco")  San Juan de Rioseco 
+							option(value="sasaima"  selected="sasaima")  Sasaima    
+							option(value="sesquile"  selected="sesquile")  Sesquile    
+							option(value="sibate"  selected="sibate")  Sibate    
+							option(value="silvania"  selected="silvania")  Silvania    
+							option(value="simijaca"  selected="simijaca")  Simijaca    
+							option(value="sisga"  selected="sisga")  Sisga    
+							option(value="soacha"  selected="soacha")  Soacha    
+							option(value="sopo"  selected="sopo")  Sopo    
+							option(value="subachoque"  selected="subachoque")  Subachoque    
+							option(value="suesca"  selected="suesca")  Suesca    
+							option(value="supata"  selected="supata")  Supata    
+							option(value="susa"  selected="susa")  Susa    
+							option(value="sutatausa"  selected="sutatausa")  Sutatausa    
+							option(value="tabio"  selected="tabio")  Tabio    
+							option(value="tausa"  selected="tausa")  Tausa    
+							option(value="tena"  selected="tena")  Tena    
+							option(value="tenjo"  selected="tenjo")  Tenjo    
+							option(value="tibacuy"  selected="tibacuy")  Tibacuy    
+							option(value="tibirita"  selected="tibirita")  Tibirita    
+							option(value="tocaima"  selected="tocaima")  Tocaima    
+							option(value="tocancipa"  selected="tocancipa")  Tocancipa    
+							option(value="topaipi"  selected="topaipi")  Topaipi    
+							option(value="ubala"  selected="ubala")  Ubala    
+							option(value="ubaque"  selected="ubaque")  Ubaque    
+							option(value="ubate"  selected="ubate")  Ubate    
+							option(value="une"  selected="une")  Une    
+							option(value="utica"  selected="utica")  Utica    
+							option(value="venecia-ospinaperez"  selected="venecia-ospinaperez")  Venecia - Ospina Perez 
+							option(value="vergara"  selected="vergara")  Vergara    
+							option(value="viani"  selected="viani")  Viani    
+							option(value="villagomez"  selected="villagomez")  Villagomez    
+							option(value="villapinzon"  selected="villapinzon")  Villapinzon    
+							option(value="villeta"  selected="villeta")  Villeta    
+							option(value="viota"  selected="viota")  Viota    
+							option(value="yacopi"  selected="yacopi")  Yacopi    
+							option(value="zipacon"  selected="zipacon")  Zipacon    
+							option(value="zipaquira"  selected="zipaquira")  Zipaquira    
+							option(value="capellania"  selected="capellania")  Capellania    
+							option(value="lapunta"  selected="lapunta")  La Punta   
+							option(value="santandercito"  selected="santandercito")  Santandercito    
+							option(value="tobia"  selected="tobia")  Tobia    
+							option(value="siberia"  selected="siberia")  Siberia   
+							option(value=""  selected="") --Bogota--  
+							option(value="bosa"  selected="bosa")  Bosa    
+							option(value="engativa"  selected="engativa")  Engativa    
+							option(value="fontibon"  selected="fontibon")  Fontibon    
+							option(value="sisga"  selected="sisga")  Sisga    
+							option(value="suba"  selected="suba")  Suba    
+							option(value="usaquen"  selected="usaquen")  Usaquen    
+							option(value="usme"  selected="usme")  Usme  
+				div(style="display:none;")
+							option(value="elencanto"  selected="elencanto")  El Encanto   
+							option(value="lachorrera"  selected="lachorrera")  La Chorrera   
+							option(value="lapedrera"  selected="lapedrera")  La Pedrera   
+							option(value="leticia"  selected="leticia")  Leticia    
+							option(value="miriti-parana"  selected="miriti-parana")  Miriti-Parana    
+							option(value="puertonariño"  selected="puertonariño")  Puerto Nariño   
+							option(value="puertosantander"  selected="puertosantander")  Puerto Santander   
+							option(value="tarapaca"  selected="tarapaca")  Tarapaca    
+							option(value="amazonas"  selected="amazonas")  Amazonas    
+							option(value="laciudaddecaro"  selected="laciudaddecaro")  la ciudad de caro
+							option(value="abejorral"  selected="abejorral")  Abejorral    
+							option(value="abriaqui"  selected="abriaqui")  Abriaqui    
+							option(value="alejandria"  selected="alejandria")  Alejandria    
+							option(value="amaga"  selected="amaga")  Amaga    
+							option(value="amalfi"  selected="amalfi")  Amalfi    
+							option(value="andes"  selected="andes")  Andes    
+							option(value="angelopolis"  selected="angelopolis")  Angelopolis    
+							option(value="angostura"  selected="angostura")  Angostura    
+							option(value="anori"  selected="anori")  Anori    
+							option(value="antioquia"  selected="antioquia")  Antioquia    
+							option(value="anza"  selected="anza")  Anza    
+							option(value="apartado"  selected="apartado")  Apartado    
+							option(value="arboletes"  selected="arboletes")  Arboletes    
+							option(value="arboretes"  selected="arboretes")  Arboretes    
+							option(value="argelia"  selected="argelia")  Argelia    
+							option(value="armenia"  selected="armenia")  Armenia    
+							option(value="barbosa"  selected="barbosa")  Barbosa    
+							option(value="belendebajira"  selected="belendebajira")  Belen de Bajira  
+							option(value="bello"  selected="bello")  Bello    
+							option(value="belmira"  selected="belmira")  Belmira    
+							option(value="betania"  selected="betania")  Betania    
+							option(value="betulia"  selected="betulia")  Betulia    
+							option(value="bolombolo"  selected="bolombolo")  Bolombolo    
+							option(value="briceño"  selected="briceño")  Briceño    
+							option(value="buritica"  selected="buritica")  Buritica    
+							option(value="caceres"  selected="caceres")  Caceres    
+							option(value="caicedo"  selected="caicedo")  Caicedo    
+							option(value="caldas"  selected="caldas")  Caldas    
+							option(value="campamento"  selected="campamento")  Campamento    
+							option(value="cañasgordas"  selected="cañasgordas")  Cañasgordas    
+							option(value="capurgana"  selected="capurgana")  Capurgana    
+							option(value="caracoli"  selected="caracoli")  Caracoli    
+							option(value="caramanta"  selected="caramanta")  Caramanta    
+							option(value="carepa"  selected="carepa")  Carepa    
+							option(value="carolina"  selected="carolina")  Carolina    
+							option(value="caucasia"  selected="caucasia")  Caucasia    
+							option(value="cestilla"  selected="cestilla")  Cestilla    
+							option(value="chigorodo"  selected="chigorodo")  Chigorodo    
+							option(value="cisneros"  selected="cisneros")  Cisneros    
+							option(value="ciudadbolivar"  selected="ciudadbolivar")  Ciudad Bolivar   
+							option(value="cocorna"  selected="cocorna")  Cocorna    
+							option(value="concepcion"  selected="concepcion")  Concepcion    
+							option(value="concordia"  selected="concordia")  Concordia    
+							option(value="copacabana"  selected="copacabana")  Copacabana    
+							option(value="currulao"  selected="currulao")  Currulao    
+							option(value="dabeiba"  selected="dabeiba")  Dabeiba    
+							option(value="donmatias"  selected="donmatias")  Don Matias   
+							option(value="doradal"  selected="doradal")  Doradal    
+							option(value="ebejico"  selected="ebejico")  Ebejico    
+							option(value="elbagre"  selected="elbagre")  El Bagre   
+							option(value="elcarmendeviboral"  selected="elcarmendeviboral")  El Carmen de Viboral 
+							option(value="elpeñol"  selected="elpeñol")  El Peñol   
+							option(value="elretiro"  selected="elretiro")  El Retiro   
+							option(value="elsantuario"  selected="elsantuario")  El Santuario   
+							option(value="entrerrios"  selected="entrerrios")  Entrerrios    
+							option(value="envigado"  selected="envigado")  Envigado    
+							option(value="fredonia"  selected="fredonia")  Fredonia    
+							option(value="frontino"  selected="frontino")  Frontino    
+							option(value="giraldo"  selected="giraldo")  Giraldo    
+							option(value="girardota"  selected="girardota")  Girardota    
+							option(value="gomezplata"  selected="gomezplata")  Gomez Plata   
+							option(value="granada"  selected="granada")  Granada    
+							option(value="guadalupe"  selected="guadalupe")  Guadalupe    
+							option(value="guarne"  selected="guarne")  Guarne    
+							option(value="guatape"  selected="guatape")  Guatape    
+							option(value="heliconia"  selected="heliconia")  Heliconia    
+							option(value="hispania"  selected="hispania")  Hispania    
+							option(value="hoyorrico"  selected="hoyorrico")  Hoyorrico    
+							option(value="itagui"  selected="itagui")  Itagui    
+							option(value="ituango"  selected="ituango")  Ituango    
+							option(value="jardin"  selected="jardin")  Jardin    
+							option(value="jerico"  selected="jerico")  Jerico    
+							option(value="laceja"  selected="laceja")  La Ceja   
+							option(value="laestrella"  selected="laestrella")  La Estrella   
+							option(value="lafe"  selected="lafe")  La Fe   
+							option(value="lapintada"  selected="lapintada")  La Pintada   
+							option(value="lasierra"  selected="lasierra")  La Sierra   
+							option(value="launion"  selected="launion")  La Union   
+							option(value="liborina"  selected="liborina")  Liborina    
+							option(value="llanadas"  selected="llanadas")  Llanadas    
+							option(value="maceo"  selected="maceo")  Maceo    
+							option(value="marinilla"  selected="marinilla")  Marinilla    
+							option(value="medellin"  selected="medellin")  Medellin    
+							option(value="montebello"  selected="montebello")  Montebello    
+							option(value="murindo"  selected="murindo")  Murindo    
+							option(value="mutata"  selected="mutata")  Mutata    
+							option(value="nariño"  selected="nariño")  Nariño    
+							option(value="nechi"  selected="nechi")  Nechi    
+							option(value="necocli"  selected="necocli")  Necocli    
+							option(value="nuevacolonia"  selected="nuevacolonia")  Nueva Colonia   
+							option(value="nutibara"  selected="nutibara")  Nutibara    
+							option(value="olaya"  selected="olaya")  Olaya    
+							option(value="palermo"  selected="palermo")  Palermo    
+							option(value="peque"  selected="peque")  Peque    
+							option(value="pueblorico"  selected="pueblorico")  Pueblo Rico   
+							option(value="puertoberrio"  selected="puertoberrio")  Puerto Berrio   
+							option(value="puertoclaver"  selected="puertoclaver")  Puerto Claver   
+							option(value="puertonare"  selected="puertonare")  Puerto Nare   
+							option(value="puertoperales"  selected="puertoperales")  Puerto perales   
+							option(value="puertotriunfo"  selected="puertotriunfo")  Puerto Triunfo   
+							option(value="remedios"  selected="remedios")  Remedios    
+							option(value="rionegro"  selected="rionegro")  Rionegro    
+							option(value="sabanalarga"  selected="sabanalarga")  Sabanalarga    
+							option(value="sabaneta"  selected="sabaneta")  Sabaneta    
+							option(value="salgar"  selected="salgar")  Salgar    
+							option(value="sanandresdecuerquia"  selected="sanandresdecuerquia")  San Andres de Cuerquia 
+							option(value="sancarlos"  selected="sancarlos")  San Carlos   
+							option(value="sanfrancisco"  selected="sanfrancisco")  San Francisco   
+							option(value="sanjeronimo"  selected="sanjeronimo")  San Jeronimo   
+							option(value="sanjosedelamontaña"  selected="sanjosedelamontaña")  San Jose de la Montaña
+							option(value="sanjosedelnus"  selected="sanjosedelnus")  San Jose del Nus 
+							option(value="sanjuandeuraba"  selected="sanjuandeuraba")  San Juan de Uraba 
+							option(value="sanluis"  selected="sanluis")  San Luis   
+							option(value="sanpedrodelosmilagros"  selected="sanpedrodelosmilagros")  San Pedro de los Milagros
+							option(value="sanpedrodeuraba"  selected="sanpedrodeuraba")  San Pedro de Uraba 
+							option(value="sanrafael"  selected="sanrafael")  San Rafael   
+							option(value="sanroque"  selected="sanroque")  San Roque   
+							option(value="sanvicente"  selected="sanvicente")  San Vicente   
+							option(value="santabarbara"  selected="santabarbara")  Santa Barbara   
+							option(value="santarosadeosos"  selected="santarosadeosos")  Santa Rosa de Osos 
+							option(value="santafedeantioquia"  selected="santafedeantioquia")  Santa Fe de Antioquia 
+							option(value="santodomingo"  selected="santodomingo")  Santo Domingo   
+							option(value="segovia"  selected="segovia")  Segovia    
+							option(value="sevilla"  selected="sevilla")  Sevilla    
+							option(value="sonson"  selected="sonson")  Sonson    
+							option(value="sopetran"  selected="sopetran")  Sopetran    
+							option(value="sucre"  selected="sucre")  Sucre    
+							option(value="tamesis"  selected="tamesis")  Tamesis    
+							option(value="taparto"  selected="taparto")  Taparto    
+							option(value="taraza"  selected="taraza")  Taraza    
+							option(value="tarso"  selected="tarso")  Tarso    
+							option(value="titiribi"  selected="titiribi")  Titiribi    
+							option(value="toledo"  selected="toledo")  Toledo    
+							option(value="turbo"  selected="turbo")  Turbo    
+							option(value="uramita"  selected="uramita")  Uramita    
+							option(value="urrao"  selected="urrao")  Urrao    
+							option(value="valdivia"  selected="valdivia")  Valdivia    
+							option(value="valparaiso"  selected="valparaiso")  Valparaiso    
+							option(value="vegachi"  selected="vegachi")  Vegachi    
+							option(value="venecia"  selected="venecia")  Venecia    
+							option(value="versalles"  selected="versalles")  Versalles    
+							option(value="vigiadelfuerte"  selected="vigiadelfuerte")  Vigia del Fuerte  
+							option(value="yali"  selected="yali")  Yali    
+							option(value="yarumal"  selected="yarumal")  Yarumal    
+							option(value="yolombo"  selected="yolombo")  Yolombo    
+							option(value="yondo"  selected="yondo")  Yondo    
+							option(value="zaragoza"  selected="zaragoza")  Zaragoza    
+							option(value="altamira"  selected="altamira")  Altamira    
+							option(value="lacruzada"  selected="lacruzada")  La Cruzada   
+							option(value="puertovaldivia"  selected="puertovaldivia")  Puerto Valdivia   
+							option(value="pueblorrico"  selected="pueblorrico")  Pueblorrico   
+							option(value="arauquita"  selected="arauquita")  Arauquita    
+							option(value="cravonorte"  selected="cravonorte")  Cravo Norte   
+							option(value="fortul"  selected="fortul")  Fortul    
+							option(value="puertonariño"  selected="puertonariño")  Puerto Nariño   
+							option(value="puertorondon"  selected="puertorondon")  Puerto Rondon   
+							option(value="saravena"  selected="saravena")  Saravena    
+							option(value="tame"  selected="tame")  Tame   
+							option(value="baranoa"  selected="baranoa")  Baranoa    
+							option(value="barranquilla"  selected="barranquilla")  Barranquilla    
+							option(value="campodelacruz"  selected="campodelacruz")  Campo de la Cruz 
+							option(value="candelaria"  selected="candelaria")  Candelaria    
+							option(value="galapa"  selected="galapa")  Galapa    
+							option(value="juandeacosta"  selected="juandeacosta")  Juan de Acosta  
+							option(value="luruaco"  selected="luruaco")  Luruaco    
+							option(value="malambo"  selected="malambo")  Malambo    
+							option(value="manati"  selected="manati")  Manati    
+							option(value="palmardevarela"  selected="palmardevarela")  Palmar de Varela  
+							option(value="piojo"  selected="piojo")  Piojo    
+							option(value="polonuevo"  selected="polonuevo")  Polonuevo    
+							option(value="ponedera"  selected="ponedera")  Ponedera    
+							option(value="puertocolombia"  selected="puertocolombia")  Puerto Colombia   
+							option(value="repelon"  selected="repelon")  Repelon    
+							option(value="sabanagrande"  selected="sabanagrande")  Sabanagrande    
+							option(value="sabanalarga"  selected="sabanalarga")  Sabanalarga    
+							option(value="santalucia"  selected="santalucia")  Santa Lucia   
+							option(value="santotomas"  selected="santotomas")  Santo Tomas   
+							option(value="soledad"  selected="soledad")  Soledad    
+							option(value="suan"  selected="suan")  Suan    
+							option(value="tubara"  selected="tubara")  Tubara    
+							option(value="usiacuri"  selected="usiacuri")  Usiacuri    
+							option(value="juanmina"  selected="juanmina")  Juan Mina   
+							option(value="laloma"  selected="laloma")  La Loma   
+							option(value="lajaguadeibirico"  selected="lajaguadeibirico")  La Jagua de Ibirico   
+							option(value="achi"  selected="achi")  Achi    
+							option(value="altosdelrosario"  selected="altosdelrosario")  Altos del Rosario  
+							option(value="arenaldelsur"  selected="arenaldelsur")  Arenal del Sur  
+							option(value="arjona"  selected="arjona")  Arjona    
+							option(value="arroyohondo"  selected="arroyohondo")  Arroyo Hondo   
+							option(value="barrancodeloba"  selected="barrancodeloba")  Barranco de Loba  
+							option(value="bayunca"  selected="bayunca")  Bayunca    
+							option(value="calamar"  selected="calamar")  Calamar    
+							option(value="cantagallo"  selected="cantagallo")  Cantagallo    
+							option(value="cartagena"  selected="cartagena")  Cartagena    
+							option(value="cicuco"  selected="cicuco")  Cicuco    
+							option(value="clemencia"  selected="clemencia")  Clemencia    
+							option(value="cordoba"  selected="cordoba")  Cordoba    
+							option(value="elcarmendebolivar"  selected="elcarmendebolivar")  El Carmen de Bolivar 
+							option(value="elguamo"  selected="elguamo")  El Guamo   
+							option(value="elpeñon"  selected="elpeñon")  El Peñon   
+							option(value="hatillodeloba"  selected="hatillodeloba")  Hatillo de Loba  
+							option(value="magangue"  selected="magangue")  Magangue    
+							option(value="mahates"  selected="mahates")  Mahates    
+							option(value="malagana"  selected="malagana")  Malagana    
+							option(value="margarita"  selected="margarita")  Margarita    
+							option(value="marialabaja"  selected="marialabaja")  Maria La Baja  
+							option(value="mompos"  selected="mompos")  Mompos    
+							option(value="montecristo"  selected="montecristo")  Montecristo    
+							option(value="morales"  selected="morales")  Morales    
+							option(value="pinillos"  selected="pinillos")  Pinillos    
+							option(value="regidor"  selected="regidor")  Regidor    
+							option(value="rioviejo"  selected="rioviejo")  Rioviejo    
+							option(value="sancayetano"  selected="sancayetano")  San Cayetano   
+							option(value="sancristobal"  selected="sancristobal")  San Cristobal   
+							option(value="sanestanislao"  selected="sanestanislao")  San Estanislao   
+							option(value="sanfernando"  selected="sanfernando")  San Fernando   
+							option(value="sanjacinto"  selected="sanjacinto")  San Jacinto   
+							option(value="sanjuannepomuceno"  selected="sanjuannepomuceno")  San Juan Nepomuceno  
+							option(value="sanmartindeloba"  selected="sanmartindeloba")  San Martin de Loba 
+							option(value="sanpablo"  selected="sanpablo")  San Pablo   
+							option(value="santacatalina"  selected="santacatalina")  Santa Catalina   
+							option(value="santarosa"  selected="santarosa")  Santa Rosa   
+							option(value="santarosadelima"  selected="santarosadelima")  Santa Rosa de Lima 
+							option(value="santarosadelsur"  selected="santarosadelsur")  Santa Rosa del Sur 
+							option(value="simiti"  selected="simiti")  Simiti    
+							option(value="sincerin"  selected="sincerin")  Sincerin    
+							option(value="soplaviento"  selected="soplaviento")  Soplaviento    
+							option(value="talaiguanuevo"  selected="talaiguanuevo")  Talaigua Nuevo   
+							option(value="tiquisio"  selected="tiquisio")  Tiquisio    
+							option(value="turbaco"  selected="turbaco")  Turbaco    
+							option(value="turbana"  selected="turbana")  Turbana    
+							option(value="villanueva"  selected="villanueva")  Villanueva    
+							option(value="zambrano"  selected="zambrano")  Zambrano
+							option(value="almeida"  selected="almeida")  Almeida    
+							option(value="aquitania"  selected="aquitania")  Aquitania    
+							option(value="arcabuco"  selected="arcabuco")  Arcabuco    
+							option(value="belen"  selected="belen")  Belen    
+							option(value="belencito"  selected="belencito")  Belencito    
+							option(value="berbeo"  selected="berbeo")  Berbeo    
+							option(value="beteitiva"  selected="beteitiva")  Beteitiva    
+							option(value="boavita"  selected="boavita")  Boavita    
+							option(value="boyaca"  selected="boyaca")  Boyaca    
+							option(value="briceño"  selected="briceño")  Briceño    
+							option(value="buenavista"  selected="buenavista")  Buenavista    
+							option(value="busbanza"  selected="busbanza")  Busbanza    
+							option(value="caldas"  selected="caldas")  Caldas    
+							option(value="campohermoso"  selected="campohermoso")  Campohermoso    
+							option(value="cerinza"  selected="cerinza")  Cerinza    
+							option(value="chinavita"  selected="chinavita")  Chinavita    
+							option(value="chiquinquira"  selected="chiquinquira")  Chiquinquira    
+							option(value="chiquiza"  selected="chiquiza")  Chiquiza    
+							option(value="chiscas"  selected="chiscas")  Chiscas    
+							option(value="chita"  selected="chita")  Chita    
+							option(value="chitaraque"  selected="chitaraque")  Chitaraque    
+							option(value="chivata"  selected="chivata")  Chivata    
+							option(value="chivor"  selected="chivor")  Chivor    
+							option(value="cienaga"  selected="cienaga")  Cienaga    
+							option(value="combita"  selected="combita")  Combita    
+							option(value="coper"  selected="coper")  Coper    
+							option(value="corrales"  selected="corrales")  Corrales    
+							option(value="covarachia"  selected="covarachia")  Covarachia    
+							option(value="cubara"  selected="cubara")  Cubara    
+							option(value="cucaita"  selected="cucaita")  Cucaita    
+							option(value="cuitiva"  selected="cuitiva")  Cuitiva    
+							option(value="duitama"  selected="duitama")  Duitama    
+							option(value="elcocuy"  selected="elcocuy")  El Cocuy   
+							option(value="elespino"  selected="elespino")  El Espino   
+							option(value="firavitoba"  selected="firavitoba")  Firavitoba    
+							option(value="floresta"  selected="floresta")  Floresta    
+							option(value="gachantiva"  selected="gachantiva")  Gachantiva    
+							option(value="gameza"  selected="gameza")  Gameza    
+							option(value="garagoa"  selected="garagoa")  Garagoa    
+							option(value="guacamayas"  selected="guacamayas")  Guacamayas    
+							option(value="guateque"  selected="guateque")  Guateque    
+							option(value="guayata"  selected="guayata")  Guayata    
+							option(value="guican"  selected="guican")  Guican    
+							option(value="iza"  selected="iza")  Iza    
+							option(value="jenesano"  selected="jenesano")  Jenesano    
+							option(value="jerico"  selected="jerico")  Jerico    
+							option(value="lacapilla"  selected="lacapilla")  La Capilla   
+							option(value="lauvita"  selected="lauvita")  La Uvita   
+							option(value="lavictoria"  selected="lavictoria")  La Victoria   
+							option(value="labranzagrande"  selected="labranzagrande")  Labranzagrande    
+							option(value="lagunadetota"  selected="lagunadetota")  Laguna de Tota  
+							option(value="macanal"  selected="macanal")  Macanal    
+							option(value="maguncia"  selected="maguncia")  Maguncia    
+							option(value="maripi"  selected="maripi")  Maripi    
+							option(value="miraflores"  selected="miraflores")  Miraflores    
+							option(value="mongua"  selected="mongua")  Mongua    
+							option(value="mongui"  selected="mongui")  Mongui    
+							option(value="moniquira"  selected="moniquira")  Moniquira    
+							option(value="motavita"  selected="motavita")  Motavita    
+							option(value="muzo"  selected="muzo")  Muzo    
+							option(value="nobsa"  selected="nobsa")  Nobsa    
+							option(value="nuevocolon"  selected="nuevocolon")  Nuevo Colon   
+							option(value="oicata"  selected="oicata")  Oicata    
+							option(value="otanche"  selected="otanche")  Otanche    
+							option(value="pachavita"  selected="pachavita")  Pachavita    
+							option(value="paez"  selected="paez")  Paez    
+							option(value="paipa"  selected="paipa")  Paipa    
+							option(value="pajarito"  selected="pajarito")  Pajarito    
+							option(value="panqueba"  selected="panqueba")  Panqueba    
+							option(value="pauna"  selected="pauna")  Pauna    
+							option(value="paya"  selected="paya")  Paya    
+							option(value="pazdelrio"  selected="pazdelrio")  Paz del Rio  
+							option(value="pesca"  selected="pesca")  Pesca    
+							option(value="pisba"  selected="pisba")  Pisba    
+							option(value="puertoboyaca"  selected="puertoboyaca")  Puerto Boyaca   
+							option(value="quipama"  selected="quipama")  Quipama    
+							option(value="ramiriqui"  selected="ramiriqui")  Ramiriqui    
+							option(value="raquira"  selected="raquira")  Raquira    
+							option(value="rondon"  selected="rondon")  Rondon    
+							option(value="saboya"  selected="saboya")  Saboya    
+							option(value="sachica"  selected="sachica")  Sachica    
+							option(value="samaca"  selected="samaca")  Samaca    
+							option(value="saneduardo"  selected="saneduardo")  San Eduardo   
+							option(value="sanjosedepare"  selected="sanjosedepare")  San Jose de Pare 
+							option(value="sanluisdegaceno"  selected="sanluisdegaceno")  San Luis de Gaceno 
+							option(value="sanmateo"  selected="sanmateo")  San Mateo   
+							option(value="sanmigueldesema"  selected="sanmigueldesema")  San Miguel de Sema 
+							option(value="sanpablodeborbur"  selected="sanpablodeborbur")  San Pablo de Borbur 
+							option(value="santamaria"  selected="santamaria")  Santa Maria   
+							option(value="santarosadeviterbo"  selected="santarosadeviterbo")  Santa Rosa de Viterbo 
+							option(value="santasofia"  selected="santasofia")  Santa Sofia   
+							option(value="santana"  selected="santana")  Santana    
+							option(value="sativanorte"  selected="sativanorte")  Sativanorte    
+							option(value="sativasur"  selected="sativasur")  Sativasur    
+							option(value="siachoque"  selected="siachoque")  Siachoque    
+							option(value="soata"  selected="soata")  Soata    
+							option(value="socha"  selected="socha")  Socha    
+							option(value="socota"  selected="socota")  Socota    
+							option(value="sogamoso"  selected="sogamoso")  Sogamoso    
+							option(value="somondoco"  selected="somondoco")  Somondoco    
+							option(value="sora"  selected="sora")  Sora    
+							option(value="soraca"  selected="soraca")  Soraca    
+							option(value="sotaquira"  selected="sotaquira")  Sotaquira    
+							option(value="susacon"  selected="susacon")  Susacon    
+							option(value="suson"  selected="suson")  Suson    
+							option(value="sutamarchan"  selected="sutamarchan")  Sutamarchan    
+							option(value="sutatenza"  selected="sutatenza")  Sutatenza    
+							option(value="tasco"  selected="tasco")  Tasco    
+							option(value="tenza"  selected="tenza")  Tenza    
+							option(value="tibana"  selected="tibana")  Tibana    
+							option(value="tibasosa"  selected="tibasosa")  Tibasosa    
+							option(value="tinjaca"  selected="tinjaca")  Tinjaca    
+							option(value="tipacoque"  selected="tipacoque")  Tipacoque    
+							option(value="toca"  selected="toca")  Toca    
+							option(value="togui"  selected="togui")  Togui    
+							option(value="topaga"  selected="topaga")  Topaga    
+							option(value="tota"  selected="tota")  Tota    
+							option(value="tunja"  selected="tunja")  Tunja    
+							option(value="tunungua"  selected="tunungua")  Tunungua    
+							option(value="turmeque"  selected="turmeque")  Turmeque    
+							option(value="tuta"  selected="tuta")  Tuta    
+							option(value="tutasa"  selected="tutasa")  Tutasa    
+							option(value="umbita"  selected="umbita")  Umbita    
+							option(value="ventaquemada"  selected="ventaquemada")  Ventaquemada    
+							option(value="villadeleyva"  selected="villadeleyva")  Villa de Leyva  
+							option(value="viracacha"  selected="viracacha")  Viracacha    
+							option(value="zetaquira"  selected="zetaquira")  Zetaquira
+							option(value="aguadas"  selected="aguadas")  Aguadas    
+							option(value="anserma"  selected="anserma")  Anserma    
+							option(value="aranzazu"  selected="aranzazu")  Aranzazu    
+							option(value="belalcazar"  selected="belalcazar")  Belalcazar    
+							option(value="chinchina"  selected="chinchina")  Chinchina    
+							option(value="filadelfia"  selected="filadelfia")  Filadelfia    
+							option(value="ladorada"  selected="ladorada")  La Dorada   
+							option(value="lamerced"  selected="lamerced")  La Merced   
+							option(value="manizales"  selected="manizales")  Manizales    
+							option(value="manzanares"  selected="manzanares")  Manzanares    
+							option(value="marmato"  selected="marmato")  Marmato    
+							option(value="marquetalia"  selected="marquetalia")  Marquetalia    
+							option(value="marulanda"  selected="marulanda")  Marulanda    
+							option(value="neira"  selected="neira")  Neira    
+							option(value="norcasia"  selected="norcasia")  Norcasia    
+							option(value="pacora"  selected="pacora")  Pacora    
+							option(value="palestina"  selected="palestina")  Palestina    
+							option(value="pensilvania"  selected="pensilvania")  Pensilvania    
+							option(value="riosucio"  selected="riosucio")  Riosucio    
+							option(value="risaralda"  selected="risaralda")  Risaralda    
+							option(value="salamina"  selected="salamina")  Salamina    
+							option(value="samana"  selected="samana")  Samana    
+							option(value="sanjose"  selected="sanjose")  San Jose   
+							option(value="supia"  selected="supia")  Supia    
+							option(value="victoria"  selected="victoria")  Victoria    
+							option(value="villamaria"  selected="villamaria")  Villamaria    
+							option(value="viterbo"  selected="viterbo")  Viterbo
+							option(value="albania"  selected="albania")  Albania    
+							option(value="belendelosandaquies"  selected="belendelosandaquies")  Belen de Los Andaquies 
+							option(value="cartagenadelchaira"  selected="cartagenadelchaira")  Cartagena del Chaira  
+							option(value="curillo"  selected="curillo")  Curillo    
+							option(value="eldoncello"  selected="eldoncello")  El Doncello   
+							option(value="elpaujil"  selected="elpaujil")  El Paujil   
+							option(value="florencia"  selected="florencia")  Florencia    
+							option(value="lamontañita"  selected="lamontañita")  La Montañita   
+							option(value="lasolita"  selected="lasolita")  La Solita   
+							option(value="larandia"  selected="larandia")  Larandia    
+							option(value="morelia"  selected="morelia")  Morelia    
+							option(value="puertomilan"  selected="puertomilan")  Puerto Milan   
+							option(value="puertorico"  selected="puertorico")  Puerto Rico   
+							option(value="puertosolano"  selected="puertosolano")  Puerto Solano   
+							option(value="rionegro"  selected="rionegro")  Rionegro    
+							option(value="sanantoniodegetucha"  selected="sanantoniodegetucha")  San Antonio de Getucha 
+							option(value="sanjosedelfragua"  selected="sanjosedelfragua")  San Jose del Fragua 
+							option(value="sanvicentedelcaguan"  selected="sanvicentedelcaguan")  San Vicente del Caguan 
+							option(value="tresesquinassolano"  selected="tresesquinassolano")  Tres Esquinas Solano  
+							option(value="unionpeneya"  selected="unionpeneya")  Union Peneya   
+							option(value="valparaiso"  selected="valparaiso")  Valparaiso    
+							option(value="venecia"  selected="venecia")  Venecia  
+							option(value="aguazul"  selected="aguazul")  Aguazul    
+							option(value="chameza"  selected="chameza")  Chameza    
+							option(value="hatocorozal"  selected="hatocorozal")  Hato Corozal   
+							option(value="lasalina"  selected="lasalina")  La Salina   
+							option(value="mani"  selected="mani")  Mani    
+							option(value="monterrey"  selected="monterrey")  Monterrey    
+							option(value="nunchia"  selected="nunchia")  Nunchia    
+							option(value="orocue"  selected="orocue")  Orocue    
+							option(value="pazdeariporo"  selected="pazdeariporo")  Paz de Ariporo  
+							option(value="pore"  selected="pore")  Pore    
+							option(value="recetor"  selected="recetor")  Recetor    
+							option(value="sabanalarga"  selected="sabanalarga")  Sabanalarga    
+							option(value="sacama"  selected="sacama")  Sacama    
+							option(value="sanluisdepalenque"  selected="sanluisdepalenque")  San Luis de Palenque 
+							option(value="tamara"  selected="tamara")  Tamara    
+							option(value="tauramena"  selected="tauramena")  Tauramena    
+							option(value="trinidad"  selected="trinidad")  Trinidad    
+							option(value="tumara"  selected="tumara")  Tumara    
+							option(value="villanueva"  selected="villanueva")  Villanueva    
+							option(value="yopal"  selected="yopal")  Yopal  
+							option(value="almaguer"  selected="almaguer")  Almaguer    
+							option(value="altamira"  selected="altamira")  ALTAMIRA    
+							option(value="argelia"  selected="argelia")  Argelia    
+							option(value="balboa"  selected="balboa")  Balboa    
+							option(value="belalcazar"  selected="belalcazar")  Belalcazar    
+							option(value="bolivar"  selected="bolivar")  Bolivar    
+							option(value="buenosaires"  selected="buenosaires")  Buenos Aires   
+							option(value="cajibio"  selected="cajibio")  Cajibio    
+							option(value="caldono"  selected="caldono")  Caldono    
+							option(value="caldoño"  selected="caldoño")  Caldoño    
+							option(value="caloto"  selected="caloto")  Caloto    
+							option(value="coconuco"  selected="coconuco")  Coconuco    
+							option(value="corinto"  selected="corinto")  Corinto    
+							option(value="cuatroesquinas"  selected="cuatroesquinas")  CUATRO ESQUINAS   
+							option(value="elbordo"  selected="elbordo")  El Bordo   
+							option(value="elcairo"  selected="elcairo")  EL CAIRO   
+							option(value="elcarmen"  selected="elcarmen")  El Carmen   
+							option(value="elhato"  selected="elhato")  EL HATO   
+							option(value="elmorro"  selected="elmorro")  El Morro   
+							option(value="elpalmar"  selected="elpalmar")  EL PALMAR   
+							option(value="elretiro"  selected="elretiro")  EL RETIRO   
+							option(value="elrosario"  selected="elrosario")  EL ROSARIO   
+							option(value="eltambo"  selected="eltambo")  El Tambo   
+							option(value="florencia"  selected="florencia")  Florencia    
+							option(value="guachene"  selected="guachene")  Guachene    
+							option(value="guapi"  selected="guapi")  Guapi    
+							option(value="inza"  selected="inza")  Inza    
+							option(value="jambalo"  selected="jambalo")  Jambalo    
+							option(value="lacarbonera"  selected="lacarbonera")  La Carbonera   
+							option(value="lachorrera"  selected="lachorrera")  LA CHORRERA   
+							option(value="laherradura"  selected="laherradura")  La Herradura   
+							option(value="lasierra"  selected="lasierra")  La Sierra   
+							option(value="lavega"  selected="lavega")  La Vega   
+							option(value="laventa"  selected="laventa")  LA VENTA   
+							option(value="lascruces"  selected="lascruces")  LAS CRUCES   
+							option(value="lopez"  selected="lopez")  Lopez    
+							option(value="lopezdemicay"  selected="lopezdemicay")  Lopez de Micay  
+							option(value="mercaderes"  selected="mercaderes")  Mercaderes    
+							option(value="miranda"  selected="miranda")  Miranda    
+							option(value="mondomo"  selected="mondomo")  Mondomo    
+							option(value="monterredondo"  selected="monterredondo")  MONTERREDONDO    
+							option(value="morales"  selected="morales")  Morales    
+							option(value="padilla"  selected="padilla")  Padilla    
+							option(value="paez"  selected="paez")  Paez    
+							option(value="paispamba"  selected="paispamba")  Paispamba    
+							option(value="parraga"  selected="parraga")  PARRAGA    
+							option(value="patia(elbordo)"  selected="patia(elbordo)")  Patia ( El Bordo) 
+							option(value="piagua"  selected="piagua")  PIAGUA    
+							option(value="piamonte"  selected="piamonte")  Piamonte    
+							option(value="piendamo"  selected="piendamo")  Piendamo    
+							option(value="popayan"  selected="popayan")  Popayan    
+							option(value="puertotejada"  selected="puertotejada")  Puerto Tejada   
+							option(value="purace"  selected="purace")  Purace    
+							option(value="quilicace"  selected="quilicace")  QUILICACE    
+							option(value="rioblanco"  selected="rioblanco")  RIOBLANCO    
+							option(value="rosas"  selected="rosas")  Rosas    
+							option(value="sanjoaquin"  selected="sanjoaquin")  San Joaquin   
+							option(value="sanmiguel"  selected="sanmiguel")  SAN MIGUEL   
+							option(value="sansebastian"  selected="sansebastian")  San Sebastian   
+							option(value="santarita"  selected="santarita")  SANTA RITA   
+							option(value="santarosa"  selected="santarosa")  Santa Rosa   
+							option(value="santarosabotacaucana"  selected="santarosabotacaucana")  SANTA ROSA BOTA CAUCANA 
+							option(value="santanderdequilichao"  selected="santanderdequilichao")  Santander de Quilichao  
+							option(value="siberia"  selected="siberia")  SIBERIA    
+							option(value="silvia"  selected="silvia")  Silvia    
+							option(value="sotara"  selected="sotara")  Sotara    
+							option(value="suarez"  selected="suarez")  Suarez    
+							option(value="timbio"  selected="timbio")  Timbio    
+							option(value="timbiqui"  selected="timbiqui")  Timbiqui    
+							option(value="toribio"  selected="toribio")  Toribio    
+							option(value="totoro"  selected="totoro")  Totoro    
+							option(value="tunia"  selected="tunia")  Tunia    
+							option(value="villarica"  selected="villarica")  Villarica    
+							option(value="zarzal"  selected="zarzal")  ZARZAL   
+							option(value="aguachica"  selected="aguachica")  Aguachica    
+							option(value="agustincodazzi"  selected="agustincodazzi")  Agustin Codazzi   
+							option(value="becerril"  selected="becerril")  Becerril    
+							option(value="bosconia"  selected="bosconia")  Bosconia    
+							option(value="chimichagua"  selected="chimichagua")  Chimichagua    
+							option(value="chiriguana"  selected="chiriguana")  Chiriguana    
+							option(value="curumani"  selected="curumani")  Curumani    
+							option(value="elcopey"  selected="elcopey")  El Copey   
+							option(value="elpaso"  selected="elpaso")  El Paso   
+							option(value="gamarra"  selected="gamarra")  Gamarra    
+							option(value="gonzalez"  selected="gonzalez")  Gonzalez    
+							option(value="lagloria"  selected="lagloria")  La Gloria   
+							option(value="lapaz"  selected="lapaz")  La Paz   
+							option(value="pailitas"  selected="pailitas")  Pailitas    
+							option(value="pelaya"  selected="pelaya")  Pelaya    
+							option(value="riodeoro"  selected="riodeoro")  Rio de Oro  
+							option(value="sanalberto"  selected="sanalberto")  San Alberto   
+							option(value="sandiego"  selected="sandiego")  San Diego   
+							option(value="sanmartin"  selected="sanmartin")  San Martin   
+							option(value="tamalameque"  selected="tamalameque")  Tamalameque    
+							option(value="valledupar"  selected="valledupar")  Valledupar    
+							option(value="pueblobello"  selected="pueblobello")  Pueblo Bello   
+							option(value="astrea"  selected="astrea")  Astrea    
+							option(value="manaurebalcondelcesar"  selected="manaurebalcondelcesar")  Manaure Balcon del Cesar   
+							option(value="acandi"  selected="acandi")  Acandi    
+							option(value="altobaudo"  selected="altobaudo")  Alto Baudo   
+							option(value="atrado"  selected="atrado")  Atrado    
+							option(value="bagado"  selected="bagado")  Bagado    
+							option(value="bahiasolano"  selected="bahiasolano")  Bahia Solano   
+							option(value="bajobaudo"  selected="bajobaudo")  Bajo Baudo   
+							option(value="bojaya"  selected="bojaya")  Bojaya    
+							option(value="carmendeatrato"  selected="carmendeatrato")  Carmen de Atrato  
+							option(value="choco"  selected="choco")  Choco    
+							option(value="condoto"  selected="condoto")  Condoto    
+							option(value="elcantondesanpablo"  selected="elcantondesanpablo")  El Canton de San Pablo
+							option(value="istmina"  selected="istmina")  Istmina    
+							option(value="jurado"  selected="jurado")  Jurado    
+							option(value="litoraldesanjuan"  selected="litoraldesanjuan")  Litoral de San Juan 
+							option(value="lloro"  selected="lloro")  Lloro    
+							option(value="noqui"  selected="noqui")  Noqui    
+							option(value="novita"  selected="novita")  Novita    
+							option(value="nuqui"  selected="nuqui")  Nuqui    
+							option(value="quibdo"  selected="quibdo")  Quibdo    
+							option(value="riosucio"  selected="riosucio")  Riosucio    
+							option(value="sanjosedelpalmar"  selected="sanjosedelpalmar")  San Jose del Palmar 
+							option(value="sipi"  selected="sipi")  Sipi    
+							option(value="tado"  selected="tado")  Tado    
+							option(value="unguia"  selected="unguia")  Unguia    
+							option(value="carmendeldarien"  selected="carmendeldarien")  Carmen del Darien  
+							option(value="pizarro"  selected="pizarro")  Pizarro   
+							option(value="ayapel"  selected="ayapel")  Ayapel    
+							option(value="buenavista"  selected="buenavista")  Buenavista    
+							option(value="canalete"  selected="canalete")  Canalete    
+							option(value="cerete"  selected="cerete")  Cerete    
+							option(value="chima"  selected="chima")  Chima    
+							option(value="chinu"  selected="chinu")  Chinu    
+							option(value="cienagadeoro"  selected="cienagadeoro")  Cienaga de Oro  
+							option(value="cotorra"  selected="cotorra")  Cotorra    
+							option(value="laapartada"  selected="laapartada")  La Apartada   
+							option(value="lorica"  selected="lorica")  Lorica    
+							option(value="loscordobas"  selected="loscordobas")  Los Cordobas   
+							option(value="momil"  selected="momil")  Momil    
+							option(value="monitos"  selected="monitos")  Monitos    
+							option(value="montelibano"  selected="montelibano")  Montelibano    
+							option(value="monteria"  selected="monteria")  Monteria    
+							option(value="planetarica"  selected="planetarica")  Planeta Rica   
+							option(value="pueblonuevo"  selected="pueblonuevo")  Pueblo Nuevo   
+							option(value="puertoescondido"  selected="puertoescondido")  Puerto Escondido   
+							option(value="puertolibertador"  selected="puertolibertador")  Puerto Libertador   
+							option(value="purisima"  selected="purisima")  Purisima    
+							option(value="sahagun"  selected="sahagun")  Sahagun    
+							option(value="sanandresdesotavento"  selected="sanandresdesotavento")  San Andres de Sotavento 
+							option(value="sanantero"  selected="sanantero")  San Antero   
+							option(value="sanbernardodelviento"  selected="sanbernardodelviento")  San Bernardo del Viento 
+							option(value="sancarlos"  selected="sancarlos")  San Carlos   
+							option(value="sanpelayo"  selected="sanpelayo")  San Pelayo   
+							option(value="tierralta"  selected="tierralta")  Tierralta    
+							option(value="valencia"  selected="valencia")  Valencia  
+							option(value="barrancas"  selected="barrancas")  Barrancas    
+							option(value="dibulia"  selected="dibulia")  Dibulia    
+							option(value="distraccion"  selected="distraccion")  Distraccion    
+							option(value="elmolino"  selected="elmolino")  El Molino   
+							option(value="fonseca"  selected="fonseca")  Fonseca    
+							option(value="hatonuevo"  selected="hatonuevo")  Hato Nuevo   
+							option(value="manaure"  selected="manaure")  Manaure    
+							option(value="riohacha"  selected="riohacha")  Riohacha    
+							option(value="sanjuandelcesar"  selected="sanjuandelcesar")  San Juan del Cesar 
+							option(value="uribia"  selected="uribia")  Uribia    
+							option(value="urumita"  selected="urumita")  Urumita    
+							option(value="maicao"  selected="maicao")  Maicao    
+							option(value="villanueva"  selected="villanueva")  Villanueva    
+							option(value="albania"  selected="albania")  Albania     
+							option(value="inirida"  selected="inirida")  Inirida    
+							option(value="guaviare"  selected="guaviare")  Guaviare    
+							option(value="puertoinirida"  selected="puertoinirida")  Puerto Inirida    
+							option(value="sanjosedelguaviare"  selected="sanjosedelguaviare")  San Jose Del Guaviare 
+							option(value="calamar"  selected="calamar")  Calamar    
+							option(value="elretorno"  selected="elretorno")  El Retorno   
+							option(value="miraflores"  selected="miraflores")  Miraflores    
+							option(value="morichal"  selected="morichal")  Morichal   
+							option(value="acevedo"  selected="acevedo")  Acevedo    
+							option(value="agrado"  selected="agrado")  Agrado    
+							option(value="aipe"  selected="aipe")  Aipe    
+							option(value="algeciras"  selected="algeciras")  Algeciras    
+							option(value="altamira"  selected="altamira")  Altamira    
+							option(value="baraya"  selected="baraya")  Baraya    
+							option(value="campoalegre"  selected="campoalegre")  Campoalegre    
+							option(value="ciudaddecolombia"  selected="ciudaddecolombia")  Ciudad de Colombia  
+							option(value="elias"  selected="elias")  Elias    
+							option(value="fortalecillas"  selected="fortalecillas")  Fortalecillas    
+							option(value="garzon"  selected="garzon")  Garzon    
+							option(value="gigante"  selected="gigante")  Gigante    
+							option(value="guadalupe"  selected="guadalupe")  Guadalupe    
+							option(value="hobo"  selected="hobo")  Hobo    
+							option(value="iquira"  selected="iquira")  Iquira    
+							option(value="isnos"  selected="isnos")  Isnos    
+							option(value="laargentina"  selected="laargentina")  La Argentina   
+							option(value="laplata"  selected="laplata")  La Plata   
+							option(value="nataga"  selected="nataga")  Nataga    
+							option(value="neiva"  selected="neiva")  Neiva    
+							option(value="oporapa"  selected="oporapa")  Oporapa    
+							option(value="paicol"  selected="paicol")  Paicol    
+							option(value="palermo"  selected="palermo")  Palermo    
+							option(value="palestina"  selected="palestina")  Palestina    
+							option(value="pital"  selected="pital")  Pital    
+							option(value="pitalito"  selected="pitalito")  Pitalito    
+							option(value="rivera"  selected="rivera")  Rivera    
+							option(value="saladoblanco"  selected="saladoblanco")  Saladoblanco    
+							option(value="sanagustin"  selected="sanagustin")  San Agustin   
+							option(value="santamaria"  selected="santamaria")  Santa Maria   
+							option(value="suaza"  selected="suaza")  Suaza    
+							option(value="tarqui"  selected="tarqui")  Tarqui    
+							option(value="tello"  selected="tello")  Tello    
+							option(value="teruel"  selected="teruel")  Teruel    
+							option(value="tesalia"  selected="tesalia")  Tesalia    
+							option(value="timana"  selected="timana")  Timana    
+							option(value="villavieja"  selected="villavieja")  Villavieja    
+							option(value="yaguara"  selected="yaguara")  Yaguara    
+							option(value="caguan"  selected="caguan")  Caguan    
+							option(value="juncal"  selected="juncal")  Juncal    
+							option(value="lajagua"  selected="lajagua")  La Jagua   
+							option(value="laulloa"  selected="laulloa")  La Ulloa   
+							option(value="maito"  selected="maito")  Maito    
+							option(value="pacarni"  selected="pacarni")  Pacarni    
+							option(value="santahelena"  selected="santahelena")  Santa Helena   
+							option(value="vegalarga"  selected="vegalarga")  Vegalarga    
+							option(value="zuluaga"  selected="zuluaga")  Zuluaga    
+							option(value="belen"  selected="belen")  Belen  
+							option(value="algarrobo"  selected="algarrobo")  Algarrobo    
+							option(value="aracataca"  selected="aracataca")  Aracataca    
+							option(value="ariguani"  selected="ariguani")  Ariguani    
+							option(value="cerrodesanantonio"  selected="cerrodesanantonio")  Cerro de San Antonio 
+							option(value="chivolo"  selected="chivolo")  Chivolo    
+							option(value="cienaga"  selected="cienaga")  Cienaga    
+							option(value="concordia"  selected="concordia")  Concordia    
+							option(value="elbanco"  selected="elbanco")  El Banco   
+							option(value="eldificil"  selected="eldificil")  El Dificil   
+							option(value="elpiñon"  selected="elpiñon")  El Piñon   
+							option(value="elreten"  selected="elreten")  El Reten   
+							option(value="fundacion"  selected="fundacion")  Fundacion    
+							option(value="guamal"  selected="guamal")  Guamal    
+							option(value="pedraza"  selected="pedraza")  Pedraza    
+							option(value="pijiñodelcarmen"  selected="pijiñodelcarmen")  Pijiño del Carmen  
+							option(value="pivijay"  selected="pivijay")  Pivijay    
+							option(value="plato"  selected="plato")  Plato    
+							option(value="puebloviejo"  selected="puebloviejo")  Puebloviejo    
+							option(value="remolino"  selected="remolino")  Remolino    
+							option(value="salamina"  selected="salamina")  Salamina    
+							option(value="sanangel"  selected="sanangel")  San Angel   
+							option(value="sansebastiandebuenavista"  selected="sansebastiandebuenavista")  San Sebastian de Buenavista 
+							option(value="sanzenon"  selected="sanzenon")  San Zenon   
+							option(value="santaana"  selected="santaana")  Santa Ana   
+							option(value="santamarta"  selected="santamarta")  Santa Marta   
+							option(value="sitionuevo"  selected="sitionuevo")  Sitionuevo    
+							option(value="tenerife"  selected="tenerife")  Tenerife    
+							option(value="zonabananera"  selected="zonabananera")  Zona Bananera 
+							option(value="acacias"  selected="acacias")  Acacias    
+							option(value="barrancadeupia"  selected="barrancadeupia")  Barranca de Upia  
+							option(value="cabuyaro"  selected="cabuyaro")  Cabuyaro    
+							option(value="castillalanueva"  selected="castillalanueva")  Castilla La Nueva  
+							option(value="cubarral"  selected="cubarral")  Cubarral    
+							option(value="cumaral"  selected="cumaral")  Cumaral    
+							option(value="elcalvario"  selected="elcalvario")  El Calvario   
+							option(value="elcastillo"  selected="elcastillo")  El Castillo   
+							option(value="eldorado"  selected="eldorado")  El Dorado   
+							option(value="fuentedeoro"  selected="fuentedeoro")  Fuente de Oro  
+							option(value="granada"  selected="granada")  Granada    
+							option(value="guamal"  selected="guamal")  Guamal    
+							option(value="lamacarena"  selected="lamacarena")  La Macarena   
+							option(value="lauribe"  selected="lauribe")  La Uribe   
+							option(value="lejanias"  selected="lejanias")  Lejanias    
+							option(value="mapiripan"  selected="mapiripan")  Mapiripan    
+							option(value="mesetas"  selected="mesetas")  Mesetas    
+							option(value="puertoconcordia"  selected="puertoconcordia")  Puerto Concordia   
+							option(value="puertogaitan"  selected="puertogaitan")  Puerto Gaitan   
+							option(value="puertolleras"  selected="puertolleras")  Puerto Lleras   
+							option(value="puertolopez"  selected="puertolopez")  Puerto Lopez   
+							option(value="puertorico"  selected="puertorico")  Puerto Rico   
+							option(value="restrepo"  selected="restrepo")  Restrepo    
+							option(value="sancarlosguaroa"  selected="sancarlosguaroa")  San Carlos Guaroa  
+							option(value="sanjuandearama"  selected="sanjuandearama")  San Juan de Arama 
+							option(value="sanjuanito"  selected="sanjuanito")  San Juanito   
+							option(value="sanmartin"  selected="sanmartin")  San Martin   
+							option(value="villavicencio"  selected="villavicencio")  Villavicencio    
+							option(value="vistahermosa"  selected="vistahermosa")  Vista Hermosa   
+							option(value="alban"  selected="alban")  Alban    
+							option(value="aldana"  selected="aldana")  Aldana    
+							option(value="ancuya"  selected="ancuya")  Ancuya    
+							option(value="arboleda"  selected="arboleda")  Arboleda    
+							option(value="barbacoas"  selected="barbacoas")  Barbacoas    
+							option(value="belen"  selected="belen")  Belen    
+							option(value="berruecos"  selected="berruecos")  Berruecos    
+							option(value="bombona"  selected="bombona")  Bombona    
+							option(value="buesaco"  selected="buesaco")  Buesaco    
+							option(value="catambuco"  selected="catambuco")  Catambuco    
+							option(value="chachagui"  selected="chachagui")  Chachagui    
+							option(value="chachaouit"  selected="chachaouit")  Chachaouit    
+							option(value="colon"  selected="colon")  Colon    
+							option(value="consaca"  selected="consaca")  Consaca    
+							option(value="contadero"  selected="contadero")  Contadero    
+							option(value="cordoba"  selected="cordoba")  Cordoba    
+							option(value="cuaspud"  selected="cuaspud")  Cuaspud    
+							option(value="cumbal"  selected="cumbal")  Cumbal    
+							option(value="cumbitara"  selected="cumbitara")  Cumbitara    
+							option(value="cumbitra"  selected="cumbitra")  Cumbitra    
+							option(value="elcharco"  selected="elcharco")  El Charco   
+							option(value="elchorrillo"  selected="elchorrillo")  El Chorrillo   
+							option(value="elpeñol"  selected="elpeñol")  El Peñol   
+							option(value="elremolino"  selected="elremolino")  El Remolino   
+							option(value="elrosario"  selected="elrosario")  El Rosario   
+							option(value="eltablon"  selected="eltablon")  El Tablon   
+							option(value="eltambo"  selected="eltambo")  El Tambo   
+							option(value="franciscopizarro"  selected="franciscopizarro")  Francisco Pizarro   
+							option(value="funes"  selected="funes")  Funes    
+							option(value="guachavez"  selected="guachavez")  Guachavez    
+							option(value="guachucal"  selected="guachucal")  Guachucal    
+							option(value="guaitarilla"  selected="guaitarilla")  Guaitarilla    
+							option(value="gualmatan"  selected="gualmatan")  Gualmatan    
+							option(value="guitarrilla"  selected="guitarrilla")  Guitarrilla    
+							option(value="iles"  selected="iles")  Iles    
+							option(value="imues"  selected="imues")  Imues    
+							option(value="ipiales"  selected="ipiales")  Ipiales    
+							option(value="josemariahernandez"  selected="josemariahernandez")  Jose Maria Hernandez  
+							option(value="lacruz"  selected="lacruz")  La Cruz   
+							option(value="laflorida"  selected="laflorida")  La Florida   
+							option(value="lallamada"  selected="lallamada")  La Llamada   
+							option(value="lallanada"  selected="lallanada")  La Llanada   
+							option(value="latola"  selected="latola")  La Tola   
+							option(value="launion"  selected="launion")  La Union   
+							option(value="leiva"  selected="leiva")  Leiva    
+							option(value="linares"  selected="linares")  Linares    
+							option(value="losandes"  selected="losandes")  Los Andes   
+							option(value="magui"  selected="magui")  Magui    
+							option(value="mallama"  selected="mallama")  Mallama    
+							option(value="mocoa"  selected="mocoa")  Mocoa    
+							option(value="mosquera"  selected="mosquera")  Mosquera    
+							option(value="olayaherrera"  selected="olayaherrera")  Olaya Herrera   
+							option(value="ospina"  selected="ospina")  Ospina    
+							option(value="pasto"  selected="pasto")  Pasto    
+							option(value="payam"  selected="payam")  Payam    
+							option(value="pilcuan"  selected="pilcuan")  Pilcuan    
+							option(value="policarpa"  selected="policarpa")  Policarpa    
+							option(value="potosi"  selected="potosi")  Potosi    
+							option(value="providencia"  selected="providencia")  Providencia    
+							option(value="provincia"  selected="provincia")  Provincia    
+							option(value="puerres"  selected="puerres")  Puerres    
+							option(value="pupiales"  selected="pupiales")  Pupiales    
+							option(value="ricaurte"  selected="ricaurte")  Ricaurte    
+							option(value="robertopayan"  selected="robertopayan")  Roberto Payan   
+							option(value="rosaflorida"  selected="rosaflorida")  Rosaflorida    
+							option(value="samaniego"  selected="samaniego")  Samaniego    
+							option(value="sanbernardo"  selected="sanbernardo")  San Bernardo   
+							option(value="sanjose"  selected="sanjose")  San Jose   
+							option(value="sanlorenzo"  selected="sanlorenzo")  San Lorenzo   
+							option(value="sanpablo"  selected="sanpablo")  San Pablo   
+							option(value="sanpedrocartago"  selected="sanpedrocartago")  San Pedro Cartago  
+							option(value="sanremo"  selected="sanremo")  San Remo   
+							option(value="sandona"  selected="sandona")  Sandona    
+							option(value="santabarbara"  selected="santabarbara")  Santa Barbara   
+							option(value="santacruz"  selected="santacruz")  Santacruz    
+							option(value="sapuyes"  selected="sapuyes")  Sapuyes    
+							option(value="sibundoy"  selected="sibundoy")  Sibundoy    
+							option(value="sotomayor"  selected="sotomayor")  Sotomayor    
+							option(value="taminango"  selected="taminango")  Taminango    
+							option(value="tangua"  selected="tangua")  Tangua    
+							option(value="tumaco"  selected="tumaco")  Tumaco    
+							option(value="tuquerres"  selected="tuquerres")  Tuquerres    
+							option(value="uribe"  selected="uribe")  Uribe    
+							option(value="yacuanquer"  selected="yacuanquer")  Yacuanquer 
+							option(value="abrego"  selected="abrego")  Abrego    
+							option(value="arboledas"  selected="arboledas")  Arboledas    
+							option(value="bochalema"  selected="bochalema")  Bochalema    
+							option(value="bucarasica"  selected="bucarasica")  Bucarasica    
+							option(value="cachira"  selected="cachira")  Cachira    
+							option(value="cacota"  selected="cacota")  Cacota    
+							option(value="chinacota"  selected="chinacota")  Chinacota    
+							option(value="chitaga"  selected="chitaga")  Chitaga    
+							option(value="convencion"  selected="convencion")  Convencion    
+							option(value="cucuta"  selected="cucuta")  Cucuta    
+							option(value="cucutilla"  selected="cucutilla")  Cucutilla    
+							option(value="durania"  selected="durania")  Durania    
+							option(value="elcarmen"  selected="elcarmen")  El Carmen   
+							option(value="eltaira"  selected="eltaira")  El Taira   
+							option(value="eltarra"  selected="eltarra")  El Tarra   
+							option(value="elzulia"  selected="elzulia")  El Zulia   
+							option(value="gramalote"  selected="gramalote")  Gramalote    
+							option(value="hacari"  selected="hacari")  Hacari    
+							option(value="herran"  selected="herran")  Herran    
+							option(value="laesperanza"  selected="laesperanza")  La Esperanza   
+							option(value="laplaya"  selected="laplaya")  La Playa   
+							option(value="labateca"  selected="labateca")  Labateca    
+							option(value="lospatios"  selected="lospatios")  Los Patios   
+							option(value="lourdes"  selected="lourdes")  Lourdes    
+							option(value="motiscua"  selected="motiscua")  Motiscua    
+							option(value="mutiscua"  selected="mutiscua")  Mutiscua    
+							option(value="ocaña"  selected="ocaña")  Ocaña    
+							option(value="pamplona"  selected="pamplona")  Pamplona    
+							option(value="pamplonita"  selected="pamplonita")  Pamplonita    
+							option(value="puertosantander"  selected="puertosantander")  Puerto Santander   
+							option(value="ragonvalia"  selected="ragonvalia")  Ragonvalia    
+							option(value="salazar"  selected="salazar")  Salazar    
+							option(value="sancalixto"  selected="sancalixto")  San Calixto   
+							option(value="sancayetano"  selected="sancayetano")  San Cayetano   
+							option(value="santiago"  selected="santiago")  Santiago    
+							option(value="sardinata"  selected="sardinata")  Sardinata    
+							option(value="silos"  selected="silos")  Silos    
+							option(value="teorama"  selected="teorama")  Teorama    
+							option(value="teorema"  selected="teorema")  Teorema    
+							option(value="tibu"  selected="tibu")  Tibu    
+							option(value="toledo"  selected="toledo")  Toledo    
+							option(value="villacaro"  selected="villacaro")  Villa Caro   
+							option(value="villadelrosario"  selected="villadelrosario")  Villa del Rosario  
+							option(value="colon"  selected="colon")  Colon    
+							option(value="mocoa"  selected="mocoa")  Mocoa    
+							option(value="orito"  selected="orito")  Orito    
+							option(value="puertoasis"  selected="puertoasis")  Puerto Asis   
+							option(value="puertocaicedo"  selected="puertocaicedo")  Puerto Caicedo   
+							option(value="puertoguzman"  selected="puertoguzman")  Puerto Guzman   
+							option(value="puertoleguizamo"  selected="puertoleguizamo")  Puerto Leguizamo   
+							option(value="sanfrancisco"  selected="sanfrancisco")  San Francisco   
+							option(value="sanmiguel"  selected="sanmiguel")  San Miguel   
+							option(value="santiago"  selected="santiago")  Santiago    
+							option(value="sibundoy"  selected="sibundoy")  Sibundoy    
+							option(value="valledelguamuez"  selected="valledelguamuez")  Valle del Guamuez  
+							option(value="villagarzon"  selected="villagarzon")  Villagarzon  
+							option(value="armenia"  selected="armenia")  Armenia    
+							option(value="barcelona"  selected="barcelona")  Barcelona    
+							option(value="buenavista"  selected="buenavista")  Buenavista    
+							option(value="calarca"  selected="calarca")  Calarca    
+							option(value="circasia"  selected="circasia")  Circasia    
+							option(value="cordoba"  selected="cordoba")  Cordoba    
+							option(value="filandia"  selected="filandia")  Filandia    
+							option(value="genova"  selected="genova")  Genova    
+							option(value="latebaida"  selected="latebaida")  La Tebaida   
+							option(value="montenegro"  selected="montenegro")  Montenegro    
+							option(value="pijao"  selected="pijao")  Pijao    
+							option(value="pueblotapao"  selected="pueblotapao")  Pueblo Tapao   
+							option(value="quimbaya"  selected="quimbaya")  Quimbaya    
+							option(value="salento"  selected="salento")  Salento  
+							option(value="apia"  selected="apia")  Apia    
+							option(value="balboa"  selected="balboa")  Balboa    
+							option(value="belendeumbria"  selected="belendeumbria")  Belen de Umbria  
+							option(value="dosquebradas"  selected="dosquebradas")  Dosquebradas    
+							option(value="guatica"  selected="guatica")  Guatica    
+							option(value="irra"  selected="irra")  Irra    
+							option(value="lacelia"  selected="lacelia")  La Celia   
+							option(value="lavirginia"  selected="lavirginia")  La Virginia   
+							option(value="marsella"  selected="marsella")  Marsella    
+							option(value="marsellaaltocauca"  selected="marsellaaltocauca")  Marsella Alto Cauca  
+							option(value="mistrato"  selected="mistrato")  Mistrato    
+							option(value="pereira"  selected="pereira")  Pereira    
+							option(value="pueblorico"  selected="pueblorico")  Pueblo Rico   
+							option(value="quinchia"  selected="quinchia")  Quinchia    
+							option(value="santacecilia"  selected="santacecilia")  Santa Cecilia   
+							option(value="santarosadecabal"  selected="santarosadecabal")  Santa Rosa de Cabal 
+							option(value="santuario"  selected="santuario")  Santuario    
+							option(value="taparcal-belendeumbria"  selected="taparcal-belendeumbria")  Taparcal-Belen de Umbria 
+							option(value="sanandres"  selected="sanandres")  San Andres   
+							option(value="providencia"  selected="providencia")  Providencia    
+							option(value="aguada"  selected="aguada")  Aguada    
+							option(value="albania"  selected="albania")  Albania    
+							option(value="aratoca"  selected="aratoca")  Aratoca    
+							option(value="barbosa"  selected="barbosa")  Barbosa    
+							option(value="barichara"  selected="barichara")  Barichara    
+							option(value="barrancabermeja"  selected="barrancabermeja")  Barrancabermeja    
+							option(value="betulia"  selected="betulia")  Betulia    
+							option(value="bolivar"  selected="bolivar")  Bolivar    
+							option(value="bucaramanga"  selected="bucaramanga")  Bucaramanga    
+							option(value="cabrera"  selected="cabrera")  Cabrera    
+							option(value="caldas"  selected="caldas")  Caldas    
+							option(value="california"  selected="california")  California    
+							option(value="capita"  selected="capita")  Capita    
+							option(value="capitanejo"  selected="capitanejo")  Capitanejo    
+							option(value="carcasi"  selected="carcasi")  Carcasi    
+							option(value="cepita"  selected="cepita")  Cepita    
+							option(value="cerrito"  selected="cerrito")  Cerrito    
+							option(value="charala"  selected="charala")  Charala    
+							option(value="charta"  selected="charta")  Charta    
+							option(value="chima"  selected="chima")  Chima    
+							option(value="chipata"  selected="chipata")  Chipata    
+							option(value="cimitarra"  selected="cimitarra")  Cimitarra    
+							option(value="cite"  selected="cite")  Cite    
+							option(value="concepcion"  selected="concepcion")  Concepcion    
+							option(value="confines"  selected="confines")  Confines    
+							option(value="contratacion"  selected="contratacion")  Contratacion    
+							option(value="coromoro"  selected="coromoro")  Coromoro    
+							option(value="curiti"  selected="curiti")  Curiti    
+							option(value="elcarmen"  selected="elcarmen")  El Carmen   
+							option(value="elguacamayo"  selected="elguacamayo")  El Guacamayo   
+							option(value="elpeñon"  selected="elpeñon")  El Peñon   
+							option(value="elplayon"  selected="elplayon")  El Playon   
+							option(value="encino"  selected="encino")  Encino    
+							option(value="enciso"  selected="enciso")  Enciso    
+							option(value="florian"  selected="florian")  Florian    
+							option(value="floridablanca"  selected="floridablanca")  Floridablanca    
+							option(value="galan"  selected="galan")  Galan    
+							option(value="gambita"  selected="gambita")  Gambita    
+							option(value="giron"  selected="giron")  Giron    
+							option(value="guaca"  selected="guaca")  Guaca    
+							option(value="guadalupe"  selected="guadalupe")  Guadalupe    
+							option(value="guapota"  selected="guapota")  Guapota    
+							option(value="guavata"  selected="guavata")  Guavata    
+							option(value="guepsa"  selected="guepsa")  Guepsa    
+							option(value="hato"  selected="hato")  Hato    
+							option(value="jesusmaria"  selected="jesusmaria")  Jesus Maria   
+							option(value="jordan"  selected="jordan")  Jordan    
+							option(value="labelleza"  selected="labelleza")  La Belleza   
+							option(value="lapaz"  selected="lapaz")  La Paz   
+							option(value="landazuri"  selected="landazuri")  Landazuri    
+							option(value="lebrija"  selected="lebrija")  Lebrija    
+							option(value="lossantos"  selected="lossantos")  Los Santos   
+							option(value="macaravita"  selected="macaravita")  Macaravita    
+							option(value="malaga"  selected="malaga")  Malaga    
+							option(value="matanza"  selected="matanza")  Matanza    
+							option(value="mogotes"  selected="mogotes")  Mogotes    
+							option(value="molagavita"  selected="molagavita")  Molagavita    
+							option(value="ocamonte"  selected="ocamonte")  Ocamonte    
+							option(value="oiba"  selected="oiba")  Oiba    
+							option(value="onzaga"  selected="onzaga")  Onzaga    
+							option(value="palmar"  selected="palmar")  Palmar    
+							option(value="palmassocorro"  selected="palmassocorro")  Palmas Socorro   
+							option(value="paramo"  selected="paramo")  Paramo    
+							option(value="piedecuesta"  selected="piedecuesta")  Piedecuesta    
+							option(value="pinchote"  selected="pinchote")  Pinchote    
+							option(value="puentenacional"  selected="puentenacional")  Puente Nacional   
+							option(value="puertoparra"  selected="puertoparra")  Puerto Parra   
+							option(value="puertowilches"  selected="puertowilches")  Puerto Wilches   
+							option(value="rionegro"  selected="rionegro")  Rionegro    
+							option(value="sabanadetorres"  selected="sabanadetorres")  Sabana de Torres  
+							option(value="sanandres"  selected="sanandres")  San Andres   
+							option(value="sanbenito"  selected="sanbenito")  San Benito   
+							option(value="sangil"  selected="sangil")  San Gil   
+							option(value="sanjoaquin"  selected="sanjoaquin")  San Joaquin   
+							option(value="sanjosedemiranda"  selected="sanjosedemiranda")  San Jose de Miranda 
+							option(value="sanmiguel"  selected="sanmiguel")  San Miguel   
+							option(value="sanvicentedechucuri"  selected="sanvicentedechucuri")  San Vicente de Chucuri 
+							option(value="santabarbara"  selected="santabarbara")  Santa Barbara   
+							option(value="santahelenadelopon"  selected="santahelenadelopon")  Santa Helena del Opon 
+							option(value="simacota"  selected="simacota")  Simacota    
+							option(value="socorro"  selected="socorro")  Socorro    
+							option(value="suaita"  selected="suaita")  Suaita    
+							option(value="sucre"  selected="sucre")  Sucre    
+							option(value="surata"  selected="surata")  Surata    
+							option(value="tona"  selected="tona")  Tona    
+							option(value="vadoreal"  selected="vadoreal")  Vado Real   
+							option(value="vallesanjose"  selected="vallesanjose")  Valle San Jose  
+							option(value="velez"  selected="velez")  Velez    
+							option(value="vetas"  selected="vetas")  Vetas    
+							option(value="villanueva"  selected="villanueva")  Villanueva    
+							option(value="zapatoca"  selected="zapatoca")  Zapatoca   
+							option(value="betulia"  selected="betulia")  Betulia    
+							option(value="buenavista"  selected="buenavista")  Buenavista    
+							option(value="caimito"  selected="caimito")  Caimito    
+							option(value="chalan"  selected="chalan")  Chalan    
+							option(value="coloso"  selected="coloso")  Coloso    
+							option(value="corozal"  selected="corozal")  Corozal    
+							option(value="coveñas"  selected="coveñas")  Coveñas    
+							option(value="galeras"  selected="galeras")  Galeras    
+							option(value="guaranda"  selected="guaranda")  Guaranda    
+							option(value="launion"  selected="launion")  La Union   
+							option(value="lospalmitos"  selected="lospalmitos")  Los Palmitos   
+							option(value="majagual"  selected="majagual")  Majagual    
+							option(value="morroa"  selected="morroa")  Morroa    
+							option(value="ovejas"  selected="ovejas")  Ovejas    
+							option(value="sampues"  selected="sampues")  Sampues    
+							option(value="sanbenitoabad"  selected="sanbenitoabad")  San Benito Abad  
+							option(value="sanjuandebetulia"  selected="sanjuandebetulia")  San Juan de Betulia 
+							option(value="sanmarcos"  selected="sanmarcos")  San Marcos   
+							option(value="sanonofre"  selected="sanonofre")  San Onofre   
+							option(value="sanpedro"  selected="sanpedro")  San Pedro   
+							option(value="since"  selected="since")  Since    
+							option(value="sincelejo"  selected="sincelejo")  Sincelejo    
+							option(value="sucre"  selected="sucre")  Sucre    
+							option(value="tolu"  selected="tolu")  Tolu    
+							option(value="toluviejo"  selected="toluviejo")  Toluviejo     
+							option(value="alpujarra"  selected="alpujarra")  Alpujarra    
+							option(value="alvarado"  selected="alvarado")  Alvarado    
+							option(value="ambalema"  selected="ambalema")  Ambalema    
+							option(value="anaime"  selected="anaime")  Anaime    
+							option(value="anzoategui"  selected="anzoategui")  Anzoategui    
+							option(value="armero"  selected="armero")  Armero    
+							option(value="armero-guayabal"  selected="armero-guayabal")  Armero-Guayabal    
+							option(value="ataco"  selected="ataco")  Ataco    
+							option(value="cajamarca"  selected="cajamarca")  Cajamarca    
+							option(value="cambao"  selected="cambao")  Cambao    
+							option(value="carmendeapicala"  selected="carmendeapicala")  Carmen de Apicala  
+							option(value="casabianca"  selected="casabianca")  Casabianca    
+							option(value="chaparral"  selected="chaparral")  Chaparral    
+							option(value="chicoral"  selected="chicoral")  Chicoral    
+							option(value="coello"  selected="coello")  Coello    
+							option(value="coyaima"  selected="coyaima")  Coyaima    
+							option(value="cunday"  selected="cunday")  Cunday    
+							option(value="dolores"  selected="dolores")  Dolores    
+							option(value="espinal"  selected="espinal")  Espinal    
+							option(value="falan"  selected="falan")  Falan    
+							option(value="flandes"  selected="flandes")  Flandes    
+							option(value="fresno"  selected="fresno")  Fresno    
+							option(value="guamo"  selected="guamo")  Guamo    
+							option(value="herveo"  selected="herveo")  Herveo    
+							option(value="honda"  selected="honda")  Honda    
+							option(value="ibague"  selected="ibague")  Ibague    
+							option(value="icononzo"  selected="icononzo")  Icononzo    
+							option(value="lasierra"  selected="lasierra")  La Sierra   
+							option(value="lerida"  selected="lerida")  Lerida    
+							option(value="libano"  selected="libano")  Libano    
+							option(value="mariquita"  selected="mariquita")  Mariquita    
+							option(value="melgar"  selected="melgar")  Melgar    
+							option(value="murillo"  selected="murillo")  Murillo    
+							option(value="natagaima"  selected="natagaima")  Natagaima    
+							option(value="ortega"  selected="ortega")  Ortega    
+							option(value="palocabildo"  selected="palocabildo")  Palocabildo    
+							option(value="piedras"  selected="piedras")  Piedras    
+							option(value="planadas"  selected="planadas")  Planadas    
+							option(value="prado"  selected="prado")  Prado    
+							option(value="purificacion"  selected="purificacion")  Purificacion    
+							option(value="rioblanco"  selected="rioblanco")  Rioblanco    
+							option(value="roncesvalles"  selected="roncesvalles")  Roncesvalles    
+							option(value="rovira"  selected="rovira")  Rovira    
+							option(value="saldaña"  selected="saldaña")  Saldaña    
+							option(value="sanantonio"  selected="sanantonio")  San Antonio   
+							option(value="sanluis"  selected="sanluis")  San Luis   
+							option(value="santaisabel"  selected="santaisabel")  Santa Isabel   
+							option(value="suarez"  selected="suarez")  Suarez    
+							option(value="valledesanjuan"  selected="valledesanjuan")  Valle de San Juan 
+							option(value="venadillo"  selected="venadillo")  Venadillo    
+							option(value="villahermosa"  selected="villahermosa")  Villahermosa    
+							option(value="villarrica"  selected="villarrica")  Villarrica    
+							option(value="beltran"  selected="beltran")  Beltran    
+							option(value="castilla"  selected="castilla")  Castilla    
+							option(value="convenio"  selected="convenio")  Convenio    
+							option(value="chencheasoleado"  selected="chencheasoleado")  Chenche Asoleado   
+							option(value="doima"  selected="doima")  Doima    
+							option(value="eltablazo"  selected="eltablazo")  El Tablazo   
+							option(value="frias"  selected="frias")  Frias    
+							option(value="gaitania"  selected="gaitania")  Gaitania    
+							option(value="gualanday"  selected="gualanday")  Gualanday    
+							option(value="herrera"  selected="herrera")  Herrera    
+							option(value="junin"  selected="junin")  Junin    
+							option(value="laarada"  selected="laarada")  La Arada   
+							option(value="lachamba"  selected="lachamba")  La Chamba   
+							option(value="olayaherrera"  selected="olayaherrera")  Olaya Herrera   
+							option(value="padua"  selected="padua")  Padua    
+							option(value="payande"  selected="payande")  Payande    
+							option(value="playarrica"  selected="playarrica")  Playarrica    
+							option(value="santateresa"  selected="santateresa")  Santa Teresa   
+							option(value="santiagoperez"  selected="santiagoperez")  Santiago Perez   
+							option(value="tresesquinas"  selected="tresesquinas")  Tres Esquinas 
+							option(value="alban"  selected="alban")  Alban    
+							option(value="alcala"  selected="alcala")  Alcala    
+							option(value="andalucia"  selected="andalucia")  Andalucia    
+							option(value="ansermanuevo"  selected="ansermanuevo")  Ansermanuevo    
+							option(value="argelia"  selected="argelia")  Argelia    
+							option(value="barragan"  selected="barragan")  Barragan    
+							option(value="bitaco"  selected="bitaco")  Bitaco    
+							option(value="bolivar"  selected="bolivar")  Bolivar    
+							option(value="buenaventura"  selected="buenaventura")  Buenaventura    
+							option(value="buenosaires"  selected="buenosaires")  Buenos Aires   
+							option(value="buga"  selected="buga")  Buga    
+							option(value="bugalagrande"  selected="bugalagrande")  Bugalagrande    
+							option(value="caicedonia"  selected="caicedonia")  Caicedonia    
+							option(value="cali"  selected="cali")  Cali    
+							option(value="calima"  selected="calima")  Calima    
+							option(value="candelaria"  selected="candelaria")  Candelaria    
+							option(value="cartago"  selected="cartago")  Cartago    
+							option(value="ceylan"  selected="ceylan")  Ceylan    
+							option(value="costarica"  selected="costarica")  Costa Rica   
+							option(value="dagua"  selected="dagua")  Dagua    
+							option(value="dapa"  selected="dapa")  Dapa    
+							option(value="darien"  selected="darien")  Darien    
+							option(value="elaguila"  selected="elaguila")  El Aguila   
+							option(value="elbolo"  selected="elbolo")  El Bolo   
+							option(value="elcairo"  selected="elcairo")  El Cairo   
+							option(value="elcarmelo"  selected="elcarmelo")  El Carmelo   
+							option(value="elcarmen"  selected="elcarmen")  El Carmen   
+							option(value="elcerrito"  selected="elcerrito")  El Cerrito   
+							option(value="eldovio"  selected="eldovio")  El Dovio   
+							option(value="fenicia"  selected="fenicia")  Fenicia    
+							option(value="florida"  selected="florida")  Florida    
+							option(value="galicia"  selected="galicia")  Galicia    
+							option(value="ginebra"  selected="ginebra")  Ginebra    
+							option(value="guacari"  selected="guacari")  Guacari    
+							option(value="jamundi"  selected="jamundi")  Jamundi    
+							option(value="juachaco"  selected="juachaco")  Juachaco    
+							option(value="km26"  selected="km26")  Km 26   
+							option(value="labocana"  selected="labocana")  La Bocana   
+							option(value="labuitrera"  selected="labuitrera")  La Buitrera   
+							option(value="lacumbre"  selected="lacumbre")  La Cumbre   
+							option(value="ladolores"  selected="ladolores")  La Dolores   
+							option(value="laiberia"  selected="laiberia")  La Iberia   
+							option(value="lanubia"  selected="lanubia")  La Nubia   
+							option(value="launion"  selected="launion")  La Union   
+							option(value="lavictoria"  selected="lavictoria")  La Victoria   
+							option(value="ladrilleros"  selected="ladrilleros")  Ladrilleros    
+							option(value="lagocalima"  selected="lagocalima")  Lago Calima   
+							option(value="madrigal"  selected="madrigal")  Madrigal    
+							option(value="obando"  selected="obando")  Obando    
+							option(value="palmaseca"  selected="palmaseca")  Palmaseca    
+							option(value="palmira"  selected="palmira")  Palmira    
+							option(value="pavas"  selected="pavas")  Pavas    
+							option(value="pobladocampestre"  selected="pobladocampestre")  Poblado Campestre   
+							option(value="potrerito"  selected="potrerito")  Potrerito    
+							option(value="pradera"  selected="pradera")  Pradera    
+							option(value="queremal"  selected="queremal")  Queremal    
+							option(value="restrepo"  selected="restrepo")  Restrepo    
+							option(value="riofrio"  selected="riofrio")  Riofrio    
+							option(value="roldanillo"  selected="roldanillo")  Roldanillo    
+							option(value="rozo"  selected="rozo")  Rozo    
+							option(value="salonica"  selected="salonica")  Salonica    
+							option(value="samaria"  selected="samaria")  Samaria    
+							option(value="sanantoniodeloscaballeros"  selected="sanantoniodeloscaballeros")  San Antonio de los Caballeros
+							option(value="sanpedro"  selected="sanpedro")  San Pedro   
+							option(value="santahelena"  selected="santahelena")  Santa Helena   
+							option(value="santalucia"  selected="santalucia")  Santa Lucia   
+							option(value="sevilla"  selected="sevilla")  Sevilla    
+							option(value="sonso"  selected="sonso")  Sonso    
+							option(value="tiendanueva"  selected="tiendanueva")  Tienda Nueva   
+							option(value="toro"  selected="toro")  Toro    
+							option(value="trujillo"  selected="trujillo")  Trujillo    
+							option(value="tulua"  selected="tulua")  Tulua    
+							option(value="ulloa"  selected="ulloa")  Ulloa    
+							option(value="venecia"  selected="venecia")  Venecia    
+							option(value="versalles"  selected="versalles")  Versalles    
+							option(value="vijes"  selected="vijes")  Vijes    
+							option(value="villagorgona"  selected="villagorgona")  Villagorgona    
+							option(value="yotoco"  selected="yotoco")  Yotoco    
+							option(value="yumbo"  selected="yumbo")  Yumbo    
+							option(value="zarzal"  selected="zarzal")  Zarzal    
+							option(value="ameimeelplacer"  selected="ameimeelplacer")  Ameime El Placer  
+							option(value="quebradanueva"  selected="quebradanueva")  Quebrada Nueva   
+							option(value="ruralesvalle"  selected="ruralesvalle")  Rurales Valle   
+							option(value="lamarina"  selected="lamarina")  La Marina   
+							option(value="lahorqueta"  selected="lahorqueta")  La Horqueta   
+							option(value="bahiamalaga"  selected="bahiamalaga")  Bahia Malaga   
+							option(value="caruru"  selected="caruru")  Caruru    
+							option(value="cumaribo"  selected="cumaribo")  Cumaribo    
+							option(value="lahormiga"  selected="lahormiga")  La Hormiga   
+							option(value="laprimavera"  selected="laprimavera")  La Primavera   
+							option(value="mitu"  selected="mitu")  Mitu    
+							option(value="nuevaantioquia"  selected="nuevaantioquia")  Nueva Antioquia   
+							option(value="pacoa"  selected="pacoa")  Pacoa    
+							option(value="sanjosedeocune"  selected="sanjosedeocune")  San Jose de Ocune 
+							option(value="santarita"  selected="santarita")  Santa Rita   
+							option(value="santarosalia"  selected="santarosalia")  Santa Rosalia   
+							option(value="taraira"  selected="taraira")  Taraira    
+							option(value="toraira"  selected="toraira")  Toraira    
+							option(value="vichada"  selected="vichada")  Vichada    
+							option(value="yavarate"  selected="yavarate")  Yavarate    
+							option(value="" selected="selected") - selecciona -
+				div 
+					label(for="color") Color de fondo
+					input(type="text", name="color",placeholder="Dime el back ground color", id="color" class"form-control" oninvalid="setCustomValidity('escoge uno')" )
+				div 
+					label(for="color1") Color del parrafo Siguenos en  
+					input(type="text", name="color1",placeholder="Dime el color de letra parrafo", id="color1" class"form-control" oninvalid="setCustomValidity('escoge uno')" )
+				div 
+					label(for="color2") Color de titulos principal
+					input(type="text", name="color2",placeholder="Dime el color de titulo", id="color2" class"form-control" oninvalid="setCustomValidity('escoge uno')" )
+				div 
+					label(for="telefono") telefono
+					input(type="text", name="telefono",placeholder="Dime tu Telefono", id="telefono" class"form-control" oninvalid="setCustomValidity('escoge uno')" required)
+				div 
+					label(for="empre") Cuentas a que se dedica tu empresa
+					input(type="text", name="empre",placeholder="a que se dedica tu empresa", id="empre" class"form-control" oninvalid="setCustomValidity('escoge uno')" required)
+				div 
+					label(for="face") link pagina en facebook
+					input(type="url", name="face",placeholder="link facebook", id="face" class"form-control" )
+				div 
+					label(for="twi") link pagina en Twitter
+					input(type="url", name="twi",placeholder="link twitter", id="twi" class"form-control" )
+				div 
+					label(for="you") link pagina en Youtube
+					input(type="url" name="you" placeholder="link youtube" id="you" class"form-control" )
+				div 
+					label(for="insta") link pagina en Instagram
+					input(type="url" name="insta" placeholder="link instagram" id="insta" class"form-control" )
+				div 
+					label(for="web") link pagina de la web
+					input(type="url" name="web" placeholder="cuentanos" id="web" class"form-control" )
+				div 
+					label(for="horariolv") horario de atencion al cliente lunes a viernes ejemplo 8am - 5pm
+					input(type="text" name="horariolv" placeholder="Horarios " id="horariolv" class"form-control" )
+				div 
+					label(for="horariosdf") horario de atencion al cliente sabado,domingos,festivos ejemplo 8am - 5pm
+					input(type="text" name="horariosdf" placeholder="Horarios" id="horariosdf" class"form-control" )
+				div 
+					label(for="vip")  VIP
+					input(type="text" name="vip" placeholder="cuentanos" id="vip" class"form-control" )
+				div 
+					label(for="vip")  Elegido
+					input(type="text" name="elegido" placeholder="cuentanos" id="elegido" class"form-control" )
+				div 
+					label(for="vip")  observaciones 
+					input(type="text" name="observaciones" placeholder="observaciones" id="elegido" class"form-control" )
+				div 
+					label(for="web") No soy un robot
+					button.g-recaptcha(data-sitekey='6LdG6xIUAAAAAF1OCUhEuSVfsG1O7r6-7hoQFE7l', data-callback='YourOnSubmitFn') no soy un robot
+					input(type="submit" value="Iniciar sesion" class="btn btn-info")
+
+		script(type='text/javascript', src='/public/js/bootstrap.js')
+	script(type='text/javascript', src='/public/js/bootstrap.min.js')
+	script(type='text/javascript', src='/public/js/jquery.min.js')
+	script(type='text/javascript', src='/public/js/jquery.min.v1.js')
+	script(src='https://www.google.com/recaptcha/api.js')

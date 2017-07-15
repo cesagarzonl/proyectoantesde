@@ -1,0 +1,22 @@
+extends ./layout2.jade
+block contenido
+	form(action="/app/delet/edit/#{user._id}?_method=PUT", method="POST")
+				input(type="hidden" value="PUT" name=(_method))
+				div(class="form-group")
+					label(for="cambio") Escribe aqui lo que quieres que diga en tu pagina
+				div
+					label(for="title") lo nuevo
+					input(type="text", name="title", placeholder="Titulo de la imagen " id="title",class"form-control")
+				div
+					label(for="title") selecciona lo que quires cambiar
+				div
+					select(type="text", name="cambio", placehoder="", id="cambio", class"form-control")
+						option(value="empre"  selected="empre") Dscripcion de tu empresa
+				div
+					input(type="submit" value="Guardar" class="btn btn-info")
+	div
+			h4 renombrar un registro de datos #{user.empre}
+	script(type='text/javascript', src='../../public/js/bootstrap.js')
+	script(type='text/javascript', src='../../public/js/bootstrap.min.js')
+	script(type='text/javascript', src='../../public/js/jquery.min.js')
+	script(type='text/javascript', src='../../public/js/jquery.min.v1.js')

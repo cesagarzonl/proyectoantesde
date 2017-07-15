@@ -1,0 +1,102 @@
+extends ./layout3.jade
+block contenido 
+    .coreccion
+    h2#contacta.titulo preguntas frecuentes
+    div(style='display: flex; flex-wrap: wrap; justify-content: center;' class="perfilcool" )
+      .canserbero
+         div(align='left')
+            div(align='left' )
+                h2 ¿Quienes somos ?
+                p Somos la primera empresa de publicidad online especializada para promover tiendas, supermercados, distribuidores. para que aparescan en la red teniendo en cuenta las tiendas pequeñas todo esto para promover tu negocio facil rápido.  
+                h2 ¿como contactarnos?
+                p Nos puedes contactar enviandonos un mensaje en la parte d arriba o a lo siguientes números de teléfono 3143630967 - 3212656820 también al correo antesde.com@gmail.com
+      .canserbero
+         div(align="right")
+            div(align="right")
+                h2 Misión
+                p Prestación de servicios, con altos niveles de calidad y conﬁanza que permitan generar soluciones, conectar personas para promover sus negocios y oficios aumentando la probabilidad de éxito en la internet y en sus negocios físicos.
+                h2 Visión
+                p Posicionar a ANTES-DE.COM  como compañía prestadora de servicios confiables, ágiles, eficaces mejorando continuamente para el bienestar nuestro y de nuestros clientes.
+            .divicion
+    h2#contacta.titulo Equipo Antesde
+    div(style='display: flex; flex-wrap: wrap; justify-content: center;' class="perfilcool" )
+      .canserbero
+        div(align='center')
+          h2.profecion  Programador 
+          div
+            img.imgprofecion(src='public/imagenes/img/cesar-garzon.jpg')
+          p.nom Cesar Garzon
+          p.habilidad  Especializado en node.js mongodb html y css manejo de paginas web 
+          a.face(href='https://www.facebook.com/cesargarzonlamprea/', target='coni', style=' ; ')
+            img(class="imgfacebook" src="./public/imagenes/img/face.png" style=" width: 10% ")
+          a.face(href='https://twitter.com/cesargarzonlamp', target='coni', style=' ; ')
+            img(class="imgfacebook" src="./public/imagenes/img/twi.png" style=" width: 10%; ")
+          .divicion
+           
+      .canserbero
+        div(align='center')
+          h2.profecion  Diseñador Web
+          div
+            img.imgprofecion(src='public/imagenes/img/sebastian-martinez.jpg')
+          p.nom Sebastian Martinez
+          p.habilidad Editor de contenido de antes-de.com y fotografo, diseños para móviles y fotografía profesional
+          a.face(href='https://www.facebook.com/sebastmartinez', target='_contin')
+            img(class="imgfacebook" src="./public/imagenes/img/face.png" style=" width: 10% ")
+          a.face(href='https://twitter.com/AtrilMartinez', target='coni', style=' ; ')
+            img(class="imgfacebook" src="./public/imagenes/img/twi.png" style=" width: 10%; ")
+        .divicion
+      section.final
+        .redes
+          div
+            a(href="https://www.facebook.com/directorioantesde/" target='_contin')
+              img(src='public/imagenes/img/facebook.png')
+          div
+            a(href="https://twitter.com/directorioantes" target='_contin')
+              img(src='public/imagenes/img/twitter.png')
+          div
+            a(href="https://www.youtube.com/channel/UCqu2RN8cm3Jcttvqlw8cEOg" target='_contin')
+              img(src='public/imagenes/img/youtube.png')
+          div
+            img(src='public/imagenes/img/instagram.png')
+          div
+            a(href="https://plus.google.com/103462481880064545990/" target='_contin')
+              img(src='public/imagenes/img/google.png')
+    h2#contacta.titulo  Contactanos 
+    .contactanos
+      .hola se libre de decir hola
+      .flex
+        div
+          .di1
+            .animac
+              p  Recibe   
+              ul
+                li Información
+                li Asesorías 
+                li Ofertas
+            p.numero(style="font-family: 'Numans', sans-serif;")   antesde.com@gmail.com
+            p.numero1(style="font-family: 'Numans', sans-serif;")  calle 18 # 17-24 piso 2  
+            p.numero2(style="font-family: 'Numans', sans-serif;")  314 363 0967 - 321 265 2820
+            .textocon
+              p.parra llamanos y te asesoraremos totalmente gratis , te explicaremos brevemete nuestra metodología y te daremos acceso a nuestras increibles ofertas
+                div(align="center")
+                  img(src="./public/imagenes/img/servicio.png" align="center")
+        .di2
+          form(action='/envio3', method='POST')
+            .roww
+              input#name.field(type='text' name='nombre' placeholder='Nombre' required)
+            .roww
+              input#email.field(type='email', name='email', placeholder='Email' required)
+            .roww
+              input#ciudad.field(type='text', name='ciudad', placeholder='Ciudad' required)
+            .roww
+              input#tel.field(type='text', name='telefono', placeholder='Teléfono' required)
+            .roww
+              textarea#text(style='width: 90%;height: 130px ;border: 1px solid #00384a;', name='mensaje', placeholder='Mensaje' required)
+              input(type='hidden', name='adwords', value='2')
+            .row
+            input#sendMessage.envia(type='submit', value='ENVIAR' style='width: 90%;height: 130px ;border: 1px solid #00384a; background-color:#00384a;')
+    script(type='text/javascript', src='./public/js/bootstrap.js')
+    script(type='text/javascript', src='./public/js/bootstrap.min.js')
+    script(type='text/javascript', src='./public/js/jquery.min.js')
+    script(type='text/javascript', src='./public/js/jquery.min.v1.js')
+    script(src='/public/slick/slick.min.js', type='text/javascript', charset='utf-8')

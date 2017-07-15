@@ -1,0 +1,31 @@
+extends ./layout3.jade
+block contenido 
+	.container
+	.coreccion
+	.sesion
+			form(action="users", method="POST" onsubmit="return validacion()")
+				div(class="form-group")
+					label(for="email") Email 
+					input(type="email", name="email", placeholder="Email", id="email", class"form-control" oninvalid="setCustomValidity('ingresa un emal valido')" required) 
+				div 
+					label(for="password")  Contraseña
+					input(type="password", name="password",placeholder="Contrasña", id="password" class"form-control" oninvalid="setCustomValidity('ingresa tu contraseña')" required )
+				div 
+					label(for="password") Confirma tu Password 
+					input(type="password", name="password_confirmation",placeholder="Confirma Contrasña", id="password" class"form-control" oninvalid="setCustomValidity('Repite la contraseña')" required )
+				div 
+					label(for="username") User name 
+					input(type="text", name="username",placeholder="Cual es tu id", id="username" class"form-control" oninvalid="setCustomValidity('el nombre que te va a identificar')"  )
+
+				div
+					input( type="submit" value="Iniciar sesion" class="btn btn-info" onclick="this.disabled=true; this.value=’Enviando...’; this.form.submit()" )
+		div
+		a(href="auth/facebook")
+			p facebook
+		a(href="auth/twitter")
+			p twiiter
+	script(type='text/javascript', src='/public/js/bootstrap.js')
+	script(type='text/javascript', src='/public/js/bootstrap.min.js')
+	script(type='text/javascript', src='/public/js/jquery.min.js')
+	script(type='text/javascript', src='/public/js/jquery.min.v1.js')
+	script(type='text/javascript', src='/public/js/auto.js')

@@ -1,0 +1,267 @@
+extends ./imagenes/layout2.jade
+block contenido 
+		.coreccion
+			.mini(style="background-color: ##{user.color}; color: ##{user.color1};")
+				.arriba
+					section.one-time(id="cosas") 
+							each imagen in imagenes
+									if imagen.foto == 'foto'
+										if imagen.creator._id == filtro
+												if imagen.foto == 'foto'
+													if imagen.creator._id == filtro
+															a(href="##{imagen._id}")
+																img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}")
+					each imagen in imagenes
+								div(class="modal" id="#{imagen._id}" )
+										.slider-for
+												each imagen in imagenes
+													if imagen.foto == 'foto'
+														if imagen.creator._id == filtro
+															div
+																a(href="#" )
+																	p X
+																img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}")
+					section.one-time(id="cosas2") 
+							each imagen in imagenes
+									if imagen.foto == 'fotoc'
+										if imagen.creator._id == filtro
+											div
+												if imagen.foto == 'fotoc'
+													if imagen.creator._id == filtro
+														img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}")
+														.divicio
+				.textomini(align='center')
+					div
+						each imagen in imagenes
+							if imagen.foto == 'normal'
+									if imagen.creator._id == filtro
+										if imagen._id != undefined
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" id="cosasimg2" alt="#{imagen.creator.username}" title="#{imagen.creator.username}")
+										else 
+											h1(class="titulom2" style="color: ##{user.color2};" ) #{user.username}
+					.divicion(style="color: ##{user.color1};" )
+						if user.color == "000000"
+							p(style="color: #ffffff;") #{user.slogan}
+							p(style="color: #ffffff;") Telefono: #{user.telefono}
+							p(style="color: #ffffff;") Email: #{user.email}
+							p(style="color: #ffffff;") Ubicacion : #{user.dir}
+							h2(class="titulom2" style="color: ##{user.color2};" ) Siguenos en
+						else if user.color == "1C0E06"
+							p(style="color: #ffffff;") #{user.slogan}
+							p(style="color: #ffffff;") Telefono: #{user.telefono}
+							p(style="color: #ffffff;") Email: #{user.email}
+							p(style="color: #ffffff;") Ubicacion : #{user.dir}
+							h2(class="titulom2" style="color: ##{user.color2};" ) Siguenos en
+						else
+							p #{user.slogan}
+							p Telefono: #{user.telefono} 
+							p Email: #{user.email}
+							p Ubicacion : #{user.dir}
+							h2(class="titulom2" style="color: ##{user.color2};") Siguenos en
+						div(class="imagenesicon")
+							a(href='#{user.face}' target='coni')
+								img(src="/public/imagenes/img/face.png", style="width: 7%;" class="icon" target='_contin')
+							a(href='#{user.twi}' target='coni')
+								img(src='/public/imagenes/img/twi.png', style="width: 7%;" class="icon" target='_contin')
+							a(href='#{user.you}' target='coni')
+								img(src='/public/imagenes/img/You.png', style="width: 7%;" class="icon" target='_contin')
+							a(href='#{user.insta}' target='coni')
+								img(src='/public/imagenes/img/instagram.png', style="width: 7%;" class="icon" target='_contin')
+						div(class="imagenesicon2")
+							a(href='#{user.face}' target='coni')
+								img(src="/public/imagenes/img/face.png",  class="icon" target='_contin')
+							a(href='#{user.twi}' target='coni')
+								img(src='/public/imagenes/img/twi.png',  class="icon" target='_contin')
+							a(href='#{user.you}' target='coni')
+								img(src='/public/imagenes/img/You.png',  class="icon" target='_contin')
+							a(href='#{user.insta}' target='coni')
+								img(src='/public/imagenes/img/instagram.png',  class="icon" target='_contin')
+
+			ul.nav.nav-tabs.nav-justified(style="font-family: 'comfortaa';")
+					li.li(role='presentation' )
+						a.divi(href=' #Pizza' style="color: ##{user.color};") Productos 
+					li.li(role='presentation')
+						a.divi(href='#contacto' style="color: ##{user.color};") Contacto
+					li.li(role='presentation')
+						a.divi(href='#promocion' style="color: ##{user.color}; ") Promociones 
+			#Pizza
+			.risponsive
+				.izquierda(align='center')
+					h2(class="titulom")  #{user.username} 
+					p #{user.empre}
+					div
+						.slider-for(style='  width: 99% ;margin: auto; border-style: solid; color:##{user.color}; max-height: 700px;' )
+								each imagen in imagenes
+									if imagen.foto == 'fotito'
+										if imagen.creator._id == filtro
+											div
+												a(href="##{imagen._id}+1")
+													img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" style=" max-height: 700px;")
+					.borrarrrr
+						.slider-nav(style=' width: 90% ; padding: 10px;margin: auto;')
+								each imagen in imagenes
+									if imagen.foto == 'fotito'
+										if imagen.creator._id == filtro
+											div
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" )
+						each imagen in imagenes
+								div(class="modal" id="#{imagen._id}+1" )
+										.slider-for
+												each imagen in imagenes
+													if imagen.foto == 'fotito'
+														if imagen.creator._id == filtro
+															div
+																a(href="#" )
+																	p X
+																img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}")
+				.derecha(align='center')
+					h2(class="titulom") Visitanos
+					each video in videos 
+						if video.imgtitulo == "mapa"
+							if video.creator == filtro
+								iframe.mapa(src='#{video.mapa}', frameborder='0', allowfullscreen='' )
+
+
+					.video1234
+						a(href="#video1")
+							img(src="/public/imagenes/img/video2.png" style="background-color:##{user.color};")
+						div(class="modal" id="video1")
+							a(href="#")
+								p X
+								div
+									div(class="imagen")
+										each video in videos 
+											if video.creator == filtro
+												if video.imgtitulo == "video"
+													iframe.video(src='https://www.youtube.com/embed/#{video.extension}	', frameborder='0', allowfullscreen='')
+			#promocion
+			.divicion(id="divicion")
+				div(class="titulo" style="background-color:##{user.color}; color: ##{user.color1};")  Promociones  
+				.dis
+					.wrapper
+						.gallery
+							for imagen in imagenes
+								if imagen.foto == 'promocion'
+									if imagen.creator._id == filtro
+										.gallery-item(style="background-color:##{user.color}; color: ##{user.color1};")
+											a(href="/iniciado/imagenes/cliente/#{imagen.creator ._id}"  class="ordenado")
+													img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img" alt="#{imagen.creator.username}" title="#{imagen.creator.username}")
+												p(style=" color: ##{user.color1};") Precio #{imagen.title}
+												p(style=" color: ##{user.color1};") Precio #{imagen.nombre1}										
+												a(href="/app/imagenes/#{imagen._id}/envio") 
+													label Realizar tu pedido
+		if user.color1 != "ffffff"
+			#contacto
+			.divicion(id="divicion")
+				h2#contacta.titulo(style="background-color:##{user.color}; color: ##{user.color1};")  Contactanos 
+				.contactanos
+					.hola
+					.flex
+						div
+							.di1
+								.animac
+									p Recibe   
+									ul
+										li Información
+										li Asesorías 
+										li Ofertas
+								p.numero(style="font-family: 'Numans', sans-serif;") #{user.slogan}
+								p.numero1(style="font-family: 'Numans', sans-serif;") #{user.dir}  
+								p.numero2(style="font-family: 'Numans', sans-serif;") #{user.telefono}
+								.textocon
+									p.parra llamanos y te asesoraremos totalmente gratis , te explicaremos brevemete nuestra metodología y te daremos acceso a nuestras increibles ofertas
+									div(align="center")
+									img(src="/../public/imagenes/img/servicio.png")
+						.di2
+								form(action='/app/envio2', method='POST')
+									.roww
+										input#name.field(type='text' name='name' placeholder='Nombre' style=" color: ##{user.color1}; border: 1px solid ##{user.color1};")
+									.roww
+										input#email.field(type='text', name='email', placeholder='Correo electrónico' style=" color: ##{user.color1}; border: 1px solid ##{user.color1};")
+									.roww
+										input#ciudad.field(type='text', name='ciudad', placeholder='Ciudad' style=" color: ##{user.color1}; border: 1px solid ##{user.color1};")
+									.roww
+										input#telefono.field(type='text', name='telefono', placeholder='Teléfono' style=" color: ##{user.color1}; border: 1px solid ##{user.color1};")
+									.roww
+									textarea#mensaje(style='width: 90%;height: 130px ;border: 1px solid ##{user.color1};', name='mensaje',placeholder='Mensaje')
+									style=" color: ##{user.color1}; border: 1px solid ;"
+									input(type='hidden', name='adwords', value='2')
+									.roww
+										input#email2.field(type='text', name='email2', placeholder='Teléfono' style=" color: ##{user.color1}; border: 1px solid ##{user.color1}; display:none; " value="#{user.email}")
+									input#sendMessage.envia(type='submit', value='ENVIAR' style=" color: ##{user.color1}; border: 1px solid ; background:##{user.color};" )
+		else
+			#contacto
+			.divicion(id="divicion")
+				h2#contacta.titulo(style="background-color:##{user.color}; color: ##{user.color1};")  Contactanos 
+				.contactanos
+					.hola se libre de decir hola
+					.flex
+						div
+							.di1
+								.animac
+									p Recibe   
+									ul
+										li Información
+										li Asesorías 
+										li Ofertas
+								p.numero(style="font-family: 'Numans', sans-serif;") #{user.slogan}
+								p.numero1(style="font-family: 'Numans', sans-serif;") #{user.dir}  
+								p.numero2(style="font-family: 'Numans', sans-serif;") #{user.telefono}
+								.textocon
+									p.parra llamanos y te asesoraremos totalmente gratis , te explicaremos brevemete nuestra metodología y te daremos acceso a nuestras increibles ofertas
+									div(align="center")
+									img(src="/../public/imagenes/img/servicio.png")
+						.di2
+								form(action='/app/envio2', method='POST')
+									.roww
+										input#name.field(type='text' name='name' placeholder='Nombre' style=" color: ##{user.color}; border: 1px solid ##{user.color};" )
+									.roww
+										input#email.field(type='text', name='email', placeholder='Correo electrónico' style=" color: ##{user.color}; border: 1px solid ##{user.color};")
+									.roww
+										input#ciudad.field(type='text', name='ciudad', placeholder='Ciudad' style=" color: ##{user.color}; border: 1px solid ##{user.color};")
+									.roww
+										input#telefono.field(type='text', name='telefono', placeholder='Teléfono' style=" color: ##{user.color}; border: 1px solid ##{user.color};")
+									.roww
+									textarea#mensaje(style='width: 90%;height: 130px ;border: 1px solid ##{user.color};', name='mensaje',placeholder='Mensaje')
+									style=" color: ##{user.color}; border: 1px solid ;"
+									input(type='hidden', name='adwords', value='2')
+									.roww
+										input#email2.field(type='text', name='email2', placeholder='Teléfono' style=" color: ##{user.color}; border: 1px solid ##{user.color}; display:none; " value="#{user.email}")
+									input#sendMessage.envia(type='submit', value='ENVIAR' style=" color: ##{user.color1}; border: 1px solid ; background:##{user.color};" )
+
+		script(type='text/javascript', src='/public/js/jquery.min.v1.js')
+			script(type='text/javascript', src='/public/js/bootstrap.min.js')
+			script(src='/public/slick/slick.min.js', type='text/javascript', charset='utf-8')
+			script(type='text/javascript').
+				$(document).on('ready', function() {
+				$('.one-time').slick({
+				dots: true,
+				infinite: true,
+				speed: 900,
+				slidesToShow: 1,
+				adaptiveHeight: true,
+				fade:true,
+				autoplay: true,
+				autoplaySpeed: 9900,
+				});
+				$('.slider-for').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false,
+				fade: true,
+				asNavFor: '.slider-nav',
+				centerMode: true, focusOnSelect: true,autoplay: true, autoplaySpeed: 45000, });
+				$('.slider-nav').slick({
+				slidesToShow: 4,slidesToScroll: 1,
+				asNavFor: '.slider-for',centerMode: false,
+				focusOnSelect: true
+				});
+				$('.single-item').slick();
+				});
+
+			script(type='text/javascript').
+				twttr.widgets.createTimeline({
+				sourceType: "profile",
+				screenName: "fabric"
+				}, document.getElementById("container"))		
+script(async='', src='//platform.twitter.com/widgets.js', charset='utf-8')

@@ -1,0 +1,22 @@
+# robots.txt file for antes-de
+# Created in the distant future (the year 2016)
+# the robotic uprising of the mid 90's which wiped out all humans.
+
+Sitemap: http://www.antes-de.com/sistemap.txt
+
+User-agent: Mediapartners-Google*
+Disallow:
+
+User-agent: *
+Disallow: /nada
+Disallow: /imagenes/new
+Disallow: /imagenes/:id/edit
+Disallow: /imagenes/:id
+Disallow: /imagenes/:id/envio
+Disallow: /envio2
+Disallow: /modifie/video
+Disallow: /delet/delet
+Disallow: /delet/edit/:id
+Disallow: /loginclie
+Disallow: /signup
+Disallow: /iniciado/imagenes/cliente/584c085f4f162fe46713452c

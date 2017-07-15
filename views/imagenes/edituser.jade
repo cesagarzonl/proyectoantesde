@@ -1,0 +1,58 @@
+extends ./layout2.jade
+block contenido
+	.container
+		.divicion
+		.divicion
+	div
+		form(action="/app/delet/edit/#{user._id}?_method=PUT", method="POST")
+			input(type="hidden" value="PUT" name=(_method))
+			div(class="form-group")
+				label(for="cambio") Escribe aqui lo que quieres que diga en tu pagina
+			div
+				label(for="title") lo nuevo_ 
+				input(type="text", name="title", placeholder="Titulo de la imagen " id="title",class"form-control") 
+			div
+				label(for="title") selecciona lo que quires cambiar
+			div 
+				select(type="text", name="cambio", placehoder="", id="cambio", class"form-control") 
+					option(value="email"  selected=" email")   email  
+					option(value="password"  selected="password")   password
+					option(value="dir"  selected="dir")  Direccion  
+					option(value="gremio"  selected="gremio")   gremio  
+					option(value="imgtitulo"  selected="imgtitulo")  Area a la cual perteneces  
+					option(value="telefono"  selected="telefono")  telefonos  
+					option(value="empre"  selected="empre") A que se dedica tu empresa  
+					option(value="slogan"  selected="slogan")  slogan
+					option(value="color"  selected="color")  colo back ground
+					option(value="color1"  selected="color1")  color1
+					option(value="color2"  selected="color2")  color2   
+					option(value="face"  selected="face")  Enlace de facebook  
+					option(value="twi"  selected="twi")   Enlace  twitter  
+					option(value="you"  selected="you") Enlace  Youtube  
+					option(value="insta"  selected="insta")  Enlace insta
+					option(value="ciudad"  selected="ciudad") ciudad
+					option(value="departamento"  selected="departamento") Departamento
+			div 
+				input(type="submit" value="Guardar" class="btn btn-info")
+	div
+		h4 renombrar un email #{user.email}
+		h4 renombrar un contraseña #{user.password}
+		h4 renombrar un direccion #{user.dir}
+		h4 renombrar un Gremio #{user.gremio}
+		h4 renombrar un que vendes #{user.imgtitulo}
+		h4 renombrar un numero telfonico #{user.telefono}
+		h4 renombrar un registro de datos #{user.empre}
+		h4 renombrar un slogan #{user.slogan}
+		h4 renombrar un color de fondo #{user.color}
+		h4 renombrar un color1  #{user.color1}
+		h4 renombrar un color2 #{user.color2}
+		h4 renombrar un link de facebook #{user.face}
+		h4 renombrar un link de twitter #{user.twi}
+		h4 renombrar un link instagram #{user.insta}
+		h4 renombrar un link youtube #{user.you}
+		h4 renombrar un link instagram #{user.departamento}
+		h4 renombrar un link youtube #{user.ciudad}
+	script(type='text/javascript', src='../../public/js/bootstrap.js')
+	script(type='text/javascript', src='../../public/js/bootstrap.min.js')
+	script(type='text/javascript', src='../../public/js/jquery.min.js')
+	script(type='text/javascript', src='../../public/js/jquery.min.v1.js')

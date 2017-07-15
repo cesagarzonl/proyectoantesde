@@ -1,0 +1,197 @@
+extends ./layout.jade
+block contenido 
+		div( class="fondoprincipal")
+			section.categorias
+				section
+						a(href="/comidas/#{filtro}")
+							p(class="botoncito") Alimentos
+				section
+						a(href='/FincaRaiz/#{filtro}')
+							p(class="botoncito") Finca ra&iacutez
+				section
+						a(href='/Entretenimiento/#{filtro}')
+							p(class="botoncito") Entretenimiento
+				section
+						a(href='/Variedades/#{filtro}')
+							p(class="botoncito") Variedades
+				section
+						a(href='/Hospedaje/#{filtro}')
+							p(class="botoncito") Hospedaje
+				section
+						a(href='/Construccion/#{filtro}')
+							p(class="botoncito") Construccion
+				section
+						a(href='/Belleza/#{filtro}')
+							p(class="botoncito") Belleza
+				section
+						a(href='/Artesanias/#{filtro}')
+							p(class="botoncito") Artesan&iacuteas
+				section
+						a(href='/Recreacion/#{filtro}')
+							p(class="botoncito") Recreaci&oacuten
+				section
+						a(href='/transporte/#{filtro}')
+							p(class="botoncito") Transporte
+				section
+						a(href='/Ventas/#{filtro}')
+							p(class="botoncito")  Moda
+			section( class="fotoprincipal" style="width:100%;" align="left" position: relative; z-index: 1; )
+		.container(style="margin-left:40%;" )
+			form(action='https://www.paypal.com/cgi-bin/webscr', method='post', target='_top')
+				input(type='hidden', name='cmd', value='_s-xclick')
+				input(type='hidden', name='hosted_button_id', value='GCXCD7UJ5XFF8')
+				table
+					tr
+						td
+							input(type='hidden', name='on0', value='')
+					tr
+						td
+							select(name='os0')
+								option(value='Emprendedor') Emprendedor : $11.00 USD - mensual
+								option(value='Comercial') Comercial : $60.00 USD - mensual
+								option(value='VIP') VIP : $102.00 USD - anual
+				input(type='hidden', name='currency_code', value='USD')
+				input(type='image', src='https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif', border='0', name='submit', alt='PayPal - The safer, easier way to pay online!')
+				img(alt='', border='0', src='https://www.paypalobjects.com/es_XC/i/scr/pixel.gif', width='1', height='1')
+		div(style=' padding: 25px')
+		script(type='text/javascript', src='/public/js1/jquery.min.v1.js')
+		script(type='text/javascript', src='/public/js1/bootstrap.min.js')
+		script(type='text/javascript', src='/public/slick/slick.js', charset='utf-8')
+		script(type='text/javascript').
+			$(document).on('ready', function() {
+			$('.untiempo').slick({
+			dots: true,
+			infinite: true,
+			speed: 900,
+			slidesToShow: 1,
+			adaptiveHeight: true,
+			fade:true,
+			autoplay: true,
+			autoplaySpeed: 9500,
+			});
+			$('.slider-for').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			fade: true,
+			asNavFor: '.slider-nav',
+			centerMode: true,
+			focusOnSelect: true,
+			autoplay: true,
+			autoplaySpeed: 4500,
+			});
+			$('.slider-nav').slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			asNavFor: '.slider-for',
+			centerMode: true,
+			focusOnSelect: true
+			});
+			$ ( '.categorias' ) . slick ( {
+			centerMode :  false ,
+			centerPadding :  '60px' ,
+			slidesToShow :  6,
+			responsive :  [
+			{
+			breakpoint :  968 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  3
+			}
+			} ,
+			{
+			breakpoint :  681 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  2
+			}
+			}
+			,
+			{
+			breakpoint :  431 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  1
+			}
+			}
+			]
+			} ) ;
+			$('.one-time').slick({
+				dots: true,
+				infinite: false,
+				speed: 900,
+				slidesToShow: 1,
+				adaptiveHeight: true,
+				fade:false,
+				autoplay: true,
+				autoplaySpeed: 5000,
+				});
+				$('.slider-for').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false,
+				fade: true,
+				asNavFor: '.slider-nav',
+				centerMode: true, focusOnSelect: true,autoplay: true, autoplaySpeed: 4500, });
+				$('.slider-nav').slick({
+				slidesToShow: 3,slidesToScroll: 1,
+				asNavFor: '.slider-for',centerMode: true,
+				focusOnSelect: true
+				});
+			$ ( '.publicidadpagada' ) . slick ( {
+			centerMode :  true ,
+			centerPadding :  '60px' ,
+			slidesToShow :  4,
+			responsive :  [
+			{
+			breakpoint :  968 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  2
+			}
+			} ,
+			{
+			breakpoint :  681 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow : 1
+			}
+			}
+			]
+			} ) ;
+			$ ( '.negocios' ) . slick ( {
+			centerMode :  true ,
+			centerPadding :  '0px' ,
+			slidesToShow :  4,
+			responsive :  [
+			{
+			breakpoint :  868 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  false ,
+			centerPadding :  '40px' ,
+			slidesToShow : 1
+			}
+			} ,
+			{
+			breakpoint :  520 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  false ,
+			centerPadding :  '40px' ,
+			slidesToShow :  2
+			}
+			}
+			]
+			} ) ;
+			});

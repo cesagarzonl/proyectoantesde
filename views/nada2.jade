@@ -1,0 +1,12 @@
+extends ./layout.jade
+block contenido 
+	.coreccion
+		form(action="nada", method="POST")
+			label(for="contra")  contr
+						input(type="password", name="contr",placeholder="contr", id="contr" class"form-control" oninvalid="setCustomValidity('ingresa tu contr')" required )
+				div
+					input( type="submit" value="Iniciar sesion" class="btn btn-info")
+		script(type='text/javascript', src='/public/js/bootstrap.js')
+	script(type='text/javascript', src='/public/js/bootstrap.min.js')
+	script(type='text/javascript', src='/public/js/jquery.min.js')
+	script(type='text/javascript', src='/public/js/jquery.min.v1.js')

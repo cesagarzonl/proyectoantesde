@@ -1,0 +1,24 @@
+extends ./layout2.jade
+block contenido 
+	.container
+		if user.color == undefined
+			div
+				p No tienes permiso para modificar informacion
+		else
+			h1 Subir una nueva imagen
+			form(action="/app/imagenes/foto" method="POST" enctype="multipart/form-data")
+				div(class="form-group")
+					label(for="title") El nombre de tu imagen es :
+					input(type="text", name="title", placeholder="Titulo de la imagen ", id="title", class"form-control")  
+				div 
+					label(for="archivo") Imagen 
+					input(type="file", name="archivo", id="archivo" ,class"form-control" )		
+
+				div 
+					input(type="submit" value="subir imagen" class="btn btn-info")
+				
+			
+	script(type='text/javascript', src='../../public/js/bootstrap.js')
+	script(type='text/javascript', src='../../public/js/bootstrap.min.js')
+	script(type='text/javascript', src='../../public/js/jquery.min.js')
+	script(type='text/javascript', src='../../public/js/jquery.min.v1.js')

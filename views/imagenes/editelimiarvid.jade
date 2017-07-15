@@ -1,0 +1,20 @@
+extends ./layout2.jade
+block contenido
+		.divicion
+		.divicion
+		.container
+		if user.color == undefined
+			div
+				p No tienes permiso para modificar informacion
+		else
+			div(class="risponsive")
+				div(class="promocion" align="center")
+					for video in videos
+						if video.imgtitulo == "video"
+							h2 #{video.imgtitulo}
+							p https://www.youtube.com/#{video.extension}
+							form(action="/app/modifie/video/edit/#{video._id}?_method=DELETE", method="POST")
+								input(type="submit", value="Eliminar")
+			script(type='text/javascript', src='/public/js/jquery.min.v1.js')
+			script(type='text/javascript', src='/public/js/bootstrap.min.js')
+			script(src='/public/slick/slick.min.js', type='text/javascript', charset='utf-8')

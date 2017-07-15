@@ -1,0 +1,25 @@
+extends ./imagenes/layout2.jade
+block contenido 
+	.divicion
+	.coreccion
+	.divicion
+		.container
+			p(id="correocliente" name="correocliente") solicitud al  #{imagen.creator.email}
+			img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img")
+			form(action="/app/envio2"  method="POST")
+				div 
+					label(for="direccion")  Por confirmanos si estas en esta direccion
+					input(type="text", name="direccion",placeholder="#{imagen.creator.dir}", id="direccion" class"form-control" )
+				div 
+					label(for="telfono")  Indicale al mensajero un telefono celular por si se pierde
+					input(type="text", name="telfono",placeholder="Tu numero de telefono", id="telfono" class"form-control" )
+				div 
+					label(for="observaciones") ¿algun ingrediente que no deseas en tu pedido? 
+					input(type="text", name="observaciones",placeholder="¿Tienes alguna observacio?", id="observaciones" class"form-control" )
+				div
+					input(type="submit" value="Realizar tu pedido" class="btn btn-info")
+					
+	scrscript(type='text/javascript', src='../../public/js/bootstrap.js')
+	script(type='text/javascript', src='../../public/js/bootstrap.min.js')
+	script(type='text/javascript', src='../../public/js/jquery.min.js')
+	script(type='text/javascript', src='../../public/js/jquery.min.v1.js')

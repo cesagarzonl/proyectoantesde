@@ -1,0 +1,54 @@
+extends ./layout.jade
+block contenido
+  .coreccion
+   div(align='center')
+         img(src='/public/imagenes/img/duitamaantesde-1-0.jpg'  style="width: 100%; border-bottom: 10px solid black " )
+        ul.nav.nav-tabs.nav-justified
+          li(role='presentation' class="li activo ")
+            a(href='/duitama' style="color:#000000;") Categorias
+          li(role='presentation')
+            a(href='/duitamaa' style="color:#000000;" ) Promociones
+         .margenduitama
+          .divicion
+             section     
+              section.ciudades
+                div
+                 a(href="/comidas_dui")
+                  img(src='/public/imagenes/img/comidas.jpg')      
+                  p Comidas
+                div
+                 a(href="")
+                  img(src='/public/imagenes/img/ficaraiz.jpg')
+                  p Finca raiz 
+                div
+                 a(href="compras_dui")
+                  img(src='/public/imagenes/img/compras.jpg')
+                  p Compras
+                div
+                 a(href="") 
+                  img(src='/public/imagenes/img/turismo.jpg')
+                  p Turismo 
+                div
+                 a(href="/entre_dui")
+                  img(src='/public/imagenes/img/entretenimiento.jpg')      
+                  p Recreacion
+      script(src='/public/slick/slick.min.js', type='text/javascript', charset='utf-8')
+      script(src='/public/slick/slick.js', type='text/javascript', charset='utf-8')
+      script(type='text/javascript')$(document).on('ready',function(){$('.center').slick({centerMode:true,centerPadding:'60px',slidesToShow:3,responsive:[{
+        breakpoint :  768 ,
+        settings :  {
+        arrows :  false ,
+        centerMode :  true ,
+        centerPadding :  '40px' ,
+        slidesToShow :  3}} ,{
+        breakpoint :  480 ,
+        settings :  {
+        arrows :  false ,
+        centerMode :  true ,
+        centerPadding :  '40px' ,
+        slidesToShow :1}}]});$('.one-time').slick({dots: true,infinite: true, speed: 900,slidesToShow:1,adaptiveHeight:true,fade:true,autoplay:true,autoplaySpeed:2500,});});
+   script(type='text/javascript' src='/public/js/jquery.min.js')
+   script(type='text/javascript' src='/public/js/jquery.min.v1.js')
+   script(type='text/javascript' src='/public/js/bootstrap.min.js')
+   script(type='text/javascript' src='/public/js/bootstrap.js')
+   script(type='text/javascript' src='/public/slick/slick.min.js')

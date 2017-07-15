@@ -1,0 +1,264 @@
+doctype html
+html(lang="es")
+	head
+		meta(charset="utf-8")
+		meta(name='google-site-verification', content='npYET8gCzFQJcp6VMx3JAl7J-EEickcreCrfUCu7v64')
+		meta(name="description" content="plataforma web comercial donde encuentra todo en comercio, gastronomía, turismo, finca raíz, entretenimiento en las diferentes cuidados del país, con el departamento #{filtro} ó ciudad #{filtro} ")
+		meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+		title antes-de,antes de antesde.com antes-de.com #{filtro} #{filtro} directorio comercial web comercial en #{filtro}
+		link(rel="stylesheet" type="text/css" href="/public/slick/slick-theme.css")
+		link(rel="stylesheet" type="text/css" href="/public/slick/slick.css")
+		link(rel="stylesheet" type="text/css" href="/public/css/animate.css")
+		link(rel="stylesheet" type="text/css" href="/public/css/bootstrap.css")
+		link(rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css")
+		link(rel="stylesheet" type="text/css" href="/public/css/estilos2.css")
+		link(rel="stylesheet" type="text/css" href="/public/css/sebas.css")
+		link(rel="shortcut icon" href="public/imagenes/img/antede.png")
+
+		link(href='https://fonts.googleapis.com/css?family=Anton', rel='stylesheet')
+		link(href='https://fonts.googleapis.com/css?family=Russo+One', rel='stylesheet')
+		link(href='https://fonts.googleapis.com/css?family=PT+Serif', rel='stylesheet')
+		link(href='https://fonts.googleapis.com/css?family=Shrikhand', rel='stylesheet')
+		link(href='https://fonts.googleapis.com/css?family=Roboto', rel='stylesheet')
+		link(href='https://fonts.googleapis.com/css?family=Clicker+Script', rel='stylesheet')
+		link(href='https://fonts.googleapis.com/css?family=Oxygen+Mono', rel='stylesheet')
+		link(href='https://fonts.googleapis.com/css?family=Numans', rel='stylesheet')
+		link(href='https://fonts.googleapis.com/css?family=Comfortaa', rel='stylesheet')
+		link(href='https://fonts.googleapis.com/css?family=Permanent+Marker', rel='stylesheet')
+		script(src="/socket.io/socket.io.js")
+		script (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-91266037-1', 'auto'); ga('send', 'pageview');
+	body.landing( style="overflow-x:hidden; overflow-y:scroll;")
+				header
+					div(class="colorarriba" align='center')
+						.picture(style="margin:5px;")
+								a(href='/' )
+									img.logo(src='/public/imagenes/img/antede.comr.png'  )
+							div
+								.redes
+									a(href="/signup" class="dropdown-toggle")
+										p.iniciarsesion Iniciar Sesión
+									a(href='https://www.facebook.com/directorioantesde', target='_blank')
+										img(src='/public/imagenes/img/facebook-icon.png', alt='')
+									a(href='https://twitter.com/directorioantes', target='_blank')
+										img(src='/public/imagenes/img/twitter-icon.png')
+									a(href='https://www.facebook.com/directorioantesde', target='_blank')
+										img(src='/public/imagenes/img/instagram.png')
+									a(href='https://www.youtube.com/channel/UCqu2RN8cm3Jcttvqlw8cEOg', target='_blank')
+										img(src='/public/imagenes/img/YouTube.png')
+										//li.dropdown
+											form(style='text-align: center; ', action='/buscabusca', method='POST', label='', for='buscabusca')
+														input(type="text" name='busca' id="busca")
+														span.glyphicon.glyphicon-search(style='')
+															input.imputt(value='¿Que buscas?', type='submit')
+							.picture2
+								#bs-example-navbar-collapse-1.collapse.navbar-collapse(style="width: 100%; justify-content: center;" )
+									ul.nav.navbar-nav()
+											li
+												form(style='text-align: center;', action='/extencion', method='POST', label='')
+															input(type="search" id="mysearch" name="mysearch" list="datos")
+															datalist(id="datos" required)
+																option(value="moda" ) 
+																option(value="variedades" )
+																option(value="alimentos" )
+																option(value="hospedaje")
+																option(value="entretenimiento" )
+																option(value="construccion")
+																option(value="fincaRaiz")
+																option(value="diseno")
+																option(value="belleza")
+																option(value="artesanias")
+																option(value="recreacion")
+																option(value="transporte")
+																option(value="bogota")
+																option(value="boyaca")
+																option(value="cundinamarca")
+																option(value="amazonas")
+																option(value="antioquia")
+																option(value="arauca")
+																option(value="atlantico")
+																option(value="bolivar") 
+																option(value="boyaca")
+																option(value="caldas")
+																option(value="caqueta")
+																option(value="casanare")
+																option(value="cauca")
+																option(value="cesar")
+																option(value="choco")
+																option(value="cordoba")
+																option(value="guainia")
+																option(value="guajira")
+																option(value="guaviare")
+																option(value="huila")
+																option(value="magdalena")
+																option(value="meta")
+																option(value="nariño")
+																option(value="nsantander")
+																option(value="santamarta")
+																option(value="putumayo")
+																option(value="quindio")
+																option(value="risaralda")
+																option(value="sanandres")
+																option(value="santander")
+																option(value="tolima")
+																option(value="valle")
+																option(value="vaupes")
+																option(value="vichada")
+																option(value="guajira")
+																for imagen in imagenes
+																	if imagen.foto == 'normal'
+																		if imagen.creator.color != undefined
+																			if imagen.creator.username != undefined			
+																				option(value="#{imagen.creator.username}")
+															span.glyphicon.glyphicon-search(style='')
+																input.imputt(value='   Buscar', type='submit')
+											li.dropdown
+												a.dropdown-toggle(data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false' )  Nosotros  
+													span.caret
+												ul.dropdown-menu
+													li
+														a(href='/nosotros') ¿Que es antes-de.com?
+													li
+														a(href='/nosotros') Trabaja con nosotros
+					nav.navbar.navbar-default
+						.container-fluid
+							// Collect the nav links, forms, and other content for toggling
+				
+							// Brand and toggle get grouped for better mobile display
+							.navbar-header
+								button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+									span.sr-only Toggle navigation
+									span.icon-bar
+									span.icon-bar
+									span.icon-bar
+			
+					section#banner
+						i
+							img.lizeth(src='/public/imagenes/img/logo1.png')
+						h2  Crea tu página web  
+						p ingresa tu información y ya esta, así de fácil 
+						ul.actions
+							li
+								a.button.big.special(href='/loginclie') Empieza ahora gratis
+					// MAS COSAS QUE EL USUARIO PAGA
+					section#one.wrapper.style1
+						.inner
+							header.major
+								h3 DESCUBRE TODOS LOS SERVICIOS QUE TENEMOS PARA TI 
+								p  SOLICITALOS A SOLO UN CLICK 
+							article.feature.left
+								span.image
+									img(src='/public/imagenes/img/pic01.jpg', alt='')
+								.content
+									h3  Sesión de fotos profesionales 
+									p Haremos que los clientes descubran lo que hace especial a tu negocio, mostrándoles tus productos y  las excelentes instalaciones con las que cuentas. cada parte de tu negocio es importante por eso hay que mostrarle al mundo cada detalle que he hecho que te consolides como uno de los mejore
+									ul.actions
+										li
+											a.button.alt(href='/loginclie') Crea Tu Cuenta Gratis
+							article.feature.right
+								span.image
+									img(src='/public/imagenes/img/pic02.jpg', alt='')
+								.content
+									h3  POSICIONAMIENTO SEO EN GOOGLE
+									p Qué bueno es que a la hora de hacer una búsqueda en internet tu negocio aparezca en los primeros resultados, ya que tendrás más visitas en tu página y te darás a conocer en todos los lugares de nuestro país.
+									ul.actions
+										li
+											a.button.alt(href='/loginclie') Crea Tu Cuenta Gratis
+							article.feature.left
+								span.image
+									img(src='/public/imagenes/img/pic03.jpg', alt='')
+								.content
+									h3 MARKETING EN REDES SOCIALES 
+									p Toda la información acerca de tu negocio y el servicio que prestas será publicado en las redes sociales teniendo en cuenta que la información difundida  por este medio llega a mas personas y con mayor rapidez.
+									ul.actions
+										li
+											a.button.alt(href='/loginclie') Crea Tu Cuenta Gratis
+							article.feature.right
+								span.image
+									img(src='/public/imagenes/img/pic04.jpg', alt='')
+								.content
+									h3 Publicacion antes-de.com 
+									p Aparecerás en nuestra plataforma comercial la cual a diario presenta gran cantidad de visitas de personas que esperan encontrar un lugar o un servicio que deje satisfechas sus necesidades. Si tienes cuenta VIP lograras un mejor posicionamiento en las búsquedas que se realicen en la plataforma.
+									ul.actions
+										li
+											a.button.alt(href='/loginclie') Crea Tu Cuenta Gratis
+							article.feature.left
+								span.image
+									img(src='/public/imagenes/img/pic05.jpg', alt='')
+								.content
+									h3 Diseños web VIP 
+									p Tendras acceso a un diseño nuevo y diferente , llevaremos a otro nivel la publicidad de tu negocio resaltando la calidad del servicio que se ofrece.
+									ul.actions
+										li
+											a.button.alt(href='/loginclie') Crea Tu Cuenta Gratis
+				div(id="precios")
+					section#pricing.pad-lg(style='padding-top: 60px; padding-bottom: 0px;')
+						.container
+							header.major
+								h3(style='color: #333')   SOLICITA YA TU CUENTA PREMIUM
+								p   
+							.row.margin-50
+								.col-sm-4.pricing-container.wow.fadeInUp(data-wow-delay='1s')
+									br
+									br
+									ul.list-unstyled.pricing-table.text-center
+										li.headline
+											h5.white  Emprendedor  
+										li.price
+											.amount
+												| $28.900
+												small /1 MES 
+										li.info  
+										li.features.first Ancho de banda ilimitado
+										li.features 10 GB de almacenamiento 
+										li.features Acceso a subir promociones  
+										li.features Posicionamiento google y google maps
+										li.features Publicación en antes-de.com 
+										li.features Elimina anuncios antes-de 
+										li.features Mantenimiento y servicio al cliente antes-de 
+											a(href='/pagos' class="pidlosya")  PIDELO AHORA 
+										li.features
+								.col-sm-4.pricing-container.wow.fadeInUp(data-wow-delay='0.4s')
+									ul.list-unstyled.pricing-table.text-center
+										li.headline
+											h5.white VIP 
+										li.price
+											.amount
+												| $289.900
+												small / 1 AÑO 
+											small Paga 10 meses  y lleva 12 
+										li.info
+										li.features.first Ancho de banda ilimitado
+										li.features 30 GB de almacenamiento  
+										li.features(style='color: #0baac3')  Publicacion VIP en antes-de   
+										li.features Acceso a subir promociones  
+										li.features Posicionamiento google y google maps
+										li.features Publicación en antes-de.com 
+										li.features Acceso a material exclusivo publicitario 
+										li.features Elimina anuncios antes-de 
+										li.features Ayuda premium 
+										li.features Mantenimiento y servicio al cliente antes-de 
+										li.features.last.btn.btn-secondary.btn-wide
+											a(href='/pagos'  class="pidlosya") PIDELO AHORA
+								.col-sm-4.pricing-container.wow.fadeInUp(data-wow-delay='1.3s')
+									br
+									br
+									ul.list-unstyled.pricing-table.text-center
+										li.headline
+											h5.white  Comercial  
+										li.price
+											.amount
+												| $170.900
+												small /6 MESES
+										li.info
+										li.features.first Ancho de banda ilimitado
+										li.features 20 GB de almacenamiento 
+										li.features Acceso a subir promociones  
+										li.features Posicionamiento google y google maps
+										li.features Publicación en antes-de.com 
+										li.features Elimina anuncios antes-de 
+										li.features Mantenimiento y servicio al cliente antes-de 
+										li.features Ayuda   premium 
+										li.features.last.btn.btn-secondary.btn-wide
+											a(href='/pagos' class="pidlosya") PIDELO AHORA
+	script(type='text/javascript', src='/public/js1/jquery.min.v1.js')
+	script(type='text/javascript', src='/public/js1/bootstrap.min.js')

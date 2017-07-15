@@ -1,0 +1,1642 @@
+extends ./layout3.jade
+block contenido 
+	.container
+	.coreccion
+	.sesion
+			form(action="users", method="POST"  name="datos")
+				div(class="form-group")
+					label(for="email") Email 
+					input(type="email", name="email", placeholder="Email", id="email", class"form-control" title="por el correo" oninvalid="setCustomValidity('ingresa correo lectronico ')" required) 
+				div 
+					label(for="password")  Contraseña
+					input(type="password", name="password",placeholder="Contraseña", id="password" class"form-control" required oninvalid="setCustomValidity('ingresa una contraseña')")
+				div 
+					label(for="password") Confirma tu Contraseña
+					input(type="password", name="password_confirmation",placeholder="Confirma Contraseña", id="password" class"form-control" oninvalid="setCustomValidity('confirma la contraseña')" required)
+				div 
+					label(for="estilo") escoge el estilo de tu pagina
+					select(type="text", name="estilo", placehoder="", id="estilo", class"form-control")
+							option(value="estilo1" selected="estilo1") estilo 1 
+							option(value="estilo1" selected="estilo1") estilo 2 
+							option(value="estilo1" selected="estilo1") estilo 3 
+							option(value="" selected="selected") - selecciona -
+				div 
+					label(for="slogan") Slogan de la empresa  o a que se dedica en pocas palabras 
+					input(type="text", name="slogan",placeholder="Cual es tu slogan", id="slogan" class"form-control" oninvalid="setCustomValidity('ingresa tu slogan')" required onchange="subir1()")
+				div
+					label(for="username") Nombre de la empresa  ¡¡adicionale el nombre de tu ciudad!!
+					input(type="text", name="username",placeholder="Cual es el nombre de tu empresa", id="username" class"form-control" oninvalid="setCustomValidity('falto el nombre de tu empresa')" required  onchange="subir()")
+				div 
+					label(for="dir") Direccion
+					input(type="text", name="dir",placeholder="Dime tu direccion", id="dir" class"form-control" oninvalid="setCustomValidity('indicanos tu direccion')" required)
+				div 
+					label(for="gremio") A que area pertenece tu empresa   
+					select(type="text", name="gremio", placehoder="", id="gremio", class"form-control" oninvalid="setCustomValidity('escoge uno')" required onchange="area()")
+							option(value="" selected="selected") - selecciona -
+							option(value="Compras" selected="Compras") Moda
+							option(value="Variedades" selected="Variedades") Variedades
+							option(value="comidas" selected="comidas") Alimentos
+							option(value="Hospedaje" selected="Hospedaje") Hospedaje
+							option(value="Entretenimiento" selected="Entretenimiento") Entretenimiento
+							option(value="Construccion" selected="Construccion") Construcción
+							option(value="FincaRaiz" selected="FincaRaiz") Finca Raíz
+							option(value="Belleza" selected="Belleza") Belleza
+							option(value="Artesanias" selected="Artesanias") Artesanías
+							option(value="Recreacion" selected="Recreacion") Recreación
+							option(value="Transporte" selected="Transporte") Transporte
+							option(value="" selected="selected" ) - selecciona -
+				div 
+					label(for="imgtitulo") Que ofrece tu negocio
+					select(type="text", name="imgtitulo", placehoder="", id="imgtitulo", class"form-control" oninvalid="setCustomValidity('escoge uno')" style="max-width:70%;" required)
+							option(id="compras" name="compras" value="Almacenesderopa" selected="Almacenesderopa" style="display:none;") Almacenes de ropa
+							option(id="compras1" name="compras1" value="Almacenesdecalzado" selected="Almacenesdecalzado" style="display:none;") Almacenes de calzado
+							option(id="compras2" name="compras2" value="Almacenesdedecoraciones" selected="Almacenesdedecoraciones" style="display:none;") Almacenes de decoraciones
+							option(id="Variedades" name="Variedades" value="Accesorios(bolsos)" selected="Accesorios(bolsos)" style="display:none;") Accesorios (bolsos)
+							option(id="Variedades1" name="Variedades1" value="Papeleria" selected="Papeleria" style="display:none;") Papelería
+							option(id="Variedades2" name="Variedades2" value="Jugueteria" selected="Jugueteria" style="display:none;") Juguetería
+							option(id="Variedades3" name="Variedades3" value="Panaleria" selected="Panaleria" style="display:none;") Pañaleria 
+							option(id="Variedades4" name="Variedades4" value="cacharerias" selected="cacharerias" style="display:none;") cacharerias
+							option(id="Comidas" name="Comidas" value="Cafeterias" selected="Cafeterias" style="display:none;" ) Cafeteria
+							option(id="Comidas1" name="Comidas1" value="Asaderos(carne–pollo)" selected="Asaderos(carne–pollo)" style="display:none;") Asaderos (carne – pollo)
+							option(id="Comidas2" name="Comidas2" value="Restaurantes" selected="Restaurantes" style="display:none;") Restaurantes
+							option(id="Comidas3" name="Comidas3" value="Pizzerias" selected="Pizzerias" style="display:none;") Pizzerías
+							option(id="Comidas4" name="Comidas4" value="Heladerias" selected="Heladerias" style="display:none;") Heladerías
+							option(id="Comidas5" name="Comidas5" value="Comidasrapidas" selected="Comidasrapidas" style="display:none;") Comidas rápidas
+							option(id="Hospedaje" name="Hospedaje"  value="Hoteles" selected="Hoteles" style="display:none;") Hoteles
+							option(id="Hospedaje1" name="Hospedaje1" value="Cabanas" selected="Cabanas" style="display:none;") Cabañas
+							option(id="Hospedaje2" name="Hospedaje2" value="Moteles" selected="Moteles" style="display:none;") Moteles
+							option(id="Entretenimiento" name="Entretenimiento" value="Amanecesdemusica" style="display:none;" selected="Amanecesdemusica") Amaneces de música
+							option(id="Entretenimiento1" name="Entretenimiento1" value="Almacenesdetecnologia" selected="Almacenesdetecnologia" style="display:none;" ) Almacenes de tecnología
+							option(id="Entretenimiento2" name="Entretenimiento2" value="Computadores" selected="Computadores" style="display:none;") Computadores
+							option(id="Entretenimiento3" name="Entretenimiento3" value="Celulares" selected="Celulares" style="display:none;") Celulares
+							option(id="Entretenimiento4" name="Entretenimiento4" value="Cine" selected="Cine" style="display:none;") Cine 
+							option(id="Entretenimiento5" name="Entretenimiento5" value="Eventos" selected="Eventos" style="display:none;") Eventos
+							option(id="Construccion" name="Construccion" value="Ferreterias" selected="Ferreterias" style="display:none;") Ferreterías
+							option(id="Construccion1" name="Construccion1" value="Disenodeinteriores" selected="Disenodeinteriores" style="display:none;") Diseño de interiores
+							option(id="Construccion2" name="Construccion2" value="Arquitectos" selected="Arquitectos" style="display:none;") Arquitectos
+							option(id="FincaRaiz" name="FincaRaiz"  value="Ventas" selected="Ventas" style="display:none;") Ventas 
+							option(id="FincaRaiz1" name="FincaRaiz1"  value="Arriendo" selected="Arriendo" style="display:none;") Arriendo
+							option(id="FincaRaiz2" name="FincaRaiz2"  value="Empenos" selected="Empenos" style="display:none;") Empeños
+							option(id="Belleza" name="Belleza" value="Peluquerias" selected="Peluquerias" style="display:none;") Peluquerías
+							option(id="Belleza1" name="Belleza1" value="Spa" selected="Spa" style="display:none;") Spa
+							option(id="Belleza2" name="Belleza2" value="cosmeticos" selected="cosmeticos" style="display:none;") cosméticos
+							option(id="Belleza3" name="Belleza3" value="Tatuajes" selected="Tatuajes" style="display:none;") Tatuajes
+							option(id="Belleza4" name="Belleza4" value="Sexshop" selected="Sexshop" style="display:none;") Sex shop
+							option(id="Belleza5" name="Belleza5" value="Sexshop" selected="gim" style="display:none;") gimnasio
+							option(id="Artesanias" name="Artesanias" value="Almacenesderuanas" selected="Almacenesderuanas" style="display:none;") Almacenes de ruanas 
+							option(id="Recreacion" name="Recreacion" value="Piscinas" selected="Piscinas" style="display:none;") Piscinas
+							option(id="Transporte" name="Transporte" value="Autos" selected="Autos" style="display:none;") Autos
+							option(id="Transporte1" name="Transporte1" value="Concesionarios" selected="Concesionarios" style="display:none;") Concesionarios 
+							option(id="Transporte2" name="Transporte2" value="Motos" selected="Motos" style="display:none;") Motos 
+							option(id="Transporte3" name="Transporte3" value="bicicletas" selected="bicicletas" style="display:none;") bicicletas
+							option(value="" selected="selected" ) - selecciona -
+				div 
+					label(for="departamento") Departamento
+					select(type="text", name="departamento", placehoder="", id="departamento", class"form-control" oninvalid="setCustomValidity('escoge uno')" required onchange="depa()") 
+							option(value="cundinamarca"  selected="cundinamarca")  cundinamarca  
+							option(value="bogota"  selected="bogota")  Bogota     
+							option(value="amazonas"  selected="amazonas")  amazonas  
+							option(value="antioquia"  selected="antioquia")  antioquia  
+							option(value="arauca"  selected="arauca")  arauca  
+							option(value="atlantico"  selected="atlantico")  atlantico  
+							option(value="bolivar"  selected="bolivar")  bolivar 
+							option(value="boyaca"  selected="boyaca")  boyaca  
+							option(value="caldas"  selected="caldas")  caldas  
+							option(value="caqueta"  selected="caqueta")  caqueta  
+							option(value="casanare"  selected="casanare")  casanare  
+							option(value="cauca"  selected="cauca")  cauca  
+							option(value="cesar"  selected="cesar")  cesar  
+							option(value="choco"  selected="choco")  choco  
+							option(value="cordoba"  selected="cordoba")  cordoba
+							option(value="guainia"  selected="guainia")  guainia
+							option(value="guajira"  selected="guajira")  guajira  
+							option(value="guaviare"  selected="guaviare")  guaviare  
+							option(value="huila"  selected="huila")  huila  
+							option(value="magdalena"  selected="magdalena")  magdalena  
+							option(value="meta"  selected="meta")  meta  
+							option(value="nariño"  selected="nariño")  nariño  
+							option(value="nsantander"  selected="nsantander")  norte de santander 
+							option(value="santamarta"  selected="santamarta")  santa marta 
+							option(value="putumayo"  selected="putumayo")  putumayo  
+							option(value="quindio"  selected="quindio")  quindio  
+							option(value="risaralda"  selected="risaralda")  risaralda  
+							option(value="sanandres"  selected="sanandres")  san andres 
+							option(value="santander"  selected="santander")  sucre  
+							option(value="tolima"  selected="tolima")  tolima  
+							option(value="valle"  selected="valle")  valle  
+							option(value="vaupes"  selected="vaupes")  vaupes  
+							option(value="vichada"  selected="vichada")  vichada
+							option(value="guajira"  selected="guajira")  guajira
+							option(value="" selected="") - selecciona -
+				div 
+					label(for="ciudad" ) Ciudad
+					select(type="text", name="ciudad", placehoder="", id="ciudad", class"form-control" oninvalid="setCustomValidity('escoge uno')" style="max-width:70%;" required)  
+							option(id="ciudad7" name="ciudad7" value="briceño"  selected="briceño" style="display:none;" )  Briceño    
+							option(id="ciudad71" name="ciudad71" value="buenavista"  selected="buenavista" style="display:none;" )  Buenavista    
+							option(id="ciudad72" name="ciudad72" value="busbanza"  selected="busbanza" style="display:none;" )  Busbanza    
+							option(id="ciudad73" name="ciudad73" value="caldas"  selected="caldas" style="display:none;" )  Caldas    
+							option(id="ciudad74" name="ciudad74" value="campohermoso"  selected="campohermoso" style="display:none;" )  Campohermoso    
+							option(id="ciudad75" name="ciudad75" value="cerinza"  selected="cerinza" style="display:none;" )  Cerinza    
+							option(id="ciudad76" name="ciudad76" value="chinavita"  selected="chinavita" style="display:none;" )  Chinavita    
+							option(id="ciudad77" name="ciudad77" value="chiquinquira"  selected="chiquinquira" style="display:none;" )  Chiquinquira    
+							option(id="ciudad78" name="ciudad78" value="chiquiza"  selected="chiquiza" style="display:none;" )  Chiquiza    
+							option(id="ciudad79" name="ciudad79" value="chiscas"  selected="chiscas" style="display:none;" )  Chiscas    
+							option(id="ciudad710" name="ciudad710" value="chita"  selected="chita" style="display:none;" )  Chita    
+							option(id="ciudad711" name="ciudad711" value="chitaraque"  selected="chitaraque" style="display:none;" )  Chitaraque    
+							option(id="ciudad712" name="ciudad712" value="chivata"  selected="chivata" style="display:none;" )  Chivata    
+							option(id="ciudad713" name="ciudad713" value="chivor"  selected="chivor" style="display:none;" )  Chivor    
+							option(id="ciudad714" name="ciudad714" value="cienaga"  selected="cienaga" style="display:none;" )  Cienaga    
+							option(id="ciudad715" name="ciudad715" value="combita"  selected="combita" style="display:none;" )  Combita    
+							option(id="ciudad716" name="ciudad716" value="coper"  selected="coper" style="display:none;" )  Coper    
+							option(id="ciudad717" name="ciudad717" value="corrales"  selected="corrales" style="display:none;" )  Corrales    
+							option(id="ciudad718" name="ciudad718" value="covarachia"  selected="covarachia" style="display:none;" )  Covarachia    
+							option(id="ciudad719" name="ciudad719" value="cubara"  selected="cubara" style="display:none;" )  Cubara    
+							option(id="ciudad720" name="ciudad720" value="cucaita"  selected="cucaita" style="display:none;" )  Cucaita    
+							option(id="ciudad721" name="ciudad721" value="cuitiva"  selected="cuitiva" style="display:none;" )  Cuitiva    
+							option(id="ciudad722" name="ciudad722" value="duitama"  selected="duitama" style="display:none;" )  Duitama    
+							option(id="ciudad723" name="ciudad723" value="elcocuy"  selected="elcocuy" style="display:none;" )  El Cocuy   
+							option(id="ciudad724" name="ciudad724" value="elespino"  selected="elespino" style="display:none;" )  El Espino   
+							option(id="ciudad725" name="ciudad725" value="firavitoba"  selected="firavitoba" style="display:none;" )  Firavitoba    
+							option(id="ciudad726" name="ciudad726" value="floresta"  selected="floresta" style="display:none;" )  Floresta    
+							option(id="ciudad727" name="ciudad727" value="gachantiva"  selected="gachantiva" style="display:none;" )  Gachantiva    
+							option(id="ciudad728" name="ciudad728" value="gameza"  selected="gameza" style="display:none;" )  Gameza    
+							option(id="ciudad729" name="ciudad729" value="garagoa"  selected="garagoa" style="display:none;" )  Garagoa    
+							option(id="ciudad730" name="ciudad730" value="guacamayas"  selected="guacamayas" style="display:none;" )  Guacamayas    
+							option(id="ciudad731" name="ciudad731" value="guateque"  selected="guateque" style="display:none;" )  Guateque    
+							option(id="ciudad732" name="ciudad732" value="guayata"  selected="guayata" style="display:none;" )  Guayata    
+							option(id="ciudad733" name="ciudad733" value="guican"  selected="guican" style="display:none;" )  Guican    
+							option(id="ciudad734" name="ciudad734" value="iza"  selected="iza" style="display:none;" )  Iza    
+							option(id="ciudad735" name="ciudad735" value="jenesano"  selected="jenesano" style="display:none;" )  Jenesano    
+							option(id="ciudad736" name="ciudad736" value="jerico"  selected="jerico" style="display:none;" )  Jerico    
+							option(id="ciudad737" name="ciudad737" value="lacapilla"  selected="lacapilla" style="display:none;" )  La Capilla   
+							option(id="ciudad738" name="ciudad738" value="lauvita"  selected="lauvita" style="display:none;" )  La Uvita   
+							option(id="ciudad739" name="ciudad739" value="lavictoria"  selected="lavictoria" style="display:none;" )  La Victoria   
+							option(id="ciudad740" name="ciudad740" value="labranzagrande"  selected="labranzagrande" style="display:none;" )  Labranzagrande    
+							option(id="ciudad741" name="ciudad741" value="lagunadetota"  selected="lagunadetota" style="display:none;" )  Laguna de Tota  
+							option(id="ciudad742" name="ciudad742" value="macanal"  selected="macanal" style="display:none;" )  Macanal    
+							option(id="ciudad743" name="ciudad743" value="maguncia"  selected="maguncia" style="display:none;" )  Maguncia    
+							option(id="ciudad744" name="ciudad744" value="maripi"  selected="maripi" style="display:none;" )  Maripi    
+							option(id="ciudad745" name="ciudad745" value="miraflores"  selected="miraflores" style="display:none;" )  Miraflores    
+							option(id="ciudad746" name="ciudad746" value="mongua"  selected="mongua" style="display:none;" )  Mongua    
+							option(id="ciudad747" name="ciudad747" value="mongui"  selected="mongui" style="display:none;" )  Mongui    
+							option(id="ciudad748" name="ciudad748" value="moniquira"  selected="moniquira" style="display:none;" )  Moniquira    
+							option(id="ciudad749" name="ciudad749" value="motavita"  selected="motavita" style="display:none;" )  Motavita    
+							option(id="ciudad750" name="ciudad750" value="muzo"  selected="muzo" style="display:none;" )  Muzo    
+							option(id="ciudad751" name="ciudad751" value="nobsa"  selected="nobsa" style="display:none;" )  Nobsa    
+							option(id="ciudad752" name="ciudad752" value="nuevocolon"  selected="nuevocolon" style="display:none;" )  Nuevo Colon   
+							option(id="ciudad753" name="ciudad753" value="oicata"  selected="oicata" style="display:none;" )  Oicata    
+							option(id="ciudad754" name="ciudad754" value="otanche"  selected="otanche" style="display:none;" )  Otanche    
+							option(id="ciudad755" name="ciudad755" value="pachavita"  selected="pachavita" style="display:none;" )  Pachavita    
+							option(id="ciudad756" name="ciudad756" value="paez"  selected="paez" style="display:none;" )  Paez    
+							option(id="ciudad757" name="ciudad757" value="paipa"  selected="paipa" style="display:none;" )  Paipa    
+							option(id="ciudad758" name="ciudad758" value="pajarito"  selected="pajarito" style="display:none;" )  Pajarito    
+							option(id="ciudad759" name="ciudad759" value="panqueba"  selected="panqueba" style="display:none;" )  Panqueba    
+							option(id="ciudad760" name="ciudad760" value="pauna"  selected="pauna" style="display:none;" )  Pauna    
+							option(id="ciudad761" name="ciudad761" value="paya"  selected="paya" style="display:none;" )  Paya    
+							option(id="ciudad762" name="ciudad762" value="pazdelrio"  selected="pazdelrio" style="display:none;" )  Paz del Rio  
+							option(id="ciudad763" name="ciudad763" value="pesca"  selected="pesca" style="display:none;" )  Pesca    
+							option(id="ciudad764" name="ciudad764" value="pisba"  selected="pisba" style="display:none;" )  Pisba    
+							option(id="ciudad765" name="ciudad765" value="puertoboyaca"  selected="puertoboyaca" style="display:none;" )  Puerto Boyaca   
+							option(id="ciudad766" name="ciudad766" value="quipama"  selected="quipama" style="display:none;" )  Quipama    
+							option(id="ciudad767" name="ciudad767" value="ramiriqui"  selected="ramiriqui" style="display:none;" )  Ramiriqui    
+							option(id="ciudad768" name="ciudad768" value="raquira"  selected="raquira" style="display:none;" )  Raquira    
+							option(id="ciudad769" name="ciudad769" value="rondon"  selected="rondon" style="display:none;" )  Rondon    
+							option(id="ciudad770" name="ciudad770" value="saboya"  selected="saboya" style="display:none;" )  Saboya    
+							option(id="ciudad771" name="ciudad771" value="sachica"  selected="sachica" style="display:none;" )  Sachica    
+							option(id="ciudad772" name="ciudad772" value="samaca"  selected="samaca" style="display:none;" )  Samaca    
+							option(id="ciudad773" name="ciudad773" value="saneduardo"  selected="saneduardo" style="display:none;" )  San Eduardo   
+							option(id="ciudad774" name="ciudad774" value="sanjosedepare"  selected="sanjosedepare" style="display:none;" )  San Jose de Pare 
+							option(id="ciudad775" name="ciudad775" value="sanluisdegaceno"  selected="sanluisdegaceno" style="display:none;" )  San Luis de Gaceno 
+							option(id="ciudad776" name="ciudad776" value="sanmateo"  selected="sanmateo" style="display:none;" )  San Mateo   
+							option(id="ciudad777" name="ciudad777" value="sanmigueldesema"  selected="sanmigueldesema" style="display:none;" )  San Miguel de Sema 
+							option(id="ciudad778" name="ciudad778" value="sanpablodeborbur"  selected="sanpablodeborbur" style="display:none;" )  San Pablo de Borbur 
+							option(id="ciudad779" name="ciudad779" value="santamaria"  selected="santamaria" style="display:none;" )  Santa Maria   
+							option(id="ciudad780" name="ciudad780" value="santarosadeviterbo"  selected="santarosadeviterbo" style="display:none;" )  Santa Rosa de Viterbo 
+							option(id="ciudad781" name="ciudad781" value="santasofia"  selected="santasofia" style="display:none;" )  Santa Sofia   
+							option(id="ciudad782" name="ciudad782" value="santana"  selected="santana" style="display:none;" )  Santana    
+							option(id="ciudad783" name="ciudad783" value="sativanorte"  selected="sativanorte" style="display:none;" )  Sativanorte    
+							option(id="ciudad784" name="ciudad784" value="sativasur"  selected="sativasur" style="display:none;" )  Sativasur    
+							option(id="ciudad785" name="ciudad785" value="siachoque"  selected="siachoque" style="display:none;" )  Siachoque    
+							option(id="ciudad786" name="ciudad786" value="soata"  selected="soata" style="display:none;" )  Soata    
+							option(id="ciudad787" name="ciudad787" value="socha"  selected="socha" style="display:none;" )  Socha    
+							option(id="ciudad788" name="ciudad788" value="socota"  selected="socota" style="display:none;" )  Socota    
+							option(id="ciudad789" name="ciudad789" value="sogamoso"  selected="sogamoso" style="display:none;" )  Sogamoso    
+							option(id="ciudad790" name="ciudad790" value="somondoco"  selected="somondoco" style="display:none;" )  Somondoco    
+							option(id="ciudad791" name="ciudad791" value="sora"  selected="sora" style="display:none;" )  Sora    
+							option(id="ciudad792" name="ciudad792" value="soraca"  selected="soraca" style="display:none;" )  Soraca    
+							option(id="ciudad793" name="ciudad793" value="sotaquira"  selected="sotaquira" style="display:none;" )  Sotaquira    
+							option(id="ciudad794" name="ciudad794" value="susacon"  selected="susacon" style="display:none;" )  Susacon    
+							option(id="ciudad795" name="ciudad795" value="suson"  selected="suson" style="display:none;" )  Suson    
+							option(id="ciudad796" name="ciudad796" value="sutamarchan"  selected="sutamarchan" style="display:none;" )  Sutamarchan    
+							option(id="ciudad797" name="ciudad797" value="sutatenza"  selected="sutatenza" style="display:none;" )  Sutatenza    
+							option(id="ciudad798" name="ciudad798" value="tasco"  selected="tasco" style="display:none;" )  Tasco    
+							option(id="ciudad799" name="ciudad799" value="tenza"  selected="tenza" style="display:none;" )  Tenza    
+							option(id="ciudad7100" name="ciudad7100" value="tibana"  selected="tibana" style="display:none;" )  Tibana    
+							option(id="ciudad7101" name="ciudad7101" value="tibasosa"  selected="tibasosa" style="display:none;" )  Tibasosa    
+							option(id="ciudad7102" name="ciudad7102" value="tinjaca"  selected="tinjaca" style="display:none;" )  Tinjaca    
+							option(id="ciudad7103" name="ciudad7103" value="tipacoque"  selected="tipacoque" style="display:none;" )  Tipacoque    
+							option(id="ciudad7104" name="ciudad7104" value="toca"  selected="toca" style="display:none;" )  Toca    
+							option(id="ciudad7105" name="ciudad7105" value="togui"  selected="togui" style="display:none;" )  Togui    
+							option(id="ciudad7106" name="ciudad7106"  value="topaga"  selected="topaga" style="display:none;" )  Topaga    
+							option(id="ciudad7107" name="ciudad7107"  value="tota"  selected="tota" style="display:none;" )  Tota    
+							option(id="ciudad7108" name="ciudad7108"  value="tunja"  selected="tunja" style="display:none;" )  Tunja    
+							option(id="ciudad7109" name="ciudad7109"  value="tunungua"  selected="tunungua" style="display:none;" )  Tunungua    
+							option(id="ciudad7110" name="ciudad7110"  value="turmeque"  selected="turmeque" style="display:none;" )  Turmeque    
+							option(id="ciudad7111" name="ciudad7111"  value="tuta"  selected="tuta" style="display:none;" )  Tuta    
+							option(id="ciudad7112" name="ciudad7112"  value="tutasa"  selected="tutasa" style="display:none;" )  Tutasa    
+							option(id="ciudad7113" name="ciudad7113"  value="umbita"  selected="umbita" style="display:none;" )  Umbita    
+							option(id="ciudad7114" name="ciudad7114"  value="ventaquemada"  selected="ventaquemada" style="display:none;" )  Ventaquemada    
+							option(id="ciudad7115" name="ciudad7115"  value="villadeleyva"  selected="villadeleyva" style="display:none;" )  Villa de Leyva  
+							option(id="ciudad7116" name="ciudad7"  value="viracacha"  selected="viracacha" style="display:none;" )  Viracacha    
+							option(id="ciudad7117" name="ciudad7117"  value="zetaquira"  selected="zetaquira" style="display:none;" )  Zetaquira
+
+							option( id="ciudada" name="ciudada" style="display:none;" value="aguadedios"  selected="aguadedios")  Agua de Dios  
+							option( id="ciudada1" name="ciudada1" style="display:none;" value="alban"  selected="alban")  Alban    
+							option( id="ciudada2" name="ciudada" style="display:none;" value="anapoima"  selected="anapoima")  Anapoima    
+							option( id="ciudada3" name="ciudada" style="display:none;" value="anolaima"  selected="anolaima")  Anolaima    
+							option( id="ciudada4" name="ciudada" style="display:none;" value="apulo"  selected="apulo")  Apulo    
+							option( id="ciudada5" name="ciudada" style="display:none;" value="arbelaez"  selected="arbelaez")  Arbelaez    
+							option( id="ciudada6" name="ciudada" style="display:none;" value="beltran"  selected="beltran")  Beltran    
+							option( id="ciudada7" name="ciudada" style="display:none;" value="bituima"  selected="bituima")  Bituima    
+							option( id="ciudada8" name="ciudada" style="display:none;" value="bojaca"  selected="bojaca")  Bojaca    
+							option( id="ciudada9" name="ciudada" style="display:none;" value="cabrera"  selected="cabrera")  Cabrera    
+							option( id="ciudada10" name="ciudada" style="display:none;" value="cachipay"  selected="cachipay")  Cachipay    
+							option( id="ciudada11" name="ciudada" style="display:none;" value="cajica"  selected="cajica")  Cajica    
+							option( id="ciudada12" name="ciudada" style="display:none;" value="caparrapi"  selected="caparrapi")  Caparrapi    
+							option( id="ciudada13" name="ciudada" style="display:none;" value="caqueza"  selected="caqueza")  Caqueza    
+							option( id="ciudada14" name="ciudada" style="display:none;" value="carmendecarupa"  selected="carmendecarupa")  Carmen de Carupa  
+							option( id="ciudada15" name="ciudada" style="display:none;" value="chaguani"  selected="chaguani")  Chaguani    
+							option( id="ciudada16" name="ciudada" style="display:none;" value="chia"  selected="chia")  Chia    
+							option( id="ciudada17" name="ciudada" style="display:none;" value="chinauta"  selected="chinauta")  Chinauta    
+							option( id="ciudada18" name="ciudada" style="display:none;" value="chipaque"  selected="chipaque")  Chipaque    
+							option( id="ciudada19" name="ciudada" style="display:none;" value="choachi"  selected="choachi")  Choachi    
+							option( id="ciudada20" name="ciudada" style="display:none;" value="choconta"  selected="choconta")  Choconta    
+							option( id="ciudada21" name="ciudada" style="display:none;" value="cogua"  selected="cogua")  Cogua    
+							option( id="ciudada22" name="ciudada" style="display:none;" value="cota"  selected="cota")  Cota    
+							option( id="ciudada23" name="ciudada" style="display:none;" value="cucunuba"  selected="cucunuba")  Cucunuba    
+							option( id="ciudada24" name="ciudada" style="display:none;" value="elcolegio"  selected="elcolegio")  El Colegio   
+							option( id="ciudada25" name="ciudada" style="display:none;" value="elpeñon"  selected="elpeñon")  El Peñon   
+							option( id="ciudada26" name="ciudada" style="display:none;" value="elrosal"  selected="elrosal")  El Rosal   
+							option( id="ciudada27" name="ciudada" style="display:none;" value="facatativa"  selected="facatativa")  Facatativa    
+							option( id="ciudada28" name="ciudada" style="display:none;" value="fomeque"  selected="fomeque")  Fomeque    
+							option( id="ciudada29" name="ciudada" style="display:none;" value="fosca"  selected="fosca")  Fosca    
+							option( id="ciudada30" name="ciudada" style="display:none;" value="funza"  selected="funza")  Funza    
+							option( id="ciudada31" name="ciudada" style="display:none;" value="fuquene"  selected="fuquene")  Fuquene    
+							option( id="ciudada32" name="ciudada" style="display:none;" value="fusagasuga"  selected="fusagasuga")  Fusagasuga    
+							option( id="ciudada33" name="ciudada" style="display:none;" value="gachala"  selected="gachala")  Gachala    
+							option( id="ciudada34" name="ciudada" style="display:none;" value="gachancipa"  selected="gachancipa")  Gachancipa    
+							option( id="ciudada35" name="ciudada" style="display:none;" value="gacheta"  selected="gacheta")  Gacheta    
+							option( id="ciudada36" name="ciudada" style="display:none;" value="gama"  selected="gama")  Gama    
+							option( id="ciudada37" name="ciudada" style="display:none;" value="girardot"  selected="girardot")  Girardot    
+							option( id="ciudada38" name="ciudada" style="display:none;" value="granada"  selected="granada")  Granada    
+							option( id="ciudada39" name="ciudada" style="display:none;" value="guacheta"  selected="guacheta")  Guacheta    
+							option( id="ciudada40" name="ciudada" style="display:none;" value="guaduas"  selected="guaduas")  Guaduas    
+							option( id="ciudada41" name="ciudada" style="display:none;" value="guasca"  selected="guasca")  Guasca    
+							option( id="ciudada42" name="ciudada" style="display:none;" value="guataqui"  selected="guataqui")  Guataqui    
+							option( id="ciudada43" name="ciudada" style="display:none;" value="guatavita"  selected="guatavita")  Guatavita    
+							option( id="ciudada44" name="ciudada" style="display:none;" value="guayabaldesiquima"  selected="guayabaldesiquima")  Guayabal de Siquima  
+							option( id="ciudada45" name="ciudada" style="display:none;" value="guayabetal"  selected="guayabetal")  Guayabetal    
+							option( id="ciudada46" name="ciudada" style="display:none;" value="gutierrez"  selected="gutierrez")  Gutierrez    
+							option( id="ciudada47" name="ciudada" style="display:none;" value="jerusalen"  selected="jerusalen")  Jerusalen    
+							option( id="ciudada48" name="ciudada" style="display:none;" value="junin"  selected="junin")  Junin    
+							option( id="ciudada49" name="ciudada" style="display:none;" value="lacalera"  selected="lacalera")  La Calera   
+							option( id="ciudada50" name="ciudada" style="display:none;" value="lamesa"  selected="lamesa")  La Mesa   
+							option( id="ciudada51" name="ciudada" style="display:none;" value="lapalma"  selected="lapalma")  La Palma   
+							option( id="ciudada52" name="ciudada" style="display:none;" value="lapeña"  selected="lapeña")  La Peña   
+							option( id="ciudada53" name="ciudada" style="display:none;" value="lavega"  selected="lavega")  La Vega   
+							option( id="ciudada54" name="ciudada" style="display:none;" value="lenguazaque"  selected="lenguazaque")  Lenguazaque    
+							option( id="ciudada55" name="ciudada" style="display:none;" value="macheta"  selected="macheta")  Macheta    
+							option( id="ciudada56" name="ciudada" style="display:none;" value="madrid"  selected="madrid")  Madrid    
+							option( id="ciudada57" name="ciudada" style="display:none;" value="manta"  selected="manta")  Manta    
+							option( id="ciudada58" name="ciudada" style="display:none;" value="medina"  selected="medina")  Medina    
+							option( id="ciudada59" name="ciudada" style="display:none;" value="mosquera"  selected="mosquera")  Mosquera    
+							option( id="ciudada50" name="ciudada" style="display:none;" value="nariño"  selected="nariño")  Nariño    
+							option( id="ciudada51" name="ciudada" style="display:none;" value="nemocon"  selected="nemocon")  Nemocon    
+							option( id="ciudada52" name="ciudada" style="display:none;" value="nilo"  selected="nilo")  Nilo    
+							option( id="ciudada53" name="ciudada" style="display:none;" value="nimaima"  selected="nimaima")  Nimaima    
+							option( id="ciudada54" name="ciudada" style="display:none;" value="nocaima"  selected="nocaima")  Nocaima    
+							option( id="ciudada55" name="ciudada" style="display:none;" value="pacho"  selected="pacho")  Pacho    
+							option( id="ciudada56" name="ciudada" style="display:none;" value="paime"  selected="paime")  Paime    
+							option( id="ciudada57" name="ciudada" style="display:none;" value="pandi"  selected="pandi")  Pandi    
+							option( id="ciudada58" name="ciudada" style="display:none;" value="paratebueno"  selected="paratebueno")  Paratebueno    
+							option( id="ciudada59" name="ciudada" style="display:none;" value="pasca"  selected="pasca")  Pasca    
+							option( id="ciudada60" name="ciudada" style="display:none;" value="puertosalgar"  selected="puertosalgar")  Puerto Salgar   
+							option( id="ciudada61" name="ciudada" style="display:none;" value="puli"  selected="puli")  Puli    
+							option( id="ciudada62" name="ciudada" style="display:none;" value="quebradanegra"  selected="quebradanegra")  Quebradanegra    
+							option( id="ciudada63" name="ciudada" style="display:none;" value="quetame"  selected="quetame")  Quetame    
+							option( id="ciudada64" name="ciudada" style="display:none;" value="quipile"  selected="quipile")  Quipile    
+							option( id="ciudada65" name="ciudada" style="display:none;" value="ricaurte"  selected="ricaurte")  Ricaurte    
+							option( id="ciudada66" name="ciudada" style="display:none;" value="sanantoniodeltequendama"  selected="sanantoniodeltequendama")  San Antonio del Tequendama 
+							option( id="ciudada67" name="ciudada" style="display:none;" value="sanbernardo"  selected="sanbernardo")  San Bernardo   
+							option( id="ciudada68" name="ciudada" style="display:none;" value="sancayetano"  selected="sancayetano")  San Cayetano   
+							option( id="ciudada69" name="ciudada" style="display:none;" value="sanfrancisco"  selected="sanfrancisco")  San Francisco   
+							option( id="ciudada70" name="ciudada" style="display:none;" value="sanjuanderioseco"  selected="sanjuanderioseco")  San Juan de Rioseco 
+							option( id="ciudada71" name="ciudada" style="display:none;" value="sasaima"  selected="sasaima")  Sasaima    
+							option( id="ciudada72" name="ciudada" style="display:none;" value="sesquile"  selected="sesquile")  Sesquile    
+							option( id="ciudada73" name="ciudada" style="display:none;" value="sibate"  selected="sibate")  Sibate    
+							option( id="ciudada74" name="ciudada" style="display:none;" value="silvania"  selected="silvania")  Silvania    
+							option( id="ciudada75" name="ciudada" style="display:none;" value="simijaca"  selected="simijaca")  Simijaca    
+							option( id="ciudada76" name="ciudada" style="display:none;" value="sisga"  selected="sisga")  Sisga    
+							option( id="ciudada77" name="ciudada" style="display:none;" value="soacha"  selected="soacha")  Soacha    
+							option( id="ciudada78" name="ciudada" style="display:none;" value="sopo"  selected="sopo")  Sopo    
+							option( id="ciudada79" name="ciudada" style="display:none;" value="subachoque"  selected="subachoque")  Subachoque    
+							option( id="ciudada80" name="ciudada" style="display:none;" value="suesca"  selected="suesca")  Suesca    
+							option( id="ciudada81" name="ciudada" style="display:none;" value="supata"  selected="supata")  Supata    
+							option( id="ciudada82" name="ciudada" style="display:none;" value="susa"  selected="susa")  Susa    
+							option( id="ciudada83" name="ciudada" style="display:none;" value="sutatausa"  selected="sutatausa")  Sutatausa    
+							option( id="ciudada84" name="ciudada" style="display:none;" value="tabio"  selected="tabio")  Tabio    
+							option( id="ciudada85" name="ciudada" style="display:none;" value="tausa"  selected="tausa")  Tausa    
+							option( id="ciudada86" name="ciudada" style="display:none;" value="tena"  selected="tena")  Tena    
+							option( id="ciudada87" name="ciudada" style="display:none;" value="tenjo"  selected="tenjo")  Tenjo    
+							option( id="ciudada88" name="ciudada" style="display:none;" value="tibacuy"  selected="tibacuy")  Tibacuy    
+							option( id="ciudada89" name="ciudada" style="display:none;" value="tibirita"  selected="tibirita")  Tibirita    
+							option( id="ciudada90" name="ciudada" style="display:none;" value="tocaima"  selected="tocaima")  Tocaima    
+							option( id="ciudada91" name="ciudada" style="display:none;" value="tocancipa"  selected="tocancipa")  Tocancipa    
+							option( id="ciudada92" name="ciudada" style="display:none;" value="topaipi"  selected="topaipi")  Topaipi    
+							option( id="ciudada93" name="ciudada" style="display:none;" value="ubala"  selected="ubala")  Ubala    
+							option( id="ciudada94" name="ciudada" style="display:none;" value="ubaque"  selected="ubaque")  Ubaque    
+							option( id="ciudada95" name="ciudada" style="display:none;" value="ubate"  selected="ubate")  Ubate    
+							option( id="ciudada96" name="ciudada" style="display:none;" value="une"  selected="une")  Une    
+							option( id="ciudada97" name="ciudada" style="display:none;" value="utica"  selected="utica")  Utica    
+							option( id="ciudada98" name="ciudada" style="display:none;" value="venecia-ospinaperez"  selected="venecia-ospinaperez")  Venecia - Ospina Perez 
+							option( id="ciudada99" name="ciudada" style="display:none;" value="vergara"  selected="vergara")  Vergara    
+							option( id="ciudada100" name="ciudada" style="display:none;" value="viani"  selected="viani")  Viani    
+							option( id="ciudada101" name="ciudada" style="display:none;" value="villagomez"  selected="villagomez")  Villagomez    
+							option( id="ciudada102" name="ciudada" style="display:none;" value="villapinzon"  selected="villapinzon")  Villapinzon    
+							option( id="ciudada103" name="ciudada" style="display:none;" value="villeta"  selected="villeta")  Villeta    
+							option( id="ciudada104" name="ciudada" style="display:none;" value="viota"  selected="viota")  Viota    
+							option( id="ciudada105" name="ciudada" style="display:none;" value="yacopi"  selected="yacopi")  Yacopi    
+							option( id="ciudada106" name="ciudada" style="display:none;" value="zipacon"  selected="zipacon")  Zipacon    
+							option( id="ciudada107" name="ciudada" style="display:none;" value="zipaquira"  selected="zipaquira")  Zipaquira    
+							option( id="ciudada108" name="ciudada" style="display:none;" value="capellania"  selected="capellania")  Capellania    
+							option( id="ciudada109" name="ciudada" style="display:none;" value="lapunta"  selected="lapunta")  La Punta   
+							option( id="ciudada110" name="ciudada" style="display:none;" value="santandercito"  selected="santandercito")  Santandercito    
+							option( id="ciudada111" name="ciudada" style="display:none;" value="tobia"  selected="tobia")  Tobia    
+							option( id="ciudada112" name="ciudada" style="display:none;" value="siberia"  selected="siberia")  Siberia 
+							option(id="ciudadd1" name="ciudad1" style="display:none;" value="bosa"  selected="bosa")  Bosa
+							option(id="ciudadd11" name="ciudad1" style="display:none;" value="engativa"  selected="engativa")  Engativa    
+							option(id="ciudadd12" name="ciudad1" style="display:none;" value="fontibon"  selected="fontibon")  Fontibon    
+							option(id="ciudadd13" name="ciudad1" style="display:none;" value="sisga"  selected="sisga")  Sisga    
+							option(id="ciudadd14" name="ciudad1" style="display:none;" value="suba"  selected="suba")  Suba    
+							option(id="ciudadd15" name="ciudad1" style="display:none;" value="usaquen"  selected="usaquen")  Usaquen    
+							option(id="ciudadd16" name="ciudad1" style="display:none;" value="usme"  selected="usme")  Usme  
+
+							option( id="ciudad2" name="ciudad2" style="display:none;" value="elencanto"  selected="elencanto")  El Encanto   
+							option( id="ciudad21" name="ciudad2" style="display:none;" value="lachorrera"  selected="lachorrera")  La Chorrera   
+							option( id="ciudad22" name="ciudad2" style="display:none;" value="lapedrera"  selected="lapedrera")  La Pedrera   
+							option( id="ciudad23" name="ciudad2" style="display:none;" value="leticia"  selected="leticia")  Leticia    
+							option( id="ciudad24" name="ciudad2" style="display:none;" value="miriti-parana"  selected="miriti-parana")  Miriti-Parana    
+							option( id="ciudad25" name="ciudad2" style="display:none;" value="puertonariño"  selected="puertonariño")  Puerto Nariño   
+							option( id="ciudad26" name="ciudad2" style="display:none;" value="puertosantander"  selected="puertosantander")  Puerto Santander   
+							option( id="ciudad27" name="ciudad2" style="display:none;" value="tarapaca"  selected="tarapaca")  Tarapaca       
+							option( id="ciudad29" name="ciudad2" style="display:none;" value="laciudaddecaro"  selected="laciudaddecaro")  la ciudad de caro
+							option( id="ciudad210" name="ciudad2" style="display:none;" value="abejorral"  selected="abejorral")  Abejorral    
+							option( id="ciudad211" name="ciudad2" style="display:none;" value="abriaqui"  selected="abriaqui")  Abriaqui    
+							option( id="ciudad212" name="ciudad2" style="display:none;" value="alejandria"  selected="alejandria")  Alejandria    
+							option( id="ciudad213" name="ciudad2" style="display:none;" value="amaga"  selected="amaga")  Amaga    
+							option( id="ciudad214" name="ciudad2" style="display:none;" value="amalfi"  selected="amalfi")  Amalfi    
+							option( id="ciudad215" name="ciudad2" style="display:none;" value="andes"  selected="andes")  Andes    
+							option( id="ciudad216" name="ciudad2" style="display:none;" value="angelopolis"  selected="angelopolis")  Angelopolis    
+							option( id="ciudad217" name="ciudad2" style="display:none;" value="angostura"  selected="angostura")  Angostura    
+							option( id="ciudad218" name="ciudad2" style="display:none;" value="anori"  selected="anori")  Anori    
+
+							option( id="ciudad3" name="ciudad3" style="display:none;" value="anza"  selected="anza")  Anza    
+							option( id="ciudad31" name="ciudad3" style="display:none;" value="apartado"  selected="apartado")  Apartado    
+							option( id="ciudad32" name="ciudad3" style="display:none;" value="arboletes"  selected="arboletes")  Arboletes    
+							option( id="ciudad33" name="ciudad3" style="display:none;" value="arboretes"  selected="arboretes")  Arboretes    
+							option( id="ciudad34" name="ciudad3" style="display:none;" value="argelia"  selected="argelia")  Argelia    
+							option( id="ciudad35" name="ciudad3" style="display:none;" value="armenia"  selected="armenia")  Armenia    
+							option( id="ciudad36" name="ciudad3" style="display:none;" value="barbosa"  selected="barbosa")  Barbosa    
+							option( id="ciudad37" name="ciudad3" style="display:none;" value="belendebajira"  selected="belendebajira")  Belen de Bajira  
+							option( id="ciudad38" name="ciudad3" style="display:none;" value="bello"  selected="bello")  Bello    
+							option( id="ciudad39" name="ciudad3" style="display:none;" value="belmira"  selected="belmira")  Belmira    
+							option( id="ciudad310" name="ciudad3" style="display:none;" value="betania"  selected="betania")  Betania    
+							option( id="ciudad311" name="ciudad3" style="display:none;" value="betulia"  selected="betulia")  Betulia    
+							option( id="ciudad312" name="ciudad3" style="display:none;" value="bolombolo"  selected="bolombolo")  Bolombolo    
+							option( id="ciudad313" name="ciudad3" style="display:none;" value="briceño"  selected="briceño")  Briceño    
+							option( id="ciudad314" name="ciudad3" style="display:none;" value="buritica"  selected="buritica")  Buritica    
+							option( id="ciudad315" name="ciudad3" style="display:none;" value="caceres"  selected="caceres")  Caceres    
+							option( id="ciudad316" name="ciudad3" style="display:none;" value="caicedo"  selected="caicedo")  Caicedo    
+							option( id="ciudad317" name="ciudad3" style="display:none;" value="caldas"  selected="caldas")  Caldas    
+							option( id="ciudad318" name="ciudad3" style="display:none;" value="campamento"  selected="campamento")  Campamento    
+							option( id="ciudad319" name="ciudad3" style="display:none;" value="cañasgordas"  selected="cañasgordas")  Cañasgordas    
+							option( id="ciudad320" name="ciudad3" style="display:none;" value="capurgana"  selected="capurgana")  Capurgana    
+							option( id="ciudad321" name="ciudad3" style="display:none;" value="caracoli"  selected="caracoli")  Caracoli    
+							option( id="ciudad322" name="ciudad3" style="display:none;" value="caramanta"  selected="caramanta")  Caramanta    
+							option( id="ciudad323" name="ciudad3" style="display:none;" value="carepa"  selected="carepa")  Carepa    
+							option( id="ciudad324" name="ciudad3" style="display:none;" value="carolina"  selected="carolina")  Carolina    
+							option( id="ciudad325" name="ciudad3" style="display:none;" value="caucasia"  selected="caucasia")  Caucasia    
+							option( id="ciudad326" name="ciudad3" style="display:none;" value="cestilla"  selected="cestilla")  Cestilla    
+							option( id="ciudad327" name="ciudad3" style="display:none;" value="chigorodo"  selected="chigorodo")  Chigorodo    
+							option( id="ciudad328" name="ciudad3" style="display:none;" value="cisneros"  selected="cisneros")  Cisneros    
+							option( id="ciudad329" name="ciudad3" style="display:none;" value="ciudadbolivar"  selected="ciudadbolivar")  Ciudad Bolivar   
+							option( id="ciudad330" name="ciudad3" style="display:none;" value="cocorna"  selected="cocorna")  Cocorna    
+							option( id="ciudad331" name="ciudad3" style="display:none;" value="concepcion"  selected="concepcion")  Concepcion    
+							option( id="ciudad332" name="ciudad3" style="display:none;" value="concordia"  selected="concordia")  Concordia    
+							option( id="ciudad333" name="ciudad3" style="display:none;" value="copacabana"  selected="copacabana")  Copacabana    
+							option( id="ciudad334" name="ciudad3" style="display:none;" value="currulao"  selected="currulao")  Currulao    
+							option( id="ciudad335" name="ciudad3" style="display:none;" value="dabeiba"  selected="dabeiba")  Dabeiba    
+							option( id="ciudad336" name="ciudad3" style="display:none;" value="donmatias"  selected="donmatias")  Don Matias   
+							option( id="ciudad337" name="ciudad3" style="display:none;" value="doradal"  selected="doradal")  Doradal    
+							option( id="ciudad338" name="ciudad3" style="display:none;" value="ebejico"  selected="ebejico")  Ebejico    
+							option( id="ciudad339" name="ciudad3" style="display:none;" value="elbagre"  selected="elbagre")  El Bagre   
+							option( id="ciudad340" name="ciudad3" style="display:none;" value="elcarmendeviboral"  selected="elcarmendeviboral")  El Carmen de Viboral 
+							option( id="ciudad341" name="ciudad3" style="display:none;" value="elpeñol"  selected="elpeñol")  El Peñol   
+							option( id="ciudad342" name="ciudad3" style="display:none;" value="elretiro"  selected="elretiro")  El Retiro   
+							option( id="ciudad343" name="ciudad3" style="display:none;" value="elsantuario"  selected="elsantuario")  El Santuario   
+							option( id="ciudad344" name="ciudad3" style="display:none;" value="entrerrios"  selected="entrerrios")  Entrerrios    
+							option( id="ciudad345" name="ciudad3" style="display:none;" value="envigado"  selected="envigado")  Envigado    
+							option( id="ciudad346" name="ciudad3" style="display:none;" value="fredonia"  selected="fredonia")  Fredonia    
+							option( id="ciudad347" name="ciudad3" style="display:none;" value="frontino"  selected="frontino")  Frontino    
+							option( id="ciudad348" name="ciudad3" style="display:none;" value="giraldo"  selected="giraldo")  Giraldo    
+							option( id="ciudad349" name="ciudad3" style="display:none;" value="girardota"  selected="girardota")  Girardota    
+							option( id="ciudad350" name="ciudad3" style="display:none;" value="gomezplata"  selected="gomezplata")  Gomez Plata   
+							option( id="ciudad351" name="ciudad3" style="display:none;" value="granada"  selected="granada")  Granada    
+							option( id="ciudad352" name="ciudad3" style="display:none;" value="guadalupe"  selected="guadalupe")  Guadalupe    
+							option( id="ciudad353" name="ciudad3" style="display:none;" value="guarne"  selected="guarne")  Guarne    
+							option( id="ciudad354" name="ciudad3" style="display:none;" value="guatape"  selected="guatape")  Guatape    
+							option( id="ciudad355" name="ciudad3" style="display:none;" value="heliconia"  selected="heliconia")  Heliconia    
+							option( id="ciudad356" name="ciudad3" style="display:none;" value="hispania"  selected="hispania")  Hispania    
+							option( id="ciudad357" name="ciudad3" style="display:none;" value="hoyorrico"  selected="hoyorrico")  Hoyorrico    
+							option( id="ciudad358" name="ciudad3" style="display:none;" value="itagui"  selected="itagui")  Itagui    
+							option( id="ciudad359" name="ciudad3" style="display:none;" value="ituango"  selected="ituango")  Ituango    
+							option( id="ciudad360" name="ciudad3" style="display:none;" value="jardin"  selected="jardin")  Jardin    
+							option( id="ciudad361" name="ciudad3" style="display:none;" value="jerico"  selected="jerico")  Jerico    
+							option( id="ciudad362" name="ciudad3" style="display:none;" value="laceja"  selected="laceja")  La Ceja   
+							option( id="ciudad363" name="ciudad3" style="display:none;" value="laestrella"  selected="laestrella")  La Estrella   
+							option( id="ciudad364" name="ciudad3" style="display:none;" value="lafe"  selected="lafe")  La Fe   
+							option( id="ciudad365" name="ciudad3" style="display:none;" value="lapintada"  selected="lapintada")  La Pintada   
+							option( id="ciudad366" name="ciudad3" style="display:none;" value="lasierra"  selected="lasierra")  La Sierra   
+							option( id="ciudad367" name="ciudad3" style="display:none;" value="launion"  selected="launion")  La Union   
+							option( id="ciudad368" name="ciudad3" style="display:none;" value="liborina"  selected="liborina")  Liborina    
+							option( id="ciudad369" name="ciudad3" style="display:none;" value="llanadas"  selected="llanadas")  Llanadas    
+							option( id="ciudad370" name="ciudad3" style="display:none;" value="maceo"  selected="maceo")  Maceo    
+							option( id="ciudad371" name="ciudad3" style="display:none;" value="marinilla"  selected="marinilla")  Marinilla    
+							option( id="ciudad372" name="ciudad3" style="display:none;" value="medellin"  selected="medellin")  Medellin    
+							option( id="ciudad373" name="ciudad3" style="display:none;" value="montebello"  selected="montebello")  Montebello    
+							option( id="ciudad374" name="ciudad3" style="display:none;" value="murindo"  selected="murindo")  Murindo    
+							option( id="ciudad375" name="ciudad3" style="display:none;" value="mutata"  selected="mutata")  Mutata    
+							option( id="ciudad376" name="ciudad3" style="display:none;" value="nariño"  selected="nariño")  Nariño    
+							option( id="ciudad377" name="ciudad3" style="display:none;" value="nechi"  selected="nechi")  Nechi    
+							option( id="ciudad378" name="ciudad3" style="display:none;" value="necocli"  selected="necocli")  Necocli    
+							option( id="ciudad379" name="ciudad3" style="display:none;" value="nuevacolonia"  selected="nuevacolonia")  Nueva Colonia   
+							option( id="ciudad380" name="ciudad3" style="display:none;" value="nutibara"  selected="nutibara")  Nutibara    
+							option( id="ciudad381" name="ciudad3" style="display:none;" value="olaya"  selected="olaya")  Olaya    
+							option( id="ciudad382" name="ciudad3" style="display:none;" value="palermo"  selected="palermo")  Palermo    
+							option( id="ciudad383" name="ciudad3" style="display:none;" value="peque"  selected="peque")  Peque    
+							option( id="ciudad384" name="ciudad3" style="display:none;" value="pueblorico"  selected="pueblorico")  Pueblo Rico   
+							option( id="ciudad385" name="ciudad3" style="display:none;" value="puertoberrio"  selected="puertoberrio")  Puerto Berrio   
+							option( id="ciudad386" name="ciudad3" style="display:none;" value="puertoclaver"  selected="puertoclaver")  Puerto Claver   
+							option( id="ciudad387" name="ciudad3" style="display:none;" value="puertonare"  selected="puertonare")  Puerto Nare   
+							option( id="ciudad388" name="ciudad3" style="display:none;" value="puertoperales"  selected="puertoperales")  Puerto perales   
+							option( id="ciudad389" name="ciudad3" style="display:none;" value="puertotriunfo"  selected="puertotriunfo")  Puerto Triunfo   
+							option( id="ciudad390" name="ciudad3" style="display:none;" value="remedios"  selected="remedios")  Remedios    
+							option( id="ciudad391" name="ciudad3" style="display:none;" value="rionegro"  selected="rionegro")  Rionegro    
+							option( id="ciudad392" name="ciudad3" style="display:none;" value="sabanalarga"  selected="sabanalarga")  Sabanalarga    
+							option( id="ciudad393" name="ciudad3" style="display:none;" value="sabaneta"  selected="sabaneta")  Sabaneta    
+							option( id="ciudad394" name="ciudad3" style="display:none;" value="salgar"  selected="salgar")  Salgar    
+							option( id="ciudad395" name="ciudad3" style="display:none;" value="sanandresdecuerquia"  selected="sanandresdecuerquia")  San Andres de Cuerquia 
+							option( id="ciudad396" name="ciudad3" style="display:none;" value="sancarlos"  selected="sancarlos")  San Carlos   
+							option( id="ciudad397" name="ciudad3" style="display:none;" value="sanfrancisco"  selected="sanfrancisco")  San Francisco   
+							option( id="ciudad398" name="ciudad3" style="display:none;" value="sanjeronimo"  selected="sanjeronimo")  San Jeronimo   
+							option( id="ciudad399" name="ciudad3" style="display:none;" value="sanjosedelamontaña"  selected="sanjosedelamontaña")  San Jose de la Montaña
+							option( id="ciudad3100" name="ciudad3" style="display:none;" value="sanjosedelnus"  selected="sanjosedelnus")  San Jose del Nus 
+							option( id="ciudad3101" name="ciudad3" style="display:none;" value="sanjuandeuraba"  selected="sanjuandeuraba")  San Juan de Uraba 
+							option( id="ciudad3102" name="ciudad3" style="display:none;" value="sanluis"  selected="sanluis")  San Luis   
+							option( id="ciudad3103" name="ciudad3" style="display:none;" value="sanpedrodelosmilagros"  selected="sanpedrodelosmilagros")  San Pedro de los Milagros
+							option( id="ciudad3104" name="ciudad3" style="display:none;" value="sanpedrodeuraba"  selected="sanpedrodeuraba")  San Pedro de Uraba 
+							option( id="ciudad3105" name="ciudad3" style="display:none;" value="sanrafael"  selected="sanrafael")  San Rafael   
+							option( id="ciudad3106" name="ciudad3" style="display:none;" value="sanroque"  selected="sanroque")  San Roque   
+							option( id="ciudad3107" name="ciudad3" style="display:none;" value="sanvicente"  selected="sanvicente")  San Vicente   
+							option( id="ciudad3108" name="ciudad3" style="display:none;" value="santabarbara"  selected="santabarbara")  Santa Barbara   
+							option( id="ciudad3109" name="ciudad3" style="display:none;" value="santarosadeosos"  selected="santarosadeosos")  Santa Rosa de Osos 
+							option( id="ciudad3110" name="ciudad3" style="display:none;" value="santafedeantioquia"  selected="santafedeantioquia")  Santa Fe de Antioquia 
+							option( id="ciudad3111" name="ciudad3" style="display:none;" value="santodomingo"  selected="santodomingo")  Santo Domingo   
+							option( id="ciudad3112" name="ciudad3" style="display:none;" value="segovia"  selected="segovia")  Segovia    
+							option( id="ciudad3113" name="ciudad3" style="display:none;" value="sevilla"  selected="sevilla")  Sevilla    
+							option( id="ciudad3114" name="ciudad3" style="display:none;" value="sonson"  selected="sonson")  Sonson    
+							option( id="ciudad3115" name="ciudad3" style="display:none;" value="sopetran"  selected="sopetran")  Sopetran    
+							option( id="ciudad3116" name="ciudad3" style="display:none;" value="sucre"  selected="sucre")  Sucre    
+							option( id="ciudad3117" name="ciudad3" style="display:none;" value="tamesis"  selected="tamesis")  Tamesis    
+							option( id="ciudad3118" name="ciudad3" style="display:none;" value="taparto"  selected="taparto")  Taparto    
+							option( id="ciudad3119" name="ciudad3" style="display:none;" value="taraza"  selected="taraza")  Taraza    
+							option( id="ciudad3120" name="ciudad3" style="display:none;" value="tarso"  selected="tarso")  Tarso    
+							option( id="ciudad3121" name="ciudad3" style="display:none;" value="titiribi"  selected="titiribi")  Titiribi    
+							option( id="ciudad3122" name="ciudad3" style="display:none;" value="toledo"  selected="toledo")  Toledo    
+							option( id="ciudad3123" name="ciudad3" style="display:none;" value="turbo"  selected="turbo")  Turbo    
+							option( id="ciudad3124" name="ciudad3" style="display:none;" value="uramita"  selected="uramita")  Uramita    
+							option( id="ciudad3125" name="ciudad3" style="display:none;" value="urrao"  selected="urrao")  Urrao    
+							option( id="ciudad3126" name="ciudad3" style="display:none;" value="valdivia"  selected="valdivia")  Valdivia    
+							option( id="ciudad3127" name="ciudad3" style="display:none;" value="valparaiso"  selected="valparaiso")  Valparaiso    
+							option( id="ciudad3128" name="ciudad3" style="display:none;" value="vegachi"  selected="vegachi")  Vegachi    
+							option( id="ciudad3129" name="ciudad3" style="display:none;" value="venecia"  selected="venecia")  Venecia    
+							option( id="ciudad3130" name="ciudad3" style="display:none;" value="versalles"  selected="versalles")  Versalles    
+							option( id="ciudad3131" name="ciudad3" style="display:none;" value="vigiadelfuerte"  selected="vigiadelfuerte")  Vigia del Fuerte  
+							option( id="ciudad3132" name="ciudad3" style="display:none;" value="yali"  selected="yali")  Yali    
+							option( id="ciudad3133" name="ciudad3" style="display:none;" value="yarumal"  selected="yarumal")  Yarumal    
+							option( id="ciudad3134" name="ciudad3" style="display:none;" value="yolombo"  selected="yolombo")  Yolombo    
+							option( id="ciudad3135" name="ciudad3" style="display:none;" value="yondo"  selected="yondo")  Yondo    
+							option( id="ciudad3136" name="ciudad3" style="display:none;" value="zaragoza"  selected="zaragoza")  Zaragoza 
+
+							option( id="ciudad4" name="ciudad4" style="display:none;" value="altamira"  selected="altamira")  Altamira    
+							option( id="ciudad41" name="ciudad4" style="display:none;" value="lacruzada"  selected="lacruzada")  La Cruzada   
+							option( id="ciudad42" name="ciudad4" style="display:none;" value="puertovaldivia"  selected="puertovaldivia")  Puerto Valdivia   
+							option( id="ciudad43" name="ciudad4" style="display:none;" value="pueblorrico"  selected="pueblorrico")  Pueblorrico   
+							option( id="ciudad44" name="ciudad4" style="display:none;" value="arauquita"  selected="arauquita")  Arauquita    
+							option( id="ciudad45" name="ciudad4" style="display:none;" value="cravonorte"  selected="cravonorte")  Cravo Norte   
+							option( id="ciudad46" name="ciudad4" style="display:none;" value="fortul"  selected="fortul")  Fortul    
+							option( id="ciudad47" name="ciudad4" style="display:none;" value="puertonariño"  selected="puertonariño")  Puerto Nariño   
+							option( id="ciudad48" name="ciudad4" style="display:none;" value="puertorondon"  selected="puertorondon")  Puerto Rondon   
+							option( id="ciudad49" name="ciudad4" style="display:none;" value="saravena"  selected="saravena")  Saravena    
+							option( id="ciudad410" name="ciudad4" style="display:none;" value="tame"  selected="tame")  Tame   
+							option( id="ciudad411" name="ciudad4" style="display:none;" value="baranoa"  selected="baranoa")  Baranoa    
+							option( id="ciudad412" name="ciudad4" style="display:none;" value="barranquilla"  selected="barranquilla")  Barranquilla    
+							option( id="ciudad413" name="ciudad4" style="display:none;" value="campodelacruz"  selected="campodelacruz")  Campo de la Cruz 
+							option( id="ciudad414" name="ciudad4" style="display:none;" value="candelaria"  selected="candelaria")  Candelaria    
+							option( id="ciudad415" name="ciudad4" style="display:none;" value="galapa"  selected="galapa")  Galapa    
+							option( id="ciudad416" name="ciudad4" style="display:none;" value="juandeacosta"  selected="juandeacosta")  Juan de Acosta  
+							option( id="ciudad417" name="ciudad4" style="display:none;" value="luruaco"  selected="luruaco")  Luruaco    
+							option( id="ciudad418" name="ciudad4" style="display:none;" value="malambo"  selected="malambo")  Malambo    
+							option( id="ciudad419" name="ciudad4" style="display:none;" value="manati"  selected="manati")  Manati    
+							option( id="ciudad420" name="ciudad4" style="display:none;" value="palmardevarela"  selected="palmardevarela")  Palmar de Varela  
+							option( id="ciudad421" name="ciudad4" style="display:none;" value="piojo"  selected="piojo")  Piojo    
+							option( id="ciudad422" name="ciudad4" style="display:none;" value="polonuevo"  selected="polonuevo")  Polonuevo    
+							option( id="ciudad423" name="ciudad4" style="display:none;" value="ponedera"  selected="ponedera")  Ponedera    
+							option( id="ciudad424" name="ciudad4" style="display:none;" value="puertocolombia"  selected="puertocolombia")  Puerto Colombia   
+							option( id="ciudad425" name="ciudad4" style="display:none;" value="repelon"  selected="repelon")  Repelon    
+							option( id="ciudad426" name="ciudad4" style="display:none;" value="sabanagrande"  selected="sabanagrande")  Sabanagrande    
+							option( id="ciudad427" name="ciudad4" style="display:none;" value="sabanalarga"  selected="sabanalarga")  Sabanalarga    
+							option( id="ciudad428" name="ciudad4" style="display:none;" value="santalucia"  selected="santalucia")  Santa Lucia   
+							option( id="ciudad429" name="ciudad4" style="display:none;" value="santotomas"  selected="santotomas")  Santo Tomas   
+							option( id="ciudad430" name="ciudad4" style="display:none;" value="soledad"  selected="soledad")  Soledad    
+							option( id="ciudad431" name="ciudad4" style="display:none;" value="suan"  selected="suan")  Suan    
+							option( id="ciudad432" name="ciudad4" style="display:none;" value="tubara"  selected="tubara")  Tubara    
+							option( id="ciudad433" name="ciudad4" style="display:none;" value="usiacuri"  selected="usiacuri")  Usiacuri    
+							option( id="ciudad434" name="ciudad4" style="display:none;" value="juanmina"  selected="juanmina")  Juan Mina   
+							option( id="ciudad435" name="ciudad4" style="display:none;" value="laloma"  selected="laloma")  La Loma   
+							option( id="ciudad436" name="ciudad4" style="display:none;" value="lajaguadeibirico"  selected="lajaguadeibirico")  La Jagua de Ibirico  
+
+							option( id="ciudad5" name="ciudad5" style="display:none;" value="achi"  selected="achi")  Achi    
+							option( id="ciudad51" name="ciudad5" style="display:none;" value="altosdelrosario"  selected="altosdelrosario")  Altos del Rosario  
+							option( id="ciudad52" name="ciudad5" style="display:none;" value="arenaldelsur"  selected="arenaldelsur")  Arenal del Sur  
+							option( id="ciudad53" name="ciudad5" style="display:none;" value="arjona"  selected="arjona")  Arjona    
+							option( id="ciudad54" name="ciudad5" style="display:none;" value="arroyohondo"  selected="arroyohondo")  Arroyo Hondo   
+							option( id="ciudad55" name="ciudad5" style="display:none;" value="barrancodeloba"  selected="barrancodeloba")  Barranco de Loba  
+							option( id="ciudad56" name="ciudad5" style="display:none;" value="bayunca"  selected="bayunca")  Bayunca    
+							option( id="ciudad57" name="ciudad5" style="display:none;" value="calamar"  selected="calamar")  Calamar    
+							option( id="ciudad58" name="ciudad5" style="display:none;" value="cantagallo"  selected="cantagallo")  Cantagallo    
+							option( id="ciudad59" name="ciudad5" style="display:none;" value="cartagena"  selected="cartagena")  Cartagena    
+							option( id="ciudad510" name="ciudad5" style="display:none;" value="cicuco"  selected="cicuco")  Cicuco    
+							option( id="ciudad511" name="ciudad5" style="display:none;" value="clemencia"  selected="clemencia")  Clemencia    
+							option( id="ciudad512" name="ciudad5" style="display:none;" value="cordoba"  selected="cordoba")  Cordoba    
+							option( id="ciudad513" name="ciudad5" style="display:none;" value="elcarmendebolivar"  selected="elcarmendebolivar")  El Carmen de Bolivar 
+							option( id="ciudad514" name="ciudad5" style="display:none;" value="elguamo"  selected="elguamo")  El Guamo   
+							option( id="ciudad515" name="ciudad5" style="display:none;" value="elpeñon"  selected="elpeñon")  El Peñon   
+							option( id="ciudad516" name="ciudad5" style="display:none;" value="hatillodeloba"  selected="hatillodeloba")  Hatillo de Loba  
+							option( id="ciudad517" name="ciudad5" style="display:none;" value="magangue"  selected="magangue")  Magangue    
+							option( id="ciudad518" name="ciudad5" style="display:none;" value="mahates"  selected="mahates")  Mahates    
+							option( id="ciudad519" name="ciudad5" style="display:none;" value="malagana"  selected="malagana")  Malagana    
+							option( id="ciudad520" name="ciudad5" style="display:none;" value="margarita"  selected="margarita")  Margarita    
+							option( id="ciudad521" name="ciudad5" style="display:none;" value="marialabaja"  selected="marialabaja")  Maria La Baja  
+							option( id="ciudad522" name="ciudad5" style="display:none;" value="mompos"  selected="mompos")  Mompos    
+							option( id="ciudad523" name="ciudad5" style="display:none;" value="montecristo"  selected="montecristo")  Montecristo    
+							option( id="ciudad524" name="ciudad5" style="display:none;" value="morales"  selected="morales")  Morales    
+							option( id="ciudad525" name="ciudad5" style="display:none;" value="pinillos"  selected="pinillos")  Pinillos    
+							option( id="ciudad526" name="ciudad5" style="display:none;" value="regidor"  selected="regidor")  Regidor    
+							option( id="ciudad527" name="ciudad5" style="display:none;" value="rioviejo"  selected="rioviejo")  Rioviejo    
+							option( id="ciudad528" name="ciudad5" style="display:none;" value="sancayetano"  selected="sancayetano")  San Cayetano   
+							option( id="ciudad529" name="ciudad5" style="display:none;" value="sancristobal"  selected="sancristobal")  San Cristobal   
+							option( id="ciudad530" name="ciudad5" style="display:none;" value="sanestanislao"  selected="sanestanislao")  San Estanislao   
+							option( id="ciudad531" name="ciudad5" style="display:none;" value="sanfernando"  selected="sanfernando")  San Fernando   
+							option( id="ciudad532" name="ciudad5" style="display:none;" value="sanjacinto"  selected="sanjacinto")  San Jacinto   
+							option( id="ciudad533" name="ciudad5" style="display:none;" value="sanjuannepomuceno"  selected="sanjuannepomuceno")  San Juan Nepomuceno  
+							option( id="ciudad534" name="ciudad5" style="display:none;" value="sanmartindeloba"  selected="sanmartindeloba")  San Martin de Loba 
+							option( id="ciudad535" name="ciudad5" style="display:none;" value="sanpablo"  selected="sanpablo")  San Pablo   
+							option( id="ciudad536" name="ciudad5" style="display:none;" value="santacatalina"  selected="santacatalina")  Santa Catalina   
+							option( id="ciudad537" name="ciudad5" style="display:none;" value="santarosa"  selected="santarosa")  Santa Rosa   
+							option( id="ciudad538" name="ciudad5" style="display:none;" value="santarosadelima"  selected="santarosadelima")  Santa Rosa de Lima 
+							option( id="ciudad539" name="ciudad5" style="display:none;" value="santarosadelsur"  selected="santarosadelsur")  Santa Rosa del Sur 
+							option( id="ciudad540" name="ciudad5" style="display:none;" value="simiti"  selected="simiti")  Simiti    
+							option( id="ciudad541" name="ciudad5" style="display:none;" value="sincerin"  selected="sincerin")  Sincerin    
+							option( id="ciudad542" name="ciudad5" style="display:none;" value="soplaviento"  selected="soplaviento")  Soplaviento    
+							option( id="ciudad543" name="ciudad5" style="display:none;" value="talaiguanuevo"  selected="talaiguanuevo")  Talaigua Nuevo   
+							option( id="ciudad544" name="ciudad5" style="display:none;" value="tiquisio"  selected="tiquisio")  Tiquisio    
+							option( id="ciudad545" name="ciudad5" style="display:none;" value="turbaco"  selected="turbaco")  Turbaco    
+							option( id="ciudad546" name="ciudad5" style="display:none;" value="turbana"  selected="turbana")  Turbana    
+							option( id="ciudad547" name="ciudad5" style="display:none;" value="villanueva"  selected="villanueva")  Villanueva    
+							option( id="ciudad548" name="ciudad5" style="display:none;" value="zambrano"  selected="zambrano")  Zambrano
+
+							option( id="ciudad6" name="ciudad6" style="display:none;" value="almeida"  selected="almeida")  Almeida    
+							option( id="ciudad61" name="ciudad6" style="display:none;" value="aquitania"  selected="aquitania")  Aquitania    
+							option( id="ciudad62" name="ciudad6" style="display:none;" value="arcabuco"  selected="arcabuco")  Arcabuco    
+							option( id="ciudad63" name="ciudad6" style="display:none;" value="belen"  selected="belen")  Belen    
+							option( id="ciudad64" name="ciudad6" style="display:none;" value="belencito"  selected="belencito")  Belencito    
+							option( id="ciudad65" name="ciudad6" style="display:none;" value="berbeo"  selected="berbeo")  Berbeo    
+							option( id="ciudad66" name="ciudad6" style="display:none;" value="beteitiva"  selected="beteitiva")  Beteitiva    
+							option( id="ciudad67" name="ciudad6" style="display:none;" value="boavita"  selected="boavita")  Boavita    
+							option( id="ciudad68" name="ciudad6" style="display:none;" value="boyaca"  selected="boyaca")  Boyaca    
+							option( id="ciudad69" name="ciudad6" style="display:none;" value="briceño"  selected="briceño")  Briceño    
+							option( id="ciudad610" name="ciudad6" style="display:none;" value="buenavista"  selected="buenavista")  Buenavista    
+							option( id="ciudad611" name="ciudad6" style="display:none;" value="busbanza"  selected="busbanza")  Busbanza    
+							option( id="ciudad612" name="ciudad6" style="display:none;" value="caldas"  selected="caldas")  Caldas    
+							option( id="ciudad613" name="ciudad6" style="display:none;" value="campohermoso"  selected="campohermoso")  Campohermoso    
+							option( id="ciudad614" name="ciudad6" style="display:none;" value="cerinza"  selected="cerinza")  Cerinza    
+							option( id="ciudad615" name="ciudad6" style="display:none;" value="chinavita"  selected="chinavita")  Chinavita    
+							option( id="ciudad616" name="ciudad6" style="display:none;" value="chiquinquira"  selected="chiquinquira")  Chiquinquira    
+							option( id="ciudad617" name="ciudad6" style="display:none;" value="chiquiza"  selected="chiquiza")  Chiquiza    
+							option( id="ciudad618" name="ciudad6" style="display:none;" value="chiscas"  selected="chiscas")  Chiscas    
+							option( id="ciudad619" name="ciudad6" style="display:none;" value="chita"  selected="chita")  Chita    
+							option( id="ciudad620" name="ciudad6" style="display:none;" value="chitaraque"  selected="chitaraque")  Chitaraque    
+							option( id="ciudad621" name="ciudad6" style="display:none;" value="chivata"  selected="chivata")  Chivata    
+							option( id="ciudad622" name="ciudad6" style="display:none;" value="chivor"  selected="chivor")  Chivor    
+							option( id="ciudad623" name="ciudad6" style="display:none;" value="cienaga"  selected="cienaga")  Cienaga    
+							option( id="ciudad624" name="ciudad6" style="display:none;" value="combita"  selected="combita")  Combita    
+							option( id="ciudad625" name="ciudad6" style="display:none;" value="coper"  selected="coper")  Coper    
+							option( id="ciudad626" name="ciudad6" style="display:none;" value="corrales"  selected="corrales")  Corrales    
+							option( id="ciudad627" name="ciudad6" style="display:none;" value="covarachia"  selected="covarachia")  Covarachia    
+							option( id="ciudad628" name="ciudad6" style="display:none;" value="cubara"  selected="cubara")  Cubara    
+							option( id="ciudad629" name="ciudad6" style="display:none;" value="cucaita"  selected="cucaita")  Cucaita    
+							option( id="ciudad630" name="ciudad6" style="display:none;" value="cuitiva"  selected="cuitiva")  Cuitiva    
+							option( id="ciudad631" name="ciudad6" style="display:none;" value="duitama"  selected="duitama")  Duitama    
+							option( id="ciudad632" name="ciudad6" style="display:none;" value="elcocuy"  selected="elcocuy")  El Cocuy   
+							option( id="ciudad633" name="ciudad6" style="display:none;" value="elespino"  selected="elespino")  El Espino   
+							option( id="ciudad634" name="ciudad6" style="display:none;" value="firavitoba"  selected="firavitoba")  Firavitoba    
+							option( id="ciudad635" name="ciudad6" style="display:none;" value="floresta"  selected="floresta")  Floresta    
+							option( id="ciudad636" name="ciudad6" style="display:none;" value="gachantiva"  selected="gachantiva")  Gachantiva    
+							option( id="ciudad637" name="ciudad6" style="display:none;" value="gameza"  selected="gameza")  Gameza    
+							option( id="ciudad638" name="ciudad6" style="display:none;" value="garagoa"  selected="garagoa")  Garagoa    
+							option( id="ciudad639" name="ciudad6" style="display:none;" value="guacamayas"  selected="guacamayas")  Guacamayas    
+							option( id="ciudad640" name="ciudad6" style="display:none;" value="guateque"  selected="guateque")  Guateque    
+							option( id="ciudad641" name="ciudad6" style="display:none;" value="guayata"  selected="guayata")  Guayata    
+							option( id="ciudad642" name="ciudad6" style="display:none;" value="guican"  selected="guican")  Guican    
+							option( id="ciudad643" name="ciudad6" style="display:none;" value="iza"  selected="iza")  Iza    
+							option( id="ciudad644" name="ciudad6" style="display:none;" value="jenesano"  selected="jenesano")  Jenesano    
+							option( id="ciudad645" name="ciudad6" style="display:none;" value="jerico"  selected="jerico")  Jerico    
+							option( id="ciudad646" name="ciudad6" style="display:none;" value="lacapilla"  selected="lacapilla")  La Capilla   
+							option( id="ciudad647" name="ciudad6" style="display:none;" value="lauvita"  selected="lauvita")  La Uvita   
+							option( id="ciudad648" name="ciudad6" style="display:none;" value="lavictoria"  selected="lavictoria")  La Victoria   
+							option( id="ciudad649" name="ciudad6" style="display:none;" value="labranzagrande"  selected="labranzagrande")  Labranzagrande    
+							option( id="ciudad650" name="ciudad6" style="display:none;" value="lagunadetota"  selected="lagunadetota")  Laguna de Tota  
+							option( id="ciudad651" name="ciudad6" style="display:none;" value="macanal"  selected="macanal")  Macanal    
+							option( id="ciudad652" name="ciudad6" style="display:none;" value="maguncia"  selected="maguncia")  Maguncia    
+							option( id="ciudad653" name="ciudad6" style="display:none;" value="maripi"  selected="maripi")  Maripi    
+							option( id="ciudad654" name="ciudad6" style="display:none;" value="miraflores"  selected="miraflores")  Miraflores    
+							option( id="ciudad655" name="ciudad6" style="display:none;" value="mongua"  selected="mongua")  Mongua    
+							option( id="ciudad656" name="ciudad6" style="display:none;" value="mongui"  selected="mongui")  Mongui    
+							option( id="ciudad657" name="ciudad6" style="display:none;" value="moniquira"  selected="moniquira")  Moniquira    
+							option( id="ciudad658" name="ciudad6" style="display:none;" value="motavita"  selected="motavita")  Motavita    
+							option( id="ciudad659" name="ciudad6" style="display:none;" value="muzo"  selected="muzo")  Muzo    
+							option( id="ciudad660" name="ciudad6" style="display:none;" value="nobsa"  selected="nobsa")  Nobsa    
+							option( id="ciudad661" name="ciudad6" style="display:none;" value="nuevocolon"  selected="nuevocolon")  Nuevo Colon   
+							option( id="ciudad662" name="ciudad6" style="display:none;" value="oicata"  selected="oicata")  Oicata    
+							option( id="ciudad663" name="ciudad6" style="display:none;" value="otanche"  selected="otanche")  Otanche    
+							option( id="ciudad664" name="ciudad6" style="display:none;" value="pachavita"  selected="pachavita")  Pachavita    
+							option( id="ciudad665" name="ciudad6" style="display:none;" value="paez"  selected="paez")  Paez    
+							option( id="ciudad666" name="ciudad6" style="display:none;" value="paipa"  selected="paipa")  Paipa    
+							option( id="ciudad667" name="ciudad6" style="display:none;" value="pajarito"  selected="pajarito")  Pajarito    
+							option( id="ciudad668" name="ciudad6" style="display:none;" value="panqueba"  selected="panqueba")  Panqueba    
+							option( id="ciudad669" name="ciudad6" style="display:none;" value="pauna"  selected="pauna")  Pauna    
+							option( id="ciudad670" name="ciudad6" style="display:none;" value="paya"  selected="paya")  Paya    
+							option( id="ciudad671" name="ciudad6" style="display:none;" value="pazdelrio"  selected="pazdelrio")  Paz del Rio  
+							option( id="ciudad672" name="ciudad6" style="display:none;" value="pesca"  selected="pesca")  Pesca    
+							option( id="ciudad673" name="ciudad6" style="display:none;" value="pisba"  selected="pisba")  Pisba    
+							option( id="ciudad674" name="ciudad6" style="display:none;" value="puertoboyaca"  selected="puertoboyaca")  Puerto Boyaca   
+							option( id="ciudad675" name="ciudad6" style="display:none;" value="quipama"  selected="quipama")  Quipama    
+							option( id="ciudad676" name="ciudad6" style="display:none;" value="ramiriqui"  selected="ramiriqui")  Ramiriqui    
+							option( id="ciudad677" name="ciudad6" style="display:none;" value="raquira"  selected="raquira")  Raquira    
+							option( id="ciudad678" name="ciudad6" style="display:none;" value="rondon"  selected="rondon")  Rondon    
+							option( id="ciudad679" name="ciudad6" style="display:none;" value="saboya"  selected="saboya")  Saboya    
+							option( id="ciudad680" name="ciudad6" style="display:none;" value="sachica"  selected="sachica")  Sachica    
+							option( id="ciudad681" name="ciudad6" style="display:none;" value="samaca"  selected="samaca")  Samaca    
+							option( id="ciudad682" name="ciudad6" style="display:none;" value="saneduardo"  selected="saneduardo")  San Eduardo   
+							option( id="ciudad683" name="ciudad6" style="display:none;" value="sanjosedepare"  selected="sanjosedepare")  San Jose de Pare 
+							option( id="ciudad684" name="ciudad6" style="display:none;" value="sanluisdegaceno"  selected="sanluisdegaceno")  San Luis de Gaceno 
+							option( id="ciudad685" name="ciudad6" style="display:none;" value="sanmateo"  selected="sanmateo")  San Mateo   
+							option( id="ciudad686" name="ciudad6" style="display:none;" value="sanmigueldesema"  selected="sanmigueldesema")  San Miguel de Sema 
+							option( id="ciudad687" name="ciudad6" style="display:none;" value="sanpablodeborbur"  selected="sanpablodeborbur")  San Pablo de Borbur 
+							option( id="ciudad688" name="ciudad6" style="display:none;" value="santamaria"  selected="santamaria")  Santa Maria   
+							option( id="ciudad689" name="ciudad6" style="display:none;" value="santarosadeviterbo"  selected="santarosadeviterbo")  Santa Rosa de Viterbo 
+							option( id="ciudad690" name="ciudad6" style="display:none;" value="santasofia"  selected="santasofia")  Santa Sofia   
+							option( id="ciudad691" name="ciudad6" style="display:none;" value="santana"  selected="santana")  Santana    
+							option( id="ciudad692" name="ciudad6" style="display:none;" value="sativanorte"  selected="sativanorte")  Sativanorte    
+							option( id="ciudad693" name="ciudad6" style="display:none;" value="sativasur"  selected="sativasur")  Sativasur    
+							option( id="ciudad694" name="ciudad6" style="display:none;" value="siachoque"  selected="siachoque")  Siachoque    
+							option( id="ciudad695" name="ciudad6" style="display:none;" value="soata"  selected="soata")  Soata    
+							option( id="ciudad696" name="ciudad6" style="display:none;" value="socha"  selected="socha")  Socha    
+							option( id="ciudad697" name="ciudad6" style="display:none;" value="socota"  selected="socota")  Socota    
+							option( id="ciudad698" name="ciudad6" style="display:none;" value="sogamoso"  selected="sogamoso")  Sogamoso    
+							option( id="ciudad699" name="ciudad6" style="display:none;" value="somondoco"  selected="somondoco")  Somondoco    
+							option( id="ciudad6100" name="ciudad6" style="display:none;" value="sora"  selected="sora")  Sora    
+							option( id="ciudad6101" name="ciudad6" style="display:none;" value="soraca"  selected="soraca")  Soraca    
+							option( id="ciudad6102" name="ciudad6" style="display:none;" value="sotaquira"  selected="sotaquira")  Sotaquira    
+							option( id="ciudad6103" name="ciudad6" style="display:none;" value="susacon"  selected="susacon")  Susacon    
+							option( id="ciudad6104" name="ciudad6" style="display:none;" value="suson"  selected="suson")  Suson    
+							option( id="ciudad6105" name="ciudad6" style="display:none;" value="sutamarchan"  selected="sutamarchan")  Sutamarchan    
+							option( id="ciudad6106" name="ciudad6" style="display:none;" value="sutatenza"  selected="sutatenza")  Sutatenza    
+							option( id="ciudad6107" name="ciudad6" style="display:none;" value="tasco"  selected="tasco")  Tasco    
+							option( id="ciudad6108" name="ciudad6" style="display:none;" value="tenza"  selected="tenza")  Tenza    
+							option( id="ciudad6109" name="ciudad6" style="display:none;" value="tibana"  selected="tibana")  Tibana    
+							option( id="ciudad6110" name="ciudad6" style="display:none;" value="tibasosa"  selected="tibasosa")  Tibasosa    
+							option( id="ciudad6111" name="ciudad6" style="display:none;" value="tinjaca"  selected="tinjaca")  Tinjaca    
+							option( id="ciudad6112" name="ciudad6" style="display:none;" value="tipacoque"  selected="tipacoque")  Tipacoque    
+							option( id="ciudad6113" name="ciudad6" style="display:none;" value="toca"  selected="toca")  Toca    
+							option( id="ciudad6114" name="ciudad6" style="display:none;" value="togui"  selected="togui")  Togui    
+							option( id="ciudad6115" name="ciudad6" style="display:none;" value="topaga"  selected="topaga")  Topaga    
+							option( id="ciudad6116" name="ciudad6" style="display:none;" value="tota"  selected="tota")  Tota    
+							option( id="ciudad6117" name="ciudad6" style="display:none;" value="tunja"  selected="tunja")  Tunja    
+							option( id="ciudad6118" name="ciudad6" style="display:none;" value="tunungua"  selected="tunungua")  Tunungua    
+							option( id="ciudad6119" name="ciudad6" style="display:none;" value="turmeque"  selected="turmeque")  Turmeque    
+							option( id="ciudad6120" name="ciudad6" style="display:none;" value="tuta"  selected="tuta")  Tuta    
+							option( id="ciudad6121" name="ciudad6" style="display:none;" value="tutasa"  selected="tutasa")  Tutasa    
+							option( id="ciudad6122" name="ciudad6" style="display:none;" value="umbita"  selected="umbita")  Umbita    
+							option( id="ciudad6123" name="ciudad6" style="display:none;" value="ventaquemada"  selected="ventaquemada")  Ventaquemada    
+							option( id="ciudad6124" name="ciudad6" style="display:none;" value="villadeleyva"  selected="villadeleyva")  Villa de Leyva  
+							option( id="ciudad6125" name="ciudad6" style="display:none;" value="viracacha"  selected="viracacha")  Viracacha    
+							option( id="ciudad6126" name="ciudad6" style="display:none;" value="zetaquira"  selected="zetaquira")  Zetaquira
+
+							option( id="ciudad8" name="ciudad8" style="display:none;" value="aguadas"  selected="aguadas")  Aguadas    
+							option( id="ciudad81" name="ciudad8" style="display:none;" value="anserma"  selected="anserma")  Anserma    
+							option( id="ciudad82" name="ciudad8" style="display:none;" value="aranzazu"  selected="aranzazu")  Aranzazu    
+							option( id="ciudad83" name="ciudad8" style="display:none;" value="belalcazar"  selected="belalcazar")  Belalcazar    
+							option( id="ciudad84" name="ciudad8" style="display:none;" value="chinchina"  selected="chinchina")  Chinchina    
+							option( id="ciudad85" name="ciudad8" style="display:none;" value="filadelfia"  selected="filadelfia")  Filadelfia    
+							option( id="ciudad86" name="ciudad8" style="display:none;" value="ladorada"  selected="ladorada")  La Dorada   
+							option( id="ciudad87" name="ciudad8" style="display:none;" value="lamerced"  selected="lamerced")  La Merced   
+							option( id="ciudad88" name="ciudad8" style="display:none;" value="manizales"  selected="manizales")  Manizales    
+							option( id="ciudad89" name="ciudad8" style="display:none;" value="manzanares"  selected="manzanares")  Manzanares    
+							option( id="ciudad810" name="ciudad8" style="display:none;" value="marmato"  selected="marmato")  Marmato    
+							option( id="ciudad811" name="ciudad8" style="display:none;" value="marquetalia"  selected="marquetalia")  Marquetalia    
+							option( id="ciudad812" name="ciudad8" style="display:none;" value="marulanda"  selected="marulanda")  Marulanda    
+							option( id="ciudad813" name="ciudad8" style="display:none;" value="neira"  selected="neira")  Neira    
+							option( id="ciudad814" name="ciudad8" style="display:none;" value="norcasia"  selected="norcasia")  Norcasia    
+							option( id="ciudad815" name="ciudad8" style="display:none;" value="pacora"  selected="pacora")  Pacora    
+							option( id="ciudad816" name="ciudad8" style="display:none;" value="palestina"  selected="palestina")  Palestina    
+							option( id="ciudad817" name="ciudad8" style="display:none;" value="pensilvania"  selected="pensilvania")  Pensilvania    
+							option( id="ciudad818" name="ciudad8" style="display:none;" value="riosucio"  selected="riosucio")  Riosucio    
+							option( id="ciudad819" name="ciudad8" style="display:none;" value="risaralda"  selected="risaralda")  Risaralda    
+							option( id="ciudad820" name="ciudad8" style="display:none;" value="salamina"  selected="salamina")  Salamina    
+							option( id="ciudad821" name="ciudad8" style="display:none;" value="samana"  selected="samana")  Samana    
+							option( id="ciudad822" name="ciudad8" style="display:none;" value="sanjose"  selected="sanjose")  San Jose   
+							option( id="ciudad823" name="ciudad8" style="display:none;" value="supia"  selected="supia")  Supia    
+							option( id="ciudad824" name="ciudad8" style="display:none;" value="victoria"  selected="victoria")  Victoria    
+							option( id="ciudad825" name="ciudad8" style="display:none;" value="villamaria"  selected="villamaria")  Villamaria    
+							option( id="ciudad826" name="ciudad8" style="display:none;" value="viterbo"  selected="viterbo")  Viterbo
+
+							option( id="ciudad9" name="ciudad9" style="display:none;" value="albania"  selected="albania")  Albania    
+							option( id="ciudad91" name="ciudad9" style="display:none;" value="belendelosandaquies"  selected="belendelosandaquies")  Belen de Los Andaquies 
+							option( id="ciudad92" name="ciudad9" style="display:none;" value="cartagenadelchaira"  selected="cartagenadelchaira")  Cartagena del Chaira  
+							option( id="ciudad93" name="ciudad9" style="display:none;" value="curillo"  selected="curillo")  Curillo    
+							option( id="ciudad94" name="ciudad9" style="display:none;" value="eldoncello"  selected="eldoncello")  El Doncello   
+							option( id="ciudad95" name="ciudad9" style="display:none;" value="elpaujil"  selected="elpaujil")  El Paujil   
+							option( id="ciudad96" name="ciudad9" style="display:none;" value="florencia"  selected="florencia")  Florencia    
+							option( id="ciudad97" name="ciudad9" style="display:none;" value="lamontañita"  selected="lamontañita")  La Montañita   
+							option( id="ciudad98" name="ciudad9" style="display:none;" value="lasolita"  selected="lasolita")  La Solita   
+							option( id="ciudad99" name="ciudad9" style="display:none;" value="larandia"  selected="larandia")  Larandia    
+							option( id="ciudad910" name="ciudad9" style="display:none;" value="morelia"  selected="morelia")  Morelia    
+							option( id="ciudad911" name="ciudad9" style="display:none;" value="puertomilan"  selected="puertomilan")  Puerto Milan   
+							option( id="ciudad912" name="ciudad9" style="display:none;" value="puertorico"  selected="puertorico")  Puerto Rico   
+							option( id="ciudad913" name="ciudad9" style="display:none;" value="puertosolano"  selected="puertosolano")  Puerto Solano   
+							option( id="ciudad914" name="ciudad9" style="display:none;" value="rionegro"  selected="rionegro")  Rionegro    
+							option( id="ciudad915" name="ciudad9" style="display:none;" value="sanantoniodegetucha"  selected="sanantoniodegetucha")  San Antonio de Getucha 
+							option( id="ciudad916" name="ciudad9" style="display:none;" value="sanjosedelfragua"  selected="sanjosedelfragua")  San Jose del Fragua 
+							option( id="ciudad917" name="ciudad9" style="display:none;" value="sanvicentedelcaguan"  selected="sanvicentedelcaguan")  San Vicente del Caguan 
+							option( id="ciudad918" name="ciudad9" style="display:none;" value="tresesquinassolano"  selected="tresesquinassolano")  Tres Esquinas Solano  
+							option( id="ciudad919" name="ciudad9" style="display:none;" value="unionpeneya"  selected="unionpeneya")  Union Peneya   
+							option( id="ciudad920" name="ciudad9" style="display:none;" value="valparaiso"  selected="valparaiso")  Valparaiso    
+							option( id="ciudad921" name="ciudad9" style="display:none;" value="venecia"  selected="venecia")  Venecia  
+
+							option( id="ciudad10" name="ciudad10" style="display:none;" value="aguazul"  selected="aguazul")  Aguazul    
+							option( id="ciudad101" name="ciudad10" style="display:none;" value="chameza"  selected="chameza")  Chameza    
+							option( id="ciudad102" name="ciudad10" style="display:none;" value="hatocorozal"  selected="hatocorozal")  Hato Corozal   
+							option( id="ciudad103" name="ciudad10" style="display:none;" value="lasalina"  selected="lasalina")  La Salina   
+							option( id="ciudad104" name="ciudad10" style="display:none;" value="mani"  selected="mani")  Mani    
+							option( id="ciudad105" name="ciudad10" style="display:none;" value="monterrey"  selected="monterrey")  Monterrey    
+							option( id="ciudad106" name="ciudad10" style="display:none;" value="nunchia"  selected="nunchia")  Nunchia    
+							option( id="ciudad107" name="ciudad10" style="display:none;" value="orocue"  selected="orocue")  Orocue    
+							option( id="ciudad108" name="ciudad10" style="display:none;" value="pazdeariporo"  selected="pazdeariporo")  Paz de Ariporo  
+							option( id="ciudad109" name="ciudad10" style="display:none;" value="pore"  selected="pore")  Pore    
+							option( id="ciudad1010" name="ciudad10" style="display:none;" value="recetor"  selected="recetor")  Recetor    
+							option( id="ciudad1011" name="ciudad10" style="display:none;" value="sabanalarga"  selected="sabanalarga")  Sabanalarga    
+							option( id="ciudad1012" name="ciudad10" style="display:none;" value="sacama"  selected="sacama")  Sacama    
+							option( id="ciudad1013" name="ciudad10" style="display:none;" value="sanluisdepalenque"  selected="sanluisdepalenque")  San Luis de Palenque 
+							option( id="ciudad1014" name="ciudad10" style="display:none;" value="tamara"  selected="tamara")  Tamara    
+							option( id="ciudad1015" name="ciudad10" style="display:none;" value="tauramena"  selected="tauramena")  Tauramena    
+							option( id="ciudad1016" name="ciudad10" style="display:none;" value="trinidad"  selected="trinidad")  Trinidad    
+							option( id="ciudad1017" name="ciudad10" style="display:none;" value="tumara"  selected="tumara")  Tumara    
+							option( id="ciudad1018" name="ciudad10" style="display:none;" value="villanueva"  selected="villanueva")  Villanueva    
+							option( id="ciudad1019" name="ciudad10" style="display:none;" value="yopal"  selected="yopal")  Yopal  
+
+							option( id="ciudad11" name="ciudad11" style="display:none;" value="almaguer"  selected="almaguer")  Almaguer    
+							option( id="ciudad111" name="ciudad11" style="display:none;" value="altamira"  selected="altamira")  ALTAMIRA    
+							option( id="ciudad112" name="ciudad11" style="display:none;" value="argelia"  selected="argelia")  Argelia    
+							option( id="ciudad113" name="ciudad11" style="display:none;" value="balboa"  selected="balboa")  Balboa    
+							option( id="ciudad114" name="ciudad11" style="display:none;" value="belalcazar"  selected="belalcazar")  Belalcazar    
+							option( id="ciudad115" name="ciudad11" style="display:none;" value="bolivar"  selected="bolivar")  Bolivar    
+							option( id="ciudad116" name="ciudad11" style="display:none;" value="buenosaires"  selected="buenosaires")  Buenos Aires   
+							option( id="ciudad117" name="ciudad11" style="display:none;" value="cajibio"  selected="cajibio")  Cajibio    
+							option( id="ciudad118" name="ciudad11" style="display:none;" value="caldono"  selected="caldono")  Caldono    
+							option( id="ciudad119" name="ciudad11" style="display:none;" value="caldoño"  selected="caldoño")  Caldoño    
+							option( id="ciudad1110" name="ciudad11" style="display:none;" value="caloto"  selected="caloto")  Caloto    
+							option( id="ciudad1111" name="ciudad11" style="display:none;" value="coconuco"  selected="coconuco")  Coconuco    
+							option( id="ciudad1112" name="ciudad11" style="display:none;" value="corinto"  selected="corinto")  Corinto    
+							option( id="ciudad1113" name="ciudad11" style="display:none;" value="cuatroesquinas"  selected="cuatroesquinas")  CUATRO ESQUINAS   
+							option( id="ciudad1114" name="ciudad11" style="display:none;" value="elbordo"  selected="elbordo")  El Bordo   
+							option( id="ciudad1115" name="ciudad11" style="display:none;" value="elcairo"  selected="elcairo")  EL CAIRO   
+							option( id="ciudad1116" name="ciudad11" style="display:none;" value="elcarmen"  selected="elcarmen")  El Carmen   
+							option( id="ciudad1117" name="ciudad11" style="display:none;" value="elhato"  selected="elhato")  EL HATO   
+							option( id="ciudad1118" name="ciudad11" style="display:none;" value="elmorro"  selected="elmorro")  El Morro   
+							option( id="ciudad1119" name="ciudad11" style="display:none;" value="elpalmar"  selected="elpalmar")  EL PALMAR   
+							option( id="ciudad1120" name="ciudad11" style="display:none;" value="elretiro"  selected="elretiro")  EL RETIRO   
+							option( id="ciudad1121" name="ciudad11" style="display:none;" value="elrosario"  selected="elrosario")  EL ROSARIO   
+							option( id="ciudad1122" name="ciudad11" style="display:none;" value="eltambo"  selected="eltambo")  El Tambo   
+							option( id="ciudad1123" name="ciudad11" style="display:none;" value="florencia"  selected="florencia")  Florencia    
+							option( id="ciudad1124" name="ciudad11" style="display:none;" value="guachene"  selected="guachene")  Guachene    
+							option( id="ciudad1125" name="ciudad11" style="display:none;" value="guapi"  selected="guapi")  Guapi    
+							option( id="ciudad1126" name="ciudad11" style="display:none;" value="inza"  selected="inza")  Inza    
+							option( id="ciudad1127" name="ciudad11" style="display:none;" value="jambalo"  selected="jambalo")  Jambalo    
+							option( id="ciudad1128" name="ciudad11" style="display:none;" value="lacarbonera"  selected="lacarbonera")  La Carbonera   
+							option( id="ciudad1129" name="ciudad11" style="display:none;" value="lachorrera"  selected="lachorrera")  LA CHORRERA   
+							option( id="ciudad1130" name="ciudad11" style="display:none;" value="laherradura"  selected="laherradura")  La Herradura   
+							option( id="ciudad1131" name="ciudad11" style="display:none;" value="lasierra"  selected="lasierra")  La Sierra   
+							option( id="ciudad1132" name="ciudad11" style="display:none;" value="lavega"  selected="lavega")  La Vega   
+							option( id="ciudad1133" name="ciudad11" style="display:none;" value="laventa"  selected="laventa")  LA VENTA   
+							option( id="ciudad1134" name="ciudad11" style="display:none;" value="lascruces"  selected="lascruces")  LAS CRUCES   
+							option( id="ciudad1135" name="ciudad11" style="display:none;" value="lopez"  selected="lopez")  Lopez    
+							option( id="ciudad1135" name="ciudad11" style="display:none;" value="lopezdemicay"  selected="lopezdemicay")  Lopez de Micay  
+							option( id="ciudad1137" name="ciudad11" style="display:none;" value="mercaderes"  selected="mercaderes")  Mercaderes    
+							option( id="ciudad1138" name="ciudad11" style="display:none;" value="miranda"  selected="miranda")  Miranda    
+							option( id="ciudad1139" name="ciudad11" style="display:none;" value="mondomo"  selected="mondomo")  Mondomo    
+							option( id="ciudad1140" name="ciudad11" style="display:none;" value="monterredondo"  selected="monterredondo")  MONTERREDONDO    
+							option( id="ciudad1141" name="ciudad11" style="display:none;" value="morales"  selected="morales")  Morales    
+							option( id="ciudad1142" name="ciudad11" style="display:none;" value="padilla"  selected="padilla")  Padilla    
+							option( id="ciudad1143" name="ciudad11" style="display:none;" value="paez"  selected="paez")  Paez    
+							option( id="ciudad1144" name="ciudad11" style="display:none;" value="paispamba"  selected="paispamba")  Paispamba    
+							option( id="ciudad1145" name="ciudad11" style="display:none;" value="parraga"  selected="parraga")  PARRAGA    
+							option( id="ciudad1146" name="ciudad11" style="display:none;" value="patia(elbordo)"  selected="patia(elbordo)")  Patia ( El Bordo) 
+							option( id="ciudad1147" name="ciudad11" style="display:none;" value="piagua"  selected="piagua")  PIAGUA    
+							option( id="ciudad1148" name="ciudad11" style="display:none;" value="piamonte"  selected="piamonte")  Piamonte    
+							option( id="ciudad1149" name="ciudad11" style="display:none;" value="piendamo"  selected="piendamo")  Piendamo    
+							option( id="ciudad1150" name="ciudad11" style="display:none;" value="popayan"  selected="popayan")  Popayan    
+							option( id="ciudad1151" name="ciudad11" style="display:none;" value="puertotejada"  selected="puertotejada")  Puerto Tejada   
+							option( id="ciudad1152" name="ciudad11" style="display:none;" value="purace"  selected="purace")  Purace    
+							option( id="ciudad1153" name="ciudad11" style="display:none;" value="quilicace"  selected="quilicace")  QUILICACE    
+							option( id="ciudad1154" name="ciudad11" style="display:none;" value="rioblanco"  selected="rioblanco")  RIOBLANCO    
+							option( id="ciudad1155" name="ciudad11" style="display:none;" value="rosas"  selected="rosas")  Rosas    
+							option( id="ciudad1156" name="ciudad11" style="display:none;" value="sanjoaquin"  selected="sanjoaquin")  San Joaquin   
+							option( id="ciudad1157" name="ciudad11" style="display:none;" value="sanmiguel"  selected="sanmiguel")  SAN MIGUEL   
+							option( id="ciudad1158" name="ciudad11" style="display:none;" value="sansebastian"  selected="sansebastian")  San Sebastian   
+							option( id="ciudad1159" name="ciudad11" style="display:none;" value="santarita"  selected="santarita")  SANTA RITA   
+							option( id="ciudad1160" name="ciudad11" style="display:none;" value="santarosa"  selected="santarosa")  Santa Rosa   
+							option( id="ciudad1161" name="ciudad11" style="display:none;" value="santarosabotacaucana"  selected="santarosabotacaucana")  SANTA ROSA BOTA CAUCANA 
+							option( id="ciudad1162" name="ciudad11" style="display:none;" value="santanderdequilichao"  selected="santanderdequilichao")  Santander de Quilichao  
+							option( id="ciudad1163" name="ciudad11" style="display:none;" value="siberia"  selected="siberia")  SIBERIA    
+							option( id="ciudad1164" name="ciudad11" style="display:none;" value="silvia"  selected="silvia")  Silvia    
+							option( id="ciudad1165" name="ciudad11" style="display:none;" value="sotara"  selected="sotara")  Sotara    
+							option( id="ciudad1166" name="ciudad11" style="display:none;" value="suarez"  selected="suarez")  Suarez    
+							option( id="ciudad1167" name="ciudad11" style="display:none;" value="timbio"  selected="timbio")  Timbio    
+							option( id="ciudad1168" name="ciudad11" style="display:none;" value="timbiqui"  selected="timbiqui")  Timbiqui    
+							option( id="ciudad1169" name="ciudad11" style="display:none;" value="toribio"  selected="toribio")  Toribio    
+							option( id="ciudad1170" name="ciudad11" style="display:none;" value="totoro"  selected="totoro")  Totoro    
+							option( id="ciudad1171" name="ciudad11" style="display:none;" value="tunia"  selected="tunia")  Tunia    
+							option( id="ciudad1172" name="ciudad11" style="display:none;" value="villarica"  selected="villarica")  Villarica    
+							option( id="ciudad1173" name="ciudad11" style="display:none;" value="zarzal"  selected="zarzal")  ZARZAL   
+
+							option( id="ciudad12" name="ciudad12" style="display:none;" value="aguachica"  selected="aguachica")  Aguachica    
+							option( id="ciudad121" name="ciudad12" style="display:none;" value="agustincodazzi"  selected="agustincodazzi")  Agustin Codazzi   
+							option( id="ciudad122" name="ciudad12" style="display:none;" value="becerril"  selected="becerril")  Becerril    
+							option( id="ciudad123" name="ciudad12" style="display:none;" value="bosconia"  selected="bosconia")  Bosconia    
+							option( id="ciudad124" name="ciudad12" style="display:none;" value="chimichagua"  selected="chimichagua")  Chimichagua    
+							option( id="ciudad125" name="ciudad12" style="display:none;" value="chiriguana"  selected="chiriguana")  Chiriguana    
+							option( id="ciudad126" name="ciudad12" style="display:none;" value="curumani"  selected="curumani")  Curumani    
+							option( id="ciudad127" name="ciudad12" style="display:none;" value="elcopey"  selected="elcopey")  El Copey   
+							option( id="ciudad128" name="ciudad12" style="display:none;" value="elpaso"  selected="elpaso")  El Paso   
+							option( id="ciudad129" name="ciudad12" style="display:none;" value="gamarra"  selected="gamarra")  Gamarra    
+							option( id="ciudad1210" name="ciudad12" style="display:none;" value="gonzalez"  selected="gonzalez")  Gonzalez    
+							option( id="ciudad1211" name="ciudad12" style="display:none;" value="lagloria"  selected="lagloria")  La Gloria   
+							option( id="ciudad1212" name="ciudad12" style="display:none;" value="lapaz"  selected="lapaz")  La Paz   
+							option( id="ciudad1213" name="ciudad12" style="display:none;" value="pailitas"  selected="pailitas")  Pailitas    
+							option( id="ciudad1214" name="ciudad12" style="display:none;" value="pelaya"  selected="pelaya")  Pelaya    
+							option( id="ciudad1215" name="ciudad12" style="display:none;" value="riodeoro"  selected="riodeoro")  Rio de Oro  
+							option( id="ciudad1216" name="ciudad12" style="display:none;" value="sanalberto"  selected="sanalberto")  San Alberto   
+							option( id="ciudad1217" name="ciudad12" style="display:none;" value="sandiego"  selected="sandiego")  San Diego   
+							option( id="ciudad1218" name="ciudad12" style="display:none;" value="sanmartin"  selected="sanmartin")  San Martin   
+							option( id="ciudad1219" name="ciudad12" style="display:none;" value="tamalameque"  selected="tamalameque")  Tamalameque    
+							option( id="ciudad1220" name="ciudad12" style="display:none;" value="valledupar"  selected="valledupar")  Valledupar    
+							option( id="ciudad1221" name="ciudad12" style="display:none;" value="pueblobello"  selected="pueblobello")  Pueblo Bello   
+							option( id="ciudad1222" name="ciudad12" style="display:none;" value="astrea"  selected="astrea")  Astrea    
+							option( id="ciudad1223" name="ciudad12" style="display:none;" value="manaurebalcondelcesar"  selected="manaurebalcondelcesar")  Manaure Balcon del Cesar   
+							option( id="ciudad1224" name="ciudad12" style="display:none;" value="acandi"  selected="acandi")  Acandi    
+							option( id="ciudad1225" name="ciudad12" style="display:none;" value="altobaudo"  selected="altobaudo")  Alto Baudo   
+							option( id="ciudad1226" name="ciudad12" style="display:none;" value="atrado"  selected="atrado")  Atrado    
+							option( id="ciudad1227" name="ciudad12" style="display:none;" value="bagado"  selected="bagado")  Bagado    
+							option( id="ciudad1228" name="ciudad12" style="display:none;" value="bahiasolano"  selected="bahiasolano")  Bahia Solano   
+							option( id="ciudad1229" name="ciudad12" style="display:none;" value="bajobaudo"  selected="bajobaudo")  Bajo Baudo   
+							option( id="ciudad1230" name="ciudad12" style="display:none;" value="bojaya"  selected="bojaya")  Bojaya    
+							option( id="ciudad1231" name="ciudad12" style="display:none;" value="carmendeatrato"  selected="carmendeatrato")  Carmen de Atrato  
+
+							option( id="ciudad13" name="ciudad13" style="display:none;" value="condoto"  selected="condoto")  Condoto    
+							option( id="ciudad131" name="ciudad13" style="display:none;" value="elcantondesanpablo"  selected="elcantondesanpablo")  El Canton de San Pablo
+							option( id="ciudad132" name="ciudad13" style="display:none;" value="istmina"  selected="istmina")  Istmina    
+							option( id="ciudad133" name="ciudad13" style="display:none;" value="jurado"  selected="jurado")  Jurado    
+							option( id="ciudad134" name="ciudad13" style="display:none;" value="litoraldesanjuan"  selected="litoraldesanjuan")  Litoral de San Juan 
+							option( id="ciudad135" name="ciudad13" style="display:none;" value="lloro"  selected="lloro")  Lloro    
+							option( id="ciudad136" name="ciudad13" style="display:none;" value="noqui"  selected="noqui")  Noqui    
+							option( id="ciudad137" name="ciudad13" style="display:none;" value="novita"  selected="novita")  Novita    
+							option( id="ciudad138" name="ciudad13" style="display:none;" value="nuqui"  selected="nuqui")  Nuqui    
+							option( id="ciudad139" name="ciudad13" style="display:none;" value="quibdo"  selected="quibdo")  Quibdo    
+							option( id="ciudad1310" name="ciudad13" style="display:none;" value="riosucio"  selected="riosucio")  Riosucio    
+							option( id="ciudad1311" name="ciudad13" style="display:none;" value="sanjosedelpalmar"  selected="sanjosedelpalmar")  San Jose del Palmar 
+							option( id="ciudad1312" name="ciudad13" style="display:none;" value="sipi"  selected="sipi")  Sipi    
+							option( id="ciudad1313" name="ciudad13" style="display:none;" value="tado"  selected="tado")  Tado    
+							option( id="ciudad1314" name="ciudad13" style="display:none;" value="unguia"  selected="unguia")  Unguia    
+							option( id="ciudad1315" name="ciudad13" style="display:none;" value="carmendeldarien"  selected="carmendeldarien")  Carmen del Darien  
+							option( id="ciudad1316" name="ciudad13" style="display:none;" value="pizarro"  selected="pizarro")  Pizarro   
+
+							option( id="ciudad14" name="ciudad14" style="display:none;" value="ayapel"  selected="ayapel")  Ayapel    
+							option( id="ciudad141" name="ciudad14" style="display:none;" value="buenavista"  selected="buenavista")  Buenavista    
+							option( id="ciudad142" name="ciudad14" style="display:none;" value="canalete"  selected="canalete")  Canalete    
+							option( id="ciudad143" name="ciudad14" style="display:none;" value="cerete"  selected="cerete")  Cerete    
+							option( id="ciudad144" name="ciudad14" style="display:none;" value="chima"  selected="chima")  Chima    
+							option( id="ciudad145" name="ciudad14" style="display:none;" value="chinu"  selected="chinu")  Chinu    
+							option( id="ciudad146" name="ciudad14" style="display:none;" value="cienagadeoro"  selected="cienagadeoro")  Cienaga de Oro  
+							option( id="ciudad147" name="ciudad14" style="display:none;" value="cotorra"  selected="cotorra")  Cotorra    
+							option( id="ciudad148" name="ciudad14" style="display:none;" value="laapartada"  selected="laapartada")  La Apartada   
+							option( id="ciudad149" name="ciudad14" style="display:none;" value="lorica"  selected="lorica")  Lorica    
+							option( id="ciudad1410" name="ciudad14" style="display:none;" value="loscordobas"  selected="loscordobas")  Los Cordobas   
+							option( id="ciudad1411" name="ciudad14" style="display:none;" value="momil"  selected="momil")  Momil    
+							option( id="ciudad1412" name="ciudad14" style="display:none;" value="monitos"  selected="monitos")  Monitos    
+							option( id="ciudad1413" name="ciudad14" style="display:none;" value="montelibano"  selected="montelibano")  Montelibano    
+							option( id="ciudad1414" name="ciudad14" style="display:none;" value="monteria"  selected="monteria")  Monteria    
+							option( id="ciudad1415" name="ciudad14" style="display:none;" value="planetarica"  selected="planetarica")  Planeta Rica   
+							option( id="ciudad1416" name="ciudad14" style="display:none;" value="pueblonuevo"  selected="pueblonuevo")  Pueblo Nuevo   
+							option( id="ciudad1417" name="ciudad14" style="display:none;" value="puertoescondido"  selected="puertoescondido")  Puerto Escondido   
+							option( id="ciudad1418" name="ciudad14" style="display:none;" value="puertolibertador"  selected="puertolibertador")  Puerto Libertador   
+							option( id="ciudad1419" name="ciudad14" style="display:none;" value="purisima"  selected="purisima")  Purisima    
+							option( id="ciudad1420" name="ciudad14" style="display:none;" value="sahagun"  selected="sahagun")  Sahagun    
+							option( id="ciudad1421" name="ciudad14" style="display:none;" value="sanandresdesotavento"  selected="sanandresdesotavento")  San Andres de Sotavento 
+							option( id="ciudad1422" name="ciudad14" style="display:none;" value="sanantero"  selected="sanantero")  San Antero   
+							option( id="ciudad1423" name="ciudad14" style="display:none;" value="sanbernardodelviento"  selected="sanbernardodelviento")  San Bernardo del Viento 
+							option( id="ciudad1424" name="ciudad14" style="display:none;" value="sancarlos"  selected="sancarlos")  San Carlos   
+							option( id="ciudad1425" name="ciudad14" style="display:none;" value="sanpelayo"  selected="sanpelayo")  San Pelayo   
+							option( id="ciudad1426" name="ciudad14" style="display:none;" value="tierralta"  selected="tierralta")  Tierralta    
+							option( id="ciudad1427" name="ciudad14" style="display:none;" value="valencia"  selected="valencia")  Valencia  
+
+							option( id="ciudad32" name="ciudad32" style="display:none;" value="barrancas"  selected="barrancas")  Barrancas    
+							option( id="ciudad321" name="ciudad32" style="display:none;" value="dibulia"  selected="dibulia")  Dibulia    
+							option( id="ciudad322" name="ciudad32" style="display:none;" value="distraccion"  selected="distraccion")  Distraccion    
+							option( id="ciudad323" name="ciudad32" style="display:none;" value="elmolino"  selected="elmolino")  El Molino   
+							option( id="ciudad324" name="ciudad32" style="display:none;" value="fonseca"  selected="fonseca")  Fonseca    
+							option( id="ciudad325" name="ciudad32" style="display:none;" value="hatonuevo"  selected="hatonuevo")  Hato Nuevo   
+							option( id="ciudad326" name="ciudad32" style="display:none;" value="manaure"  selected="manaure")  Manaure    
+							option( id="ciudad327" name="ciudad32" style="display:none;" value="riohacha"  selected="riohacha")  Riohacha    
+							option( id="ciudad328" name="ciudad32" style="display:none;" value="sanjuandelcesar"  selected="sanjuandelcesar")  San Juan del Cesar 
+							option( id="ciudad329" name="ciudad32" style="display:none;" value="uribia"  selected="uribia")  Uribia    
+							option( id="ciudad3210" name="ciudad32" style="display:none;" value="urumita"  selected="urumita")  Urumita    
+							option( id="ciudad3211" name="ciudad32" style="display:none;" value="maicao"  selected="maicao")  Maicao    
+							option(id="ciudad3212" name="ciudad32" style="display:none;"  value="villanueva"  selected="villanueva")  Villanueva  
+
+							option( id="ciudad15" name="ciudad15" style="display:none;" value="albania"  selected="albania")  Albania     
+							option( id="ciudad151" name="ciudad15" style="display:none;" value="inirida"  selected="inirida")  Inirida    
+ 
+							option( id="ciudad16" name="ciudad16" style="display:none;" value="puertoinirida"  selected="puertoinirida")  Puerto Inirida    
+							option( id="ciudad161" name="ciudad16" style="display:none;" value="sanjosedelguaviare"  selected="sanjosedelguaviare")  San Jose Del Guaviare 
+							option( id="ciudad162" name="ciudad16" style="display:none;" value="calamar"  selected="calamar")  Calamar    
+							option( id="ciudad163" name="ciudad16" style="display:none;" value="elretorno"  selected="elretorno")  El Retorno   
+							option( id="ciudad164" name="ciudad16" style="display:none;" value="miraflores"  selected="miraflores")  Miraflores    
+							option( id="ciudad165" name="ciudad16" style="display:none;" value="morichal"  selected="morichal")  Morichal 
+  
+							option( id="ciudad171" name="ciudad17" style="display:none;" value="acevedo"  selected="acevedo")  Acevedo    
+							option( id="ciudad172" name="ciudad17" style="display:none;" value="agrado"  selected="agrado")  Agrado    
+							option( id="ciudad173" name="ciudad17" style="display:none;" value="aipe"  selected="aipe")  Aipe    
+							option( id="ciudad174" name="ciudad17" style="display:none;" value="algeciras"  selected="algeciras")  Algeciras    
+							option( id="ciudad175" name="ciudad17" style="display:none;" value="altamira"  selected="altamira")  Altamira    
+							option( id="ciudad176" name="ciudad17" style="display:none;" value="baraya"  selected="baraya")  Baraya    
+							option( id="ciudad177" name="ciudad17" style="display:none;" value="campoalegre"  selected="campoalegre")  Campoalegre    
+							option( id="ciudad178" name="ciudad17" style="display:none;" value="ciudaddecolombia"  selected="ciudaddecolombia")  Ciudad de Colombia  
+							option( id="ciudad179" name="ciudad17" style="display:none;" value="elias"  selected="elias")  Elias    
+							option( id="ciudad1710" name="ciudad17" style="display:none;" value="fortalecillas"  selected="fortalecillas")  Fortalecillas    
+							option( id="ciudad1711" name="ciudad17" style="display:none;" value="garzon"  selected="garzon")  Garzon    
+							option( id="ciudad1712" name="ciudad17" style="display:none;" value="gigante"  selected="gigante")  Gigante    
+							option( id="ciudad1713" name="ciudad17" style="display:none;" value="guadalupe"  selected="guadalupe")  Guadalupe    
+							option( id="ciudad1714" name="ciudad17" style="display:none;" value="hobo"  selected="hobo")  Hobo    
+							option( id="ciudad1715" name="ciudad17" style="display:none;" value="iquira"  selected="iquira")  Iquira    
+							option( id="ciudad1716" name="ciudad17" style="display:none;" value="isnos"  selected="isnos")  Isnos    
+							option( id="ciudad1717" name="ciudad17" style="display:none;" value="laargentina"  selected="laargentina")  La Argentina   
+							option( id="ciudad1718" name="ciudad17" style="display:none;" value="laplata"  selected="laplata")  La Plata   
+							option( id="ciudad1719" name="ciudad17" style="display:none;" value="nataga"  selected="nataga")  Nataga    
+							option( id="ciudad1720" name="ciudad17" style="display:none;" value="neiva"  selected="neiva")  Neiva    
+							option( id="ciudad1721" name="ciudad17" style="display:none;" value="oporapa"  selected="oporapa")  Oporapa    
+							option( id="ciudad1722" name="ciudad17" style="display:none;" value="paicol"  selected="paicol")  Paicol    
+							option( id="ciudad1723" name="ciudad17" style="display:none;" value="palermo"  selected="palermo")  Palermo    
+							option( id="ciudad1724" name="ciudad17" style="display:none;" value="palestina"  selected="palestina")  Palestina    
+							option( id="ciudad1725" name="ciudad17" style="display:none;" value="pital"  selected="pital")  Pital    
+							option( id="ciudad1726" name="ciudad17" style="display:none;" value="pitalito"  selected="pitalito")  Pitalito    
+							option( id="ciudad1727" name="ciudad17" style="display:none;" value="rivera"  selected="rivera")  Rivera    
+							option( id="ciudad1728" name="ciudad17" style="display:none;" value="saladoblanco"  selected="saladoblanco")  Saladoblanco    
+							option( id="ciudad1729" name="ciudad17" style="display:none;" value="sanagustin"  selected="sanagustin")  San Agustin   
+							option( id="ciudad1730" name="ciudad17" style="display:none;" value="santamaria"  selected="santamaria")  Santa Maria   
+							option( id="ciudad1731" name="ciudad17" style="display:none;" value="suaza"  selected="suaza")  Suaza    
+							option( id="ciudad1732" name="ciudad17" style="display:none;" value="tarqui"  selected="tarqui")  Tarqui    
+							option( id="ciudad1733" name="ciudad17" style="display:none;" value="tello"  selected="tello")  Tello    
+							option( id="ciudad1734" name="ciudad17" style="display:none;" value="teruel"  selected="teruel")  Teruel    
+							option( id="ciudad1735" name="ciudad17" style="display:none;" value="tesalia"  selected="tesalia")  Tesalia    
+							option( id="ciudad1736" name="ciudad17" style="display:none;" value="timana"  selected="timana")  Timana    
+							option( id="ciudad1737" name="ciudad17" style="display:none;" value="villavieja"  selected="villavieja")  Villavieja    
+							option( id="ciudad1738" name="ciudad17" style="display:none;" value="yaguara"  selected="yaguara")  Yaguara    
+							option( id="ciudad1739" name="ciudad17" style="display:none;" value="caguan"  selected="caguan")  Caguan    
+							option( id="ciudad1740" name="ciudad17" style="display:none;" value="juncal"  selected="juncal")  Juncal    
+							option( id="ciudad1741" name="ciudad17" style="display:none;" value="lajagua"  selected="lajagua")  La Jagua   
+							option( id="ciudad1742" name="ciudad17" style="display:none;" value="laulloa"  selected="laulloa")  La Ulloa   
+							option( id="ciudad1743" name="ciudad17" style="display:none;" value="maito"  selected="maito")  Maito    
+							option( id="ciudad1744" name="ciudad17" style="display:none;" value="pacarni"  selected="pacarni")  Pacarni    
+							option( id="ciudad1745" name="ciudad17" style="display:none;" value="santahelena"  selected="santahelena")  Santa Helena   
+							option( id="ciudad1746" name="ciudad17" style="display:none;" value="vegalarga"  selected="vegalarga")  Vegalarga    
+							option( id="ciudad1747" name="ciudad17" style="display:none;" value="zuluaga"  selected="zuluaga")  Zuluaga    
+
+							option( id="ciudad181" name="ciudad18" style="display:none;" value="belen"  selected="belen")  Belen  
+							option( id="ciudad182" name="ciudad18" style="display:none;" value="algarrobo"  selected="algarrobo")  Algarrobo    
+							option( id="ciudad183" name="ciudad18" style="display:none;" value="aracataca"  selected="aracataca")  Aracataca    
+							option( id="ciudad184" name="ciudad18" style="display:none;" value="ariguani"  selected="ariguani")  Ariguani    
+							option( id="ciudad185" name="ciudad18" style="display:none;" value="cerrodesanantonio"  selected="cerrodesanantonio")  Cerro de San Antonio 
+							option( id="ciudad186" name="ciudad18" style="display:none;" value="chivolo"  selected="chivolo")  Chivolo    
+							option( id="ciudad187" name="ciudad18" style="display:none;" value="cienaga"  selected="cienaga")  Cienaga    
+							option( id="ciudad188" name="ciudad18" style="display:none;" value="concordia"  selected="concordia")  Concordia    
+							option( id="ciudad189" name="ciudad18" style="display:none;" value="elbanco"  selected="elbanco")  El Banco   
+							option( id="ciudad1810" name="ciudad18" style="display:none;" value="eldificil"  selected="eldificil")  El Dificil   
+							option( id="ciudad1811" name="ciudad18" style="display:none;" value="elpiñon"  selected="elpiñon")  El Piñon   
+							option( id="ciudad1812" name="ciudad18" style="display:none;" value="elreten"  selected="elreten")  El Reten   
+							option( id="ciudad1813" name="ciudad18" style="display:none;" value="fundacion"  selected="fundacion")  Fundacion    
+							option( id="ciudad1814" name="ciudad18" style="display:none;" value="guamal"  selected="guamal")  Guamal    
+							option( id="ciudad1815" name="ciudad18" style="display:none;" value="pedraza"  selected="pedraza")  Pedraza    
+							option( id="ciudad1816" name="ciudad18" style="display:none;" value="pijiñodelcarmen"  selected="pijiñodelcarmen")  Pijiño del Carmen  
+							option( id="ciudad1817" name="ciudad18" style="display:none;" value="pivijay"  selected="pivijay")  Pivijay    
+							option( id="ciudad1818" name="ciudad18" style="display:none;" value="plato"  selected="plato")  Plato    
+							option( id="ciudad1819" name="ciudad18" style="display:none;" value="puebloviejo"  selected="puebloviejo")  Puebloviejo    
+							option( id="ciudad1820" name="ciudad18" style="display:none;" value="remolino"  selected="remolino")  Remolino    
+							option( id="ciudad1821" name="ciudad18" style="display:none;" value="salamina"  selected="salamina")  Salamina    
+							option( id="ciudad1822" name="ciudad18" style="display:none;" value="sanangel"  selected="sanangel")  San Angel   
+							option( id="ciudad1823" name="ciudad18" style="display:none;" value="sansebastiandebuenavista"  selected="sansebastiandebuenavista")  San Sebastian de Buenavista 
+							option( id="ciudad18" name="ciudad18" style="display:none;" value="sanzenon"  selected="sanzenon")  San Zenon   
+							option( id="ciudad18" name="ciudad18" style="display:none;" value="santaana"  selected="santaana")  Santa Ana   
+							option( id="ciudad18" name="ciudad18" style="display:none;" value="santamarta"  selected="santamarta")  Santa Marta   
+							option( id="ciudad18" name="ciudad18" style="display:none;" value="sitionuevo"  selected="sitionuevo")  Sitionuevo    
+							option( id="ciudad18" name="ciudad18" style="display:none;" value="tenerife"  selected="tenerife")  Tenerife    
+							option( id="ciudad18" name="ciudad18" style="display:none;" value="zonabananera"  selected="zonabananera")  Zona Bananera 
+
+							option( id="ciudad191" name="ciudad19" style="display:none;" value="acacias"  selected="acacias")  Acacias    
+							option( id="ciudad192" name="ciudad19" style="display:none;" value="barrancadeupia"  selected="barrancadeupia")  Barranca de Upia  
+							option( id="ciudad193" name="ciudad19" style="display:none;" value="cabuyaro"  selected="cabuyaro")  Cabuyaro    
+							option( id="ciudad194" name="ciudad19" style="display:none;" value="castillalanueva"  selected="castillalanueva")  Castilla La Nueva  
+							option( id="ciudad195" name="ciudad19" style="display:none;" value="cubarral"  selected="cubarral")  Cubarral    
+							option( id="ciudad196" name="ciudad19" style="display:none;" value="cumaral"  selected="cumaral")  Cumaral    
+							option( id="ciudad197" name="ciudad19" style="display:none;" value="elcalvario"  selected="elcalvario")  El Calvario   
+							option( id="ciudad198" name="ciudad19" style="display:none;" value="elcastillo"  selected="elcastillo")  El Castillo   
+							option( id="ciudad199" name="ciudad19" style="display:none;" value="eldorado"  selected="eldorado")  El Dorado   
+							option( id="ciudad1910" name="ciudad19" style="display:none;" value="fuentedeoro"  selected="fuentedeoro")  Fuente de Oro  
+							option( id="ciudad1911" name="ciudad19" style="display:none;" value="granada"  selected="granada")  Granada    
+							option( id="ciudad1912" name="ciudad19" style="display:none;" value="guamal"  selected="guamal")  Guamal    
+							option( id="ciudad1913" name="ciudad19" style="display:none;" value="lamacarena"  selected="lamacarena")  La Macarena   
+							option( id="ciudad1914" name="ciudad19" style="display:none;" value="lauribe"  selected="lauribe")  La Uribe   
+							option( id="ciudad1915" name="ciudad19" style="display:none;" value="lejanias"  selected="lejanias")  Lejanias    
+							option( id="ciudad1916" name="ciudad19" style="display:none;" value="mapiripan"  selected="mapiripan")  Mapiripan    
+							option( id="ciudad1917" name="ciudad19" style="display:none;" value="mesetas"  selected="mesetas")  Mesetas    
+							option( id="ciudad1918" name="ciudad19" style="display:none;" value="puertoconcordia"  selected="puertoconcordia")  Puerto Concordia   
+							option( id="ciudad1919" name="ciudad19" style="display:none;" value="puertogaitan"  selected="puertogaitan")  Puerto Gaitan   
+							option( id="ciudad1920" name="ciudad19" style="display:none;" value="puertolleras"  selected="puertolleras")  Puerto Lleras   
+							option( id="ciudad1921" name="ciudad19" style="display:none;" value="puertolopez"  selected="puertolopez")  Puerto Lopez   
+							option( id="ciudad1922" name="ciudad19" style="display:none;" value="puertorico"  selected="puertorico")  Puerto Rico   
+							option( id="ciudad1923" name="ciudad19" style="display:none;" value="restrepo"  selected="restrepo")  Restrepo    
+							option( id="ciudad1924" name="ciudad19" style="display:none;" value="sancarlosguaroa"  selected="sancarlosguaroa")  San Carlos Guaroa  
+							option( id="ciudad1925" name="ciudad19" style="display:none;" value="sanjuandearama"  selected="sanjuandearama")  San Juan de Arama 
+							option( id="ciudad1926" name="ciudad19" style="display:none;" value="sanjuanito"  selected="sanjuanito")  San Juanito   
+							option( id="ciudad1927" name="ciudad19" style="display:none;" value="sanmartin"  selected="sanmartin")  San Martin   
+							option( id="ciudad1928" name="ciudad19" style="display:none;" value="villavicencio"  selected="villavicencio")  Villavicencio    
+							option( id="ciudad1929" name="ciudad19" style="display:none;" value="vistahermosa"  selected="vistahermosa")  Vista Hermosa   
+
+							option( id="ciudad201" name="ciudad20" style="display:none;" value="alban"  selected="alban")  Alban    
+							option( id="ciudad202" name="ciudad20" style="display:none;" value="aldana"  selected="aldana")  Aldana    
+							option( id="ciudad203" name="ciudad20" style="display:none;" value="ancuya"  selected="ancuya")  Ancuya    
+							option( id="ciudad204" name="ciudad20" style="display:none;" value="arboleda"  selected="arboleda")  Arboleda    
+							option( id="ciudad205" name="ciudad20" style="display:none;" value="barbacoas"  selected="barbacoas")  Barbacoas    
+							option( id="ciudad206" name="ciudad20" style="display:none;" value="belen"  selected="belen")  Belen    
+							option( id="ciudad207" name="ciudad20" style="display:none;" value="berruecos"  selected="berruecos")  Berruecos    
+							option( id="ciudad208" name="ciudad20" style="display:none;" value="bombona"  selected="bombona")  Bombona    
+							option( id="ciudad209" name="ciudad20" style="display:none;" value="buesaco"  selected="buesaco")  Buesaco    
+							option( id="ciudad2010" name="ciudad20" style="display:none;" value="catambuco"  selected="catambuco")  Catambuco    
+							option( id="ciudad2011" name="ciudad20" style="display:none;" value="chachagui"  selected="chachagui")  Chachagui    
+							option( id="ciudad2012" name="ciudad20" style="display:none;" value="chachaouit"  selected="chachaouit")  Chachaouit    
+							option( id="ciudad2013" name="ciudad20" style="display:none;" value="colon"  selected="colon")  Colon    
+							option( id="ciudad2014" name="ciudad20" style="display:none;" value="consaca"  selected="consaca")  Consaca    
+							option( id="ciudad2015" name="ciudad20" style="display:none;" value="contadero"  selected="contadero")  Contadero    
+							option( id="ciudad2016" name="ciudad20" style="display:none;" value="cordoba"  selected="cordoba")  Cordoba    
+							option( id="ciudad2017" name="ciudad20" style="display:none;" value="cuaspud"  selected="cuaspud")  Cuaspud    
+							option( id="ciudad2018" name="ciudad20" style="display:none;" value="cumbal"  selected="cumbal")  Cumbal    
+							option( id="ciudad2019" name="ciudad20" style="display:none;" value="cumbitara"  selected="cumbitara")  Cumbitara    
+							option( id="ciudad2020" name="ciudad20" style="display:none;" value="cumbitra"  selected="cumbitra")  Cumbitra    
+							option( id="ciudad2021" name="ciudad20" style="display:none;" value="elcharco"  selected="elcharco")  El Charco   
+							option( id="ciudad2022" name="ciudad20" style="display:none;" value="elchorrillo"  selected="elchorrillo")  El Chorrillo   
+							option( id="ciudad2023" name="ciudad20" style="display:none;" value="elpeñol"  selected="elpeñol")  El Peñol   
+							option( id="ciudad2024" name="ciudad20" style="display:none;" value="elremolino"  selected="elremolino")  El Remolino   
+							option( id="ciudad2025" name="ciudad20" style="display:none;" value="elrosario"  selected="elrosario")  El Rosario   
+							option( id="ciudad2026" name="ciudad20" style="display:none;" value="eltablon"  selected="eltablon")  El Tablon   
+							option( id="ciudad2027" name="ciudad20" style="display:none;" value="eltambo"  selected="eltambo")  El Tambo   
+							option( id="ciudad2028" name="ciudad20" style="display:none;" value="franciscopizarro"  selected="franciscopizarro")  Francisco Pizarro   
+							option( id="ciudad2029" name="ciudad20" style="display:none;" value="funes"  selected="funes")  Funes    
+							option( id="ciudad2030" name="ciudad20" style="display:none;" value="guachavez"  selected="guachavez")  Guachavez    
+							option( id="ciudad2031" name="ciudad20" style="display:none;" value="guachucal"  selected="guachucal")  Guachucal    
+							option( id="ciudad2032" name="ciudad20" style="display:none;" value="guaitarilla"  selected="guaitarilla")  Guaitarilla    
+							option( id="ciudad2033" name="ciudad20" style="display:none;" value="gualmatan"  selected="gualmatan")  Gualmatan    
+							option( id="ciudad2034" name="ciudad20" style="display:none;" value="guitarrilla"  selected="guitarrilla")  Guitarrilla    
+							option( id="ciudad2035" name="ciudad20" style="display:none;" value="iles"  selected="iles")  Iles    
+							option( id="ciudad2036" name="ciudad20" style="display:none;" value="imues"  selected="imues")  Imues    
+							option( id="ciudad2037" name="ciudad20" style="display:none;" value="ipiales"  selected="ipiales")  Ipiales    
+							option( id="ciudad2038" name="ciudad20" style="display:none;" value="josemariahernandez"  selected="josemariahernandez")  Jose Maria Hernandez  
+							option( id="ciudad2039" name="ciudad20" style="display:none;" value="lacruz"  selected="lacruz")  La Cruz   
+							option( id="ciudad2040" name="ciudad20" style="display:none;" value="laflorida"  selected="laflorida")  La Florida   
+							option( id="ciudad2041" name="ciudad20" style="display:none;" value="lallamada"  selected="lallamada")  La Llamada   
+							option( id="ciudad2042" name="ciudad20" style="display:none;" value="lallanada"  selected="lallanada")  La Llanada   
+							option( id="ciudad2043" name="ciudad20" style="display:none;" value="latola"  selected="latola")  La Tola   
+							option( id="ciudad2044" name="ciudad20" style="display:none;" value="launion"  selected="launion")  La Union   
+							option( id="ciudad2045" name="ciudad20" style="display:none;" value="leiva"  selected="leiva")  Leiva    
+							option( id="ciudad2046" name="ciudad20" style="display:none;" value="linares"  selected="linares")  Linares    
+							option( id="ciudad2047" name="ciudad20" style="display:none;" value="losandes"  selected="losandes")  Los Andes   
+							option( id="ciudad2048" name="ciudad20" style="display:none;" value="magui"  selected="magui")  Magui    
+							option( id="ciudad2049" name="ciudad20" style="display:none;" value="mallama"  selected="mallama")  Mallama    
+							option( id="ciudad2050" name="ciudad20" style="display:none;" value="mocoa"  selected="mocoa")  Mocoa    
+							option( id="ciudad2051" name="ciudad20" style="display:none;" value="mosquera"  selected="mosquera")  Mosquera    
+							option( id="ciudad2052" name="ciudad20" style="display:none;" value="olayaherrera"  selected="olayaherrera")  Olaya Herrera   
+							option( id="ciudad2053" name="ciudad20" style="display:none;" value="ospina"  selected="ospina")  Ospina    
+							option( id="ciudad2054" name="ciudad20" style="display:none;" value="pasto"  selected="pasto")  Pasto    
+							option( id="ciudad2055" name="ciudad20" style="display:none;" value="payam"  selected="payam")  Payam    
+							option( id="ciudad2056" name="ciudad20" style="display:none;" value="pilcuan"  selected="pilcuan")  Pilcuan    
+							option( id="ciudad2057" name="ciudad20" style="display:none;" value="policarpa"  selected="policarpa")  Policarpa    
+							option( id="ciudad2058" name="ciudad20" style="display:none;" value="potosi"  selected="potosi")  Potosi    
+							option( id="ciudad2059" name="ciudad20" style="display:none;" value="providencia"  selected="providencia")  Providencia    
+							option( id="ciudad2060" name="ciudad20" style="display:none;" value="provincia"  selected="provincia")  Provincia    
+							option( id="ciudad2061" name="ciudad20" style="display:none;" value="puerres"  selected="puerres")  Puerres    
+							option( id="ciudad2062" name="ciudad20" style="display:none;" value="pupiales"  selected="pupiales")  Pupiales    
+							option( id="ciudad2063" name="ciudad20" style="display:none;" value="ricaurte"  selected="ricaurte")  Ricaurte    
+							option( id="ciudad2064" name="ciudad20" style="display:none;" value="robertopayan"  selected="robertopayan")  Roberto Payan   
+							option( id="ciudad2065" name="ciudad20" style="display:none;" value="rosaflorida"  selected="rosaflorida")  Rosaflorida    
+							option( id="ciudad2066" name="ciudad20" style="display:none;" value="samaniego"  selected="samaniego")  Samaniego    
+							option( id="ciudad2067" name="ciudad20" style="display:none;" value="sanbernardo"  selected="sanbernardo")  San Bernardo   
+							option( id="ciudad2068" name="ciudad20" style="display:none;" value="sanjose"  selected="sanjose")  San Jose   
+							option( id="ciudad2069" name="ciudad20" style="display:none;" value="sanlorenzo"  selected="sanlorenzo")  San Lorenzo   
+							option( id="ciudad2070" name="ciudad20" style="display:none;" value="sanpablo"  selected="sanpablo")  San Pablo   
+							option( id="ciudad2071" name="ciudad20" style="display:none;" value="sanpedrocartago"  selected="sanpedrocartago")  San Pedro Cartago  
+							option( id="ciudad2072" name="ciudad20" style="display:none;" value="sanremo"  selected="sanremo")  San Remo   
+							option( id="ciudad2073" name="ciudad20" style="display:none;" value="sandona"  selected="sandona")  Sandona    
+							option( id="ciudad2074" name="ciudad20" style="display:none;" value="santabarbara"  selected="santabarbara")  Santa Barbara   
+							option( id="ciudad2075" name="ciudad20" style="display:none;" value="santacruz"  selected="santacruz")  Santacruz    
+							option( id="ciudad2076" name="ciudad20" style="display:none;" value="sapuyes"  selected="sapuyes")  Sapuyes    
+							option( id="ciudad2077" name="ciudad20" style="display:none;" value="sibundoy"  selected="sibundoy")  Sibundoy    
+							option( id="ciudad2078" name="ciudad20" style="display:none;" value="sotomayor"  selected="sotomayor")  Sotomayor    
+							option( id="ciudad2079" name="ciudad20" style="display:none;" value="taminango"  selected="taminango")  Taminango    
+							option( id="ciudad2080" name="ciudad20" style="display:none;" value="tangua"  selected="tangua")  Tangua    
+							option( id="ciudad2081" name="ciudad20" style="display:none;" value="tumaco"  selected="tumaco")  Tumaco    
+							option( id="ciudad2082" name="ciudad20" style="display:none;" value="tuquerres"  selected="tuquerres")  Tuquerres    
+							option( id="ciudad2083" name="ciudad20" style="display:none;" value="uribe"  selected="uribe")  Uribe    
+							option( id="ciudad2084" name="ciudad20" style="display:none;" value="yacuanquer"  selected="yacuanquer")  Yacuanquer 
+
+							option( id="ciudad331" name="ciudad33" style="display:none;" value="abrego"  selected="abrego")  Abrego    
+							option( id="ciudad332" name="ciudad33" style="display:none;" value="arboledas"  selected="arboledas")  Arboledas    
+							option( id="ciudad333" name="ciudad33" style="display:none;" value="bochalema"  selected="bochalema")  Bochalema    
+							option( id="ciudad334" name="ciudad33" style="display:none;" value="bucarasica"  selected="bucarasica")  Bucarasica    
+							option( id="ciudad335" name="ciudad33" style="display:none;" value="cachira"  selected="cachira")  Cachira    
+							option( id="ciudad336" name="ciudad33" style="display:none;" value="cacota"  selected="cacota")  Cacota    
+							option( id="ciudad337" name="ciudad33" style="display:none;" value="chinacota"  selected="chinacota")  Chinacota    
+							option( id="ciudad338" name="ciudad33" style="display:none;" value="chitaga"  selected="chitaga")  Chitaga    
+							option( id="ciudad339" name="ciudad33" style="display:none;" value="convencion"  selected="convencion")  Convencion    
+							option( id="ciudad3310" name="ciudad33" style="display:none;" value="cucuta"  selected="cucuta")  Cucuta    
+							option( id="ciudad3311" name="ciudad33" style="display:none;" value="cucutilla"  selected="cucutilla")  Cucutilla    
+							option( id="ciudad3312" name="ciudad33" style="display:none;" value="durania"  selected="durania")  Durania    
+							option( id="ciudad3313" name="ciudad33" style="display:none;" value="elcarmen"  selected="elcarmen")  El Carmen   
+							option( id="ciudad3314" name="ciudad33" style="display:none;" value="eltaira"  selected="eltaira")  El Taira   
+							option( id="ciudad3315" name="ciudad33" style="display:none;" value="eltarra"  selected="eltarra")  El Tarra   
+							option( id="ciudad3316" name="ciudad33" style="display:none;" value="elzulia"  selected="elzulia")  El Zulia   
+							option( id="ciudad3317" name="ciudad33" style="display:none;" value="gramalote"  selected="gramalote")  Gramalote    
+							option( id="ciudad3318" name="ciudad33" style="display:none;" value="hacari"  selected="hacari")  Hacari    
+							option( id="ciudad3319" name="ciudad33" style="display:none;" value="herran"  selected="herran")  Herran    
+							option( id="ciudad3320" name="ciudad33" style="display:none;" value="laesperanza"  selected="laesperanza")  La Esperanza   
+							option( id="ciudad3321" name="ciudad33" style="display:none;" value="laplaya"  selected="laplaya")  La Playa   
+							option( id="ciudad3322" name="ciudad33" style="display:none;" value="labateca"  selected="labateca")  Labateca    
+							option( id="ciudad3323" name="ciudad33" style="display:none;" value="lospatios"  selected="lospatios")  Los Patios   
+							option( id="ciudad3324" name="ciudad33" style="display:none;" value="lourdes"  selected="lourdes")  Lourdes    
+							option( id="ciudad3325" name="ciudad33" style="display:none;" value="motiscua"  selected="motiscua")  Motiscua    
+							option( id="ciudad3326" name="ciudad33" style="display:none;" value="mutiscua"  selected="mutiscua")  Mutiscua    
+							option( id="ciudad3327" name="ciudad33" style="display:none;" value="ocaña"  selected="ocaña")  Ocaña    
+							option( id="ciudad3328" name="ciudad33" style="display:none;" value="pamplona"  selected="pamplona")  Pamplona    
+							option( id="ciudad3329" name="ciudad33" style="display:none;" value="pamplonita"  selected="pamplonita")  Pamplonita    
+							option( id="ciudad3330" name="ciudad33" style="display:none;" value="puertosantander"  selected="puertosantander")  Puerto Santander   
+							option( id="ciudad3331" name="ciudad33" style="display:none;" value="ragonvalia"  selected="ragonvalia")  Ragonvalia    
+							option( id="ciudad3332" name="ciudad33" style="display:none;" value="salazar"  selected="salazar")  Salazar    
+							option( id="ciudad3333" name="ciudad33" style="display:none;" value="sancalixto"  selected="sancalixto")  San Calixto   
+							option( id="ciudad3334" name="ciudad33" style="display:none;" value="sancayetano"  selected="sancayetano")  San Cayetano   
+							option( id="ciudad3335" name="ciudad33" style="display:none;" value="santiago"  selected="santiago")  Santiago    
+							option( id="ciudad3336" name="ciudad33" style="display:none;" value="sardinata"  selected="sardinata")  Sardinata    
+							option( id="ciudad3337" name="ciudad33" style="display:none;" value="silos"  selected="silos")  Silos    
+							option( id="ciudad3338" name="ciudad33" style="display:none;" value="teorama"  selected="teorama")  Teorama    
+							option( id="ciudad3339" name="ciudad33" style="display:none;" value="teorema"  selected="teorema")  Teorema    
+							option( id="ciudad3340" name="ciudad33" style="display:none;" value="tibu"  selected="tibu")  Tibu    
+							option( id="ciudad3341" name="ciudad33" style="display:none;" value="toledo"  selected="toledo")  Toledo    
+							option( id="ciudad3342" name="ciudad33" style="display:none;" value="villacaro"  selected="villacaro")  Villa Caro   
+							option( id="ciudad3343" name="ciudad33" style="display:none;" value="villadelrosario"  selected="villadelrosario")  Villa del Rosario  
+
+							option( id="ciudad211" name="ciudad22" style="display:none;" value="colon"  selected="colon")  Colon    
+							option( id="ciudad212" name="ciudad22" style="display:none;" value="mocoa"  selected="mocoa")  Mocoa    
+							option( id="ciudad213" name="ciudad22" style="display:none;" value="orito"  selected="orito")  Orito    
+							option( id="ciudad214" name="ciudad22" style="display:none;" value="puertoasis"  selected="puertoasis")  Puerto Asis   
+							option( id="ciudad215" name="ciudad22" style="display:none;" value="puertocaicedo"  selected="puertocaicedo")  Puerto Caicedo   
+							option( id="ciudad216" name="ciudad22" style="display:none;" value="puertoguzman"  selected="puertoguzman")  Puerto Guzman   
+							option( id="ciudad217" name="ciudad22" style="display:none;" value="puertoleguizamo"  selected="puertoleguizamo")  Puerto Leguizamo   
+							option( id="ciudad218" name="ciudad22" style="display:none;" value="sanfrancisco"  selected="sanfrancisco")  San Francisco   
+							option( id="ciudad219" name="ciudad22" style="display:none;" value="sanmiguel"  selected="sanmiguel")  San Miguel   
+							option( id="ciudad2110" name="ciudad22" style="display:none;" value="santiago"  selected="santiago")  Santiago    
+							option( id="ciudad2111" name="ciudad22" style="display:none;" value="sibundoy"  selected="sibundoy")  Sibundoy    
+							option( id="ciudad2112" name="ciudad22" style="display:none;" value="valledelguamuez"  selected="valledelguamuez")  Valle del Guamuez  
+							option( id="ciudad2113" name="ciudad22" style="display:none;" value="villagarzon"  selected="villagarzon")  Villagarzon  
+
+							option( id="ciudad221" name="ciudad23" style="display:none;" value="armenia"  selected="armenia")  Armenia    
+							option( id="ciudad222" name="ciudad23" style="display:none;" value="barcelona"  selected="barcelona")  Barcelona    
+							option( id="ciudad223" name="ciudad23" style="display:none;" value="buenavista"  selected="buenavista")  Buenavista    
+							option( id="ciudad224" name="ciudad23" style="display:none;" value="calarca"  selected="calarca")  Calarca    
+							option( id="ciudad225" name="ciudad23" style="display:none;" value="circasia"  selected="circasia")  Circasia    
+							option( id="ciudad226" name="ciudad23" style="display:none;" value="cordoba"  selected="cordoba")  Cordoba    
+							option( id="ciudad227" name="ciudad23" style="display:none;" value="filandia"  selected="filandia")  Filandia    
+							option( id="ciudad228" name="ciudad23" style="display:none;" value="genova"  selected="genova")  Genova    
+							option( id="ciudad229" name="ciudad23" style="display:none;" value="latebaida"  selected="latebaida")  La Tebaida   
+							option( id="ciudad2210" name="ciudad23" style="display:none;" value="montenegro"  selected="montenegro")  Montenegro    
+							option( id="ciudad2211" name="ciudad23" style="display:none;" value="pijao"  selected="pijao")  Pijao    
+							option( id="ciudad2212" name="ciudad23" style="display:none;" value="pueblotapao"  selected="pueblotapao")  Pueblo Tapao   
+							option( id="ciudad2213" name="ciudad23" style="display:none;" value="quimbaya"  selected="quimbaya")  Quimbaya    
+							option( id="ciudad2214" name="ciudad23" style="display:none;" value="salento"  selected="salento")  Salento  
+
+							option( id="ciudad231" name="ciudad23" style="display:none;" value="apia"  selected="apia")  Apia    
+							option( id="ciudad232" name="ciudad23" style="display:none;" value="balboa"  selected="balboa")  Balboa    
+							option( id="ciudad233" name="ciudad23" style="display:none;" value="belendeumbria"  selected="belendeumbria")  Belen de Umbria  
+							option( id="ciudad234" name="ciudad23" style="display:none;" value="dosquebradas"  selected="dosquebradas")  Dosquebradas    
+							option( id="ciudad235" name="ciudad23" style="display:none;" value="guatica"  selected="guatica")  Guatica    
+							option( id="ciudad236" name="ciudad23" style="display:none;" value="irra"  selected="irra")  Irra    
+							option( id="ciudad237" name="ciudad23" style="display:none;" value="lacelia"  selected="lacelia")  La Celia   
+							option( id="ciudad238" name="ciudad23" style="display:none;" value="lavirginia"  selected="lavirginia")  La Virginia   
+							option( id="ciudad239" name="ciudad23" style="display:none;" value="marsella"  selected="marsella")  Marsella    
+							option( id="ciudad2310" name="ciudad23" style="display:none;" value="marsellaaltocauca"  selected="marsellaaltocauca")  Marsella Alto Cauca  
+							option( id="ciudad2311" name="ciudad23" style="display:none;" value="mistrato"  selected="mistrato")  Mistrato    
+							option( id="ciudad2312" name="ciudad23" style="display:none;" value="pereira"  selected="pereira")  Pereira    
+							option( id="ciudad2313" name="ciudad23" style="display:none;" value="pueblorico"  selected="pueblorico")  Pueblo Rico   
+							option( id="ciudad2314" name="ciudad23" style="display:none;" value="quinchia"  selected="quinchia")  Quinchia    
+							option( id="ciudad2315" name="ciudad23" style="display:none;" value="santacecilia"  selected="santacecilia")  Santa Cecilia   
+							option( id="ciudad2316" name="ciudad23" style="display:none;" value="santarosadecabal"  selected="santarosadecabal")  Santa Rosa de Cabal 
+							option( id="ciudad2317" name="ciudad23" style="display:none;" value="santuario"  selected="santuario")  Santuario    
+							option( id="ciudad2318" name="ciudad23" style="display:none;" value="taparcal-belendeumbria"  selected="taparcal-belendeumbria")  Taparcal-Belen de Umbria 
+							option( id="ciudad2319" name="ciudad23" style="display:none;" value="sanandres"  selected="sanandres")  San Andres   
+							option( id="ciudad2320" name="ciudad23" style="display:none;" value="providencia"  selected="providencia")  Providencia  
+
+							option( id="ciudad251" name="ciudad25" style="display:none;" value="aguada"  selected="aguada")  Aguada    
+							option( id="ciudad252" name="ciudad25" style="display:none;" value="albania"  selected="albania")  Albania    
+							option( id="ciudad253" name="ciudad25" style="display:none;" value="aratoca"  selected="aratoca")  Aratoca    
+							option( id="ciudad254" name="ciudad25" style="display:none;" value="barbosa"  selected="barbosa")  Barbosa    
+							option( id="ciudad255" name="ciudad25" style="display:none;" value="barichara"  selected="barichara")  Barichara    
+							option( id="ciudad256" name="ciudad25" style="display:none;" value="barrancabermeja"  selected="barrancabermeja")  Barrancabermeja    
+							option( id="ciudad257" name="ciudad25" style="display:none;" value="betulia"  selected="betulia")  Betulia    
+							option( id="ciudad258" name="ciudad25" style="display:none;" value="bolivar"  selected="bolivar")  Bolivar    
+							option( id="ciudad259" name="ciudad25" style="display:none;" value="bucaramanga"  selected="bucaramanga")  Bucaramanga    
+							option( id="ciudad2510" name="ciudad25" style="display:none;" value="cabrera"  selected="cabrera")  Cabrera    
+							option( id="ciudad2511" name="ciudad25" style="display:none;" value="caldas"  selected="caldas")  Caldas    
+							option( id="ciudad2512" name="ciudad25" style="display:none;" value="california"  selected="california")  California    
+							option( id="ciudad2513" name="ciudad25" style="display:none;" value="capita"  selected="capita")  Capita    
+							option( id="ciudad2514" name="ciudad25" style="display:none;" value="capitanejo"  selected="capitanejo")  Capitanejo    
+							option( id="ciudad2515" name="ciudad25" style="display:none;" value="carcasi"  selected="carcasi")  Carcasi    
+							option( id="ciudad2516" name="ciudad25" style="display:none;" value="cepita"  selected="cepita")  Cepita    
+							option( id="ciudad2517" name="ciudad25" style="display:none;" value="cerrito"  selected="cerrito")  Cerrito    
+							option( id="ciudad2518" name="ciudad25" style="display:none;" value="charala"  selected="charala")  Charala    
+							option( id="ciudad2519" name="ciudad25" style="display:none;" value="charta"  selected="charta")  Charta    
+							option( id="ciudad2520" name="ciudad25" style="display:none;" value="chima"  selected="chima")  Chima    
+							option( id="ciudad2521" name="ciudad25" style="display:none;" value="chipata"  selected="chipata")  Chipata    
+							option( id="ciudad2522" name="ciudad25" style="display:none;" value="cimitarra"  selected="cimitarra")  Cimitarra    
+							option( id="ciudad2523" name="ciudad25" style="display:none;" value="cite"  selected="cite")  Cite    
+							option( id="ciudad2524" name="ciudad25" style="display:none;" value="concepcion"  selected="concepcion")  Concepcion    
+							option( id="ciudad2525" name="ciudad25" style="display:none;" value="confines"  selected="confines")  Confines    
+							option( id="ciudad2526" name="ciudad25" style="display:none;" value="contratacion"  selected="contratacion")  Contratacion    
+							option( id="ciudad2527" name="ciudad25" style="display:none;" value="coromoro"  selected="coromoro")  Coromoro    
+							option( id="ciudad2528" name="ciudad25" style="display:none;" value="curiti"  selected="curiti")  Curiti    
+							option( id="ciudad2529" name="ciudad25" style="display:none;" value="elcarmen"  selected="elcarmen")  El Carmen   
+							option( id="ciudad2530" name="ciudad25" style="display:none;" value="elguacamayo"  selected="elguacamayo")  El Guacamayo   
+							option( id="ciudad2531" name="ciudad25" style="display:none;" value="elpeñon"  selected="elpeñon")  El Peñon   
+							option( id="ciudad2532" name="ciudad25" style="display:none;" value="elplayon"  selected="elplayon")  El Playon   
+							option( id="ciudad2533" name="ciudad25" style="display:none;" value="encino"  selected="encino")  Encino    
+							option( id="ciudad2534" name="ciudad25" style="display:none;" value="enciso"  selected="enciso")  Enciso    
+							option( id="ciudad2535" name="ciudad25" style="display:none;" value="florian"  selected="florian")  Florian    
+							option( id="ciudad2536" name="ciudad25" style="display:none;" value="floridablanca"  selected="floridablanca")  Floridablanca    
+							option( id="ciudad2537" name="ciudad25" style="display:none;" value="galan"  selected="galan")  Galan    
+							option( id="ciudad2538" name="ciudad25" style="display:none;" value="gambita"  selected="gambita")  Gambita    
+							option( id="ciudad2539" name="ciudad25" style="display:none;" value="giron"  selected="giron")  Giron    
+							option( id="ciudad2540" name="ciudad25" style="display:none;" value="guaca"  selected="guaca")  Guaca    
+							option( id="ciudad2541" name="ciudad25" style="display:none;" value="guadalupe"  selected="guadalupe")  Guadalupe    
+							option( id="ciudad2542" name="ciudad25" style="display:none;" value="guapota"  selected="guapota")  Guapota    
+							option( id="ciudad2543" name="ciudad25" style="display:none;" value="guavata"  selected="guavata")  Guavata    
+							option( id="ciudad2544" name="ciudad25" style="display:none;" value="guepsa"  selected="guepsa")  Guepsa    
+							option( id="ciudad2545" name="ciudad25" style="display:none;" value="hato"  selected="hato")  Hato    
+							option( id="ciudad2546" name="ciudad25" style="display:none;" value="jesusmaria"  selected="jesusmaria")  Jesus Maria   
+							option( id="ciudad2547" name="ciudad25" style="display:none;" value="jordan"  selected="jordan")  Jordan    
+							option( id="ciudad2548" name="ciudad25" style="display:none;" value="labelleza"  selected="labelleza")  La Belleza   
+							option( id="ciudad2549" name="ciudad25" style="display:none;" value="lapaz"  selected="lapaz")  La Paz   
+							option( id="ciudad2550" name="ciudad25" style="display:none;" value="landazuri"  selected="landazuri")  Landazuri    
+							option( id="ciudad2551" name="ciudad25" style="display:none;" value="lebrija"  selected="lebrija")  Lebrija    
+							option( id="ciudad2552" name="ciudad25" style="display:none;" value="lossantos"  selected="lossantos")  Los Santos   
+							option( id="ciudad2553" name="ciudad25" style="display:none;" value="macaravita"  selected="macaravita")  Macaravita    
+							option( id="ciudad2554" name="ciudad25" style="display:none;" value="malaga"  selected="malaga")  Malaga    
+							option( id="ciudad2555" name="ciudad25" style="display:none;" value="matanza"  selected="matanza")  Matanza    
+							option( id="ciudad2556" name="ciudad25" style="display:none;" value="mogotes"  selected="mogotes")  Mogotes    
+							option( id="ciudad2557" name="ciudad25" style="display:none;" value="molagavita"  selected="molagavita")  Molagavita    
+							option( id="ciudad2558" name="ciudad25" style="display:none;" value="ocamonte"  selected="ocamonte")  Ocamonte    
+							option( id="ciudad2559" name="ciudad25" style="display:none;" value="oiba"  selected="oiba")  Oiba    
+							option( id="ciudad2560" name="ciudad25" style="display:none;" value="onzaga"  selected="onzaga")  Onzaga    
+							option( id="ciudad2561" name="ciudad25" style="display:none;" value="palmar"  selected="palmar")  Palmar    
+							option( id="ciudad2562" name="ciudad25" style="display:none;" value="palmassocorro"  selected="palmassocorro")  Palmas Socorro   
+							option( id="ciudad2563" name="ciudad25" style="display:none;" value="paramo"  selected="paramo")  Paramo    
+							option( id="ciudad2564" name="ciudad25" style="display:none;" value="piedecuesta"  selected="piedecuesta")  Piedecuesta    
+							option( id="ciudad2565" name="ciudad25" style="display:none;" value="pinchote"  selected="pinchote")  Pinchote    
+							option( id="ciudad2566" name="ciudad25" style="display:none;" value="puentenacional"  selected="puentenacional")  Puente Nacional   
+							option( id="ciudad2567" name="ciudad25" style="display:none;" value="puertoparra"  selected="puertoparra")  Puerto Parra   
+							option( id="ciudad2568" name="ciudad25" style="display:none;" value="puertowilches"  selected="puertowilches")  Puerto Wilches   
+							option( id="ciudad2569" name="ciudad25" style="display:none;" value="rionegro"  selected="rionegro")  Rionegro    
+							option( id="ciudad2570" name="ciudad25" style="display:none;" value="sabanadetorres"  selected="sabanadetorres")  Sabana de Torres  
+							option( id="ciudad2571" name="ciudad25" style="display:none;" value="sanandres"  selected="sanandres")  San Andres   
+							option( id="ciudad2572" name="ciudad25" style="display:none;" value="sanbenito"  selected="sanbenito")  San Benito   
+							option( id="ciudad2573" name="ciudad25" style="display:none;" value="sangil"  selected="sangil")  San Gil   
+							option( id="ciudad2574" name="ciudad25" style="display:none;" value="sanjoaquin"  selected="sanjoaquin")  San Joaquin   
+							option( id="ciudad2575" name="ciudad25" style="display:none;" value="sanjosedemiranda"  selected="sanjosedemiranda")  San Jose de Miranda 
+							option( id="ciudad2576" name="ciudad25" style="display:none;" value="sanmiguel"  selected="sanmiguel")  San Miguel   
+							option( id="ciudad2577" name="ciudad25" style="display:none;" value="sanvicentedechucuri"  selected="sanvicentedechucuri")  San Vicente de Chucuri 
+							option( id="ciudad2578" name="ciudad25" style="display:none;" value="santabarbara"  selected="santabarbara")  Santa Barbara   
+							option( id="ciudad2579" name="ciudad25" style="display:none;" value="santahelenadelopon"  selected="santahelenadelopon")  Santa Helena del Opon 
+							option( id="ciudad2580" name="ciudad25" style="display:none;" value="simacota"  selected="simacota")  Simacota    
+							option( id="ciudad2581" name="ciudad25" style="display:none;" value="socorro"  selected="socorro")  Socorro    
+							option( id="ciudad2582" name="ciudad25" style="display:none;" value="suaita"  selected="suaita")  Suaita    
+							option( id="ciudad2583" name="ciudad25" style="display:none;" value="sucre"  selected="sucre")  Sucre    
+							option( id="ciudad2584" name="ciudad25" style="display:none;" value="surata"  selected="surata")  Surata    
+							option( id="ciudad2585" name="ciudad25" style="display:none;" value="tona"  selected="tona")  Tona    
+							option( id="ciudad2586" name="ciudad25" style="display:none;" value="vadoreal"  selected="vadoreal")  Vado Real   
+							option( id="ciudad2587" name="ciudad25" style="display:none;" value="vallesanjose"  selected="vallesanjose")  Valle San Jose  
+							option( id="ciudad2588" name="ciudad25" style="display:none;" value="velez"  selected="velez")  Velez    
+							option( id="ciudad2589" name="ciudad25" style="display:none;" value="vetas"  selected="vetas")  Vetas    
+							option( id="ciudad2590" name="ciudad25" style="display:none;" value="villanueva"  selected="villanueva")  Villanueva    
+							option( id="ciudad2591" name="ciudad25" style="display:none;" value="zapatoca"  selected="zapatoca")  Zapatoca 
+
+							option( id="ciudad271" name="ciudad27" style="display:none;" value="betulia"  selected="betulia")  Betulia    
+							option( id="ciudad272" name="ciudad27" style="display:none;" value="buenavista"  selected="buenavista")  Buenavista    
+							option( id="ciudad273" name="ciudad27" style="display:none;" value="caimito"  selected="caimito")  Caimito    
+							option( id="ciudad274" name="ciudad27" style="display:none;" value="chalan"  selected="chalan")  Chalan    
+							option( id="ciudad275" name="ciudad27" style="display:none;" value="coloso"  selected="coloso")  Coloso    
+							option( id="ciudad276" name="ciudad27" style="display:none;" value="corozal"  selected="corozal")  Corozal    
+							option( id="ciudad277" name="ciudad27" style="display:none;" value="coveñas"  selected="coveñas")  Coveñas    
+							option( id="ciudad278" name="ciudad27" style="display:none;" value="galeras"  selected="galeras")  Galeras    
+							option( id="ciudad279" name="ciudad27" style="display:none;" value="guaranda"  selected="guaranda")  Guaranda    
+							option( id="ciudad2710" name="ciudad27" style="display:none;" value="launion"  selected="launion")  La Union   
+							option( id="ciudad2711" name="ciudad27" style="display:none;" value="lospalmitos"  selected="lospalmitos")  Los Palmitos   
+							option( id="ciudad2712" name="ciudad27" style="display:none;" value="majagual"  selected="majagual")  Majagual    
+							option( id="ciudad2713" name="ciudad27" style="display:none;" value="morroa"  selected="morroa")  Morroa    
+							option( id="ciudad2714" name="ciudad27" style="display:none;" value="ovejas"  selected="ovejas")  Ovejas    
+							option( id="ciudad2715" name="ciudad27" style="display:none;" value="sampues"  selected="sampues")  Sampues    
+							option( id="ciudad2716" name="ciudad27" style="display:none;" value="sanbenitoabad"  selected="sanbenitoabad")  San Benito Abad  
+							option( id="ciudad2717" name="ciudad27" style="display:none;" value="sanjuandebetulia"  selected="sanjuandebetulia")  San Juan de Betulia 
+							option( id="ciudad2718" name="ciudad27" style="display:none;" value="sanmarcos"  selected="sanmarcos")  San Marcos   
+							option( id="ciudad2719" name="ciudad27" style="display:none;" value="sanonofre"  selected="sanonofre")  San Onofre   
+							option( id="ciudad2720" name="ciudad27" style="display:none;" value="sanpedro"  selected="sanpedro")  San Pedro   
+							option( id="ciudad2721" name="ciudad27" style="display:none;" value="since"  selected="since")  Since    
+							option( id="ciudad2722" name="ciudad27" style="display:none;" value="sincelejo"  selected="sincelejo")  Sincelejo    
+							option( id="ciudad2723" name="ciudad27" style="display:none;" value="sucre"  selected="sucre")  Sucre    
+							option( id="ciudad2724" name="ciudad27" style="display:none;" value="tolu"  selected="tolu")  Tolu    
+							option( id="ciudad2725" name="ciudad27" style="display:none;" value="toluviejo"  selected="toluviejo")  Toluviejo  
+
+							option( id="ciudad281" name="ciudad28" style="display:none;" value="alpujarra"  selected="alpujarra")  Alpujarra    
+							option( id="ciudad282" name="ciudad28" style="display:none;" value="alvarado"  selected="alvarado")  Alvarado    
+							option( id="ciudad283" name="ciudad28" style="display:none;" value="ambalema"  selected="ambalema")  Ambalema    
+							option( id="ciudad284" name="ciudad28" style="display:none;" value="anaime"  selected="anaime")  Anaime    
+							option( id="ciudad285" name="ciudad28" style="display:none;" value="anzoategui"  selected="anzoategui")  Anzoategui    
+							option( id="ciudad286" name="ciudad28" style="display:none;" value="armero"  selected="armero")  Armero    
+							option( id="ciudad287" name="ciudad28" style="display:none;" value="armero-guayabal"  selected="armero-guayabal")  Armero-Guayabal    
+							option( id="ciudad288" name="ciudad28" style="display:none;" value="ataco"  selected="ataco")  Ataco    
+							option( id="ciudad289" name="ciudad28" style="display:none;" value="cajamarca"  selected="cajamarca")  Cajamarca    
+							option( id="ciudad2810" name="ciudad28" style="display:none;" value="cambao"  selected="cambao")  Cambao    
+							option( id="ciudad2811" name="ciudad28" style="display:none;" value="carmendeapicala"  selected="carmendeapicala")  Carmen de Apicala  
+							option( id="ciudad2812" name="ciudad28" style="display:none;" value="casabianca"  selected="casabianca")  Casabianca    
+							option( id="ciudad2813" name="ciudad28" style="display:none;" value="chaparral"  selected="chaparral")  Chaparral    
+							option( id="ciudad2814" name="ciudad28" style="display:none;" value="chicoral"  selected="chicoral")  Chicoral    
+							option( id="ciudad2815" name="ciudad28" style="display:none;" value="coello"  selected="coello")  Coello    
+							option( id="ciudad2816" name="ciudad28" style="display:none;" value="coyaima"  selected="coyaima")  Coyaima    
+							option( id="ciudad2817" name="ciudad28" style="display:none;" value="cunday"  selected="cunday")  Cunday    
+							option( id="ciudad2818" name="ciudad28" style="display:none;" value="dolores"  selected="dolores")  Dolores    
+							option( id="ciudad2819" name="ciudad28" style="display:none;" value="espinal"  selected="espinal")  Espinal    
+							option( id="ciudad2820" name="ciudad28" style="display:none;" value="falan"  selected="falan")  Falan    
+							option( id="ciudad2821" name="ciudad28" style="display:none;" value="flandes"  selected="flandes")  Flandes    
+							option( id="ciudad2822" name="ciudad28" style="display:none;" value="fresno"  selected="fresno")  Fresno    
+							option( id="ciudad2823" name="ciudad28" style="display:none;" value="guamo"  selected="guamo")  Guamo    
+							option( id="ciudad2824" name="ciudad28" style="display:none;" value="herveo"  selected="herveo")  Herveo    
+							option( id="ciudad2825" name="ciudad28" style="display:none;" value="honda"  selected="honda")  Honda    
+							option( id="ciudad2826" name="ciudad28" style="display:none;" value="ibague"  selected="ibague")  Ibague    
+							option( id="ciudad2827" name="ciudad28" style="display:none;" value="icononzo"  selected="icononzo")  Icononzo    
+							option( id="ciudad2828" name="ciudad28" style="display:none;" value="lasierra"  selected="lasierra")  La Sierra   
+							option( id="ciudad2829" name="ciudad28" style="display:none;" value="lerida"  selected="lerida")  Lerida    
+							option( id="ciudad2830" name="ciudad28" style="display:none;" value="libano"  selected="libano")  Libano    
+							option( id="ciudad2831" name="ciudad28" style="display:none;" value="mariquita"  selected="mariquita")  Mariquita    
+							option( id="ciudad2832" name="ciudad28" style="display:none;" value="melgar"  selected="melgar")  Melgar    
+							option( id="ciudad2833" name="ciudad28" style="display:none;" value="murillo"  selected="murillo")  Murillo    
+							option( id="ciudad2834" name="ciudad28" style="display:none;" value="natagaima"  selected="natagaima")  Natagaima    
+							option( id="ciudad2835" name="ciudad28" style="display:none;" value="ortega"  selected="ortega")  Ortega    
+							option( id="ciudad2836" name="ciudad28" style="display:none;" value="palocabildo"  selected="palocabildo")  Palocabildo    
+							option( id="ciudad2837" name="ciudad28" style="display:none;" value="piedras"  selected="piedras")  Piedras    
+							option( id="ciudad2838" name="ciudad28" style="display:none;" value="planadas"  selected="planadas")  Planadas    
+							option( id="ciudad2839" name="ciudad28" style="display:none;" value="prado"  selected="prado")  Prado    
+							option( id="ciudad2840" name="ciudad28" style="display:none;" value="purificacion"  selected="purificacion")  Purificacion    
+							option( id="ciudad2841" name="ciudad28" style="display:none;" value="rioblanco"  selected="rioblanco")  Rioblanco    
+							option( id="ciudad2842" name="ciudad28" style="display:none;" value="roncesvalles"  selected="roncesvalles")  Roncesvalles    
+							option( id="ciudad2843" name="ciudad28" style="display:none;" value="rovira"  selected="rovira")  Rovira    
+							option( id="ciudad2844" name="ciudad28" style="display:none;" value="saldaña"  selected="saldaña")  Saldaña    
+							option( id="ciudad2845" name="ciudad28" style="display:none;" value="sanantonio"  selected="sanantonio")  San Antonio   
+							option( id="ciudad2846" name="ciudad28" style="display:none;" value="sanluis"  selected="sanluis")  San Luis   
+							option( id="ciudad2847" name="ciudad28" style="display:none;" value="santaisabel"  selected="santaisabel")  Santa Isabel   
+							option( id="ciudad2848" name="ciudad28" style="display:none;" value="suarez"  selected="suarez")  Suarez    
+							option( id="ciudad2849" name="ciudad28" style="display:none;" value="valledesanjuan"  selected="valledesanjuan")  Valle de San Juan 
+							option( id="ciudad2850" name="ciudad28" style="display:none;" value="venadillo"  selected="venadillo")  Venadillo    
+							option( id="ciudad2851" name="ciudad28" style="display:none;" value="villahermosa"  selected="villahermosa")  Villahermosa    
+							option( id="ciudad2852" name="ciudad28" style="display:none;" value="villarrica"  selected="villarrica")  Villarrica  
+
+							option( id="ciudad291" name="ciudad29" style="display:none;" value="beltran"  selected="beltran")  Beltran    
+							option( id="ciudad292" name="ciudad29" style="display:none;" value="castilla"  selected="castilla")  Castilla    
+							option( id="ciudad293" name="ciudad29" style="display:none;" value="convenio"  selected="convenio")  Convenio    
+							option( id="ciudad294" name="ciudad29" style="display:none;" value="chencheasoleado"  selected="chencheasoleado")  Chenche Asoleado   
+							option( id="ciudad295" name="ciudad29" style="display:none;" value="doima"  selected="doima")  Doima    
+							option( id="ciudad296" name="ciudad29" style="display:none;" value="eltablazo"  selected="eltablazo")  El Tablazo   
+							option( id="ciudad297" name="ciudad29" style="display:none;" value="frias"  selected="frias")  Frias    
+							option( id="ciudad298" name="ciudad29" style="display:none;" value="gaitania"  selected="gaitania")  Gaitania    
+							option( id="ciudad299" name="ciudad29" style="display:none;" value="gualanday"  selected="gualanday")  Gualanday    
+							option( id="ciudad2910" name="ciudad29" style="display:none;" value="herrera"  selected="herrera")  Herrera    
+							option( id="ciudad2911" name="ciudad29" style="display:none;" value="junin"  selected="junin")  Junin    
+							option( id="ciudad2912" name="ciudad29" style="display:none;" value="laarada"  selected="laarada")  La Arada   
+							option( id="ciudad2913" name="ciudad29" style="display:none;" value="lachamba"  selected="lachamba")  La Chamba   
+							option( id="ciudad2914" name="ciudad29" style="display:none;" value="olayaherrera"  selected="olayaherrera")  Olaya Herrera   
+							option( id="ciudad2915" name="ciudad29" style="display:none;" value="padua"  selected="padua")  Padua    
+							option( id="ciudad2916" name="ciudad29" style="display:none;" value="payande"  selected="payande")  Payande    
+							option( id="ciudad2917" name="ciudad29" style="display:none;" value="playarrica"  selected="playarrica")  Playarrica    
+							option( id="ciudad2918" name="ciudad29" style="display:none;" value="santateresa"  selected="santateresa")  Santa Teresa   
+							option( id="ciudad2919" name="ciudad29" style="display:none;" value="santiagoperez"  selected="santiagoperez")  Santiago Perez   
+							option( id="ciudad2920" name="ciudad29" style="display:none;" value="tresesquinas"  selected="tresesquinas")  Tres Esquinas 
+							option( id="ciudad2921" name="ciudad29" style="display:none;" value="alban"  selected="alban")  Alban    
+							option( id="ciudad2922" name="ciudad29" style="display:none;" value="alcala"  selected="alcala")  Alcala    
+							option( id="ciudad2923" name="ciudad29" style="display:none;" value="andalucia"  selected="andalucia")  Andalucia    
+							option( id="ciudad2924" name="ciudad29" style="display:none;" value="ansermanuevo"  selected="ansermanuevo")  Ansermanuevo    
+							option( id="ciudad2925" name="ciudad29" style="display:none;" value="argelia"  selected="argelia")  Argelia    
+							option( id="ciudad2926" name="ciudad29" style="display:none;" value="barragan"  selected="barragan")  Barragan    
+							option( id="ciudad2927" name="ciudad29" style="display:none;" value="bitaco"  selected="bitaco")  Bitaco    
+							option( id="ciudad2928" name="ciudad29" style="display:none;" value="bolivar"  selected="bolivar")  Bolivar    
+							option( id="ciudad2929" name="ciudad29" style="display:none;" value="buenaventura"  selected="buenaventura")  Buenaventura    
+							option( id="ciudad2930" name="ciudad29" style="display:none;" value="buenosaires"  selected="buenosaires")  Buenos Aires   
+							option( id="ciudad2931" name="ciudad29" style="display:none;" value="buga"  selected="buga")  Buga    
+							option( id="ciudad2932" name="ciudad29" style="display:none;" value="bugalagrande"  selected="bugalagrande")  Bugalagrande    
+							option( id="ciudad2933" name="ciudad29" style="display:none;" value="caicedonia"  selected="caicedonia")  Caicedonia    
+							option( id="ciudad2934" name="ciudad29" style="display:none;" value="cali"  selected="cali")  Cali    
+							option( id="ciudad2935" name="ciudad29" style="display:none;" value="calima"  selected="calima")  Calima    
+							option( id="ciudad2936" name="ciudad29" style="display:none;" value="candelaria"  selected="candelaria")  Candelaria    
+							option( id="ciudad2937" name="ciudad29" style="display:none;" value="cartago"  selected="cartago")  Cartago    
+							option( id="ciudad2938" name="ciudad29" style="display:none;" value="ceylan"  selected="ceylan")  Ceylan    
+							option( id="ciudad2939" name="ciudad29" style="display:none;" value="costarica"  selected="costarica")  Costa Rica   
+							option( id="ciudad2940" name="ciudad29" style="display:none;" value="dagua"  selected="dagua")  Dagua    
+							option( id="ciudad2941" name="ciudad29" style="display:none;" value="dapa"  selected="dapa")  Dapa    
+							option( id="ciudad2942" name="ciudad29" style="display:none;" value="darien"  selected="darien")  Darien    
+							option( id="ciudad2943" name="ciudad29" style="display:none;" value="elaguila"  selected="elaguila")  El Aguila   
+							option( id="ciudad2944" name="ciudad29" style="display:none;" value="elbolo"  selected="elbolo")  El Bolo   
+							option( id="ciudad2945" name="ciudad29" style="display:none;" value="elcairo"  selected="elcairo")  El Cairo   
+							option( id="ciudad2946" name="ciudad29" style="display:none;" value="elcarmelo"  selected="elcarmelo")  El Carmelo   
+							option( id="ciudad2947" name="ciudad29" style="display:none;" value="elcarmen"  selected="elcarmen")  El Carmen   
+							option( id="ciudad2948" name="ciudad29" style="display:none;" value="elcerrito"  selected="elcerrito")  El Cerrito   
+							option( id="ciudad2949" name="ciudad29" style="display:none;" value="eldovio"  selected="eldovio")  El Dovio   
+							option( id="ciudad2950" name="ciudad29" style="display:none;" value="fenicia"  selected="fenicia")  Fenicia    
+							option( id="ciudad2951" name="ciudad29" style="display:none;" value="florida"  selected="florida")  Florida    
+							option( id="ciudad2952" name="ciudad29" style="display:none;" value="galicia"  selected="galicia")  Galicia    
+							option( id="ciudad2953" name="ciudad29" style="display:none;" value="ginebra"  selected="ginebra")  Ginebra    
+							option( id="ciudad2954" name="ciudad29" style="display:none;" value="guacari"  selected="guacari")  Guacari    
+							option( id="ciudad2955" name="ciudad29" style="display:none;" value="jamundi"  selected="jamundi")  Jamundi    
+							option( id="ciudad2956" name="ciudad29" style="display:none;" value="juachaco"  selected="juachaco")  Juachaco 
+							option( id="ciudad2957" name="ciudad29" style="display:none;" value="labocana"  selected="labocana")  La Bocana   
+							option( id="ciudad2958" name="ciudad29" style="display:none;" value="labuitrera"  selected="labuitrera")  La Buitrera   
+							option( id="ciudad2959" name="ciudad29" style="display:none;" value="lacumbre"  selected="lacumbre")  La Cumbre   
+							option( id="ciudad2960" name="ciudad29" style="display:none;" value="ladolores"  selected="ladolores")  La Dolores   
+							option( id="ciudad2961" name="ciudad29" style="display:none;" value="laiberia"  selected="laiberia")  La Iberia   
+							option( id="ciudad2962" name="ciudad29" style="display:none;" value="lanubia"  selected="lanubia")  La Nubia   
+							option( id="ciudad2963" name="ciudad29" style="display:none;" value="launion"  selected="launion")  La Union   
+							option( id="ciudad2964" name="ciudad29" style="display:none;" value="lavictoria"  selected="lavictoria")  La Victoria   
+							option( id="ciudad2965" name="ciudad29" style="display:none;" value="ladrilleros"  selected="ladrilleros")  Ladrilleros    
+							option( id="ciudad2966" name="ciudad29" style="display:none;" value="lagocalima"  selected="lagocalima")  Lago Calima   
+							option( id="ciudad2967" name="ciudad29" style="display:none;" value="madrigal"  selected="madrigal")  Madrigal    
+							option( id="ciudad2968" name="ciudad29" style="display:none;" value="obando"  selected="obando")  Obando    
+							option( id="ciudad2969" name="ciudad29" style="display:none;" value="palmaseca"  selected="palmaseca")  Palmaseca    
+							option( id="ciudad2970" name="ciudad29" style="display:none;" value="palmira"  selected="palmira")  Palmira    
+							option( id="ciudad2971" name="ciudad29" style="display:none;" value="pavas"  selected="pavas")  Pavas    
+							option( id="ciudad2972" name="ciudad29" style="display:none;" value="pobladocampestre"  selected="pobladocampestre")  Poblado Campestre   
+							option( id="ciudad2973" name="ciudad29" style="display:none;" value="potrerito"  selected="potrerito")  Potrerito    
+							option( id="ciudad2974" name="ciudad29" style="display:none;" value="pradera"  selected="pradera")  Pradera    
+							option( id="ciudad2975" name="ciudad29" style="display:none;" value="queremal"  selected="queremal")  Queremal    
+							option( id="ciudad2976" name="ciudad29" style="display:none;" value="restrepo"  selected="restrepo")  Restrepo    
+							option( id="ciudad2977" name="ciudad29" style="display:none;" value="riofrio"  selected="riofrio")  Riofrio    
+							option( id="ciudad2978" name="ciudad29" style="display:none;" value="roldanillo"  selected="roldanillo")  Roldanillo    
+							option( id="ciudad2979" name="ciudad29" style="display:none;" value="rozo"  selected="rozo")  Rozo    
+							option( id="ciudad2980" name="ciudad29" style="display:none;" value="salonica"  selected="salonica")  Salonica    
+							option( id="ciudad2981" name="ciudad29" style="display:none;" value="samaria"  selected="samaria")  Samaria    
+							option( id="ciudad2982" name="ciudad29" style="display:none;" value="sanantoniodeloscaballeros"  selected="sanantoniodeloscaballeros")  San Antonio de los Caballeros
+							option( id="ciudad2983" name="ciudad29" style="display:none;" value="sanpedro"  selected="sanpedro")  San Pedro   
+							option( id="ciudad2984" name="ciudad29" style="display:none;" value="santahelena"  selected="santahelena")  Santa Helena   
+							option( id="ciudad2985" name="ciudad29" style="display:none;" value="santalucia"  selected="santalucia")  Santa Lucia   
+							option( id="ciudad2986" name="ciudad29" style="display:none;" value="sevilla"  selected="sevilla")  Sevilla    
+							option( id="ciudad2987" name="ciudad29" style="display:none;" value="sonso"  selected="sonso")  Sonso    
+							option( id="ciudad2988" name="ciudad29" style="display:none;" value="tiendanueva"  selected="tiendanueva")  Tienda Nueva   
+							option( id="ciudad2989" name="ciudad29" style="display:none;" value="toro"  selected="toro")  Toro    
+							option( id="ciudad2990" name="ciudad29" style="display:none;" value="trujillo"  selected="trujillo")  Trujillo    
+							option( id="ciudad2991" name="ciudad29" style="display:none;" value="tulua"  selected="tulua")  Tulua    
+							option( id="ciudad2992" name="ciudad29" style="display:none;" value="ulloa"  selected="ulloa")  Ulloa    
+							option( id="ciudad2993" name="ciudad29" style="display:none;" value="venecia"  selected="venecia")  Venecia    
+							option( id="ciudad2994" name="ciudad29" style="display:none;" value="versalles"  selected="versalles")  Versalles    
+							option( id="ciudad2995" name="ciudad29" style="display:none;" value="vijes"  selected="vijes")  Vijes    
+							option( id="ciudad2996" name="ciudad29" style="display:none;" value="villagorgona"  selected="villagorgona")  Villagorgona    
+							option( id="ciudad2997" name="ciudad29" style="display:none;" value="yotoco"  selected="yotoco")  Yotoco    
+							option( id="ciudad2998" name="ciudad29" style="display:none;" value="yumbo"  selected="yumbo")  Yumbo    
+							option( id="ciudad2999" name="ciudad29" style="display:none;" value="zarzal"  selected="zarzal")  Zarzal
+							option( id="ciudad29100" name="ciudad29" style="display:none;" value="ameimeelplacer"  selected="ameimeelplacer")  Ameime El Placer  
+							option( id="ciudad29101" name="ciudad29" style="display:none;" value="quebradanueva"  selected="quebradanueva")  Quebrada Nueva   
+							option( id="ciudad29102" name="ciudad29" style="display:none;" value="ruralesvalle"  selected="ruralesvalle")  Rurales Valle   
+							option( id="ciudad29103" name="ciudad29" style="display:none;" value="lamarina"  selected="lamarina")  La Marina   
+							option( id="ciudad29104" name="ciudad29" style="display:none;" value="lahorqueta"  selected="lahorqueta")  La Horqueta   
+							option( id="ciudad29105" name="ciudad29" style="display:none;" value="bahiamalaga"  selected="bahiamalaga")  Bahia Malaga   
+							option( id="ciudad29106" name="ciudad29" style="display:none;" value="caruru"  selected="caruru")  Caruru    
+							option( id="ciudad29107" name="ciudad29" style="display:none;" value="cumaribo"  selected="cumaribo")  Cumaribo    
+							option( id="ciudad29108" name="ciudad29" style="display:none;" value="lahormiga"  selected="lahormiga")  La Hormiga   
+							option( id="ciudad29109" name="ciudad29" style="display:none;" value="laprimavera"  selected="laprimavera")  La Primavera   
+							option( id="ciudad29110" name="ciudad29" style="display:none;" value="mitu"  selected="mitu")  Mitu    
+							option( id="ciudad29111" name="ciudad29" style="display:none;" value="nuevaantioquia"  selected="nuevaantioquia")  Nueva Antioquia   
+							option( id="ciudad29112" name="ciudad29" style="display:none;" value="pacoa"  selected="pacoa")  Pacoa    
+							option( id="ciudad29113" name="ciudad29" style="display:none;" value="sanjosedeocune"  selected="sanjosedeocune")  San Jose de Ocune 
+							option( id="ciudad29114" name="ciudad29" style="display:none;" value="santarita"  selected="santarita")  Santa Rita   
+							option( id="ciudad29115" name="ciudad29" style="display:none;" value="santarosalia"  selected="santarosalia")  Santa Rosalia   
+							option( id="ciudad29116" name="ciudad29" style="display:none;" value="taraira"  selected="taraira")  Taraira    
+							option( id="ciudad29117" name="ciudad29" style="display:none;" value="toraira"  selected="toraira")  Toraira    
+							option( id="ciudad29118" name="ciudad29" style="display:none;" value="vichada"  selected="vichada")  Vichada    
+							option( id="ciudad29119" name="ciudad29" style="display:none;" value="yavarate"  selected="yavarate")  Yavarate    
+							option(value="" selected="selected") - selecciona -
+				div 
+					label(for="empre") Cuentanos a que se dedica tu empresa
+					input(type="text", name="empre",placeholder="cuentanos", id="empre" class"form-control" oninvalid="setCustomValidity('escoge uno')" required onchange="empress()")
+				div(style="width: 98%; display:flex; background-color:#fff;" )
+					div(style="width: 18%;")
+						div 
+							label(for="color" style="color:#000000;") Color de fondo
+							input(type="color", name="color",placeholder="Dime el back ground color", id="color" class"form-control" oninvalid="setCustomValidity('escoge uno')" required onchange="subircolor()")
+						div 
+							label(for="color1" style="color:#000000;") Color de "Siguenos en"  
+							input(type="color", name="color1",placeholder="Dime el color de letra parrafo", id="color1" class"form-control" oninvalid="setCustomValidity('escoge uno')" required onchange="subircolor1()")
+						div 
+							label(for="color2" style="color:#000000;") Color de titulos
+							input(type="color", name="color2",placeholder="Dime el color de titulo", id="color2" class"form-control" oninvalid="setCustomValidity('escoge uno')" required onchange="subircolor2()")
+					div(style="width: 80%;")
+						div(id="muestra" name="muestra" style="    font-size: 28px;margin: 0px; font-weight: bold; font-family: 'MYRIADP' , 'Comfortaa' , arial; text-align: center; padding: 3px; margin-top: 8px; border: 2px solid; border-radius: 11px;")
+							p( value="" id="pepe3" name="pepe3")
+							p( value="" id="pepe3" name="pepe3")
+							p( value="" id="pepe2" name="pepe2") Siguenos en
+						div(id="muestra1" name="muestra1" style="    font-size: 28px;margin: 0px; font-weight: bold; font-family: 'MYRIADP' , 'Comfortaa' , arial; text-align: center; padding: 3px; margin-top: 8px; border: 2px solid; border-radius: 11px; border: 2px solid; border-radius: 11px;")
+							p( value="" id="pepe" name="pepe") Titulos
+						div(id="muestra5" name="muestra5" style="font-size: 28px;margin: 0px; font-weight: bold; font-family: 'MYRIADP' , 'Comfortaa' , arial; text-align: center; padding: 3px; margin-top: 8px; border: 2px solid; background-color:#ffffff;")
+							p( value="" id="pepe5" name="pepe5")
+				div 
+					label(for="telefono") telefono
+					input(type="text", name="telefono",placeholder="Dime tu Telefono", id="telefono" class"form-control" oninvalid="setCustomValidity('escoge uno')" required)
+				div 
+					label(for="face") link pagina en facebook
+					input(type="url", name="face",placeholder="cuentanos", id="face" class"form-control" )
+				div 
+					label(for="twi") link pagina en Twitter
+					input(type="url", name="twi",placeholder="cuentanos", id="twi" class"form-control" )
+				div 
+					label(for="you") link pagina en Youtube
+					input(type="url" name="you" placeholder="cuentanos" id="you" class"form-control" )
+				div 
+					label(for="insta") link pagina en Instagram
+					input(type="url" name="insta" placeholder="cuentanos" id="insta" class"form-control" )
+				div 
+					label(for="web") link pagina de la web
+					input(type="url" name="web" placeholder="cuentanos" id="web" class"form-control" )
+				div 
+					label(for="horariolv") horario de atencion al cliente lunes a viernes ejemplo 8am - 5pm
+					input(type="text" name="horariolv" placeholder="cuentanos" id="horariolv" class"form-control" )
+				div 
+					label(for="horariosdf") horario de atencion al cliente sabado,domingos,festivos ejemplo 8am - 5pm
+					input(type="text" name="horariosdf" placeholder="cuentanos" id="horariosdf" class"form-control" )
+				div 
+					label(for="web") No soy un robot
+					button.g-recaptcha(data-sitekey='6LdG6xIUAAAAAF1OCUhEuSVfsG1O7r6-7hoQFE7l', data-callback='YourOnSubmitFn') no soy un robot
+					input(type="submit" value="Crear Página " class="btn btn-info")
+		script(type='text/javascript', src='/public/js/bootstrap.js')
+	script(type='text/javascript', src='/public/js/bootstrap.min.js')
+	script(type='text/javascript', src='/public/js/jquery.min.js')
+	script(type='text/javascript', src='/public/js/jquery.min.v1.js')
+	script(src='https://www.google.com/recaptcha/api.js')
+	script(type='text/javascript', src='/public/js/auto.js')

@@ -1,0 +1,310 @@
+extends ./layout.jade
+block contenido 
+		div( class="fondoprincipal")
+			section.categorias
+				section
+						a(href="/comidas/#{filtro}")
+							p(class="botoncito") Alimentos
+				section
+						a(href='/FincaRaiz/#{filtro}')
+							p(class="botoncito") Finca ra&iacutez
+				section
+						a(href='/Entretenimiento/#{filtro}')
+							p(class="botoncito") Entretenimiento
+				section
+						a(href='/Variedades/#{filtro}')
+							p(class="botoncito") Variedades
+				section
+						a(href='/Hospedaje/#{filtro}')
+							p(class="botoncito") Hospedaje
+				section
+						a(href='/Construccion/#{filtro}')
+							p(class="botoncito") Construccion
+				section
+						a(href='/Belleza/#{filtro}')
+							p(class="botoncito") Belleza
+				section
+						a(href='/Artesanias/#{filtro}')
+							p(class="botoncito") Artesan&iacuteas
+				section
+						a(href='/Recreacion/#{filtro}')
+							p(class="botoncito") Recreaci&oacuten
+				section
+						a(href='/transporte/#{filtro}')
+							p(class="botoncito") Transporte
+				section
+						a(href='/Ventas/#{filtro}')
+							p(class="botoncito")  Moda
+			section.publicidadpagada
+				for imagen in imagenes 
+					if imagen.foto == 'normal'
+						if imagen.creator.elegido == true
+							div
+								a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;")
+			if filtro != "undefined"
+				h1.h1  #{filtro}
+			h2.h2 Accesorios (bolsos)
+			section.negocios
+				if filtro != "undefined"
+					for imagen in imagenes 
+						if imagen.foto == 'normal'
+							if imagen.creator.gremio == "Variedades"
+								if imagen.creator.imgtitulo == "Accesorios(bolsos)"
+									if imagen.creator.ciudad == filtro
+										div
+											a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+									if imagen.creator.departamento == filtro
+										div
+											a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+					div
+									a(href="/nosotros" class="ordenado")
+										img(src="/public/imagenes/img/negocio.jpg" alt="agrega tu empresa" title="Trabaja con nostros" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+				else
+					for imagen in imagenes 
+						if imagen.foto == 'normal'
+							if imagen.creator.gremio == "Variedades"
+								if imagen.creator.imgtitulo == "Accesorios(bolsos)"
+										div
+											a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+					div
+									a(href="/nosotros" class="ordenado")
+										img(src="/public/imagenes/img/negocio.jpg" alt="agrega tu empresa" title="Trabaja con nostros" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+			h2.h2 Papeler&iacutea
+			section.negocios
+				if filtro != "undefined"
+					for imagen in imagenes 
+						if imagen.foto == 'normal'
+							if imagen.creator.gremio == "Variedades"
+								if imagen.creator.imgtitulo == "Papeleria"
+									if imagen.creator.ciudad == filtro
+										div
+											a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+									if imagen.creator.departamento == filtro
+										div
+											a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+					div
+									a(href="/nosotros" class="ordenado")
+										img(src="/public/imagenes/img/negocio.jpg" alt="agrega tu empresa" title="Trabaja con nostros" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+				else
+					for imagen in imagenes 
+						if imagen.foto == 'normal'
+							if imagen.creator.gremio == "Variedades"
+								if imagen.creator.imgtitulo == "Papeleria"
+										div
+											a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+					div
+									a(href="/nosotros" class="ordenado")
+										img(src="/public/imagenes/img/negocio.jpg" alt="agrega tu empresa" title="Trabaja con nostros" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+			h2.h2 Jugueter&iacutea
+			section.negocios
+				if filtro != "undefined"
+					for imagen in imagenes 
+						if imagen.foto == 'normal'
+							if imagen.creator.gremio == "Variedades"
+								if imagen.creator.imgtitulo == "Jugueteria"
+									if imagen.creator.ciudad == filtro
+										div
+											a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+									if imagen.creator.departamento == filtro
+										div
+											a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+					div
+									a(href="/nosotros" class="ordenado")
+										img(src="/public/imagenes/img/negocio.jpg" alt="agrega tu empresa" title="Trabaja con nostros" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+				else
+					for imagen in imagenes 
+						if imagen.foto == 'normal'
+							if imagen.creator.gremio == "Variedades"
+								if imagen.creator.imgtitulo == "Jugueteria"
+										div
+											a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+					div
+									a(href="/nosotros" class="ordenado")
+										img(src="/public/imagenes/img/negocio.jpg" alt="agrega tu empresa" title="Trabaja con nostros" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+			h2.h2 Pa&ntildealeria
+			section.negocios
+				if filtro != "undefined"
+					for imagen in imagenes 
+						if imagen.foto == 'normal'
+							if imagen.creator.gremio == "Variedades"
+								if imagen.creator.imgtitulo == "Panaleria"
+									if imagen.creator.ciudad == filtro
+										div
+											a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+									if imagen.creator.departamento == filtro
+										div
+											a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+					div
+									a(href="/nosotros" class="ordenado")
+										img(src="/public/imagenes/img/negocio.jpg" alt="agrega tu empresa" title="Trabaja con nostros" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+				else
+					for imagen in imagenes 
+						if imagen.foto == 'normal'
+							if imagen.creator.gremio == "Variedades"
+								if imagen.creator.imgtitulo == "Panaleria"
+										div
+											a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+					div
+									a(href="/nosotros" class="ordenado")
+										img(src="/public/imagenes/img/negocio.jpg" alt="agrega tu empresa" title="Trabaja con nostros" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+			h2.h2 Cacharerias
+			section.negocios
+				if filtro != "undefined"
+					for imagen in imagenes 
+						if imagen.foto == 'normal'
+							if imagen.creator.gremio == "Variedades"
+								if imagen.creator.imgtitulo == "cacharerias"
+									if imagen.creator.ciudad == filtro
+										div
+											a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+									if imagen.creator.departamento == filtro
+										div
+											a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+					div
+									a(href="/nosotros" class="ordenado")
+										img(src="/public/imagenes/img/negocio.jpg" alt="agrega tu empresa" title="Trabaja con nostros" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+				else
+					for imagen in imagenes 
+						if imagen.foto == 'normal'
+							if imagen.creator.gremio == "Variedades"
+								if imagen.creator.imgtitulo == "cacharerias"
+										div
+											a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+					div
+									a(href="/nosotros" class="ordenado")
+										img(src="/public/imagenes/img/negocio.jpg" alt="agrega tu empresa" title="Trabaja con nostros" style="max-height: 300px; max-width: 340px;  transform:traslateX (-50%) traslateY (-50%);")
+		script(type='text/javascript', src='/public/js/jquery.min.v1.js')
+		script(type='text/javascript', src='/public/js/bootstrap.min.js')
+		script(type='text/javascript', src='/public/slick/slick.js', charset='utf-8')
+		script(type='text/javascript').
+			$(document).on('ready', function() {
+			$('.untiempo').slick({
+			dots: true,
+			infinite: true,
+			speed: 900,
+			slidesToShow: 1,
+			adaptiveHeight: true,
+			fade:true,
+			autoplay: true,
+			autoplaySpeed: 9500,
+			});
+			$('.slider-for').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			fade: true,
+			asNavFor: '.slider-nav',
+			centerMode: true,
+			focusOnSelect: true,
+			autoplay: true,
+			autoplaySpeed: 4500,
+			});
+			$('.slider-nav').slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			asNavFor: '.slider-for',
+			centerMode: true,
+			focusOnSelect: true
+			});
+			$ ( '.categorias' ) . slick ( {
+			centerMode :  true ,
+			centerPadding :  '60px' ,
+			slidesToShow :  5,
+			responsive :  [
+			{
+			breakpoint :  968 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  3
+			}
+			} ,
+			{
+			breakpoint :  681 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  2
+			}
+			}
+			,
+			{
+			breakpoint :  431 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  1
+			}
+			}
+			]
+			} ) ;
+			$ ( '.publicidadpagada' ) . slick ( {
+			centerMode :  true ,
+			centerPadding :  '60px' ,
+			slidesToShow :  4,
+			responsive :  [
+			{
+			breakpoint :  968 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  2
+			}
+			} ,
+			{
+			breakpoint :  681 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow : 1
+			}
+			}
+			]
+			} ) ;
+			$ ( '.negocios' ) . slick ( {
+			centerMode :  true ,
+			centerPadding :  '60px' ,
+			slidesToShow :  4,
+			responsive :  [
+			{
+			breakpoint :  868 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow : 1
+			}
+			} ,
+			{
+			breakpoint :  520 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  2
+			}
+			}
+			]
+			} ) ;
+			});

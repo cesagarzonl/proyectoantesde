@@ -1,0 +1,63 @@
+extends ./layout.jade
+block contenido
+   div(align='center')
+           div
+            .untiempo(style='margin-top: -20px; margin-bottom:  0px; ', role='')
+              picture
+                 source(srcset='./public/imagenes/img/antesde3-3.jpg', media='(max-width:450px)' class="imageniniciciocool")
+                 source(srcset='./public/imagenes/img/antesde3-2.jpg', media='(max-width:600px)' class="imageniniciciocool") 
+                 source(srcset='./public/imagenes/img/antesde3-1.jpg', media='(max-width:1000px)' class="imageniniciciocool")
+                 img(src='./public/imagenes/img/antesde3.jpg', alt='', style='width: 100%' class="imageniniciciocool")
+        ul.nav.nav-tabs.nav-justified
+          li(role='presentation')
+            a(href='/duitama' style="color:#000000;") Categorias  
+          li(role='presentation' class="licenter" class="li activo ")
+            a(href='/duitama#' style="color:#000000;") Promociones  
+        h1(class="titulom")  Promociones  
+    .dis
+      .wrapper
+        .gallery
+          for imagen in imagenes
+           if imagen.foto == 'promocion'
+            if imagen.creator.ciudad != "sogamoso"
+              .gallery-item 
+                  a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}"  class="ordenado")
+                      img(src="public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img")
+                    h2 #{imagen.title}
+                  a(href="/app/imagenes/#{imagen._id}/envio") 
+                      label Realizar tu pedido
+      script(src='/public/slick/slick.min.js', type='text/javascript', charset='utf-8')
+      script(src='/public/slick/slick.js', type='text/javascript', charset='utf-8')
+      script(type='text/javascript')
+        $(document).on('ready', function(){
+        $ ( '.center' ) . slick ( {
+        centerMode :  true ,
+        centerPadding :  '60px' ,
+        slidesToShow :  3 ,
+        responsive :  [{
+        breakpoint :  768 ,
+        settings :  {
+        arrows :  false ,
+        centerMode :  true ,
+        centerPadding :  '40px' ,   
+        slidesToShow :  3
+        }} ,{
+        breakpoint :  480 ,
+        settings :  {
+        arrows :  false ,
+        centerMode :  true ,
+        centerPadding :  '40px' ,
+        slidesToShow :  1 } } ]
+        } ) ;
+        $('.one-time').slick({dots: true,
+        infinite: true, speed: 900,
+        slidesToShow: 1, adaptiveHeight: true,
+        fade:true, autoplay: true,
+        autoplaySpeed: 2500,    }); });
+
+    
+   script(type='text/javascript' src='/public/js/jquery.min.js')
+   script(type='text/javascript' src='/public/js/jquery.min.v1.js')
+   script(type='text/javascript' src='/public/js/bootstrap.min.js')
+   script(type='text/javascript' src='/public/js/bootstrap.js')
+   script(type='text/javascript' src='/public/slick/slick.min.js')

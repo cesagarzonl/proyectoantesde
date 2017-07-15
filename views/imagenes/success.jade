@@ -1,0 +1,165 @@
+extends ../imagenes/layout2.jade
+block contenido 
+		div( class="fondoprincipal")
+			section( class="fotoprincipal" style="width:100%;" align="left" position: relative; z-index: 1; )
+				h1 Bienvenido a antes-de.com nos contactaremos con tigo en menos de 24 Horas 
+				h3 Cualquier inconveniente contactanos 
+					a(href="/nosotros") aqui
+				h3 o comuniquese a nuestro corro antesd.com@gmail.com
+				h2 ya para finalizar, por favor, completa el siguiente formulario
+				.di2
+								form(action='/app/success', method='POST')
+									.roww
+										input#name.field(type='text' name='name' placeholder='por favor confirma tu correo' style=" color: ##{user.color}; border: 1px solid ##{user.color};" )
+									.roww
+										input#telefono.field(type='text', name='telefono', placeholder='Teléfono' style=" color: ##{user.color}; border: 1px solid ##{user.color};")
+									.roww
+									textarea#mensaje(style='width: 90%;height: 130px ;border: 1px solid ##{user.color};', name='mensaje',placeholder='Mensaje')
+									style=" color: ##{user.color}; border: 1px solid ;"
+									input(type='hidden', name='adwords', value='2')
+									.roww
+										input#email2.field(type='text', name='email2', placeholder='Teléfono' style=" color: ##{user.color}; border: 1px solid ##{user.color}; display:none; " value="#{user.email}")
+										input#emaiID.field(type='text', name='emaiID', placeholder='Teléfono' style=" color: ##{user.color}; border: 1px solid ##{user.color}; display:none; " value="#{user._id}")
+									input#sendMessage.envia(type='submit', value='ENVIAR' style=" color: ##{user.color1}; border: 1px solid ; background:##{user.color};" )
+		div(style=' padding: 25px')
+		script(type='text/javascript', src='/public/js1/jquery.min.v1.js')
+		script(type='text/javascript', src='/public/js1/bootstrap.min.js')
+		script(type='text/javascript', src='/public/slick/slick.js', charset='utf-8')
+		script(type='text/javascript').
+			$(document).on('ready', function() {
+			$('.untiempo').slick({
+			dots: true,
+			infinite: true,
+			speed: 900,
+			slidesToShow: 1,
+			adaptiveHeight: true,
+			fade:true,
+			autoplay: true,
+			autoplaySpeed: 9500,
+			});
+			$('.slider-for').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			fade: true,
+			asNavFor: '.slider-nav',
+			centerMode: true,
+			focusOnSelect: true,
+			autoplay: true,
+			autoplaySpeed: 4500,
+			});
+			$('.slider-nav').slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			asNavFor: '.slider-for',
+			centerMode: true,
+			focusOnSelect: true
+			});
+			$ ( '.categorias' ) . slick ( {
+			centerMode :  false ,
+			centerPadding :  '60px' ,
+			slidesToShow :  6,
+			responsive :  [
+			{
+			breakpoint :  968 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  3
+			}
+			} ,
+			{
+			breakpoint :  681 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  2
+			}
+			}
+			,
+			{
+			breakpoint :  431 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  1
+			}
+			}
+			]
+			} ) ;
+			$('.one-time').slick({
+				dots: true,
+				infinite: false,
+				speed: 900,
+				slidesToShow: 1,
+				adaptiveHeight: true,
+				fade:false,
+				autoplay: true,
+				autoplaySpeed: 5000,
+				});
+				$('.slider-for').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false,
+				fade: true,
+				asNavFor: '.slider-nav',
+				centerMode: true, focusOnSelect: true,autoplay: true, autoplaySpeed: 4500, });
+				$('.slider-nav').slick({
+				slidesToShow: 3,slidesToScroll: 1,
+				asNavFor: '.slider-for',centerMode: true,
+				focusOnSelect: true
+				});
+			$ ( '.publicidadpagada' ) . slick ( {
+			centerMode :  true ,
+			centerPadding :  '60px' ,
+			slidesToShow :  4,
+			responsive :  [
+			{
+			breakpoint :  968 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow :  2
+			}
+			} ,
+			{
+			breakpoint :  681 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  true ,
+			centerPadding :  '40px' ,
+			slidesToShow : 1
+			}
+			}
+			]
+			} ) ;
+			$ ( '.negocios' ) . slick ( {
+			centerMode :  true ,
+			centerPadding :  '0px' ,
+			slidesToShow :  4,
+			responsive :  [
+			{
+			breakpoint :  868 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  false ,
+			centerPadding :  '40px' ,
+			slidesToShow : 1
+			}
+			} ,
+			{
+			breakpoint :  520 ,
+			settings :  {
+			arrows :  false ,
+			centerMode :  false ,
+			centerPadding :  '40px' ,
+			slidesToShow :  2
+			}
+			}
+			]
+			} ) ;
+			});

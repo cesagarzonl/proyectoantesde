@@ -1,0 +1,41 @@
+extends ./layout4.jade
+block contenido 
+  .divicion 
+  .divicion
+  if user.color == undefined
+    div
+      p No tienes permiso para modificar informacion
+  else
+    .container
+      div(class="risponsive" style="max-withd:900px;")
+        div(class="promocion" align="center")
+          p(name="title5" id="title5")
+          h2 Sube una nueva imagen de perfil
+          input#upload.upload( value='', accept='image/*', type='file' required onchange="cargaaa()")
+          form(action="/app/imagenes" method="POST" enctype="multipart/form-data")
+            div
+              input(type="text", name="imgs22", placeholder="Titulo de la imagen ", id="imgs22", class"form-control" value="" style="display:none;" required)  
+            div
+              select(type="text", name="foto", placeho der="es local ", id="foto", class"form-control" style="display:none;")
+                option(value="normal" selected="normal" style="display:none;") promocion
+            div
+              input(type="submit" value="subir imagen" class="btn btn-info" style="width: auto; margin: 10px auto 0px ; background: rebeccapurple;color: white ; display:none;  " name="subirimg" id="subirimg" )
+              section(class="ciudades" id="ciudades" name="ciudades" style="background-color:##{user.color}; display:none;")
+                      img(id="imgs" name="imgs" class="imgs" src="" )
+      section(id="sectionnn" name="sectionnn" class="sectionnn" style="display:none;")
+                .demo-wrap.upload-demo
+                  .container
+                    .grid
+                      .col-1-2
+                        .actions
+                      .col-1-2
+                        .upload-msg(style="display:none;")
+                          | sube una imagen de perfil aqui
+                        .upload-demo-wrap
+                         button.upload-result( onclick="preload()") recortar imagen
+                         #upload-demo.croppie-container(style="border: 3px solid ##{user.color}; margin: 0; background-color:#333; z-index: 110;")
+    script(src='/../public/js/jquery-2.js')
+    script(src='/../public/js/demo.js')
+    script(src='/../public/js/croppie.js')
+    script(src='/../public/js/cargaimg.js')
+    script Demo.init()

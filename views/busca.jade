@@ -1,0 +1,12 @@
+extends ./layout.jade
+block contenido 
+		for imagen in imagenes 
+			if imagen.foto == 'normal'
+					div(class="ubicacion2")
+						a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+							img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}",class="main-img" alt="#{imagen.creator.username}" title="#{imagen.creator.username}" style="max-height: 300px; max-width: 340px;")
+						h2 #{imagen.creator.username}
+		script(type='text/javascript', src='/public/js/bootstrap.js')
+	script(type='text/javascript', src='/public/js/bootstrap.min.js')
+	script(type='text/javascript', src='/public/js/jquery.min.js')
+	script(type='text/javascript', src='/public/js/jquery.min.v1.js')

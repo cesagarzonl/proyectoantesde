@@ -1,0 +1,10 @@
+extends ./layout.jade
+block contenido 
+	.coreccion
+		for user in users
+			div(class="risponsive")
+				p Verifica tu usuario y contraseña : #{user}
+		script(type='text/javascript', src='/public/js/bootstrap.js')
+	script(type='text/javascript', src='/public/js/bootstrap.min.js')
+	script(type='text/javascript', src='/public/js/jquery.min.js')
+	script(type='text/javascript', src='/public/js/jquery.min.v1.js')

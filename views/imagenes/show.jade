@@ -1,0 +1,12 @@
+extends ./layout2.jade
+block contenido 
+	.container
+		div(class="img-container")
+			h2(style="color:##{user.color};") dale clic a la imagen para ir a tu cuenta
+			a(href="/iniciado/#{imagen.creator.username}/#{imagen.creator._id}" class="ordenado")
+				img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" style="max-width: 90%;")			
+			if(typeof imagen.creator !="undefined")
+				p por #{imagen.creator.email}
+		script(type='text/javascript', src='/public/js/jquery.min.v1.js')
+			script(type='text/javascript', src='/public/js/bootstrap.min.js')
+			script(src='/public/slick/slick.min.js', type='text/javascript', charset='utf-8')

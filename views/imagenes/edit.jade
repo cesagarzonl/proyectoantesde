@@ -1,0 +1,22 @@
+extends ./layout2.jade
+block contenido 
+	.container
+	if user.color == undefined
+		div
+			p No tienes permiso para modificar informacion
+	else
+		img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" style="width: 50%; height:650PX;   border-style: solid;" )
+		h1 renombrar una imagen #{imagen}
+		form(action="/app/imagenes/#{imagen.id}?_method=PUT", method="POST")
+			input(type="hidden" value="PUT" name=(_method))
+			div(class="form-group")
+				label(for="title") Email 
+				input(type="text", name="title", placeholder="Titulo de la imagen ", id="title",class"form-control", value="#{imagen.title}") 
+			div 
+				input(type="submit" value="Guardar" class="btn btn-info")
+
+
+	script(type='text/javascript', src='../../public/js/bootstrap.js')
+	script(type='text/javascript', src='../../public/js/bootstrap.min.js')
+	script(type='text/javascript', src='../../public/js/jquery.min.js')
+	script(type='text/javascript', src='../../public/js/jquery.min.v1.js')

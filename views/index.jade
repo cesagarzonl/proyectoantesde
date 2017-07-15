@@ -1,0 +1,172 @@
+extends ./layout3.jade
+block contenido 
+    div
+       .untiempo(style='margin-top: -20px; margin-bottom:  0px; ', role='')
+          .item
+              picture
+                 source(srcset='./public/imagenes/img/index3-3.png', media='(max-width:450px)' class="imageniniciciocool")
+                 source(srcset='./public/imagenes/img/index3-2.png', media='(max-width:600px)' class="imageniniciciocool") 
+                 source(srcset='./public/imagenes/img/index3-1.png', media='(max-width:1000px)' class="imageniniciciocool")
+                 img(src='./public/imagenes/img/index3.png', alt='', style='width: 100%' class="imageniniciciocool")
+         .titulo  Departamentos 
+      .noticias
+         ul(style="display:none;")
+          li
+           a(href="/index/amazonas")
+            p amazonas
+          li
+           a(href="/index/antioquia")
+            p antioquia
+          li
+           a(href="/index/arauca")
+            p arauca
+          li
+           a(href="/index/atlantico")
+            p atlantico
+          li
+           a(href="/index/bolivar")
+            p bolivar
+          li
+           a(href="/index/boyaca")
+            p boyaca
+          li
+           a(href="/index/caldas")
+            p caldas
+          li
+           a(href="/index/caqueta")
+            p caqueta
+          li
+           a(href="/index/casanare")
+            p casanare
+          li
+           a(href="/index/cauca")
+            p cauca
+          li
+           a(href="/index/cesar")
+            p cesar
+          li
+           a(href="/index/choco")
+          li
+           a(href="/index/cordoba")
+            p cordoba
+          li
+           a(href="/index/guainia")
+            p guainia
+          li
+           a(href="/index/guaviare")
+            p guaviare
+          li
+           a(href="/index/huila")
+            p huila
+          li
+           a(href="/index/magdalena")
+            p magdalena
+          li
+           a(href="/index/meta")
+            p meta
+          li
+           a(href="/index/narino")
+            p nariño
+          li
+           a(href="/index/santamarta")
+            p santa marta
+          li
+           a(href="/index/putumayo")
+            
+           a(href="/index/quindio")
+            p quindio
+          li
+           a(href="/index/risaralda")
+            p risaralda
+          li
+           a(href="/index/sanandres")
+            p san andres
+          li
+           a(href="/index/santander")
+            p santander
+          li
+           a(href="/index/sucre")
+            p sucre
+          li
+           a(href="/index/tolima")
+            p tolima
+          li
+           a(href="/index/valle")
+            p valle 
+          li
+           a(href="/index/vaupes")
+            p vaupes
+          li
+           a(href="/index/vichada")
+            p vichada
+         ul
+          li
+           a(href="/index/boyaca")
+            p boyaca
+          li
+           a(href="/index/cundinamarca")
+            p cundinamarca
+          li
+           a(href="/index/distritocap")
+            p Bogotá 
+    h2#contacta.titulo  Contactanos 
+    .contactanos
+      .hola se libre de decir hola
+      .flex
+        div
+          .di1
+            .animac
+              p  Recibe   
+              ul
+                li Información
+                li Asesorías 
+                li Ofertas
+            p.numero(style="font-family: 'Numans', sans-serif;")   antesde.com@gmail.com
+            p.numero1(style="font-family: 'Numans', sans-serif;")  calle 18 # 17-24 piso 2  
+            p.numero2(style="font-family: 'Numans', sans-serif;")  314 363 0967 - 321 265 2820
+            .textocon
+              p.parra
+                | llamanos y te asesoraremos totalmente gratis , te explicaremos brevemete nuestra metodología y te daremos acceso a nuestras increibles ofertas
+              div(align="center")
+                img(src="./public/imagenes/img/servicio.png")
+        .di2
+          form(action='Contacto', method='POST')
+            .roww
+              input#name.field(type='text' name='nombre' placeholder='Nombre')
+            .roww
+              input#email.field(type='text', name='email', placeholder='Correo electrónico')
+            .roww
+              input#ciudad.field(type='text', name='ciudad', placeholder='Ciudad')
+            .roww
+              input#tel.field(type='text', name='telefono', placeholder='Teléfono')
+            .roww
+              textarea#text(style='width: 90%;height: 130px ;border: 1px solid #00923f;', name='mensaje', placeholder='Mensaje')
+            input(type='hidden', name='adwords', value='2')
+            .row
+            input#sendMessage.envia(type='submit', value='ENVIAR')
+        .divicion
+       section.final
+        .redes
+          div
+            a(href="iniciado" target='_contin')
+              img(src='public/imagenes/img/inicio.png')
+          div
+            a(href="https://www.facebook.com/directorioantesde/" target='_contin')
+              img(src='public/imagenes/img/facebook.png')
+          div
+            a(href="https://twitter.com/directorioantes" target='_contin')
+              img(src='public/imagenes/img/twitter.png')
+          div
+            a(href="https://www.youtube.com/channel/UCqu2RN8cm3Jcttvqlw8cEOg" target='_contin')
+              img(src='public/imagenes/img/youtube.png')
+          div
+            img(src='public/imagenes/img/instagram.png')
+          div
+            a(href="https://plus.google.com/103462481880064545990" target='_contin')
+              img(src='public/imagenes/img/google.png')       
+
+    script(type='text/javascript', src='./public/js/bootstrap.js')
+    script(type='text/javascript', src='./public/js/bootstrap.min.js')
+    script(type='text/javascript', src='./public/js/jquery.min.js')
+    script(type='text/javascript', src='./public/js/jquery.min.v1.js')
+    script(src='/public/slick/slick.min.js', type='text/javascript', charset='utf-8')
